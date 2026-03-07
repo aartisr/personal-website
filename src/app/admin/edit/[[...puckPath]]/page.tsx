@@ -65,19 +65,11 @@ function PreviewButton() {
               },
         });
       }}
-      style={{
-        padding: "6px 12px",
-        fontSize: 13,
-        fontWeight: 600,
-        border: previewing ? "1px solid #2563eb" : "1px solid #d1d5db",
-        borderRadius: 6,
-        background: previewing ? "#eff6ff" : "#fff",
-        color: previewing ? "#2563eb" : "#374151",
-        cursor: "pointer",
-        display: "flex",
-        alignItems: "center",
-        gap: 4,
-      }}
+      className={`px-3 py-1.5 text-[13px] font-semibold border rounded-md cursor-pointer inline-flex items-center gap-1 ${
+        previewing
+          ? "border-blue-600 bg-blue-50 text-blue-600"
+          : "border-gray-300 bg-white text-gray-700"
+      }`}
     >
       {previewing ? "✕ Exit Preview" : "▶ Preview"}
     </button>
@@ -120,14 +112,7 @@ export default function EditorPage() {
 
   if (loading || !data) {
     return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "100vh",
-        }}
-      >
+      <div className="flex items-center justify-center h-screen">
         Loading editor...
       </div>
     );
@@ -153,20 +138,7 @@ export default function EditorPage() {
                 e.preventDefault();
                 router.push("/admin");
               }}
-              style={{
-                padding: "6px 12px",
-                fontSize: 13,
-                fontWeight: 600,
-                border: "1px solid #d1d5db",
-                borderRadius: 6,
-                background: "#fff",
-                color: "#374151",
-                cursor: "pointer",
-                textDecoration: "none",
-                display: "flex",
-                alignItems: "center",
-                gap: 4,
-              }}
+              className="px-3 py-1.5 text-[13px] font-semibold border border-gray-300 rounded-md bg-white text-gray-700 cursor-pointer no-underline inline-flex items-center gap-1"
             >
               ← All Pages
             </a>
@@ -175,20 +147,7 @@ export default function EditorPage() {
               href={viewPath(slug)}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                padding: "6px 12px",
-                fontSize: 13,
-                fontWeight: 600,
-                border: "1px solid #d1d5db",
-                borderRadius: 6,
-                background: "#fff",
-                color: "#374151",
-                cursor: "pointer",
-                textDecoration: "none",
-                display: "flex",
-                alignItems: "center",
-                gap: 4,
-              }}
+              className="px-3 py-1.5 text-[13px] font-semibold border border-gray-300 rounded-md bg-white text-gray-700 cursor-pointer no-underline inline-flex items-center gap-1"
             >
               View Live ↗
             </a>
@@ -200,20 +159,11 @@ export default function EditorPage() {
         ),
 
         header: ({ actions }) => (
-          <header
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              padding: "8px 16px",
-              borderBottom: "1px solid #e5e7eb",
-              background: "#fff",
-            }}
-          >
-            <span style={{ fontWeight: 600, fontSize: 14, color: "#374151" }}>
+          <header className="flex items-center justify-between px-4 py-2 border-b border-gray-200 bg-white">
+            <span className="font-semibold text-sm text-gray-700">
               Editing: {slugToTitle(slug)}
             </span>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div className="flex items-center gap-2">
               {actions}
             </div>
           </header>

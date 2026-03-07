@@ -32,13 +32,12 @@ export function AboutSection({
   royalStyle = "none",
 }: AboutSectionProps) {
   const defaultAnim: AnimationType = reverse ? "slide-right" : "slide-left";
-  const { ref, style: revealStyle } = useScrollReveal(animation ?? defaultAnim);
+  const { ref } = useScrollReveal(animation ?? defaultAnim);
 
   return (
     <section
       ref={ref}
-      className="py-20 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundColor: "var(--background)", ...revealStyle }}
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--background)]"
     >
       <div className="max-w-7xl mx-auto">
         <div
@@ -48,17 +47,11 @@ export function AboutSection({
         >
           {/* Text content */}
           <div className={reverse ? "lg:pl-12" : "lg:pr-12"}>
-            <h2
-              className="text-3xl sm:text-4xl font-bold leading-tight"
-              style={{ color: "var(--text-primary)" }}
-            >
+            <h2 className="text-3xl sm:text-4xl font-bold leading-tight text-[color:var(--text-primary)]">
               {heading}
             </h2>
             {body && (
-              <p
-                className="mt-6 text-lg leading-relaxed whitespace-pre-line"
-                style={{ color: "var(--text-secondary)" }}
-              >
+              <p className="mt-6 text-lg leading-relaxed whitespace-pre-line text-[color:var(--text-secondary)]">
                 {body}
               </p>
             )}
@@ -72,21 +65,14 @@ export function AboutSection({
                   <div className="mt-10" />
                 )}
                 <div
-                  className={`grid grid-cols-2 sm:grid-cols-3 gap-6 ${royalStyle === "ornate" ? "" : "pt-8"}`}
-                  style={royalStyle === "ornate" ? undefined : { borderTop: "1px solid var(--border)" }}
+                  className={`grid grid-cols-2 sm:grid-cols-3 gap-6 ${royalStyle === "ornate" ? "" : "pt-8 border-t border-[color:var(--border)]"}`}
                 >
                   {stats.map((stat, index) => (
                     <div key={index}>
-                      <p
-                        className="text-3xl font-bold"
-                        style={{ color: "var(--primary)" }}
-                      >
+                      <p className="text-3xl font-bold text-[color:var(--primary)]">
                         {stat.value}
                       </p>
-                      <p
-                        className="text-sm mt-1"
-                        style={{ color: "var(--text-secondary)" }}
-                      >
+                      <p className="text-sm mt-1 text-[color:var(--text-secondary)]">
                         {stat.label}
                       </p>
                     </div>
@@ -103,8 +89,7 @@ export function AboutSection({
                 <img
                   src={image}
                   alt={imageAlt}
-                  className="w-full h-full object-cover"
-                  style={{ maxHeight: "520px" }}
+                  className="w-full h-full object-cover max-h-[520px]"
                 />
               </div>
             </RoyalFrame>

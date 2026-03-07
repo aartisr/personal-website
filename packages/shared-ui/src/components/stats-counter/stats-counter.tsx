@@ -1,6 +1,6 @@
 "use client";
 
-import { type AnimationType, useScrollReveal, getRevealStyles } from "../scroll-reveal";
+import { type AnimationType, useScrollReveal } from "../scroll-reveal";
 
 export type Stat = {
   value: string;
@@ -15,7 +15,7 @@ export type StatsCounterProps = {
 };
 
 export function StatsCounter({ stats, animation = "scale-in" }: StatsCounterProps) {
-  const { ref, isVisible } = useScrollReveal(animation);
+  const { ref } = useScrollReveal(animation);
 
   return (
     <section ref={ref} className="w-full py-16 px-4">
@@ -26,18 +26,9 @@ export function StatsCounter({ stats, animation = "scale-in" }: StatsCounterProp
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center px-4 py-8 rounded-2xl"
-              style={{
-                background: "var(--card)",
-                border: "1px solid var(--border)",
-                ...getRevealStyles(animation, isVisible),
-                transitionDelay: isVisible ? `${index * 100}ms` : "0ms",
-              }}
+              className="flex flex-col items-center text-center px-4 py-8 rounded-2xl bg-[var(--card)] border border-[color:var(--border)]"
             >
-              <dt
-                className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight tabular-nums mb-2"
-                style={{ color: "var(--primary)" }}
-              >
+              <dt className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight tabular-nums mb-2 text-[color:var(--primary)]">
                 {stat.prefix && (
                   <span className="text-2xl sm:text-3xl md:text-4xl">{stat.prefix}</span>
                 )}
@@ -46,10 +37,7 @@ export function StatsCounter({ stats, animation = "scale-in" }: StatsCounterProp
                   <span className="text-2xl sm:text-3xl md:text-4xl">{stat.suffix}</span>
                 )}
               </dt>
-              <dd
-                className="text-sm font-medium uppercase tracking-widest"
-                style={{ color: "var(--muted-foreground)" }}
-              >
+              <dd className="text-sm font-medium uppercase tracking-widest text-[color:var(--muted-foreground)]">
                 {stat.label}
               </dd>
             </div>

@@ -139,14 +139,11 @@ export function WalletProofClient() {
   };
 
   return (
-    <section
-      className="rounded-xl border p-6 md:p-8"
-      style={{ borderColor: "var(--border)", background: "var(--card)" }}
-    >
-      <h2 className="text-2xl font-semibold" style={{ color: "var(--foreground)" }}>
+    <section className="rounded-xl border p-6 md:p-8 border-[color:var(--border)] bg-[var(--card)]">
+      <h2 className="text-2xl font-semibold text-[color:var(--foreground)]">
         Wallet Verification
       </h2>
-      <p className="mt-2 text-sm" style={{ color: "var(--muted-foreground)" }}>
+      <p className="mt-2 text-sm text-[color:var(--muted-foreground)]">
         Connect an EVM wallet and sign a message to produce a public ownership proof.
       </p>
 
@@ -155,12 +152,7 @@ export function WalletProofClient() {
           type="button"
           onClick={handleConnect}
           disabled={loading || !providerAvailable}
-          className="rounded-full px-4 py-2 text-sm font-semibold"
-          style={{
-            background: "var(--primary)",
-            color: "var(--primary-foreground)",
-            opacity: loading || !providerAvailable ? 0.6 : 1,
-          }}
+          className={`rounded-full px-4 py-2 text-sm font-semibold bg-[var(--primary)] text-[color:var(--primary-foreground)] ${(loading || !providerAvailable) ? "opacity-60" : "opacity-100"}`}
         >
           {walletAddress ? "Wallet Connected" : "Connect Wallet"}
         </button>
@@ -169,26 +161,18 @@ export function WalletProofClient() {
           type="button"
           onClick={handleSignProof}
           disabled={loading || !walletAddress}
-          className="rounded-full px-4 py-2 text-sm font-semibold border"
-          style={{
-            borderColor: "var(--border)",
-            color: "var(--foreground)",
-            opacity: loading || !walletAddress ? 0.6 : 1,
-          }}
+          className={`rounded-full px-4 py-2 text-sm font-semibold border border-[color:var(--border)] text-[color:var(--foreground)] ${(loading || !walletAddress) ? "opacity-60" : "opacity-100"}`}
         >
           Sign Verification Proof
         </button>
       </div>
 
       {!providerAvailable && (
-        <div
-          className="mt-4 rounded-lg border p-4 text-sm"
-          style={{ borderColor: "var(--border)", background: "var(--muted)" }}
-        >
-          <p className="font-medium" style={{ color: "var(--foreground)" }}>
+        <div className="mt-4 rounded-lg border p-4 text-sm border-[color:var(--border)] bg-[var(--muted)]">
+          <p className="font-medium text-[color:var(--foreground)]">
             No wallet provider detected in this browser profile.
           </p>
-          <ul className="mt-2 list-disc space-y-1 pl-5" style={{ color: "var(--muted-foreground)" }}>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-[color:var(--muted-foreground)]">
             <li>Open this page in the same browser profile where your wallet extension is installed.</li>
             <li>Unlock the wallet extension, then return to this tab and click anywhere in the page.</li>
             <li>Disable other wallet extensions temporarily and retry.</li>
@@ -197,8 +181,8 @@ export function WalletProofClient() {
               <a
                 href="https://metamask.io/download/"
                 target="_blank"
-                rel="noreferrer"
-                style={{ color: "var(--primary)" }}
+                rel="noopener noreferrer"
+                className="text-[color:var(--primary)]"
               >
                 metamask.io/download
               </a>
@@ -208,8 +192,7 @@ export function WalletProofClient() {
           <button
             type="button"
             onClick={checkProviderAvailability}
-            className="mt-3 rounded-full border px-3 py-1.5 text-xs font-semibold"
-            style={{ borderColor: "var(--border)", color: "var(--foreground)" }}
+            className="mt-3 rounded-full border px-3 py-1.5 text-xs font-semibold border-[color:var(--border)] text-[color:var(--foreground)]"
           >
             Re-check wallet
           </button>
@@ -217,15 +200,15 @@ export function WalletProofClient() {
       )}
 
       {error && (
-        <p className="mt-4 text-sm" style={{ color: "var(--destructive)" }}>
+        <p className="mt-4 text-sm text-[color:var(--destructive)]">
           {error}
         </p>
       )}
 
       <div className="mt-6 grid gap-3 text-sm">
         <div>
-          <span style={{ color: "var(--muted-foreground)" }}>Status: </span>
-          <span style={{ color: "var(--foreground)", fontWeight: 600 }}>
+          <span className="text-[color:var(--muted-foreground)]">Status: </span>
+          <span className="text-[color:var(--foreground)] font-semibold">
             {verificationState === "verified"
               ? "Verified"
               : verificationState === "connected"
@@ -236,29 +219,29 @@ export function WalletProofClient() {
 
         {walletAddress && (
           <div>
-            <span style={{ color: "var(--muted-foreground)" }}>Address: </span>
-            <code style={{ color: "var(--foreground)" }}>{shortAddress(walletAddress)}</code>
+            <span className="text-[color:var(--muted-foreground)]">Address: </span>
+            <code className="text-[color:var(--foreground)]">{shortAddress(walletAddress)}</code>
           </div>
         )}
 
         {chainId && (
           <div>
-            <span style={{ color: "var(--muted-foreground)" }}>Chain ID: </span>
-            <code style={{ color: "var(--foreground)" }}>{chainId}</code>
+            <span className="text-[color:var(--muted-foreground)]">Chain ID: </span>
+            <code className="text-[color:var(--foreground)]">{chainId}</code>
           </div>
         )}
 
         {signature && (
           <div>
-            <span style={{ color: "var(--muted-foreground)" }}>Signature: </span>
-            <code style={{ color: "var(--foreground)" }}>{`${signature.slice(0, 14)}...${signature.slice(-10)}`}</code>
+            <span className="text-[color:var(--muted-foreground)]">Signature: </span>
+            <code className="text-[color:var(--foreground)]">{`${signature.slice(0, 14)}...${signature.slice(-10)}`}</code>
           </div>
         )}
 
         {signedAt && (
           <div>
-            <span style={{ color: "var(--muted-foreground)" }}>Signed At: </span>
-            <span style={{ color: "var(--foreground)" }}>{new Date(signedAt).toLocaleString()}</span>
+            <span className="text-[color:var(--muted-foreground)]">Signed At: </span>
+            <span className="text-[color:var(--foreground)]">{new Date(signedAt).toLocaleString()}</span>
           </div>
         )}
       </div>

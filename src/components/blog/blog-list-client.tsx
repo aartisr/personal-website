@@ -45,10 +45,7 @@ export function BlogListClient({ posts, tags }: BlogListClientProps) {
 
   return (
     <>
-      <div
-        className="rounded-xl border p-4 md:p-5 mb-8"
-        style={{ borderColor: "var(--border)", background: "var(--card)" }}
-      >
+      <div className="rounded-xl border p-4 md:p-5 mb-8 border-[color:var(--border)] bg-[var(--card)]">
         <label htmlFor="blog-search" className="sr-only">
           Search blog posts
         </label>
@@ -57,26 +54,18 @@ export function BlogListClient({ posts, tags }: BlogListClientProps) {
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Search posts, themes, or tags..."
-          className="w-full rounded-lg border px-4 py-3 text-sm outline-none"
-          style={{
-            borderColor: "var(--border)",
-            background: "var(--background)",
-            color: "var(--foreground)",
-          }}
+          className="w-full rounded-lg border px-4 py-3 text-sm outline-none border-[color:var(--border)] bg-[var(--background)] text-[color:var(--foreground)]"
         />
 
         <div className="mt-4 flex flex-wrap gap-2">
           <button
             type="button"
             onClick={() => setActiveTag("all")}
-            className="text-xs rounded-full px-3 py-1.5 border"
-            style={{
-              borderColor: "var(--border)",
-              color:
-                activeTag === "all"
-                  ? "var(--primary)"
-                  : "var(--muted-foreground)",
-            }}
+            className={`text-xs rounded-full px-3 py-1.5 border border-[color:var(--border)] ${
+              activeTag === "all"
+                ? "text-[color:var(--primary)]"
+                : "text-[color:var(--muted-foreground)]"
+            }`}
           >
             All Topics
           </button>
@@ -85,14 +74,11 @@ export function BlogListClient({ posts, tags }: BlogListClientProps) {
               key={tag}
               type="button"
               onClick={() => setActiveTag(tag)}
-              className="text-xs rounded-full px-3 py-1.5 border"
-              style={{
-                borderColor: "var(--border)",
-                color:
-                  activeTag === tag
-                    ? "var(--primary)"
-                    : "var(--muted-foreground)",
-              }}
+              className={`text-xs rounded-full px-3 py-1.5 border border-[color:var(--border)] ${
+                activeTag === tag
+                  ? "text-[color:var(--primary)]"
+                  : "text-[color:var(--muted-foreground)]"
+              }`}
             >
               {tag}
             </button>
@@ -104,35 +90,29 @@ export function BlogListClient({ posts, tags }: BlogListClientProps) {
         {filteredPosts.map((post) => (
           <article
             key={post.slug}
-            className="rounded-xl border p-6"
-            style={{
-              borderColor: "var(--border)",
-              background: "var(--card)",
-            }}
+            className="rounded-xl border p-6 border-[color:var(--border)] bg-[var(--card)]"
           >
             <time
               dateTime={post.date}
-              className="text-xs uppercase tracking-wider"
-              style={{ color: "var(--primary)" }}
+              className="text-xs uppercase tracking-wider text-[color:var(--primary)]"
             >
               {formatDate(post.date)}
             </time>
-            <h2 className="mt-2 text-2xl font-semibold" style={{ color: "var(--foreground)" }}>
+            <h2 className="mt-2 text-2xl font-semibold text-[color:var(--foreground)]">
               <Link href={`/blog/${post.slug}`} className="hover:underline">
                 {post.title}
               </Link>
             </h2>
-            <p className="mt-3" style={{ color: "var(--muted-foreground)" }}>
+            <p className="mt-3 text-[color:var(--muted-foreground)]">
               {post.excerpt}
             </p>
             <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-              <span className="text-sm" style={{ color: "var(--muted-foreground)" }}>
+              <span className="text-sm text-[color:var(--muted-foreground)]">
                 {post.author ?? "Aarti Sri Ravikumar"}
               </span>
               <Link
                 href={`/blog/${post.slug}`}
-                className="text-sm font-semibold"
-                style={{ color: "var(--primary)" }}
+                className="text-sm font-semibold text-[color:var(--primary)]"
               >
                 Read post →
               </Link>
@@ -141,7 +121,7 @@ export function BlogListClient({ posts, tags }: BlogListClientProps) {
         ))}
 
         {filteredPosts.length === 0 && (
-          <p style={{ color: "var(--muted-foreground)" }}>
+          <p className="text-[color:var(--muted-foreground)]">
             No posts matched your search. Try a different topic or keyword.
           </p>
         )}

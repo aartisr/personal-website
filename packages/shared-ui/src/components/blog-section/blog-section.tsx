@@ -41,18 +41,12 @@ export function BlogSection({
         {(heading || description) && (
           <div className="mb-12 text-center max-w-2xl mx-auto">
             {heading && (
-              <h2
-                className="text-3xl md:text-4xl font-bold tracking-tight mb-3"
-                style={{ color: "var(--foreground)" }}
-              >
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3 text-[color:var(--foreground)]">
                 {heading}
               </h2>
             )}
             {description && (
-              <p
-                className="text-base md:text-lg leading-relaxed"
-                style={{ color: "var(--muted-foreground)" }}
-              >
+              <p className="text-base md:text-lg leading-relaxed text-[color:var(--muted-foreground)]">
                 {description}
               </p>
             )}
@@ -65,12 +59,7 @@ export function BlogSection({
             <a
               key={index}
               href={post.href}
-              className="group flex flex-col rounded-2xl overflow-hidden transition-all hover:-translate-y-1"
-              style={{
-                background: "var(--card)",
-                border: "1px solid var(--border)",
-                boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
-              }}
+              className="group flex flex-col rounded-2xl overflow-hidden transition-all hover:-translate-y-1 bg-[var(--card)] border border-[color:var(--border)] shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
             >
               {/* Image */}
               {post.image && (
@@ -88,30 +77,20 @@ export function BlogSection({
                 {post.date && (
                   <time
                     dateTime={post.date}
-                    className="text-xs font-medium uppercase tracking-wider mb-3"
-                    style={{ color: "var(--primary)" }}
+                    className="text-xs font-medium uppercase tracking-wider mb-3 text-[color:var(--primary)]"
                   >
                     {formatDate(post.date)}
                   </time>
                 )}
-                <h3
-                  className="text-lg font-semibold leading-snug mb-2 group-hover:underline"
-                  style={{ color: "var(--foreground)" }}
-                >
+                <h3 className="text-lg font-semibold leading-snug mb-2 group-hover:underline text-[color:var(--foreground)]">
                   {post.title}
                 </h3>
                 {post.excerpt && (
-                  <p
-                    className="text-sm leading-relaxed line-clamp-3 flex-1"
-                    style={{ color: "var(--muted-foreground)" }}
-                  >
+                  <p className="text-sm leading-relaxed line-clamp-3 flex-1 text-[color:var(--muted-foreground)]">
                     {post.excerpt}
                   </p>
                 )}
-                <span
-                  className="mt-4 text-sm font-semibold inline-flex items-center gap-1"
-                  style={{ color: "var(--primary)" }}
-                >
+                <span className="mt-4 text-sm font-semibold inline-flex items-center gap-1 text-[color:var(--primary)]">
                   Read more
                   <svg
                     width="14"

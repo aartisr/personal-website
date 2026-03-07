@@ -94,7 +94,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   };
 
   return (
-    <main className="min-h-screen" style={{ background: "var(--background)" }}>
+    <main className="min-h-screen bg-[var(--background)]">
       <article className="max-w-3xl mx-auto px-4 py-12">
         <script
           type="application/ld+json"
@@ -103,20 +103,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="mb-8">
           <Link
             href="/blog"
-            className="text-sm font-medium"
-            style={{ color: "var(--primary)" }}
+            className="text-sm font-medium text-[color:var(--primary)]"
           >
             ← Back to Blog
           </Link>
 
-          <h1
-            className="mt-4 text-4xl font-bold tracking-tight"
-            style={{ color: "var(--foreground)" }}
-          >
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-[color:var(--foreground)]">
             {post.title}
           </h1>
 
-          <div className="mt-3 flex flex-wrap items-center gap-3 text-sm" style={{ color: "var(--muted-foreground)" }}>
+          <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-[color:var(--muted-foreground)]">
             <time dateTime={post.date}>{formatDate(post.date)}</time>
             <span>•</span>
             <span>{post.author ?? "Aarti Sri Ravikumar"}</span>
@@ -129,11 +125,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs rounded-full px-3 py-1 border"
-                  style={{
-                    borderColor: "var(--border)",
-                    color: "var(--muted-foreground)",
-                  }}
+                  className="text-xs rounded-full px-3 py-1 border border-[color:var(--border)] text-[color:var(--muted-foreground)]"
                 >
                   {tag}
                 </span>
@@ -154,30 +146,29 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           />
         )}
 
-        <div className="space-y-5 text-base leading-8" style={{ color: "var(--foreground)" }}>
+        <div className="space-y-5 text-base leading-8 text-[color:var(--foreground)]">
           {post.body.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
         </div>
 
         {relatedPosts.length > 0 && (
-          <section className="mt-12 border-t pt-8" style={{ borderColor: "var(--border)" }}>
-            <h2 className="text-xl font-semibold" style={{ color: "var(--foreground)" }}>
+          <section className="mt-12 border-t pt-8 border-[color:var(--border)]">
+            <h2 className="text-xl font-semibold text-[color:var(--foreground)]">
               Related Reading
             </h2>
             <div className="mt-4 grid gap-4">
               {relatedPosts.map((relatedPost) => (
                 <article
                   key={relatedPost.slug}
-                  className="rounded-lg border p-4"
-                  style={{ borderColor: "var(--border)", background: "var(--card)" }}
+                  className="rounded-lg border p-4 border-[color:var(--border)] bg-[var(--card)]"
                 >
-                  <h3 className="font-semibold" style={{ color: "var(--foreground)" }}>
+                  <h3 className="font-semibold text-[color:var(--foreground)]">
                     <Link href={`/blog/${relatedPost.slug}`} className="hover:underline">
                       {relatedPost.title}
                     </Link>
                   </h3>
-                  <p className="mt-1 text-sm" style={{ color: "var(--muted-foreground)" }}>
+                  <p className="mt-1 text-sm text-[color:var(--muted-foreground)]">
                     {relatedPost.excerpt}
                   </p>
                 </article>

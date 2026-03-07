@@ -53,29 +53,13 @@ function scrollToAnchor(
 
 function DesktopDropdown({ children }: { children: NavItem[] }) {
   return (
-    <div
-      className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
-      style={{ minWidth: "200px" }}
-    >
-      <div
-        className="rounded-lg py-2 shadow-lg"
-        style={{
-          backgroundColor: "var(--surface)",
-          border: "1px solid var(--border)",
-        }}
-      >
+    <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 min-w-[200px]">
+      <div className="rounded-lg py-2 shadow-lg bg-[var(--surface)] border border-[color:var(--border)]">
         {children.map((child) => (
           <a
             key={child.href}
             href={child.href}
-            className="block px-4 py-2 text-sm font-medium transition-colors"
-            style={{ color: "var(--text-secondary)" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--primary)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--text-secondary)")
-            }
+            className="block px-4 py-2 text-sm font-medium transition-colors text-[color:var(--text-secondary)] hover:text-[color:var(--primary)]"
           >
             {child.label}
           </a>
@@ -87,29 +71,13 @@ function DesktopDropdown({ children }: { children: NavItem[] }) {
 
 function DesktopMegaMenu({ items }: { items: NavItem[] }) {
   return (
-    <div
-      className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
-      style={{ width: "min(90vw, 600px)" }}
-    >
-      <div
-        className="rounded-lg p-6 shadow-lg grid grid-cols-2 gap-6"
-        style={{
-          backgroundColor: "var(--surface)",
-          border: "1px solid var(--border)",
-        }}
-      >
+    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 w-[90vw] max-w-[600px]">
+      <div className="rounded-lg p-6 shadow-lg grid grid-cols-2 gap-6 bg-[var(--surface)] border border-[color:var(--border)]">
         {items.map((child) => (
           <a
             key={child.href}
             href={child.href}
-            className="block text-sm font-medium py-1 transition-colors"
-            style={{ color: "var(--text-secondary)" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "var(--primary)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "var(--text-secondary)")
-            }
+            className="block text-sm font-medium py-1 transition-colors text-[color:var(--text-secondary)] hover:text-[color:var(--primary)]"
           >
             {child.label}
           </a>
@@ -132,8 +100,7 @@ function MobileAccordion({
     return (
       <a
         href={item.href}
-        className="text-sm font-medium py-1"
-        style={{ color: "var(--text-secondary)" }}
+        className="text-sm font-medium py-1 text-[color:var(--text-secondary)]"
         onClick={(event) => onNavigate(event, item.href)}
       >
         {item.label}
@@ -145,32 +112,23 @@ function MobileAccordion({
     <div>
       <button
         type="button"
-        className="w-full flex items-center justify-between text-sm font-medium py-1"
-        style={{ color: "var(--text-secondary)" }}
+        className="w-full flex items-center justify-between text-sm font-medium py-1 text-[color:var(--text-secondary)]"
         onClick={() => setOpen((prev) => !prev)}
       >
         {item.label}
         <ChevronDown
           size={14}
-          className="transition-transform duration-200"
-          style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+          className={`transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`}
         />
       </button>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateRows: open ? "1fr" : "0fr",
-          transition: "grid-template-rows 0.25s ease",
-        }}
-      >
-        <div className="overflow-hidden">
+      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? "max-h-80" : "max-h-0"}`}>
+        <div>
           <div className="flex flex-col gap-2 pl-4 pt-2">
             {item.children.map((child) => (
               <a
                 key={child.href}
                 href={child.href}
-                className="text-sm py-1"
-                style={{ color: "var(--text-secondary)" }}
+                className="text-sm py-1 text-[color:var(--text-secondary)]"
                 onClick={(event) => onNavigate(event, child.href)}
               >
                 {child.label}
@@ -258,14 +216,7 @@ export function Header({
   };
 
   return (
-    <header
-      style={{
-        backgroundColor: "var(--surface)",
-        borderBottom: "1px solid var(--border)",
-        zIndex: 50,
-      }}
-      className={sticky ? "sticky top-0" : "relative"}
-    >
+    <header className={`${sticky ? "sticky top-0" : "relative"} z-50 bg-[var(--surface)] border-b border-[color:var(--border)]`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -274,14 +225,10 @@ export function Header({
               <img
                 src={logo}
                 alt={logoAlt}
-                className="h-8 w-auto"
-                style={{ objectFit: "contain" }}
+                className="h-8 w-auto object-contain"
               />
             ) : (
-              <span
-                className="text-xl font-bold"
-                style={{ color: "var(--primary)" }}
-              >
+              <span className="text-xl font-bold text-[color:var(--primary)]">
                 {logoAlt}
               </span>
             )}
@@ -300,15 +247,8 @@ export function Header({
                   <a
                     key={item.href}
                     href={item.href}
-                    className="text-sm font-medium transition-colors"
-                    style={{ color: "var(--text-secondary)" }}
+                    className="text-sm font-medium transition-colors text-[color:var(--text-secondary)] hover:text-[color:var(--primary)]"
                     onClick={(event) => handleNavClick(event, item.href)}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "var(--primary)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "var(--text-secondary)")
-                    }
                   >
                     {item.label}
                   </a>
@@ -319,14 +259,7 @@ export function Header({
                 <div key={item.label} className="relative group">
                   <button
                     type="button"
-                    className="flex items-center gap-1 text-sm font-medium transition-colors"
-                    style={{ color: "var(--text-secondary)" }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "var(--primary)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "var(--text-secondary)")
-                    }
+                    className="flex items-center gap-1 text-sm font-medium transition-colors text-[color:var(--text-secondary)] hover:text-[color:var(--primary)]"
                   >
                     {item.label}
                     <ChevronDown size={14} />
@@ -345,11 +278,7 @@ export function Header({
           <div className="hidden lg:flex items-center">
             <a
               href={ctaButton.href}
-              className="px-4 py-2 text-sm font-semibold rounded-full transition-opacity hover:opacity-90"
-              style={{
-                backgroundColor: "var(--primary)",
-                color: "var(--primary-foreground)",
-              }}
+              className="px-4 py-2 text-sm font-semibold rounded-full transition-opacity hover:opacity-90 bg-[var(--primary)] text-[color:var(--primary-foreground)]"
             >
               {ctaButton.label}
             </a>
@@ -363,29 +292,19 @@ export function Header({
             onClick={() => setMenuOpen((prev) => !prev)}
           >
             <span
-              className="block w-5 h-0.5 transition-transform duration-200"
-              style={{
-                backgroundColor: "var(--text-primary)",
-                transform: menuOpen
-                  ? "rotate(45deg) translate(2px, 6px)"
-                  : "none",
-              }}
+              className={`block w-5 h-0.5 transition-transform duration-200 bg-[var(--text-primary)] ${
+                menuOpen ? "rotate-45 translate-x-[2px] translate-y-[6px]" : ""
+              }`}
             />
             <span
-              className="block w-5 h-0.5 transition-opacity duration-200"
-              style={{
-                backgroundColor: "var(--text-primary)",
-                opacity: menuOpen ? 0 : 1,
-              }}
+              className={`block w-5 h-0.5 transition-opacity duration-200 bg-[var(--text-primary)] ${
+                menuOpen ? "opacity-0" : "opacity-100"
+              }`}
             />
             <span
-              className="block w-5 h-0.5 transition-transform duration-200"
-              style={{
-                backgroundColor: "var(--text-primary)",
-                transform: menuOpen
-                  ? "rotate(-45deg) translate(2px, -6px)"
-                  : "none",
-              }}
+              className={`block w-5 h-0.5 transition-transform duration-200 bg-[var(--text-primary)] ${
+                menuOpen ? "-rotate-45 translate-x-[2px] -translate-y-[6px]" : ""
+              }`}
             />
           </button>
         </div>
@@ -393,13 +312,7 @@ export function Header({
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div
-          className="lg:hidden border-t"
-          style={{
-            backgroundColor: "var(--surface)",
-            borderColor: "var(--border)",
-          }}
-        >
+        <div className="lg:hidden border-t bg-[var(--surface)] border-[color:var(--border)]">
           <nav className="flex flex-col px-4 py-4 gap-3 max-h-[calc(100vh-4rem)] overflow-y-auto">
             {navItems.map((item) =>
               navStyle !== "flat" &&
@@ -414,8 +327,7 @@ export function Header({
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-sm font-medium py-1"
-                  style={{ color: "var(--text-secondary)" }}
+                  className="text-sm font-medium py-1 text-[color:var(--text-secondary)]"
                   onClick={(event) => handleNavClick(event, item.href, true)}
                 >
                   {item.label}
@@ -424,11 +336,7 @@ export function Header({
             )}
             <a
               href={ctaButton.href}
-              className="mt-2 px-4 py-2 text-sm font-semibold rounded-full text-center"
-              style={{
-                backgroundColor: "var(--primary)",
-                color: "var(--primary-foreground)",
-              }}
+              className="mt-2 px-4 py-2 text-sm font-semibold rounded-full text-center bg-[var(--primary)] text-[color:var(--primary-foreground)]"
               onClick={() => setMenuOpen(false)}
             >
               {ctaButton.label}

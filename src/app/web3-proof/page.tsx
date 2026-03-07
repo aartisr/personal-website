@@ -27,21 +27,20 @@ export const metadata: Metadata = {
 
 export default function Web3ProofPage() {
   return (
-    <main className="min-h-screen" style={{ background: "var(--background)" }}>
+    <main className="min-h-screen bg-[var(--background)]">
       <div className="max-w-3xl mx-auto px-4 py-12">
         <Link
           href="/"
-          className="text-sm font-medium"
-          style={{ color: "var(--primary)" }}
+          className="text-sm font-medium text-[color:var(--primary)]"
         >
           ← Back to Home
         </Link>
 
-        <h1 className="mt-4 text-3xl sm:text-4xl font-bold" style={{ color: "var(--foreground)" }}>
+        <h1 className="mt-4 text-3xl sm:text-4xl font-bold text-[color:var(--foreground)]">
           Web3 Verification Proof
         </h1>
 
-        <p className="mt-3 text-base" style={{ color: "var(--muted-foreground)" }}>
+        <p className="mt-3 text-base text-[color:var(--muted-foreground)]">
           This page provides a practical Web3-style identity signal: wallet control + cryptographic signature proof.
         </p>
 

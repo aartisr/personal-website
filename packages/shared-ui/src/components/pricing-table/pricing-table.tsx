@@ -23,10 +23,9 @@ export type PricingTableProps = {
 function CheckIcon() {
   return (
     <svg
-      className="w-5 h-5 shrink-0"
+      className="w-5 h-5 shrink-0 text-[color:var(--primary)]"
       viewBox="0 0 20 20"
       fill="currentColor"
-      style={{ color: "var(--primary)" }}
       aria-hidden="true"
     >
       <path
@@ -44,27 +43,18 @@ export function PricingTable({
   plans,
 }: PricingTableProps) {
   return (
-    <section
-      className="py-20 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundColor: "var(--background)" }}
-    >
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--background)]">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         {(heading || description) && (
           <div className="text-center mb-14">
             {heading && (
-              <h2
-                className="text-3xl sm:text-4xl font-bold"
-                style={{ color: "var(--text-primary)" }}
-              >
+              <h2 className="text-3xl sm:text-4xl font-bold text-[color:var(--text-primary)]">
                 {heading}
               </h2>
             )}
             {description && (
-              <p
-                className="mt-4 text-lg max-w-2xl mx-auto"
-                style={{ color: "var(--text-secondary)" }}
-              >
+              <p className="mt-4 text-lg max-w-2xl mx-auto text-[color:var(--text-secondary)]">
                 {description}
               </p>
             )}
@@ -76,85 +66,54 @@ export function PricingTable({
           {plans.map((plan, index) => (
             <div
               key={index}
-              className="flex flex-col rounded-2xl overflow-hidden"
-              style={
+              className={`flex flex-col rounded-2xl overflow-hidden ${
                 plan.featured
-                  ? {
-                      backgroundColor: "var(--primary)",
-                      border: "2px solid var(--primary)",
-                      boxShadow:
-                        "0 20px 60px color-mix(in oklch, var(--primary) 30%, transparent)",
-                    }
-                  : {
-                      backgroundColor: "var(--surface)",
-                      border: "1px solid var(--border)",
-                    }
-              }
+                  ? "bg-[var(--primary)] border-2 border-[color:var(--primary)] shadow-[0_20px_60px_color-mix(in_oklch,var(--primary)_30%,transparent)]"
+                  : "bg-[var(--surface)] border border-[color:var(--border)]"
+              }`}
             >
               {plan.featured && (
-                <div
-                  className="py-1.5 px-4 text-center text-xs font-semibold uppercase tracking-widest"
-                  style={{
-                    backgroundColor:
-                      "color-mix(in oklch, var(--primary-foreground) 20%, transparent)",
-                    color: "var(--primary-foreground)",
-                  }}
-                >
+                <div className="py-1.5 px-4 text-center text-xs font-semibold uppercase tracking-widest bg-[color:color-mix(in_oklch,var(--primary-foreground)_20%,transparent)] text-[color:var(--primary-foreground)]">
                   Most Popular
                 </div>
               )}
 
               <div className="p-7 flex flex-col flex-1">
                 {/* Plan name */}
-                <p
-                  className="text-sm font-semibold uppercase tracking-widest mb-2"
-                  style={{
-                    color: plan.featured
-                      ? "var(--primary-foreground)"
-                      : "var(--text-secondary)",
-                    opacity: plan.featured ? 0.8 : 1,
-                  }}
-                >
+                <p className={`text-sm font-semibold uppercase tracking-widest mb-2 ${
+                  plan.featured
+                    ? "text-[color:var(--primary-foreground)] opacity-80"
+                    : "text-[color:var(--text-secondary)]"
+                }`}>
                   {plan.name}
                 </p>
 
                 {/* Price */}
                 <div className="flex items-baseline gap-1 mb-1">
-                  <span
-                    className="text-4xl sm:text-5xl font-bold"
-                    style={{
-                      color: plan.featured
-                        ? "var(--primary-foreground)"
-                        : "var(--text-primary)",
-                    }}
-                  >
+                  <span className={`text-4xl sm:text-5xl font-bold ${
+                    plan.featured
+                      ? "text-[color:var(--primary-foreground)]"
+                      : "text-[color:var(--text-primary)]"
+                  }`}>
                     {plan.price}
                   </span>
                   {plan.period && (
-                    <span
-                      className="text-sm"
-                      style={{
-                        color: plan.featured
-                          ? "var(--primary-foreground)"
-                          : "var(--text-secondary)",
-                        opacity: plan.featured ? 0.75 : 1,
-                      }}
-                    >
+                    <span className={`text-sm ${
+                      plan.featured
+                        ? "text-[color:var(--primary-foreground)] opacity-75"
+                        : "text-[color:var(--text-secondary)]"
+                    }`}>
                       /{plan.period}
                     </span>
                   )}
                 </div>
 
                 {/* Divider */}
-                <div
-                  className="my-6"
-                  style={{
-                    height: "1px",
-                    backgroundColor: plan.featured
-                      ? "color-mix(in oklch, var(--primary-foreground) 25%, transparent)"
-                      : "var(--border)",
-                  }}
-                />
+                <div className={`my-6 h-px ${
+                  plan.featured
+                    ? "bg-[color:color-mix(in_oklch,var(--primary-foreground)_25%,transparent)]"
+                    : "bg-[var(--border)]"
+                }`} />
 
                 {/* Features list */}
                 <ul className="flex flex-col gap-3 flex-1 mb-8">
@@ -162,10 +121,9 @@ export function PricingTable({
                     <li key={fi} className="flex items-start gap-3">
                       {plan.featured ? (
                         <svg
-                          className="w-5 h-5 shrink-0 mt-0.5"
+                          className="w-5 h-5 shrink-0 mt-0.5 text-[color:var(--primary-foreground)] opacity-90"
                           viewBox="0 0 20 20"
                           fill="currentColor"
-                          style={{ color: "var(--primary-foreground)", opacity: 0.9 }}
                           aria-hidden="true"
                         >
                           <path
@@ -177,15 +135,11 @@ export function PricingTable({
                       ) : (
                         <CheckIcon />
                       )}
-                      <span
-                        className="text-sm leading-snug"
-                        style={{
-                          color: plan.featured
-                            ? "var(--primary-foreground)"
-                            : "var(--text-secondary)",
-                          opacity: plan.featured ? 0.9 : 1,
-                        }}
-                      >
+                      <span className={`text-sm leading-snug ${
+                        plan.featured
+                          ? "text-[color:var(--primary-foreground)] opacity-90"
+                          : "text-[color:var(--text-secondary)]"
+                      }`}>
                         {feature}
                       </span>
                     </li>
@@ -195,18 +149,11 @@ export function PricingTable({
                 {/* CTA */}
                 <a
                   href={plan.cta.href}
-                  className="block text-center py-3 px-6 rounded-full text-sm font-semibold transition-opacity hover:opacity-90"
-                  style={
+                  className={`block text-center py-3 px-6 rounded-full text-sm font-semibold transition-opacity hover:opacity-90 ${
                     plan.featured
-                      ? {
-                          backgroundColor: "var(--primary-foreground)",
-                          color: "var(--primary)",
-                        }
-                      : {
-                          backgroundColor: "var(--primary)",
-                          color: "var(--primary-foreground)",
-                        }
-                  }
+                      ? "bg-[var(--primary-foreground)] text-[color:var(--primary)]"
+                      : "bg-[var(--primary)] text-[color:var(--primary-foreground)]"
+                  }`}
                 >
                   {plan.cta.label}
                 </a>
