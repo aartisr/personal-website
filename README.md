@@ -19,8 +19,8 @@ A visual, CMS-editable student portfolio built with **Next.js 16**, **Puck CMS**
 ## Getting Started
 
 ```bash
-bun install
-bun dev
+npm install
+npm run dev
 ```
 
 Open `http://localhost:3000` for the site.
@@ -52,7 +52,7 @@ Open `http://localhost:3000` for the site.
 
 ## Scripts
 
-- `bun dev` — start development server
-- `bun run build` — production build
-- `bun start` — run production build
-- `bun lint` — lint project
+- `npm run dev` — start development server
+- `npm run build` — production build
+- `npm run start` — run production build
+- `npm run lint` — lint project
