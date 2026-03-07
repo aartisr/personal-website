@@ -7,19 +7,19 @@
       "type": "Header",
       "props": {
         "id": "Header-0",
-        "logo": "",
-        "logoAlt": "Personal Website",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar Portfolio",
         "navStyle": "flat",
         "navItems": [
           { "label": "Home", "href": "/" },
-          { "label": "Support Center", "href": "/support-center" },
-          { "label": "Testimony", "href": "/testimony" },
-          { "label": "Privacy Policy", "href": "/privacy-policy" },
-          { "label": "Terms of Service", "href": "/terms-of-service" }
+          { "label": "About", "href": "/testimony" },
+          { "label": "Blog", "href": "/blog" },
+          { "label": "Web3 Proof", "href": "/web3-proof" },
+          { "label": "Contact", "href": "/support-center" }
         ],
         "ctaButton": {
-          "label": "Ask Now",
-          "href": "https://github.com/aartisr"
+          "label": "Get in Touch",
+          "href": "/support-center"
         },
         "sticky": true
       }
@@ -91,15 +91,21 @@
       "type": "Footer",
       "props": {
         "id": "Footer-4",
-        "logo": "",
-        "logoAlt": "Personal Website",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar Portfolio",
         "columns": [
+          {
+            "title": "Portfolio",
+            "links": [
+              { "label": "GitHub Profile", "href": "https://github.com/aartisr" },
+              { "label": "Research Projects", "href": "https://github.com/aartisr?tab=repositories" },
+              { "label": "Journey", "href": "/testimony" }
+            ]
+          },
           {
             "title": "Support",
             "links": [
-              { "label": "Support Center", "href": "/support-center" },
-              { "label": "Testimony", "href": "/testimony" },
-              { "label": "GitHub Profile", "href": "https://github.com/aartisr" }
+              { "label": "Support Center", "href": "/support-center" }
             ]
           },
           {
@@ -110,8 +116,17 @@
             ]
           }
         ],
-        "socialLinks": [],
-        "copyright": "© 2026 Personal Website. All rights reserved."
+        "socialLinks": [
+          {
+            "platform": "instagram",
+            "url": "https://www.instagram.com/pcssii/"
+          },
+          {
+            "platform": "youtube",
+            "url": "https://www.youtube.com/user/PCSSII"
+          }
+        ],
+        "copyright": "© 2026 Aarti Sri Ravikumar. All rights reserved."
       }
     }
   ]

@@ -398,14 +398,14 @@ function EditorialHero({
                 {subheading}
               </p>
             )}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-none tracking-tight text-foreground">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight lg:leading-none tracking-tight text-foreground">
               {heading}
             </h1>
           </div>
           {/* Description + CTAs in the right 5 columns */}
           <div className="lg:col-span-5 lg:pb-2">
             {description && (
-              <p className="text-lg leading-relaxed text-muted-foreground">
+              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
                 {description}
               </p>
             )}
@@ -424,7 +424,7 @@ function EditorialHero({
             <img
               src={image}
               alt={imageAlt}
-              className="w-full h-[520px] object-contain bg-transparent"
+              className="w-full h-[260px] sm:h-[360px] lg:h-[520px] object-contain bg-transparent"
             />
           </div>
         )}
@@ -461,7 +461,7 @@ function StackedNarrativeHero({
           </p>
         )}
         {/* Oversized heading — full width, left-aligned */}
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none tracking-tight text-foreground">
+        <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold leading-tight lg:leading-none tracking-tight text-foreground">
           {heading}
         </h1>
         {/* Divider */}

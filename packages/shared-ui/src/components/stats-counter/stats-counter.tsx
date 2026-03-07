@@ -21,10 +21,7 @@ export function StatsCounter({ stats, animation = "scale-in" }: StatsCounterProp
     <section ref={ref} className="w-full py-16 px-4">
       <div className="max-w-5xl mx-auto">
         <dl
-          className="grid gap-8"
-          style={{
-            gridTemplateColumns: `repeat(${Math.min(stats.length, 4)}, minmax(0, 1fr))`,
-          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {stats.map((stat, index) => (
             <div
@@ -38,15 +35,15 @@ export function StatsCounter({ stats, animation = "scale-in" }: StatsCounterProp
               }}
             >
               <dt
-                className="text-4xl md:text-5xl font-extrabold tracking-tight tabular-nums mb-2"
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight tabular-nums mb-2"
                 style={{ color: "var(--primary)" }}
               >
                 {stat.prefix && (
-                  <span className="text-3xl md:text-4xl">{stat.prefix}</span>
+                  <span className="text-2xl sm:text-3xl md:text-4xl">{stat.prefix}</span>
                 )}
                 {stat.value}
                 {stat.suffix && (
-                  <span className="text-3xl md:text-4xl">{stat.suffix}</span>
+                  <span className="text-2xl sm:text-3xl md:text-4xl">{stat.suffix}</span>
                 )}
               </dt>
               <dd

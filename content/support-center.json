@@ -12,15 +12,13 @@
         "navStyle": "flat",
         "navItems": [
           { "label": "Home", "href": "/" },
-          { "label": "Blog", "href": "/#blog" },
-          { "label": "Projects", "href": "https://github.com/aartisr?tab=repositories" },
-          { "label": "Journey", "href": "/testimony" },
-          { "label": "Support", "href": "/support-center" },
-          { "label": "Privacy Policy", "href": "/privacy-policy" },
-          { "label": "Terms of Service", "href": "/terms-of-service" }
+          { "label": "About", "href": "/testimony" },
+          { "label": "Blog", "href": "/blog" },
+          { "label": "Web3 Proof", "href": "/web3-proof" },
+          { "label": "Contact", "href": "/support-center" }
         ],
         "ctaButton": {
-          "label": "Contact",
+          "label": "Get in Touch",
           "href": "/support-center"
         },
         "sticky": true
@@ -45,7 +43,7 @@
           { "value": "1", "label": "Unified support endpoint" }
         ],
         "primaryCta": {
-          "label": "Contact Support",
+          "label": "Get in Touch",
           "href": "/support-center"
         },
         "secondaryCta": {
@@ -130,7 +128,7 @@
           },
           {
             "question": "How do I contact support directly?",
-            "answer": "Use the Contact Support form below. Our support team is here to help you get the most from this experience."
+            "answer": "Use the Get in Touch form below. Our support team is here to help you get the most from this experience."
           }
         ]
       }
@@ -148,7 +146,7 @@
           { "name": "message", "label": "How can we help?", "type": "textarea", "required": true }
         ],
         "submitEndpoint": "/api/support",
-        "submitLabel": "Contact Support",
+        "submitLabel": "Get in Touch",
         "successMessage": "Thanks — your request has been received."
       }
     },
@@ -178,11 +176,17 @@
         "logoAlt": "Aarti Sri Ravikumar Portfolio",
         "columns": [
           {
-            "title": "Help",
+            "title": "Portfolio",
             "links": [
-              { "label": "Support Center", "href": "/support-center" },
-              { "label": "Contact Support", "href": "/support-center" },
-              { "label": "GitHub Profile", "href": "https://github.com/aartisr" }
+              { "label": "GitHub Profile", "href": "https://github.com/aartisr" },
+              { "label": "Research Projects", "href": "https://github.com/aartisr?tab=repositories" },
+              { "label": "Journey", "href": "/testimony" }
+            ]
+          },
+          {
+            "title": "Support",
+            "links": [
+              { "label": "Support Center", "href": "/support-center" }
             ]
           },
           {
@@ -193,7 +197,16 @@
             ]
           }
         ],
-        "socialLinks": [],
+        "socialLinks": [
+          {
+            "platform": "instagram",
+            "url": "https://www.instagram.com/pcssii/"
+          },
+          {
+            "platform": "youtube",
+            "url": "https://www.youtube.com/user/PCSSII"
+          }
+        ],
         "copyright": "© 2026 Aarti Sri Ravikumar. All rights reserved."
       }
     }

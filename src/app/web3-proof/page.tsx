@@ -1,0 +1,54 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+import { WalletProofClient } from "@/components/web3/wallet-proof-client";
+import { absoluteUrl } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Web3 Proof | Aarti Sri Ravikumar",
+  description:
+    "Wallet-based verification proof for academic profile authenticity.",
+  alternates: {
+    canonical: "/web3-proof",
+  },
+  openGraph: {
+    title: "Web3 Proof | Aarti Sri Ravikumar",
+    description:
+      "Wallet-based verification proof for academic profile authenticity.",
+    type: "website",
+    url: absoluteUrl("/web3-proof"),
+  },
+  twitter: {
+    card: "summary",
+    title: "Web3 Proof | Aarti Sri Ravikumar",
+    description:
+      "Wallet-based verification proof for academic profile authenticity.",
+  },
+};
+
+export default function Web3ProofPage() {
+  return (
+    <main className="min-h-screen" style={{ background: "var(--background)" }}>
+      <div className="max-w-3xl mx-auto px-4 py-12">
+        <Link
+          href="/"
+          className="text-sm font-medium"
+          style={{ color: "var(--primary)" }}
+        >
+          ← Back to Home
+        </Link>
+
+        <h1 className="mt-4 text-3xl sm:text-4xl font-bold" style={{ color: "var(--foreground)" }}>
+          Web3 Verification Proof
+        </h1>
+
+        <p className="mt-3 text-base" style={{ color: "var(--muted-foreground)" }}>
+          This page provides a practical Web3-style identity signal: wallet control + cryptographic signature proof.
+        </p>
+
+        <div className="mt-8">
+          <WalletProofClient />
+        </div>
+      </div>
+    </main>
+  );
+}

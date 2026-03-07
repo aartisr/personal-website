@@ -288,7 +288,7 @@ export function Header({
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => {
               const hasChildren =
                 item.children &&
@@ -342,7 +342,7 @@ export function Header({
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex items-center">
             <a
               href={ctaButton.href}
               className="px-4 py-2 text-sm font-semibold rounded-full transition-opacity hover:opacity-90"
@@ -358,7 +358,7 @@ export function Header({
           {/* Mobile hamburger */}
           <button
             type="button"
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
+            className="lg:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
             aria-label="Toggle menu"
             onClick={() => setMenuOpen((prev) => !prev)}
           >
@@ -394,13 +394,13 @@ export function Header({
       {/* Mobile menu */}
       {menuOpen && (
         <div
-          className="md:hidden border-t"
+          className="lg:hidden border-t"
           style={{
             backgroundColor: "var(--surface)",
             borderColor: "var(--border)",
           }}
         >
-          <nav className="flex flex-col px-4 py-4 gap-3">
+          <nav className="flex flex-col px-4 py-4 gap-3 max-h-[calc(100vh-4rem)] overflow-y-auto">
             {navItems.map((item) =>
               navStyle !== "flat" &&
               item.children &&

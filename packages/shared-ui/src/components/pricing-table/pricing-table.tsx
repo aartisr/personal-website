@@ -121,7 +121,7 @@ export function PricingTable({
                 {/* Price */}
                 <div className="flex items-baseline gap-1 mb-1">
                   <span
-                    className="text-5xl font-bold"
+                    className="text-4xl sm:text-5xl font-bold"
                     style={{
                       color: plan.featured
                         ? "var(--primary-foreground)"

@@ -12,15 +12,13 @@
         "navStyle": "flat",
         "navItems": [
           { "label": "Home", "href": "/" },
+          { "label": "About", "href": "/testimony" },
           { "label": "Blog", "href": "/blog" },
-          { "label": "Projects", "href": "https://github.com/aartisr?tab=repositories" },
-          { "label": "Journey", "href": "/testimony" },
-          { "label": "Support", "href": "/support-center" },
-          { "label": "Privacy Policy", "href": "/privacy-policy" },
-          { "label": "Terms of Service", "href": "/terms-of-service" }
+          { "label": "Web3 Proof", "href": "/web3-proof" },
+          { "label": "Contact", "href": "/support-center" }
         ],
         "ctaButton": {
-          "label": "Contact",
+          "label": "Get in Touch",
           "href": "/support-center"
         },
         "sticky": true
@@ -301,7 +299,7 @@
           "href": "https://github.com/aartisr"
         },
         "secondaryCta": {
-          "label": "Contact Support",
+          "label": "Get in Touch",
           "href": "/support-center"
         },
         "royalStyle": "corners"
@@ -363,19 +361,11 @@
               {
                 "label": "Support Center",
                 "href": "/support-center"
-              },
-              {
-                "label": "Privacy Policy",
-                "href": "/privacy-policy"
-              },
-              {
-                "label": "Terms of Service",
-                "href": "/terms-of-service"
               }
             ]
           },
           {
-            "title": "Trust",
+            "title": "Legal",
             "links": [
               {
                 "label": "Privacy Policy",
