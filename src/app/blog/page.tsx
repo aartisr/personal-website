@@ -1,23 +1,34 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getAllBlogPosts } from "@/lib/blog";
+import { BlogListClient } from "@/components/blog/blog-list-client";
+import { getAllBlogPosts, getAllBlogTags } from "@/lib/blog";
+import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Blog | Aarti Sri Ravikumar",
   description:
     "Notes on learning, engineering, and student project execution.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "Blog | Aarti Sri Ravikumar",
+    description:
+      "Notes on learning, engineering, and student project execution.",
+    type: "website",
+    url: absoluteUrl("/blog"),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | Aarti Sri Ravikumar",
+    description:
+      "Notes on learning, engineering, and student project execution.",
+  },
 };
-
-function formatDate(value: string) {
-  return new Date(value).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
 
 export default function BlogPage() {
   const posts = getAllBlogPosts();
+  const tags = getAllBlogTags();
 
   return (
     <main className="min-h-screen" style={{ background: "var(--background)" }}>
@@ -37,56 +48,31 @@ export default function BlogPage() {
             Blog
           </h1>
           <p className="mt-3 text-base" style={{ color: "var(--muted-foreground)" }}>
-            Real posts about projects, research, and what I’m learning.
+            Real posts about projects, research, writing, and technical execution.
+          </p>
+          <p className="mt-2 text-sm" style={{ color: "var(--muted-foreground)" }}>
+            {posts.length} published posts • {tags.length} active themes
           </p>
         </div>
 
-        <div className="grid gap-6">
-          {posts.map((post) => (
-            <article
-              key={post.slug}
-              className="rounded-xl border p-6"
-              style={{
-                borderColor: "var(--border)",
-                background: "var(--card)",
-              }}
-            >
-              <time
-                dateTime={post.date}
-                className="text-xs uppercase tracking-wider"
-                style={{ color: "var(--primary)" }}
-              >
-                {formatDate(post.date)}
-              </time>
-              <h2 className="mt-2 text-2xl font-semibold" style={{ color: "var(--foreground)" }}>
-                <Link href={`/blog/${post.slug}`} className="hover:underline">
-                  {post.title}
-                </Link>
-              </h2>
-              <p className="mt-3" style={{ color: "var(--muted-foreground)" }}>
-                {post.excerpt}
-              </p>
-              <div className="mt-4 flex items-center justify-between gap-3">
-                <span className="text-sm" style={{ color: "var(--muted-foreground)" }}>
-                  {post.author ?? "Aarti Sri Ravikumar"}
-                </span>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="text-sm font-semibold"
-                  style={{ color: "var(--primary)" }}
-                >
-                  Read post →
-                </Link>
-              </div>
-            </article>
-          ))}
+        <BlogListClient posts={posts} tags={tags} />
 
-          {posts.length === 0 && (
-            <p style={{ color: "var(--muted-foreground)" }}>
-              No posts yet. Add JSON files in `content/blog` to publish.
-            </p>
-          )}
-        </div>
+        <section
+          className="mt-10 rounded-xl border p-6"
+          style={{ borderColor: "var(--border)", background: "var(--card)" }}
+        >
+          <h2 className="text-lg font-semibold" style={{ color: "var(--foreground)" }}>
+            Academic & Collaboration Updates
+          </h2>
+          <p className="mt-2 text-sm" style={{ color: "var(--muted-foreground)" }}>
+            For project collaborations, mentorship, or research dialogue, use the support center.
+          </p>
+          <div className="mt-3">
+            <Link href="/support-center" className="text-sm font-semibold" style={{ color: "var(--primary)" }}>
+              Go to Support Center →
+            </Link>
+          </div>
+        </section>
       </div>
     </main>
   );

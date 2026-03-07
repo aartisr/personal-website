@@ -1,7 +1,14 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllBlogSlugs, getBlogPost } from "@/lib/blog";
+import {
+  estimateReadingTimeMinutes,
+  getAllBlogSlugs,
+  getBlogPost,
+  getRelatedBlogPosts,
+} from "@/lib/blog";
+import { ShareButtons } from "@/components/blog/share-buttons";
+import { absoluteUrl } from "@/lib/site";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -34,6 +41,30 @@ export async function generateMetadata({
   return {
     title: `${post.title} | Aarti Sri Ravikumar`,
     description: post.excerpt,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      url: absoluteUrl(`/blog/${post.slug}`),
+      publishedTime: post.date,
+      images: post.coverImage
+        ? [
+            {
+              url: post.coverImage,
+              alt: post.title,
+            },
+          ]
+        : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: post.coverImage ? [post.coverImage] : undefined,
+    },
   };
 }
 
@@ -45,9 +76,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const readingTimeMinutes = estimateReadingTimeMinutes(post);
+  const relatedPosts = getRelatedBlogPosts(post.slug, 2);
+  const postUrl = absoluteUrl(`/blog/${post.slug}`);
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author ?? "Aarti Sri Ravikumar",
+    },
+    mainEntityOfPage: postUrl,
+    image: post.coverImage,
+  };
+
   return (
     <main className="min-h-screen" style={{ background: "var(--background)" }}>
       <article className="max-w-3xl mx-auto px-4 py-12">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <div className="mb-8">
           <Link
             href="/blog"
@@ -68,6 +120,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <time dateTime={post.date}>{formatDate(post.date)}</time>
             <span>•</span>
             <span>{post.author ?? "Aarti Sri Ravikumar"}</span>
+            <span>•</span>
+            <span>{readingTimeMinutes} min read</span>
           </div>
 
           {post.tags && post.tags.length > 0 && (
@@ -86,6 +140,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               ))}
             </div>
           )}
+
+          <div className="mt-5">
+            <ShareButtons url={postUrl} title={post.title} />
+          </div>
         </div>
 
         {post.coverImage && (
@@ -101,6 +159,32 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <p key={index}>{paragraph}</p>
           ))}
         </div>
+
+        {relatedPosts.length > 0 && (
+          <section className="mt-12 border-t pt-8" style={{ borderColor: "var(--border)" }}>
+            <h2 className="text-xl font-semibold" style={{ color: "var(--foreground)" }}>
+              Related Reading
+            </h2>
+            <div className="mt-4 grid gap-4">
+              {relatedPosts.map((relatedPost) => (
+                <article
+                  key={relatedPost.slug}
+                  className="rounded-lg border p-4"
+                  style={{ borderColor: "var(--border)", background: "var(--card)" }}
+                >
+                  <h3 className="font-semibold" style={{ color: "var(--foreground)" }}>
+                    <Link href={`/blog/${relatedPost.slug}`} className="hover:underline">
+                      {relatedPost.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-1 text-sm" style={{ color: "var(--muted-foreground)" }}>
+                    {relatedPost.excerpt}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
       </article>
     </main>
   );
