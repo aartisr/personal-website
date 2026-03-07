@@ -1,0 +1,166 @@
+{
+  "root": {
+    "props": {}
+  },
+  "content": [
+    {
+      "type": "Header",
+      "props": {
+        "id": "Header-0",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "navStyle": "flat",
+        "navItems": [
+          { "label": "Home", "href": "/" },
+          { "label": "Blog", "href": "/#blog" },
+          { "label": "Projects", "href": "https://github.com/aartisr?tab=repositories" },
+          { "label": "Journey", "href": "/testimony" },
+          { "label": "Support", "href": "/support-center" },
+          { "label": "Privacy Policy", "href": "/privacy-policy" },
+          { "label": "Terms of Service", "href": "/terms-of-service" }
+        ],
+        "ctaButton": {
+          "label": "Contact",
+          "href": "/support-center"
+        },
+        "sticky": true
+      }
+    },
+    {
+      "type": "HeroSection",
+      "props": {
+        "id": "HeroSection-1",
+        "variant": "dark-centered",
+        "heading": "Academic Journey & Progress Signals",
+        "subheading": "Student Research Portfolio",
+        "description": "Track how this portfolio evolves through evidence-led milestones, project outcomes, and continuous learning.",
+        "highlights": [
+          { "text": "Milestones presented with objective language" },
+          { "text": "Progress signals linked to live repositories" },
+          { "text": "Built for quick reviewer scanning" }
+        ],
+        "proofPoints": [
+          { "value": "131+", "label": "Annual contributions" },
+          { "value": "3+", "label": "Public repositories" },
+          { "value": "2", "label": "Core project tracks" }
+        ],
+        "primaryCta": {
+          "label": "Review Research Projects",
+          "href": "https://github.com/aartisr?tab=repositories"
+        },
+        "secondaryCta": {
+          "label": "Contact Support",
+          "href": "/support-center"
+        },
+        "image": "",
+        "imageAlt": "Academic Journey",
+        "animation": "fade-in",
+        "royalStyle": "corners"
+      }
+    },
+    {
+      "type": "StatsCounter",
+      "props": {
+        "id": "StatsCounter-2",
+        "animation": "scale-in",
+        "stats": [
+          { "value": "131", "label": "Annual Contributions", "prefix": "", "suffix": "+" },
+          { "value": "3", "label": "Public Repositories", "prefix": "", "suffix": "+" },
+          { "value": "2", "label": "Core Project Tracks", "prefix": "", "suffix": "" },
+          { "value": "1", "label": "Academic Portfolio Mission", "prefix": "", "suffix": "" }
+        ]
+      }
+    },
+    {
+      "type": "TestimonialsSection",
+      "props": {
+        "id": "TestimonialsSection-3",
+        "heading": "Signals of Progress",
+        "royalStyle": "none",
+        "testimonials": [
+          {
+            "quote": "This portfolio presents student-led research and project work in a clear, credible format.",
+            "name": "Peer Reviewer",
+            "role": "Student Collaborator",
+            "avatar": ""
+          },
+          {
+            "quote": "The project direction is easy to follow, and repository links make contribution paths obvious.",
+            "name": "Open Source Peer",
+            "role": "Contributor",
+            "avatar": ""
+          },
+          {
+            "quote": "The blend of research thinking and product framing stands out as both modern and academically grounded.",
+            "name": "Mentor Feedback",
+            "role": "Academic Advisor",
+            "avatar": ""
+          },
+          {
+            "quote": "Navigation feels intuitive, and legal/support pages create a trustworthy user experience.",
+            "name": "UX Reviewer",
+            "role": "Product Designer",
+            "avatar": ""
+          },
+          {
+            "quote": "Journey messaging and project metrics make progress visible and easy to understand.",
+            "name": "Community Member",
+            "role": "Builder",
+            "avatar": ""
+          },
+          {
+            "quote": "Strong foundation for a student portfolio that can evolve into robust, production-grade systems.",
+            "name": "Technical Reviewer",
+            "role": "Engineer",
+            "avatar": ""
+          }
+        ]
+      }
+    },
+    {
+      "type": "CTASection",
+      "props": {
+        "id": "CTASection-4",
+        "variant": "banner",
+        "heading": "Build With Me",
+        "description": "Open to collaboration on student-led research projects, experiments, and open-source tools.",
+        "primaryCta": {
+          "label": "Review GitHub Profile",
+          "href": "https://github.com/aartisr"
+        },
+        "secondaryCta": {
+          "label": "Contact Support",
+          "href": "/support-center"
+        },
+        "royalStyle": "none"
+      }
+    },
+    {
+      "type": "Footer",
+      "props": {
+        "id": "Footer-5",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "columns": [
+          {
+            "title": "Explore",
+            "links": [
+              { "label": "Support Center", "href": "/support-center" },
+              { "label": "Journey", "href": "/testimony" },
+              { "label": "GitHub Profile", "href": "https://github.com/aartisr" }
+            ]
+          },
+          {
+            "title": "Legal",
+            "links": [
+              { "label": "Privacy Policy", "href": "/privacy-policy" },
+              { "label": "Terms of Service", "href": "/terms-of-service" }
+            ]
+          }
+        ],
+        "socialLinks": [],
+        "copyright": "© 2026 Aarti Sri Ravikumar. All rights reserved."
+      }
+    }
+  ]
+}

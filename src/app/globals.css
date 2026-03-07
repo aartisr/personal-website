@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import "../styles/theme.css";
+@import "../styles/theme-v4.css";
+
+/* Scan shared-ui package for Tailwind classes */
+@source "../../packages/shared-ui/src/**/*.tsx";
+@source "../../packages/shared-ui/src/**/*.ts";
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,349 @@
+{
+  "root": {
+    "props": {}
+  },
+  "content": [
+    {
+      "type": "Header",
+      "props": {
+        "id": "Header-0",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "navStyle": "flat",
+        "navItems": [
+          { "label": "Home", "href": "/" },
+          { "label": "Blog", "href": "/#blog" },
+          { "label": "Projects", "href": "https://github.com/aartisr?tab=repositories" },
+          { "label": "Journey", "href": "/testimony" },
+          { "label": "Support", "href": "/support-center" },
+          { "label": "Privacy Policy", "href": "/privacy-policy" },
+          { "label": "Terms of Service", "href": "/terms-of-service" }
+        ],
+        "ctaButton": {
+          "label": "Contact",
+          "href": "/support-center"
+        },
+        "sticky": true
+      }
+    },
+    {
+      "type": "HeroSection",
+      "props": {
+        "id": "HeroSection-1",
+        "variant": "minimal-type",
+        "heading": "Privacy Policy",
+        "subheading": "Aarti Sri Ravikumar Portfolio",
+        "description": "This page explains how personal information is handled across this student research portfolio, including usage boundaries and your rights.",
+        "highlights": [
+          { "text": "Clear explanation of data practices" },
+          { "text": "No personal data sale" },
+          { "text": "Rights and controls summarized upfront" }
+        ],
+        "proofPoints": [
+          { "value": "0", "label": "Personal data sold" },
+          { "value": "13+", "label": "Minimum user age" },
+          { "value": "3", "label": "Primary data source types" }
+        ],
+        "primaryCta": {
+          "label": "Contact Support",
+          "href": "/support-center"
+        },
+        "secondaryCta": {
+          "label": "Terms of Service",
+          "href": "/terms-of-service"
+        },
+        "image": "",
+        "imageAlt": "Privacy Policy",
+        "animation": "fade-in",
+        "royalStyle": "none"
+      }
+    },
+    {
+      "type": "FeaturesGrid",
+      "props": {
+        "id": "FeaturesGrid-2",
+        "heading": "Privacy at a Glance",
+        "description": "A quick overview of privacy principles for transparent portfolio use.",
+        "columns": 2,
+        "animation": "slide-up",
+        "royalStyle": "none",
+        "features": [
+          {
+            "icon": "🛡️",
+            "title": "We do not sell personal data",
+            "description": "Personal data is shared only in limited, lawful cases with trusted service providers under strict controls."
+          },
+          {
+            "icon": "🧾",
+            "title": "Transparent data usage",
+            "description": "We explain what data we collect, why we collect it, and how it supports secure operations."
+          },
+          {
+            "icon": "⚙️",
+            "title": "Portfolio improvement with safeguards",
+            "description": "Interaction signals may improve quality and usability while respecting lawful controls and user rights."
+          },
+          {
+            "icon": "✅",
+            "title": "Your rights and choices",
+            "description": "Depending on your location, you may access, correct, delete, restrict, or request portability of your data."
+          }
+        ]
+      }
+    },
+    {
+      "type": "StatsCounter",
+      "props": {
+        "id": "StatsCounter-3",
+        "animation": "scale-in",
+        "stats": [
+          { "value": "0", "label": "Personal Data Sold", "prefix": "", "suffix": "" },
+          { "value": "13", "label": "Minimum Age", "prefix": "", "suffix": "+" },
+          { "value": "3", "label": "Data Source Types", "prefix": "", "suffix": "" },
+          { "value": "1", "label": "Policy You Can Trust", "prefix": "", "suffix": "" }
+        ]
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-4",
+        "heading": "Introduction",
+        "body": "Personal Website (\"we\", \"our\", or \"us\") respects your privacy and is committed to protecting personal information collected through your use of our websites, applications, and AI-powered services (collectively, the \"Services\").\n\nThis Privacy Policy explains how we collect, use, store, and protect personal data when you interact with the Services. It also explains your rights and choices regarding that data.\n\nBy using the Services, you agree to the collection and use of information in accordance with this Privacy Policy.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-5",
+        "heading": "Scope of This Policy",
+        "body": "This Privacy Policy applies to individuals who access or use Personal Website, visitors to our websites and digital platforms, and users who interact with our AI systems through any supported interface.\n\nThis policy does not apply to third-party websites, applications, or services that may be linked from or integrated with the Services.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": true,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-6",
+        "heading": "Information We Collect",
+        "body": "We collect information that you provide directly to us, information that is collected automatically when you use the Services, and information obtained from certain trusted third-party sources.\n\nInformation you provide directly may include account details such as your name, email address, contact information, login credentials, and other information you choose to provide. It may also include content you submit to the Services, such as prompts, questions, messages, files, images, audio, or other materials.\n\nInformation collected automatically may include technical and usage data such as your IP address, browser type, device information, operating system, access times, interaction patterns, and approximate location inferred from your IP address. This information helps us operate, secure, and improve the Services.\n\nIn limited cases, we may receive information from trusted partners for purposes such as security monitoring, fraud prevention, abuse detection, analytics, or technical support. Publicly available information may also be used in aggregated or non-identifying ways.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-7",
+        "heading": "How We Use Information",
+        "body": "We use personal data to provide, operate, and maintain the Services, to respond to user requests and inquiries, and to improve the quality, accuracy, and reliability of our AI systems.\n\nWe also use information to develop new features, conduct research, communicate important updates or notices, protect against misuse or security threats, and comply with legal obligations.\n\nWhere possible, data may be anonymized or aggregated so that it no longer identifies individuals. De-identified data is used only for legitimate purposes such as analytics, research, and service improvement.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": true,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-8",
+        "heading": "Use of Content for AI Improvement",
+        "body": "User interactions and submitted content may be used to improve the performance, safety, and reliability of our AI models, unless you opt out through available controls where such options are provided.\n\nWe do not attempt to identify individuals from de-identified or aggregated data unless required by law.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-9",
+        "heading": "Disclosure of Information",
+        "body": "We do not sell personal data. We share personal data only in limited circumstances.\n\nInformation may be shared with trusted service providers who assist us with hosting, infrastructure, security, payment processing, analytics, or support services. These providers act only under our instructions and are required to protect your information.\n\nWe may disclose information when required to comply with applicable laws, legal processes, or governmental requests, or when necessary to protect the rights, safety, or property of users, the public, or the Services.\n\nIn the event of a merger, acquisition, restructuring, or transfer of assets, personal data may be transferred as part of the transaction, subject to continued protection under this Privacy Policy.\n\nIf you choose to share content, outputs, or links with third parties or external tools, those interactions are governed by the privacy policies of the recipients.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": true,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-10",
+        "heading": "Data Retention",
+        "body": "We retain personal data only for as long as necessary to provide the Services, fulfill legitimate business purposes, and meet legal, security, and compliance obligations.\n\nRetention periods depend on the nature of the data, the purpose for which it was collected, and applicable legal requirements. Some data may be deleted or anonymized automatically based on system settings or service features.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-11",
+        "heading": "Your Rights and Choices",
+        "body": "Depending on your location, you may have rights to access, correct, delete, or restrict the processing of your personal data, as well as the right to withdraw consent or request data portability.\n\nYou may also have the right to lodge a complaint with a relevant data protection authority. Requests to exercise privacy rights may require identity verification and will be handled in accordance with applicable law.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": true,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-12",
+        "heading": "AI Output and Accuracy",
+        "body": "Personal Website generates responses using probabilistic models. While designed to be helpful, outputs may occasionally be incomplete, inaccurate, or contextually incorrect.\n\nUsers should apply discernment and should not treat AI outputs as professional, legal, medical, or financial advice. Requests for correction or removal of personal data appearing in outputs will be reviewed in accordance with applicable law and technical feasibility.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-13",
+        "heading": "Children’s Privacy",
+        "body": "The Services are not intended for children under the age of thirteen (13). We do not knowingly collect personal data from children under thirteen.\n\nIf we become aware that personal data from a child has been collected without appropriate consent, we will take steps to delete it promptly. Users under eighteen must have permission from a parent or legal guardian to use the Services.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": true,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-14",
+        "heading": "Security",
+        "body": "We use commercially reasonable technical, administrative, and organizational measures to protect personal data against unauthorized access, loss, misuse, or alteration.\n\nHowever, no system is completely secure. Users are responsible for safeguarding their account credentials and should avoid sharing sensitive information unnecessarily.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-15",
+        "heading": "Regional and Legal Disclosures",
+        "body": "Where required by law, we honor applicable regional privacy rights and protections. We do not use personal data for targeted advertising, do not sell personal data, and do not create sensitive personal profiles for advertising purposes.\n\nIdentity verification may be required before fulfilling certain privacy-related requests.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": true,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-16",
+        "heading": "Changes to This Privacy Policy",
+        "body": "We may update this Privacy Policy from time to time. When changes are made, the effective date at the top of this page will be updated.\n\nYour continued use of the Services after changes take effect constitutes acceptance of the revised Privacy Policy.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-17",
+        "heading": "Contact Information",
+        "body": "If you have questions, concerns, or requests regarding privacy or this Privacy Policy, please contact us through our official support or privacy communication channels.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": true,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "CTASection",
+      "props": {
+        "id": "CTASection-18",
+        "variant": "banner",
+        "heading": "Need Help With Privacy Questions?",
+        "description": "Support is available for privacy, data rights, and legal policy navigation.",
+        "primaryCta": {
+          "label": "Contact Support",
+          "href": "/support-center"
+        },
+        "secondaryCta": {
+          "label": "Back to Home",
+          "href": "/"
+        },
+        "royalStyle": "none"
+      }
+    },
+    {
+      "type": "Footer",
+      "props": {
+        "id": "Footer-19",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "columns": [
+          {
+            "title": "Support",
+            "links": [
+              { "label": "Support Center", "href": "/support-center" },
+              { "label": "Journey", "href": "/testimony" },
+              { "label": "GitHub Profile", "href": "https://github.com/aartisr" }
+            ]
+          },
+          {
+            "title": "Legal",
+            "links": [
+              { "label": "Privacy Policy", "href": "/privacy-policy" },
+              { "label": "Terms of Service", "href": "/terms-of-service" }
+            ]
+          }
+        ],
+        "socialLinks": [],
+        "copyright": "© 2026 Aarti Sri Ravikumar. All rights reserved."
+      }
+    }
+  ]
+}

@@ -1,0 +1,335 @@
+{
+  "root": {
+    "props": {}
+  },
+  "content": [
+    {
+      "type": "Header",
+      "props": {
+        "id": "Header-0",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "navStyle": "flat",
+        "navItems": [
+          { "label": "Home", "href": "/" },
+          { "label": "Blog", "href": "/#blog" },
+          { "label": "Projects", "href": "https://github.com/aartisr?tab=repositories" },
+          { "label": "Journey", "href": "/testimony" },
+          { "label": "Support", "href": "/support-center" },
+          { "label": "Privacy Policy", "href": "/privacy-policy" },
+          { "label": "Terms of Service", "href": "/terms-of-service" }
+        ],
+        "ctaButton": {
+          "label": "Contact",
+          "href": "/support-center"
+        },
+        "sticky": true
+      }
+    },
+    {
+      "type": "HeroSection",
+      "props": {
+        "id": "HeroSection-1",
+        "variant": "minimal-type",
+        "heading": "Terms of Service",
+        "subheading": "Effective Date: 12/08/2025",
+        "description": "These terms govern access to and use of this student research portfolio, including related pages, tools, and content.",
+        "highlights": [
+          { "text": "Simple acceptance and eligibility rules" },
+          { "text": "AI limitations stated clearly" },
+          { "text": "Liability and usage boundaries upfront" }
+        ],
+        "proofPoints": [
+          { "value": "13+", "label": "Minimum age" },
+          { "value": "18", "label": "Guardian consent threshold" },
+          { "value": "0", "label": "Error-free output guarantees" }
+        ],
+        "primaryCta": {
+          "label": "Contact Support",
+          "href": "/support-center"
+        },
+        "secondaryCta": {
+          "label": "Privacy Policy",
+          "href": "/privacy-policy"
+        },
+        "image": "",
+        "imageAlt": "Terms of Use",
+        "animation": "fade-in",
+        "royalStyle": "none"
+      }
+    },
+    {
+      "type": "FeaturesGrid",
+      "props": {
+        "id": "FeaturesGrid-2",
+        "heading": "Terms at a Glance",
+        "description": "Key legal principles for using this student academic portfolio responsibly.",
+        "columns": 2,
+        "animation": "slide-up",
+        "royalStyle": "none",
+        "features": [
+          {
+            "icon": "✅",
+            "title": "Use implies acceptance",
+            "description": "By accessing the services, you agree to these Terms and must stop using them if you do not agree."
+          },
+          {
+            "icon": "🔞",
+            "title": "Age and eligibility",
+            "description": "Users must meet minimum age and consent requirements, including guardian permission where required."
+          },
+          {
+            "icon": "🤖",
+            "title": "AI outputs have limits",
+            "description": "Outputs are probabilistic and may be inaccurate; do not treat them as professional advice."
+          },
+          {
+            "icon": "⚖️",
+            "title": "Liability limitations",
+            "description": "Services are provided as-is, with liability limited to the maximum extent allowed by law."
+          }
+        ]
+      }
+    },
+    {
+      "type": "StatsCounter",
+      "props": {
+        "id": "StatsCounter-3",
+        "animation": "scale-in",
+        "stats": [
+          { "value": "13", "label": "Minimum Age", "prefix": "", "suffix": "+" },
+          { "value": "18", "label": "Guardian Consent Threshold", "prefix": "", "suffix": "" },
+          { "value": "1", "label": "Unified Terms", "prefix": "", "suffix": "" },
+          { "value": "0", "label": "Guarantees of Error-Free Output", "prefix": "", "suffix": "" }
+        ]
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-4",
+        "heading": "Acceptance of These Terms",
+        "body": "Thank you for using Personal Website (\"Service\"). These Terms of Use (\"Terms\") govern your access to and use of Personal Website, including any related websites, applications, tools, or content (collectively, the \"Services\"), operated by the service provider (\"we\", \"us\", or \"our\").\n\nBy accessing or using the Services, you agree to be bound by these Terms. If you do not agree to these Terms, you must not use the Services.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-5",
+        "heading": "Who May Use the Services",
+        "body": "You must be at least thirteen (13) years old, or the minimum age of digital consent in your jurisdiction, to use the Services. If you are under eighteen (18) years old, you may use the Services only with the permission and supervision of a parent or legal guardian. By using the Services, you represent and warrant that you meet these eligibility requirements.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": true,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-6",
+        "heading": "Accounts and Registration",
+        "body": "Some features of the Services may require you to create an account. When you create an account, you agree to provide accurate, complete, and current information and to keep that information up to date. You are responsible for safeguarding your account credentials and for all activity that occurs under your account.\n\nIf you access or use the Services on behalf of an organization, you represent that you have the authority to bind that organization to these Terms, and the organization agrees to be responsible for your use of the Services.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-7",
+        "heading": "Use of the Services",
+        "body": "Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, and revocable right to access and use the Services for personal, educational, or internal organizational purposes.\n\nYou agree to use the Services only in accordance with applicable laws and regulations and in a manner that does not harm, misuse, or interfere with the Services, other users, or third parties. You may not use the Services for unlawful, deceptive, abusive, or exploitative purposes, nor may you attempt to reverse engineer, scrape, or improperly access the underlying systems or smart-contract related integrations where present.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": true,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-8",
+        "heading": "AI Output and Limitations",
+        "body": "The Services generate responses using artificial intelligence models based on the inputs you provide. Outputs are generated probabilistically and may be inaccurate, incomplete, or reflect interpretations that differ from authoritative sources.\n\nYou understand and agree that Outputs are provided for informational and educational purposes only and should not be relied upon as professional, legal, medical, financial, or psychological advice. You are solely responsible for evaluating and using any Output.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-9",
+        "heading": "Content Ownership",
+        "body": "You retain any rights you have in the content you submit to the Services (\"Input\"). Subject to applicable law, you may use the content generated by the Services (\"Output\") for your own lawful purposes.\n\nBecause of the nature of artificial intelligence, similar or identical Outputs may be generated for different users, and you do not receive exclusive ownership over any ideas, expressions, or concepts contained in the Output.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": true,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-10",
+        "heading": "Intellectual Property",
+        "body": "Except for your Input and permitted use of Output, all rights, title, and interest in and to the Services, including the software, models, designs, text, logos, and trademarks, are owned by us or our licensors. You may not use our name, branding, or logos in a manner that suggests endorsement or official association without prior written permission.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-11",
+        "heading": "Third-Party Services",
+        "body": "The Services may integrate with or rely on third-party services, tools, platforms, wallet providers, or blockchain infrastructure. Your use of those third-party services is governed by their own terms and policies, and we are not responsible for their content, functionality, availability, fees, or practices.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": true,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-12",
+        "heading": "Termination and Suspension",
+        "body": "You may stop using the Services at any time. We may suspend or terminate your access to the Services if we reasonably believe that you have violated these Terms, that your use poses a risk to others or to the Services, or that we are required to do so by law.\n\nUpon termination, your right to access the Services will cease immediately. We are not obligated to retain or provide access to content after termination, except as required by law.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-13",
+        "heading": "Disclaimers",
+        "body": "The Services and all Outputs are provided \"as is\" and \"as available.\" To the fullest extent permitted by law, we disclaim all warranties, express or implied, including warranties of accuracy, reliability, merchantability, fitness for a particular purpose, and non-infringement.\n\nWe do not guarantee that the Services will be uninterrupted, secure, or error-free, or that any content will always be available or preserved.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": true,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-14",
+        "heading": "Limitation of Liability",
+        "body": "To the maximum extent permitted by law, we and our affiliates, officers, employees, volunteers, and agents will not be liable for any indirect, incidental, consequential, special, or punitive damages, or for any loss of profits, data, goodwill, or business opportunities arising out of or related to your use of the Services or Outputs.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-15",
+        "heading": "Changes to These Terms",
+        "body": "We may update these Terms from time to time. When we do, we will revise the effective date at the top of this page. Continued use of the Services after the updated Terms take effect constitutes your acceptance of the revised Terms. If you do not agree to the updated Terms, you must stop using the Services.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": true,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-16",
+        "heading": "General",
+        "body": "These Terms constitute the entire agreement between you and us regarding the Services and supersede any prior agreements or understandings. If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full force and effect. Our failure to enforce any provision does not constitute a waiver of our right to do so later.",
+        "image": "",
+        "imageAlt": "",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "CTASection",
+      "props": {
+        "id": "CTASection-17",
+        "variant": "banner",
+        "heading": "Questions About These Terms?",
+        "description": "Reach support for help understanding usage boundaries, policy details, and legal context.",
+        "primaryCta": {
+          "label": "Contact Support",
+          "href": "/support-center"
+        },
+        "secondaryCta": {
+          "label": "Back to Home",
+          "href": "/"
+        },
+        "royalStyle": "none"
+      }
+    },
+    {
+      "type": "Footer",
+      "props": {
+        "id": "Footer-18",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "columns": [
+          {
+            "title": "Support",
+            "links": [
+              { "label": "Support Center", "href": "/support-center" },
+              { "label": "Journey", "href": "/testimony" },
+              { "label": "GitHub Profile", "href": "https://github.com/aartisr" }
+            ]
+          },
+          {
+            "title": "Legal",
+            "links": [
+              { "label": "Privacy Policy", "href": "/privacy-policy" },
+              { "label": "Terms of Service", "href": "/terms-of-service" }
+            ]
+          }
+        ],
+        "socialLinks": [],
+        "copyright": "© 2026 Aarti Sri Ravikumar. All rights reserved."
+      }
+    }
+  ]
+}

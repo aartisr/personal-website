@@ -1,0 +1,22 @@
+# Aarti Sri Ravikumar — Student Web3 Portfolio
+
+> A modern, student-led Web3 portfolio focused on open-source projects, research thinking, and intuitive decentralized product design.
+
+## Pages
+
+- / — Student Web3 landing page and portfolio overview
+- /support-center — Web3 support hub and collaboration contact form
+- /testimony — Roadmap and social-proof style progress page
+- /privacy-policy — Data usage and privacy commitments
+- /terms-of-service — Usage terms and legal policy
+
+## Topics
+
+- Student developer profile (Aarti Sri Ravikumar)
+- Web3 learning journey and decentralized product principles
+- Open-source projects and GitHub-first collaboration flow
+- Privacy, trust, and legal transparency
+
+## Contact
+
+- GitHub: https://github.com/aartisr

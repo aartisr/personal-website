@@ -1,0 +1,201 @@
+{
+  "root": {
+    "props": {}
+  },
+  "content": [
+    {
+      "type": "Header",
+      "props": {
+        "id": "Header-0",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "navStyle": "flat",
+        "navItems": [
+          { "label": "Home", "href": "/" },
+          { "label": "Blog", "href": "/#blog" },
+          { "label": "Projects", "href": "https://github.com/aartisr?tab=repositories" },
+          { "label": "Journey", "href": "/testimony" },
+          { "label": "Support", "href": "/support-center" },
+          { "label": "Privacy Policy", "href": "/privacy-policy" },
+          { "label": "Terms of Service", "href": "/terms-of-service" }
+        ],
+        "ctaButton": {
+          "label": "Contact",
+          "href": "/support-center"
+        },
+        "sticky": true
+      }
+    },
+    {
+      "type": "HeroSection",
+      "props": {
+        "id": "HeroSection-1",
+        "variant": "editorial",
+        "heading": "Academic Support Center",
+        "subheading": "Research Portfolio Assistance",
+        "description": "Get fast, clear help with portfolio navigation, project context, collaboration requests, and policy guidance.",
+        "highlights": [
+          { "text": "Single path to support and contact" },
+          { "text": "Clear navigation for students and mentors" },
+          { "text": "Aligned with privacy and terms pages" }
+        ],
+        "proofPoints": [
+          { "value": "4", "label": "Primary support topics" },
+          { "value": "5", "label": "FAQ quick answers" },
+          { "value": "1", "label": "Unified support endpoint" }
+        ],
+        "primaryCta": {
+          "label": "Contact Support",
+          "href": "/support-center"
+        },
+        "secondaryCta": {
+          "label": "Review Research Projects",
+          "href": "https://github.com/aartisr?tab=repositories"
+        },
+        "image": "",
+        "imageAlt": "",
+        "animation": "fade-in",
+        "royalStyle": "none"
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-2",
+        "heading": "How to Use This Support Hub",
+        "body": "Use this page for portfolio support: onboarding, repository context, collaboration pathways, and policy navigation.",
+        "image": "",
+        "imageAlt": "Search support",
+        "reverse": false,
+        "animation": "none",
+        "royalStyle": "none",
+        "stats": []
+      }
+    },
+    {
+      "type": "FeaturesGrid",
+      "props": {
+        "id": "FeaturesGrid-3",
+        "heading": "Popular Support Topics",
+        "description": "Browse support paths for setup, navigation, and collaboration.",
+        "columns": 2,
+        "animation": "slide-up",
+        "royalStyle": "none",
+        "features": [
+          {
+            "icon": "📘",
+            "title": "Getting Started",
+            "description": "Start with the homepage and project links to understand current research focus areas and active experiments."
+          },
+          {
+            "icon": "👤",
+            "title": "Account & Profile",
+            "description": "Use GitHub profile and repository pages as the source of truth for identity, contribution history, and project context."
+          },
+          {
+            "icon": "🤝",
+            "title": "Collaboration",
+            "description": "Find opportunities to collaborate on student-led research and open-source ideas."
+          },
+          {
+            "icon": "📞",
+            "title": "Support Center",
+            "description": "Reach support directly for questions about navigation, contact flow, and policy pages."
+          }
+        ]
+      }
+    },
+    {
+      "type": "FAQSection",
+      "props": {
+        "id": "FAQSection-4",
+        "heading": "Frequently Asked Questions",
+        "description": "Quick answers for students, collaborators, and academic visitors.",
+        "faqs": [
+          {
+            "question": "How do I get started?",
+            "answer": "Start from the homepage, review project highlights, and visit GitHub repositories for live code and progress updates."
+          },
+          {
+            "question": "How do I explore current projects?",
+            "answer": "Open the Projects link to explore active repositories such as fractals and spectral-urbanism."
+          },
+          {
+            "question": "Where can I find Account & Profile help?",
+            "answer": "Use GitHub profile details as the canonical source for student profile, contributions, and repository ownership."
+          },
+          {
+            "question": "How can I collaborate?",
+            "answer": "Use the contact form below and include your idea, domain, and collaboration goal for faster follow-up."
+          },
+          {
+            "question": "How do I contact support directly?",
+            "answer": "Use the Contact Support form below. Our support team is here to help you get the most from this experience."
+          }
+        ]
+      }
+    },
+    {
+      "type": "ContactForm",
+      "props": {
+        "id": "ContactForm-5",
+        "heading": "Still Have Questions?",
+        "description": "Support is available for onboarding, collaboration, and content clarity across this portfolio.",
+        "fields": [
+          { "name": "full_name", "label": "Full Name", "type": "text", "required": true },
+          { "name": "email", "label": "Email Address", "type": "email", "required": true },
+          { "name": "topic", "label": "Support Topic", "type": "text", "required": true },
+          { "name": "message", "label": "How can we help?", "type": "textarea", "required": true }
+        ],
+        "submitEndpoint": "/api/support",
+        "submitLabel": "Contact Support",
+        "successMessage": "Thanks — your request has been received."
+      }
+    },
+    {
+      "type": "CTASection",
+      "props": {
+        "id": "CTASection-6",
+        "variant": "banner",
+        "heading": "Need Policy Details Too?",
+        "description": "Open privacy and terms for transparent usage, safety, and legal context.",
+        "primaryCta": {
+          "label": "Privacy Policy",
+          "href": "/privacy-policy"
+        },
+        "secondaryCta": {
+          "label": "Terms of Service",
+          "href": "/terms-of-service"
+        },
+        "royalStyle": "none"
+      }
+    },
+    {
+      "type": "Footer",
+      "props": {
+        "id": "Footer-7",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "columns": [
+          {
+            "title": "Help",
+            "links": [
+              { "label": "Support Center", "href": "/support-center" },
+              { "label": "Contact Support", "href": "/support-center" },
+              { "label": "GitHub Profile", "href": "https://github.com/aartisr" }
+            ]
+          },
+          {
+            "title": "Legal",
+            "links": [
+              { "label": "Privacy Policy", "href": "/privacy-policy" },
+              { "label": "Terms of Service", "href": "/terms-of-service" }
+            ]
+          }
+        ],
+        "socialLinks": [],
+        "copyright": "© 2026 Aarti Sri Ravikumar. All rights reserved."
+      }
+    }
+  ]
+}

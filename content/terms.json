@@ -1,0 +1,118 @@
+{
+  "root": {
+    "props": {}
+  },
+  "content": [
+    {
+      "type": "Header",
+      "props": {
+        "id": "Header-0",
+        "logo": "",
+        "logoAlt": "Personal Website",
+        "navStyle": "flat",
+        "navItems": [
+          { "label": "Home", "href": "/" },
+          { "label": "Support Center", "href": "/support-center" },
+          { "label": "Testimony", "href": "/testimony" },
+          { "label": "Privacy Policy", "href": "/privacy-policy" },
+          { "label": "Terms of Service", "href": "/terms-of-service" }
+        ],
+        "ctaButton": {
+          "label": "Ask Now",
+          "href": "https://github.com/aartisr"
+        },
+        "sticky": true
+      }
+    },
+    {
+      "type": "HeroSection",
+      "props": {
+        "id": "HeroSection-1",
+        "variant": "minimal-type",
+        "heading": "Terms of Use",
+        "subheading": "Legacy Link",
+        "description": "This page is kept for compatibility. Please use our canonical Terms of Service page for the latest legal terms.",
+        "primaryCta": {
+          "label": "Open Terms of Service",
+          "href": "/terms-of-service"
+        },
+        "secondaryCta": {
+          "label": "Privacy Policy",
+          "href": "/privacy-policy"
+        },
+        "image": "",
+        "imageAlt": "Terms of Use",
+        "animation": "fade-in",
+        "royalStyle": "none"
+      }
+    },
+    {
+      "type": "FeaturesGrid",
+      "props": {
+        "id": "FeaturesGrid-2",
+        "heading": "Need legal details quickly?",
+        "description": "Use these pages for complete, up-to-date information.",
+        "columns": 2,
+        "animation": "slide-up",
+        "royalStyle": "none",
+        "features": [
+          {
+            "icon": "📜",
+            "title": "Terms of Service",
+            "description": "Full service usage terms, AI limitations, disclaimers, and legal responsibilities."
+          },
+          {
+            "icon": "🔒",
+            "title": "Privacy Policy",
+            "description": "Data collection, usage, retention, rights, and contact channels for privacy questions."
+          }
+        ]
+      }
+    },
+    {
+      "type": "CTASection",
+      "props": {
+        "id": "CTASection-3",
+        "variant": "banner",
+        "heading": "Continue to the latest legal pages",
+        "description": "For the most current legal text, use Terms of Service and Privacy Policy.",
+        "primaryCta": {
+          "label": "Terms of Service",
+          "href": "/terms-of-service"
+        },
+        "secondaryCta": {
+          "label": "Privacy Policy",
+          "href": "/privacy-policy"
+        },
+        "royalStyle": "none"
+      }
+    },
+    {
+      "type": "Footer",
+      "props": {
+        "id": "Footer-4",
+        "logo": "",
+        "logoAlt": "Personal Website",
+        "columns": [
+          {
+            "title": "Support",
+            "links": [
+              { "label": "Support Center", "href": "/support-center" },
+              { "label": "Testimony", "href": "/testimony" },
+              { "label": "GitHub Profile", "href": "https://github.com/aartisr" }
+            ]
+          },
+          {
+            "title": "Legal",
+            "links": [
+              { "label": "Privacy Policy", "href": "/privacy-policy" },
+              { "label": "Terms of Service", "href": "/terms-of-service" }
+            ]
+          }
+        ],
+        "socialLinks": [],
+        "copyright": "© 2026 Personal Website. All rights reserved."
+      }
+    }
+  ]
+}

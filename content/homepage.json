@@ -1,0 +1,413 @@
+{
+  "root": {
+    "props": {}
+  },
+  "content": [
+    {
+      "type": "Header",
+      "props": {
+        "id": "Header-0",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "navStyle": "flat",
+        "navItems": [
+          { "label": "Home", "href": "/" },
+          { "label": "Blog", "href": "/#blog" },
+          { "label": "Projects", "href": "https://github.com/aartisr?tab=repositories" },
+          { "label": "Journey", "href": "/testimony" },
+          { "label": "Support", "href": "/support-center" },
+          { "label": "Privacy Policy", "href": "/privacy-policy" },
+          { "label": "Terms of Service", "href": "/terms-of-service" }
+        ],
+        "ctaButton": {
+          "label": "Contact",
+          "href": "/support-center"
+        },
+        "sticky": true
+      }
+    },
+    {
+      "type": "HeroSection",
+      "props": {
+        "id": "HeroSection-1",
+        "variant": "editorial",
+        "heading": "Education. Research. Progressive Product Building.",
+        "subheading": "Aarti Sri Ravikumar • Student Research Portfolio",
+        "description": "Explore academic work and software projects presented with objective language, clear hierarchy, and measurable outcomes.",
+        "highlights": [
+          { "text": "Find key projects in under 30 seconds" },
+          { "text": "Easy to browse on mobile, tablet, and desktop" },
+          { "text": "Support, contact, and policy links in one place" }
+        ],
+        "proofPoints": [
+          { "value": "131+", "label": "GitHub contributions" },
+          { "value": "3+", "label": "Public repositories" },
+          { "value": "2", "label": "Active research tracks" }
+        ],
+        "primaryCta": {
+          "label": "View Research Projects",
+          "href": "https://github.com/aartisr?tab=repositories"
+        },
+        "secondaryCta": {
+          "label": "Read Journey",
+          "href": "/testimony"
+        },
+        "image": "/hero-academic-kindness-minimal.svg",
+        "imageAlt": "Minimal academic research and kindness illustration",
+        "animation": "fade-in",
+        "royalStyle": "none"
+      }
+    },
+    {
+      "type": "LogoCloud",
+      "props": {
+        "id": "LogoCloud-2",
+        "heading": "Research, Engineering, and Collaboration Ecosystem",
+        "logos": [
+          {
+            "src": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+            "alt": "GitHub",
+            "href": "https://github.com/aartisr"
+          },
+          {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Python.svg",
+            "alt": "Python",
+            "href": "https://www.python.org/"
+          },
+          {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+            "alt": "React",
+            "href": "https://react.dev/"
+          },
+          {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+            "alt": "Node.js",
+            "href": "https://nodejs.org/"
+          },
+          {
+            "src": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
+            "alt": "Open Source Learning",
+            "href": "https://github.com/explore"
+          }
+        ]
+      }
+    },
+    {
+      "type": "StatsCounter",
+      "props": {
+        "id": "StatsCounter-3",
+        "animation": "scale-in",
+        "stats": [
+          {
+            "value": "131",
+            "label": "GitHub Contributions",
+            "prefix": "",
+            "suffix": "+"
+          },
+          {
+            "value": "3",
+            "label": "Public Repositories",
+            "prefix": "",
+            "suffix": "+"
+          },
+          {
+            "value": "2",
+            "label": "Research Tracks",
+            "prefix": "",
+            "suffix": ""
+          },
+          {
+            "value": "100",
+            "label": "Progressive Learning Orientation",
+            "prefix": "",
+            "suffix": "%"
+          }
+        ]
+      }
+    },
+    {
+      "type": "FeaturesGrid",
+      "props": {
+        "id": "FeaturesGrid-4",
+        "heading": "Academic and Research Design Principles",
+        "description": "Built for clarity, evidence, and objective communication.",
+        "columns": 3,
+        "animation": "slide-up",
+        "royalStyle": "none",
+        "features": [
+          {
+            "icon": "▣",
+            "title": "Scannable Information Hierarchy",
+            "description": "Clear headings, concise sections, and structured pathways reduce cognitive load for reviewers."
+          },
+          {
+            "icon": "◉",
+            "title": "Evidence-Oriented Communication",
+            "description": "Content emphasizes objective results, process transparency, and reproducible project thinking."
+          },
+          {
+            "icon": "◌",
+            "title": "Research to Application Pipeline",
+            "description": "Concepts move from exploration to implementation through disciplined iteration."
+          },
+          {
+            "icon": "◈",
+            "title": "Academic Trust Signals",
+            "description": "Consistent navigation, policy visibility, and contextual documentation strengthen credibility."
+          },
+          {
+            "icon": "◎",
+            "title": "Accessible, Inclusive UX",
+            "description": "High-contrast visual language and predictable interaction patterns support wider audiences."
+          },
+          {
+            "icon": "◇",
+            "title": "Progressive Orientation",
+            "description": "The portfolio evolves continuously with measurable milestones and reflective updates."
+          }
+        ]
+      }
+    },
+    {
+      "type": "TimelineSection",
+      "props": {
+        "id": "TimelineSection-5",
+        "heading": "Academic Growth Timeline",
+        "description": "Milestones from foundational learning to applied research.",
+        "variant": "alternating",
+        "animation": "slide-up",
+        "royalStyle": "none",
+        "items": [
+          {
+            "year": "2025",
+            "title": "Foundation Stage",
+            "description": "Established a structured portfolio baseline and documented initial project outputs.",
+            "image": ""
+          },
+          {
+            "year": "2026",
+            "title": "Research and Systems Expansion",
+            "description": "Expanded into stronger architecture, methodology-led development, and reusable systems.",
+            "image": ""
+          },
+          {
+            "year": "Now",
+            "title": "Progressive Impact",
+            "description": "Driving collaborative projects that balance technical depth, clarity, and practical relevance.",
+            "image": ""
+          }
+        ]
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-6",
+        "heading": "Academic Profile",
+        "body": "I am a student at Pioneer Charter School of Science II (PCSS-II), Saugus, Massachusetts.\n\nMy focus combines academic rigor, research curiosity, and implementation discipline to turn ideas into practical systems.\n\nThis website is designed as a clear, professional research portfolio for mentors, peers, and collaborators.",
+        "image": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "imageAlt": "Aarti Sri Ravikumar",
+        "reverse": true,
+        "animation": "",
+        "royalStyle": "corners",
+        "stats": [
+          {
+            "value": "PCSS-II",
+            "label": "School"
+          },
+          {
+            "value": "Saugus, MA",
+            "label": "Location"
+          },
+          {
+            "value": "Student Builder",
+            "label": "Identity"
+          }
+        ]
+      }
+    },
+    {
+      "type": "BlogSection",
+      "props": {
+        "id": "BlogSection-7",
+        "anchorId": "blog",
+        "heading": "Blog",
+        "description": "Key destinations for evaluating work quality, direction, and trust.",
+        "posts": [
+          {
+            "title": "Featured Projects",
+            "excerpt": "A curated set of repositories and active research-driven software experiments.",
+            "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=80",
+            "imageAlt": "Coding setup",
+            "date": "2026-03-07",
+            "href": "https://github.com/aartisr?tab=repositories"
+          },
+          {
+            "title": "Academic Journey",
+            "excerpt": "Track milestones, direction, and progress across the current learning journey.",
+            "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
+            "imageAlt": "Journey Planning Board",
+            "date": "2026-03-07",
+            "href": "/testimony"
+          },
+          {
+            "title": "Support Center",
+            "excerpt": "Connect for collaboration inquiries, mentorship pathways, and project feedback.",
+            "image": "https://images.unsplash.com/photo-1522071901873-411886a10004?w=1200&q=80",
+            "imageAlt": "Team collaboration",
+            "date": "2026-03-07",
+            "href": "/support-center"
+          },
+          {
+            "title": "Privacy & Terms",
+            "excerpt": "Review transparent policy and usage standards supporting responsible engagement.",
+            "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80",
+            "imageAlt": "Legal documents",
+            "date": "2026-03-07",
+            "href": "/privacy-policy"
+          }
+        ]
+      }
+    },
+    {
+      "type": "TestimonialsSection",
+      "props": {
+        "id": "TestimonialsSection-8",
+        "heading": "Research Principles",
+        "royalStyle": "none",
+        "testimonials": [
+          {
+            "quote": "I focus on objective, evidence-led execution where design and engineering decisions are explainable.",
+            "name": "Aarti Sri Ravikumar",
+            "role": "Student Researcher",
+            "avatar": "https://avatars.githubusercontent.com/u/166765628?v=4"
+          },
+          {
+            "quote": "Good engineering is disciplined simplicity: robust enough to scale, clear enough to teach.",
+            "name": "Aarti Sri Ravikumar",
+            "role": "Academic Builder",
+            "avatar": "https://avatars.githubusercontent.com/u/166765628?v=4"
+          },
+          {
+            "quote": "Every project follows a progressive cycle: investigate, prototype, validate, and improve.",
+            "name": "Aarti Sri Ravikumar",
+            "role": "Continuous Learner",
+            "avatar": "https://avatars.githubusercontent.com/u/166765628?v=4"
+          }
+        ]
+      }
+    },
+    {
+      "type": "CTASection",
+      "props": {
+        "id": "CTASection-9",
+        "variant": "split",
+        "heading": "Open to Academic and Research Collaboration",
+        "description": "Open to student research collaborations, interdisciplinary projects, and progressive product thinking.",
+        "primaryCta": {
+          "label": "Review GitHub Profile",
+          "href": "https://github.com/aartisr"
+        },
+        "secondaryCta": {
+          "label": "Contact Support",
+          "href": "/support-center"
+        },
+        "royalStyle": "corners"
+      }
+    },
+    {
+      "type": "FAQSection",
+      "props": {
+        "id": "FAQSection-10",
+        "heading": "Frequently Asked Questions",
+        "description": "Quick answers for collaborators, reviewers, and visitors.",
+        "faqs": [
+          {
+            "question": "What is the purpose of this site?",
+            "answer": "This is a professional student portfolio that presents projects, direction, and collaboration channels in one place."
+          },
+          {
+            "question": "How can I review technical work quickly?",
+            "answer": "Start with the Projects section and GitHub repositories, then check the journey page for context and progress."
+          },
+          {
+            "question": "How do collaboration requests work?",
+            "answer": "Use the Support page and include your project idea, scope, and expected timeline."
+          },
+          {
+            "question": "Is this portfolio actively updated?",
+            "answer": "Yes. New progress, documentation, and structural improvements are published continuously."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Footer",
+      "props": {
+        "id": "Footer-11",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "columns": [
+          {
+            "title": "Portfolio",
+            "links": [
+              {
+                "label": "GitHub Profile",
+                "href": "https://github.com/aartisr"
+              },
+              {
+                "label": "Research Projects",
+                "href": "https://github.com/aartisr?tab=repositories"
+              },
+              {
+                "label": "Journey",
+                "href": "/testimony"
+              }
+            ]
+          },
+          {
+            "title": "Support",
+            "links": [
+              {
+                "label": "Support Center",
+                "href": "/support-center"
+              },
+              {
+                "label": "Privacy Policy",
+                "href": "/privacy-policy"
+              },
+              {
+                "label": "Terms of Service",
+                "href": "/terms-of-service"
+              }
+            ]
+          },
+          {
+            "title": "Trust",
+            "links": [
+              {
+                "label": "Privacy Policy",
+                "href": "/privacy-policy"
+              },
+              {
+                "label": "Terms of Service",
+                "href": "/terms-of-service"
+              }
+            ]
+          }
+        ],
+        "socialLinks": [
+          {
+            "platform": "instagram",
+            "url": "https://www.instagram.com/pcssii/"
+          },
+          {
+            "platform": "youtube",
+            "url": "https://www.youtube.com/user/PCSSII"
+          }
+        ],
+        "copyright": "© 2026 Aarti Sri Ravikumar. All rights reserved."
+      }
+    }
+  ]
+}
