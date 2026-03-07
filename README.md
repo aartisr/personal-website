@@ -31,6 +31,23 @@ Open `http://localhost:3000` for the site.
 - `http://localhost:3000/admin/edit` — edit homepage
 - `http://localhost:3000/admin/edit/<slug>` — edit any page by slug
 
+## Admin Protection
+
+Admin routes and editor APIs are protected with HTTP Basic Auth via middleware:
+
+- `/admin/*`
+- `/api/pages`
+- `/api/page/*`
+
+Set these environment variables before running the app:
+
+```bash
+ADMIN_USERNAME=your_admin_username
+ADMIN_PASSWORD=your_strong_password
+```
+
+If these values are missing, protected routes return `500` until configured.
+
 ## Key Content Pages
 
 - `/` — homepage (student portfolio)
