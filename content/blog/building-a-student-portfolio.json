@@ -1,0 +1,14 @@
+{
+  "title": "Building a Student Portfolio That Actually Gets Read",
+  "excerpt": "A practical structure for making project work easy to scan for mentors, teachers, and collaborators.",
+  "date": "2026-03-06",
+  "author": "Aarti Sri Ravikumar",
+  "tags": ["portfolio", "students", "ux"],
+  "coverImage": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&q=80",
+  "body": [
+    "Most student portfolios fail because they optimize for completeness instead of clarity. Reviewers rarely read everything; they scan for signal.",
+    "I use a simple structure: one-line project summary, problem statement, approach, measurable outcome, and link to code. This keeps each project understandable in under a minute.",
+    "For design, consistency matters more than visual complexity. Repeated layout patterns reduce cognitive load and make your work feel more credible.",
+    "If you want your portfolio to be useful, treat it like a product: observe how people use it, then iterate quickly."
+  ]
+}

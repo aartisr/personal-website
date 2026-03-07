@@ -1,0 +1,14 @@
+{
+  "title": "Why Clear Writing Improves Code Quality",
+  "excerpt": "Writing decisions down early catches architecture mistakes before they become implementation debt.",
+  "date": "2026-01-28",
+  "author": "Aarti Sri Ravikumar",
+  "tags": ["writing", "architecture", "quality"],
+  "coverImage": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=80",
+  "body": [
+    "When I cannot explain a design decision in plain language, that usually means I do not understand it well enough yet.",
+    "Short design notes force better thinking: constraints, trade-offs, and fallback options become visible before coding starts.",
+    "This habit reduces rework because assumptions are explicit. It also makes collaboration easier because decisions are shareable.",
+    "Good writing is not separate from engineering; it is part of engineering quality control."
+  ]
+}

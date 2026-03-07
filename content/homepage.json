@@ -12,7 +12,7 @@
         "navStyle": "flat",
         "navItems": [
           { "label": "Home", "href": "/" },
-          { "label": "Blog", "href": "/#blog" },
+          { "label": "Blog", "href": "/blog" },
           { "label": "Projects", "href": "https://github.com/aartisr?tab=repositories" },
           { "label": "Journey", "href": "/testimony" },
           { "label": "Support", "href": "/support-center" },
@@ -235,36 +235,28 @@
         "description": "Key destinations for evaluating work quality, direction, and trust.",
         "posts": [
           {
-            "title": "Featured Projects",
-            "excerpt": "A curated set of repositories and active research-driven software experiments.",
-            "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=80",
-            "imageAlt": "Coding setup",
-            "date": "2026-03-07",
-            "href": "https://github.com/aartisr?tab=repositories"
+            "title": "Building a Student Portfolio That Actually Gets Read",
+            "excerpt": "A practical structure for making project work easy to scan for mentors, teachers, and collaborators.",
+            "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&q=80",
+            "imageAlt": "Student portfolio planning",
+            "date": "2026-03-06",
+            "href": "/blog/building-a-student-portfolio"
           },
           {
-            "title": "Academic Journey",
-            "excerpt": "Track milestones, direction, and progress across the current learning journey.",
-            "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80",
-            "imageAlt": "Journey Planning Board",
-            "date": "2026-03-07",
-            "href": "/testimony"
+            "title": "From Research Notes to Shipped Features",
+            "excerpt": "How I move ideas from exploration into implementation without losing rigor.",
+            "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1600&q=80",
+            "imageAlt": "Research to implementation workflow",
+            "date": "2026-02-20",
+            "href": "/blog/research-to-shipping"
           },
           {
-            "title": "Support Center",
-            "excerpt": "Connect for collaboration inquiries, mentorship pathways, and project feedback.",
-            "image": "https://images.unsplash.com/photo-1522071901873-411886a10004?w=1200&q=80",
-            "imageAlt": "Team collaboration",
-            "date": "2026-03-07",
-            "href": "/support-center"
-          },
-          {
-            "title": "Privacy & Terms",
-            "excerpt": "Review transparent policy and usage standards supporting responsible engagement.",
-            "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80",
-            "imageAlt": "Legal documents",
-            "date": "2026-03-07",
-            "href": "/privacy-policy"
+            "title": "Why Clear Writing Improves Code Quality",
+            "excerpt": "Writing decisions down early catches architecture mistakes before they become implementation debt.",
+            "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=80",
+            "imageAlt": "Writing and software quality",
+            "date": "2026-01-28",
+            "href": "/blog/why-clear-writing-improves-code"
           }
         ]
       }

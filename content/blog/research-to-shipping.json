@@ -1,0 +1,14 @@
+{
+  "title": "From Research Notes to Shipped Features",
+  "excerpt": "How I move ideas from exploration into implementation without losing rigor.",
+  "date": "2026-02-20",
+  "author": "Aarti Sri Ravikumar",
+  "tags": ["research", "engineering", "workflow"],
+  "coverImage": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1600&q=80",
+  "body": [
+    "I used to keep research and coding as separate tracks. That made progress feel slow and disconnected.",
+    "Now I run a short loop: define a hypothesis, build the smallest testable prototype, record outcomes, and decide whether to iterate or discard.",
+    "This process keeps exploration disciplined while still moving quickly. It also creates useful documentation by default.",
+    "The result is better decision quality and less time spent building things that do not survive first contact with users."
+  ]
+}
