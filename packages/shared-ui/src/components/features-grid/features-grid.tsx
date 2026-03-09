@@ -1,6 +1,7 @@
 "use client";
 
 import { Icon } from "../icon-map";
+import "./features-grid.css";
 import { type AnimationType, useScrollReveal, getRevealStyles } from "../scroll-reveal";
 import type { RoyalStyle } from "../royal/types";
 import { YantraBackground } from "../royal/yantra-background";
@@ -40,8 +41,7 @@ export function FeaturesGrid({
   return (
     <section
       ref={ref}
-      className="relative py-20 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundColor: "var(--background)" }}
+      className="relative py-20 px-4 sm:px-6 lg:px-8 features-grid-section"
     >
       {royalStyle !== "none" && <YantraBackground royalStyle={royalStyle} />}
       <div className="max-w-7xl mx-auto">
@@ -49,18 +49,12 @@ export function FeaturesGrid({
         {(heading || description) && (
           <div className="text-center mb-14">
             {heading && (
-              <h2
-                className="text-3xl sm:text-4xl font-bold"
-                style={{ color: "var(--text-primary)" }}
-              >
+              <h2 className="text-3xl sm:text-4xl font-bold features-grid-heading">
                 {heading}
               </h2>
             )}
             {description && (
-              <p
-                className="mt-4 text-lg max-w-2xl mx-auto"
-                style={{ color: "var(--text-secondary)" }}
-              >
+              <p className="mt-4 text-lg max-w-2xl mx-auto features-grid-description">
                 {description}
               </p>
             )}
@@ -72,37 +66,18 @@ export function FeaturesGrid({
           {features.map((feature, index) => (
             <div
               key={index}
-              className="flex flex-col p-6 rounded-2xl"
-              style={{
-                backgroundColor: "var(--surface)",
-                border: royalStyle === "ornate"
-                  ? "1px solid var(--royal-gold)"
-                  : "1px solid var(--border)",
-                ...getRevealStyles(animation, isVisible),
-                transitionDelay: isVisible ? `${index * 100}ms` : "0ms",
-              }}
+              className={`flex flex-col p-6 rounded-2xl features-grid-card${royalStyle === "ornate" ? " ornate" : ""} ${isVisible ? "features-grid-reveal" : ""}`}
+              data-transition-delay={isVisible ? `${index * 100}` : "0"}
             >
               {feature.icon && (
-                <div
-                  className="text-3xl mb-4 w-12 h-12 flex items-center justify-center rounded-xl"
-                  style={{
-                    backgroundColor: "color-mix(in oklch, var(--primary) 12%, transparent)",
-                    color: "var(--primary)",
-                  }}
-                >
+                <div className="text-3xl mb-4 w-12 h-12 flex items-center justify-center rounded-xl features-grid-icon">
                   <Icon name={feature.icon} size={24} />
                 </div>
               )}
-              <h3
-                className="text-lg font-semibold mb-2"
-                style={{ color: "var(--text-primary)" }}
-              >
+              <h3 className="text-lg font-semibold mb-2 features-grid-title">
                 {feature.title}
               </h3>
-              <p
-                className="text-sm leading-relaxed"
-                style={{ color: "var(--text-secondary)" }}
-              >
+              <p className="text-sm leading-relaxed features-grid-description-text">
                 {feature.description}
               </p>
             </div>

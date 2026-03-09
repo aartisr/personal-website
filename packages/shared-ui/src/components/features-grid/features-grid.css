@@ -1,0 +1,34 @@
+.features-grid-section {
+  background-color: var(--background);
+}
+
+.features-grid-heading {
+  color: var(--text-primary);
+}
+
+.features-grid-description {
+  color: var(--text-secondary);
+}
+
+.features-grid-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.features-grid-card.ornate {
+  border: 1px solid var(--royal-gold);
+}
+
+.features-grid-icon {
+  background-color: color-mix(in oklch, var(--primary) 12%, transparent);
+  color: var(--primary);
+}
+
+.features-grid-title {
+  color: var(--text-primary);
+}
+
+.features-grid-description-text {
+  color: var(--text-secondary);
+}

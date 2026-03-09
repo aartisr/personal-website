@@ -1,0 +1,51 @@
+.cta-section-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, color-mix(in oklch, var(--primary) 70%, var(--secondary, #6366f1)) 100%);
+}
+
+.cta-section-banner-heading {
+  color: #fff;
+  z-index: 2;
+}
+
+.cta-section-banner-description {
+  color: rgba(255,255,255,0.85);
+  z-index: 2;
+}
+
+.cta-section-banner-buttons {
+  z-index: 2;
+}
+
+.cta-section-banner-primary {
+  background: #fff;
+  color: var(--primary);
+}
+
+.cta-section-banner-secondary {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.5);
+}
+
+.cta-section-split {
+  background: var(--card);
+}
+
+.cta-section-split-heading {
+  color: var(--foreground);
+}
+
+.cta-section-split-description {
+  color: var(--muted-foreground);
+}
+
+.cta-section-split-primary {
+  background: var(--primary);
+  color: var(--primary-foreground, #fff);
+}
+
+.cta-section-split-secondary {
+  background: transparent;
+  color: var(--foreground);
+  border: 1.5px solid var(--border);
+}

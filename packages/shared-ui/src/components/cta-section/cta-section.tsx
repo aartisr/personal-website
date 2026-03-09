@@ -2,6 +2,7 @@ import React from "react";
 import type { RoyalStyle } from "../royal/types";
 import { RoyalCorners } from "../royal/royal-corners";
 import { YantraBackground } from "../royal/yantra-background";
+import "./cta-section.css";
 
 export type CtaLink = {
   label: string;
@@ -21,11 +22,7 @@ function PrimaryButton({ label, href }: CtaLink) {
   return (
     <a
       href={href}
-      className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98]"
-      style={{
-        background: "var(--primary)",
-        color: "var(--primary-foreground, #fff)",
-      }}
+      className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98] cta-section-split-primary"
     >
       {label}
     </a>
@@ -36,12 +33,7 @@ function SecondaryButton({ label, href }: CtaLink) {
   return (
     <a
       href={href}
-      className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-80 active:scale-[0.98]"
-      style={{
-        background: "transparent",
-        color: "var(--foreground)",
-        border: "1.5px solid var(--border)",
-      }}
+      className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-80 active:scale-[0.98] cta-section-split-secondary"
     >
       {label}
     </a>
@@ -59,35 +51,22 @@ export function CtaSection({
   if (variant === "banner") {
     return (
       <section className="w-full py-20 px-4">
-        <div
-          className="relative max-w-5xl mx-auto rounded-3xl px-8 py-16 text-center overflow-hidden"
-          style={{
-            background:
-              "linear-gradient(135deg, var(--primary) 0%, color-mix(in oklch, var(--primary) 70%, var(--secondary, #6366f1)) 100%)",
-          }}
-        >
+        <div className="relative max-w-5xl mx-auto rounded-3xl px-8 py-16 text-center overflow-hidden cta-section-banner">
           {royalStyle !== "none" && <YantraBackground royalStyle={royalStyle} />}
           {royalStyle !== "none" && <RoyalCorners royalStyle={royalStyle} />}
-          <h2
-            className="relative text-3xl md:text-4xl font-bold tracking-tight mb-4"
-            style={{ color: "#fff", zIndex: 2 }}
-          >
+          <h2 className="relative text-3xl md:text-4xl font-bold tracking-tight mb-4 cta-section-banner-heading">
             {heading}
           </h2>
           {description && (
-            <p
-              className="relative text-base md:text-lg mb-8 max-w-xl mx-auto leading-relaxed"
-              style={{ color: "rgba(255,255,255,0.85)", zIndex: 2 }}
-            >
+            <p className="relative text-base md:text-lg mb-8 max-w-xl mx-auto leading-relaxed cta-section-banner-description">
               {description}
             </p>
           )}
-          <div className="relative flex flex-col sm:flex-row gap-3 justify-center" style={{ zIndex: 2 }}>
+          <div className="relative flex flex-col sm:flex-row gap-3 justify-center cta-section-banner-buttons">
             {primaryCta?.label && (
               <a
                 href={primaryCta.href}
-                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98]"
-                style={{ background: "#fff", color: "var(--primary)" }}
+                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98] cta-section-banner-primary"
               >
                 {primaryCta.label}
               </a>
@@ -95,12 +74,7 @@ export function CtaSection({
             {secondaryCta?.label && (
               <a
                 href={secondaryCta.href}
-                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:bg-white/10 active:scale-[0.98]"
-                style={{
-                  background: "transparent",
-                  color: "#fff",
-                  border: "1.5px solid rgba(255,255,255,0.5)",
-                }}
+                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:bg-white/10 active:scale-[0.98] cta-section-banner-secondary"
               >
                 {secondaryCta.label}
               </a>
@@ -113,24 +87,15 @@ export function CtaSection({
 
   // Split variant
   return (
-    <section
-      className="w-full py-16 px-4"
-      style={{ background: "var(--card)" }}
-    >
+    <section className="w-full py-16 px-4 cta-section-split">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Text side */}
         <div className="flex-1 max-w-xl">
-          <h2
-            className="text-2xl md:text-3xl font-bold tracking-tight mb-3"
-            style={{ color: "var(--foreground)" }}
-          >
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3 cta-section-split-heading">
             {heading}
           </h2>
           {description && (
-            <p
-              className="text-base leading-relaxed"
-              style={{ color: "var(--muted-foreground)" }}
-            >
+            <p className="text-base leading-relaxed cta-section-split-description">
               {description}
             </p>
           )}

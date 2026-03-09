@@ -1,4 +1,5 @@
 import React from "react";
+import "./footer.css";
 
 export type FooterLink = {
   label: string;
@@ -71,11 +72,7 @@ export function Footer({
 }: FooterProps) {
   return (
     <footer
-      className="w-full pt-16 pb-8 px-4"
-      style={{
-        background: "var(--footer-bg, var(--card))",
-        borderTop: "1px solid var(--border)",
-      }}
+      className="w-full pt-16 pb-8 px-4 footer"
     >
       <div className="max-w-6xl mx-auto">
         {/* Top section: logo + columns */}
@@ -99,11 +96,7 @@ export function Footer({
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.platform}
-                    className="flex items-center justify-center w-9 h-9 rounded-full transition-all hover:scale-110"
-                    style={{
-                      background: "var(--muted, rgba(0,0,0,0.06))",
-                      color: "var(--muted-foreground)",
-                    }}
+                    className="flex items-center justify-center w-9 h-9 rounded-full footer-social-link"
                   >
                     <SocialIcon platform={social.platform} />
                   </a>
@@ -115,10 +108,7 @@ export function Footer({
           {/* Link columns */}
           {columns.map((col, colIndex) => (
             <div key={colIndex}>
-              <h3
-                className="text-xs font-semibold uppercase tracking-widest mb-4"
-                style={{ color: "var(--foreground)" }}
-              >
+              <h3 className="text-xs font-semibold uppercase tracking-widest mb-4 footer-column-title">
                 {col.title}
               </h3>
               <ul className="flex flex-col gap-2.5">
@@ -126,8 +116,7 @@ export function Footer({
                   <li key={linkIndex}>
                     <a
                       href={link.href}
-                      className="text-sm transition-colors hover:underline"
-                      style={{ color: "var(--muted-foreground)" }}
+                      className="text-sm footer-link"
                     >
                       {link.label}
                     </a>
@@ -139,14 +128,8 @@ export function Footer({
         </div>
 
         {/* Bottom bar */}
-        <div
-          className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
-          style={{ borderTop: "1px solid var(--border)" }}
-        >
-          <p
-            className="text-xs"
-            style={{ color: "var(--muted-foreground)" }}
-          >
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 footer-bottom-bar">
+          <p className="text-xs footer-copyright">
             {resolveCopyright(copyright)}
           </p>
         </div>

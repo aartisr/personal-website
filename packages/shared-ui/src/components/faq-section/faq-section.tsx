@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import "./faq-section.css";
 
 export type FAQ = {
   question: string;
@@ -24,33 +25,19 @@ function AccordionItem({
 }) {
   return (
     <div
-      className="rounded-xl overflow-hidden"
-      style={{
-        border: "1px solid var(--border)",
-        backgroundColor: isOpen ? "var(--surface)" : "transparent",
-        transition: "background-color 0.2s",
-      }}
+      className={`faq-accordion-item${isOpen ? " open" : ""}`}
     >
       <button
         type="button"
         className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
         onClick={onToggle}
-        aria-expanded={isOpen}
+        aria-expanded={isOpen ? "true" : "false"}
       >
-        <span
-          className="text-base font-semibold leading-snug"
-          style={{ color: "var(--text-primary)" }}
-        >
+        <span className="text-base font-semibold leading-snug faq-accordion-question">
           {faq.question}
         </span>
         <span
-          className="shrink-0 w-6 h-6 flex items-center justify-center rounded-full transition-transform duration-200"
-          style={{
-            backgroundColor:
-              "color-mix(in oklch, var(--primary) 12%, transparent)",
-            color: "var(--primary)",
-            transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
-          }}
+          className={`shrink-0 w-6 h-6 flex items-center justify-center rounded-full transition-transform duration-200 faq-accordion-icon${isOpen ? " open" : " closed"}`}
           aria-hidden="true"
         >
           <svg
@@ -64,18 +51,9 @@ function AccordionItem({
       </button>
 
       {/* Answer panel */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateRows: isOpen ? "1fr" : "0fr",
-          transition: "grid-template-rows 0.25s ease",
-        }}
-      >
+      <div className={`faq-accordion-panel${isOpen ? " open" : " closed"}`}>
         <div className="overflow-hidden">
-          <p
-            className="px-6 pb-5 text-sm leading-relaxed"
-            style={{ color: "var(--text-secondary)" }}
-          >
+          <p className="px-6 pb-5 text-sm leading-relaxed faq-accordion-answer">
             {faq.answer}
           </p>
         </div>
@@ -93,26 +71,19 @@ export function FAQSection({ heading, description, faqs }: FAQSectionProps) {
 
   return (
     <section
-      className="py-20 px-4 sm:px-6 lg:px-8"
-      style={{ backgroundColor: "var(--background)" }}
+      className="py-20 px-4 sm:px-6 lg:px-8 faq-section"
     >
       <div className="max-w-3xl mx-auto">
         {/* Section header */}
         {(heading || description) && (
           <div className="text-center mb-12">
             {heading && (
-              <h2
-                className="text-3xl sm:text-4xl font-bold"
-                style={{ color: "var(--text-primary)" }}
-              >
+              <h2 className="text-3xl sm:text-4xl font-bold faq-section-heading">
                 {heading}
               </h2>
             )}
             {description && (
-              <p
-                className="mt-4 text-lg"
-                style={{ color: "var(--text-secondary)" }}
-              >
+              <p className="mt-4 text-lg faq-section-description">
                 {description}
               </p>
             )}

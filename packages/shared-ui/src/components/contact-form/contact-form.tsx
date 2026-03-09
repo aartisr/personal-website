@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import "./contact-form.css";
 
 export type ContactFormField = {
   name: string;
@@ -85,21 +86,15 @@ export function ContactForm({
   }
 
   return (
-    <section className="w-full py-16 px-4">
+    <section className="contact-form-section">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="mb-10 text-center">
-          <h2
-            className="text-3xl font-bold tracking-tight mb-3"
-            style={{ color: "var(--foreground)" }}
-          >
+          <h2 className="contact-form-section-heading text-3xl font-bold tracking-tight mb-3">
             {heading}
           </h2>
           {description && (
-            <p
-              className="text-base leading-relaxed"
-              style={{ color: "var(--muted-foreground)" }}
-            >
+            <p className="contact-form-section-description text-base leading-relaxed">
               {description}
             </p>
           )}
@@ -107,17 +102,8 @@ export function ContactForm({
 
         {/* Success state */}
         {submitted ? (
-          <div
-            className="rounded-2xl p-8 text-center"
-            style={{
-              background: "var(--primary-subtle, color-mix(in oklch, var(--primary) 10%, transparent))",
-              border: "1px solid color-mix(in oklch, var(--primary) 30%, transparent)",
-            }}
-          >
-            <div
-              className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4"
-              style={{ background: "var(--primary)" }}
-            >
+          <div className="rounded-2xl p-8 text-center contact-form-section-success">
+            <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 contact-form-section-success-icon">
               <svg
                 width="24"
                 height="24"
@@ -131,27 +117,19 @@ export function ContactForm({
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <p
-              className="text-lg font-semibold"
-              style={{ color: "var(--foreground)" }}
-            >
+            <p className="text-lg font-semibold contact-form-section-success-message">
               {successMessage}
             </p>
           </div>
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-5"
+            className="contact-form-section-fields flex flex-col gap-5"
             noValidate
           >
             {errorMessage ? (
               <div
-                className="rounded-xl px-4 py-3 text-sm"
-                style={{
-                  background: "color-mix(in oklch, var(--destructive) 10%, transparent)",
-                  border: "1px solid color-mix(in oklch, var(--destructive) 35%, transparent)",
-                  color: "var(--foreground)",
-                }}
+                className="rounded-xl px-4 py-3 text-sm contact-form-section-error"
                 role="alert"
                 aria-live="polite"
               >
@@ -160,17 +138,15 @@ export function ContactForm({
             ) : null}
 
             {fields.map((field) => (
-              <div key={field.name} className="flex flex-col gap-1.5">
+              <div key={field.name} className="contact-form-section-field flex flex-col gap-1.5">
                 <label
                   htmlFor={field.name}
-                  className="text-sm font-medium"
-                  style={{ color: "var(--foreground)" }}
+                  className="contact-form-section-label text-sm font-medium"
                 >
                   {field.label}
                   {field.required && (
                     <span
                       className="ml-1"
-                      style={{ color: "var(--primary)" }}
                       aria-hidden="true"
                     >
                       *
@@ -187,21 +163,7 @@ export function ContactForm({
                     value={values[field.name] ?? ""}
                     disabled={submitting}
                     onChange={handleChange}
-                    className="w-full rounded-xl px-4 py-3 text-sm resize-none outline-none transition-all"
-                    style={{
-                      background: "var(--card)",
-                      border: "1px solid var(--border)",
-                      color: "var(--foreground)",
-                    }}
-                    onFocus={(e) => {
-                      e.currentTarget.style.borderColor = "var(--primary)";
-                      e.currentTarget.style.boxShadow =
-                        "0 0 0 3px color-mix(in oklch, var(--primary) 15%, transparent)";
-                    }}
-                    onBlur={(e) => {
-                      e.currentTarget.style.borderColor = "var(--border)";
-                      e.currentTarget.style.boxShadow = "none";
-                    }}
+                    className="contact-form-section-textarea w-full rounded-xl px-4 py-3 text-sm resize-none outline-none transition-all"
                   />
                 ) : (
                   <input
@@ -212,21 +174,7 @@ export function ContactForm({
                     value={values[field.name] ?? ""}
                     disabled={submitting}
                     onChange={handleChange}
-                    className="w-full rounded-xl px-4 py-3 text-sm outline-none transition-all"
-                    style={{
-                      background: "var(--card)",
-                      border: "1px solid var(--border)",
-                      color: "var(--foreground)",
-                    }}
-                    onFocus={(e) => {
-                      e.currentTarget.style.borderColor = "var(--primary)";
-                      e.currentTarget.style.boxShadow =
-                        "0 0 0 3px color-mix(in oklch, var(--primary) 15%, transparent)";
-                    }}
-                    onBlur={(e) => {
-                      e.currentTarget.style.borderColor = "var(--border)";
-                      e.currentTarget.style.boxShadow = "none";
-                    }}
+                    className="contact-form-section-input w-full rounded-xl px-4 py-3 text-sm outline-none transition-all"
                   />
                 )}
               </div>
@@ -235,13 +183,7 @@ export function ContactForm({
             <button
               type="submit"
               disabled={submitting}
-              className="mt-2 w-full rounded-full py-3.5 px-8 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98]"
-              style={{
-                background: "var(--primary)",
-                color: "var(--primary-foreground, #fff)",
-                opacity: submitting ? 0.75 : 1,
-                cursor: submitting ? "not-allowed" : "pointer",
-              }}
+              className="contact-form-section-button mt-2 w-full rounded-full py-3.5 px-8 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98]"
             >
               {submitting ? "Submitting..." : submitLabel}
             </button>

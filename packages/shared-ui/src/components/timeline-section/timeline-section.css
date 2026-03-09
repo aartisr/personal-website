@@ -1,0 +1,51 @@
+.timeline-section {
+  background-color: var(--background);
+}
+
+.timeline-section-heading {
+  color: var(--text-primary);
+}
+
+.timeline-section-description {
+  color: var(--text-secondary);
+}
+
+.timeline-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.timeline-card.ornate {
+  border: 1px solid var(--royal-gold);
+}
+
+.timeline-card-year {
+  background-color: color-mix(in oklch, var(--primary) 12%, transparent);
+  color: var(--primary);
+}
+
+.timeline-card-title {
+  color: var(--text-primary);
+}
+
+.timeline-card-description {
+  color: var(--text-secondary);
+  padding-top: 0.25rem;
+  padding-bottom: 0.5rem;
+}
+
+.timeline-card-expand {
+  display: grid;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.timeline-card-expand.expanded {
+  grid-template-rows: 1fr;
+}
+
+.timeline-card-expand.collapsed {
+  grid-template-rows: 0fr;
+}

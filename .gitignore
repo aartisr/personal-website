@@ -1,43 +1,82 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+###############################################################################
+# Efficient & Generic .gitignore for Monorepo, Node.js, Next.js, and Common Tools
+###############################################################################
 
-# dependencies
-node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+# Node.js dependencies
+node_modules/
+apps/*/node_modules/
+packages/*/node_modules/
 
-# testing
-/coverage
+# Build outputs
+build/
+dist/
+apps/*/build/
+apps/*/dist/
+packages/*/build/
+packages/*/dist/
 
-# next.js
-/.next/
-/out/
+# Next.js
+.next/
+out/
+apps/*/.next/
+apps/*/out/
+packages/*/.next/
+packages/*/out/
 
-# production
-/build
+# Coverage & test
+coverage/
+apps/*/coverage/
+packages/*/coverage/
 
-# misc
-.DS_Store
-*.pem
+# Cache & diagnostics
+cache/
+dev/
+diagnostics/
+standalone/
+apps/*/cache/
+packages/*/cache/
 
-# debug
+# Logs
+logs/
+*.log
+apps/*/*.log
+packages/*/*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# Environment & config
 .env*
+apps/*/.env*
+packages/*/.env*
+local.env*
+*.local
+.vercel/
 
-# vercel
-.vercel
+# IDE/editor
+.vscode/
+.idea/
+.history/
+.DS_Store
+apps/*/.DS_Store
+packages/*/.DS_Store
 
-# typescript
+# Lock files (except root)
+apps/*/package-lock.json
+apps/*/bun.lock
+apps/*/yarn.lock
+packages/*/package-lock.json
+packages/*/bun.lock
+packages/*/yarn.lock
+
+# TypeScript
 *.tsbuildinfo
+apps/*/*.tsbuildinfo
+packages/*/*.tsbuildinfo
+
+# Miscellaneous
+*.pem
 next-env.d.ts
 content/terms.txt
 content/privacy-policy.txt

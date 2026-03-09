@@ -1,0 +1,36 @@
+.footer {
+  background: var(--footer-bg, var(--card));
+  border-top: 1px solid var(--border);
+}
+
+.footer-social-link {
+  background: var(--muted, rgba(0,0,0,0.06));
+  color: var(--muted-foreground);
+  transition: all 0.2s;
+}
+
+.footer-social-link:hover {
+  scale: 1.1;
+}
+
+.footer-column-title {
+  color: var(--foreground);
+}
+
+.footer-link {
+  color: var(--muted-foreground);
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+
+.footer-copyright {
+  color: var(--muted-foreground);
+}

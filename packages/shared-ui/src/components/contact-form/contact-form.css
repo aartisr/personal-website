@@ -1,0 +1,59 @@
+/* Contact Form Section Styles */
+.contact-form-section {
+  background: var(--card);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.contact-form-section-heading {
+  color: var(--foreground);
+  margin-bottom: 1rem;
+}
+.contact-form-section-description {
+  color: var(--muted-foreground);
+  margin-bottom: 2rem;
+}
+.contact-form-section-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.contact-form-section-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.contact-form-section-label {
+  color: var(--foreground);
+  font-weight: 500;
+}
+.contact-form-section-label span {
+  color: var(--muted-foreground);
+  font-size: 0.9em;
+}
+.contact-form-section-textarea,
+.contact-form-section-input {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background: var(--input-bg, #fff);
+  color: var(--foreground);
+}
+.contact-form-section-button {
+  background: var(--primary);
+  color: var(--primary-foreground, #fff);
+  border-radius: 999px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.contact-form-section-button:hover {
+  opacity: 0.9;
+}
+.contact-form-section-button:active {
+  transform: scale(0.98);
+}
