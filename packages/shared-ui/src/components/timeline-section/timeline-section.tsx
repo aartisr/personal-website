@@ -154,11 +154,21 @@ export function TimelineSection({
 
               return (
                 <div key={index} className="relative pl-10 md:pl-0">
-                  {/* Dot on the line */}
+                  {/* Dot on the line with tooltip */}
                   <div
-                    className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full -translate-x-1/2 top-4 z-10 timeline-section-dot"
-                  />
-
+                    className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full -translate-x-1/2 top-4 z-10 timeline-section-dot group"
+                  >
+                    <span className="timeline-dot-tooltip">
+                      {item.year} — {item.title}
+                    </span>
+                  </div>
+                  {/* Connector line between dots */}
+                  {index < items.length - 1 && (
+                    <div
+                      className="timeline-section-connector"
+                      data-connector
+                    />
+                  )}
                   <TimelineCard
                     item={item}
                     index={index}
