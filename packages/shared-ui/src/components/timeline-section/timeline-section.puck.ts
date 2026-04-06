@@ -1,5 +1,5 @@
-import type { TimelineSectionProps } from "./timeline-section";
 import { royalStyleField } from "../royal/royal-field";
+import { summaryText } from "../../utils/puck-summary";
 
 export const timelineSectionConfig = {
   fields: {
@@ -39,8 +39,11 @@ export const timelineSectionConfig = {
         description: { type: "textarea", label: "Description" },
         image: { type: "text", label: "Image URL (optional)" },
       },
-      getItemSummary: (item: any) =>
-        item.title ? `${item.year} — ${item.title}` : "Timeline Item",
+      getItemSummary: (item: unknown) => {
+        const title = summaryText(item, "title");
+        const year = summaryText(item, "year");
+        return title ? `${year || ""}${year ? " — " : ""}${title}` : "Timeline Item";
+      },
     },
   },
   defaultProps: {

@@ -46,6 +46,18 @@ export type HeroSectionProps = {
   royalStyle?: RoyalStyle;
 };
 
+function normalizeCta(value: unknown): HeroCta {
+  if (!value || typeof value !== "object") {
+    return { label: "", href: "#" };
+  }
+
+  const cta = value as { label?: unknown; href?: unknown };
+  return {
+    label: typeof cta.label === "string" ? cta.label : "",
+    href: typeof cta.href === "string" && cta.href.trim() ? cta.href : "#",
+  };
+}
+
 function CtaButtons({
   primaryCta,
   secondaryCta,
@@ -75,19 +87,22 @@ function CtaButtons({
         {primaryCta.label && (
           <a
             href={primaryCta.href}
-            className={`px-6 py-3 text-base font-semibold rounded-full transition-opacity hover:opacity-90 ${
+            className={`group px-6 py-3 text-base font-semibold rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(33,74,141,0.24)] ${
               inverted
                 ? "bg-white text-primary"
                 : "bg-primary text-primary-foreground"
             }`}
           >
-            {primaryCta.label}
+            <span>{primaryCta.label}</span>
+            <span className="ml-2 inline-block transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">
+              &rarr;
+            </span>
           </a>
         )}
         {secondaryCta.label && (
           <a
             href={secondaryCta.href}
-            className={`px-6 py-3 text-base font-semibold rounded-full border bg-transparent transition-colors hover:opacity-80 ${
+            className={`px-6 py-3 text-base font-semibold rounded-full border bg-transparent transition-all duration-200 hover:-translate-y-0.5 ${
               inverted ? "border-white/50 text-white" : "border-primary text-primary"
             }`}
           >
@@ -151,7 +166,7 @@ function CenteredHero({
   imageAlt,
   animation = "fade-in",
 }: HeroSectionProps) {
-  const { ref, style: revealStyle } = useScrollReveal(animation);
+  const { ref } = useScrollReveal(animation);
 
   return (
     <section
@@ -180,10 +195,15 @@ function CenteredHero({
           align="center"
         />
         {image && (
-          <div className="mt-16 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="mt-16 rounded-2xl overflow-hidden">
             <img
               src={image}
               alt={imageAlt}
+              width={1600}
+              height={900}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-auto object-cover"
             />
           </div>
@@ -206,7 +226,7 @@ function SplitImageHero({
   imageAlt,
   animation = "fade-in",
 }: HeroSectionProps) {
-  const { ref, style: revealStyle } = useScrollReveal(animation);
+  const { ref } = useScrollReveal(animation);
 
   return (
     <section
@@ -237,11 +257,16 @@ function SplitImageHero({
           />
         </div>
         {image && (
-          <div className="rounded-2xl overflow-hidden shadow-xl">
+          <div className="rounded-2xl overflow-hidden">
             <img
               src={image}
               alt={imageAlt}
-              className="w-full h-full object-cover max-h-[560px]"
+              width={1280}
+              height={960}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-full object-cover max-h-140"
             />
           </div>
         )}
@@ -275,6 +300,11 @@ function BackgroundImageHero({
         <img
           src={image}
           alt={imageAlt}
+          width={1920}
+          height={1080}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
       )}
@@ -333,11 +363,16 @@ function GradientOverlayHero({
         <img
           src={image}
           alt={imageAlt}
+          width={1920}
+          height={1080}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
       )}
       {/* Gradient overlay — left-heavy for text readability */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/15" />
+      <div className="absolute inset-0 z-10 bg-linear-to-r from-black/85 via-black/60 to-black/15" />
       {/* Content pinned left */}
       <div className="relative z-20 max-w-7xl mx-auto w-full">
         <div className="max-w-xl">
@@ -381,31 +416,41 @@ function EditorialHero({
   imageAlt,
   animation = "fade-in",
 }: HeroSectionProps) {
-  const { ref, style: revealStyle } = useScrollReveal(animation);
+  const { ref } = useScrollReveal(animation);
 
   return (
     <section
       ref={ref}
-      className="py-16 px-4 sm:px-6 lg:px-8"
+      className="relative overflow-hidden py-20 md:py-24 px-4 sm:px-6 lg:px-8"
     >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-28 top-20 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,color-mix(in_oklch,var(--primary)_18%,transparent),transparent_70%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 top-0 h-80 w-136 bg-[linear-gradient(125deg,color-mix(in_oklch,var(--primary)_7%,transparent),transparent_70%)]"
+      />
       <div className="max-w-7xl mx-auto">
         {/* Asymmetric grid: 7/5 split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end">
           {/* Large heading spanning left 7 columns */}
           <div className="lg:col-span-7">
             {subheading && (
-              <p className="text-xs font-semibold uppercase tracking-widest mb-6 text-primary">
+              <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] mb-6 text-primary">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
                 {subheading}
               </p>
             )}
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight lg:leading-none tracking-tight text-foreground">
+            <h1 className="max-w-[16ch] text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight text-foreground text-balance">
               {heading}
             </h1>
+            <div className="mt-8 hidden lg:block h-px w-28 bg-[linear-gradient(90deg,var(--primary),transparent)]" />
           </div>
           {/* Description + CTAs in the right 5 columns */}
-          <div className="lg:col-span-5 lg:pb-2">
+          <div className="lg:col-span-5 lg:pb-2 rounded-3xl border border-(--border)/80 bg-(--card)/72 backdrop-blur-sm p-6 md:p-7 shadow-[0_16px_42px_rgba(12,22,48,0.08)]">
             {description && (
-              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
+              <p className="max-w-[36ch] text-base sm:text-lg leading-relaxed text-muted-foreground">
                 {description}
               </p>
             )}
@@ -416,15 +461,22 @@ function EditorialHero({
               proofPoints={proofPoints}
               align="left"
             />
+            <p className="mt-4 text-xs font-medium tracking-wide text-muted-foreground">
+              Fast review path: Projects &rarr; Timeline &rarr; Contact.
+            </p>
           </div>
         </div>
         {/* Full-width image below */}
         {image && (
-          <div className="mt-12 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="mt-12 rounded-2xl overflow-hidden">
             <img
               src={image}
               alt={imageAlt}
-              className="w-full h-[260px] sm:h-[360px] lg:h-[520px] object-contain bg-transparent"
+              width={1600}
+              height={900}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-65 sm:h-90 lg:h-130 object-contain bg-transparent"
             />
           </div>
         )}
@@ -446,7 +498,7 @@ function StackedNarrativeHero({
   imageAlt,
   animation = "fade-in",
 }: HeroSectionProps) {
-  const { ref, style: revealStyle } = useScrollReveal(animation);
+  const { ref } = useScrollReveal(animation);
 
   return (
     <section
@@ -483,11 +535,15 @@ function StackedNarrativeHero({
             />
           </div>
           {image && (
-            <div className="rounded-2xl overflow-hidden shadow-xl">
+            <div className="rounded-2xl overflow-hidden">
               <img
                 src={image}
                 alt={imageAlt}
-                className="w-full h-full object-cover max-h-[400px]"
+                width={1200}
+                height={800}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover max-h-100"
               />
             </div>
           )}
@@ -508,7 +564,7 @@ function MinimalTypeHero({
   proofPoints,
   animation = "fade-in",
 }: HeroSectionProps) {
-  const { ref, style: revealStyle } = useScrollReveal(animation);
+  const { ref } = useScrollReveal(animation);
 
   return (
     <section
@@ -603,12 +659,16 @@ function DarkSplitHero({
         {image && (
           <div className="flex justify-center lg:justify-end">
             <div
-              className="rounded-2xl overflow-hidden shadow-[0_0_80px_rgba(var(--primary-rgb,100,50,50),0.15)]"
+              className="rounded-2xl overflow-hidden"
             >
               <img
                 src={image}
                 alt={imageAlt}
-                className="w-full h-auto object-cover max-h-[520px]"
+                width={1200}
+                height={800}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-auto object-cover max-h-130"
               />
             </div>
           </div>
@@ -666,10 +726,14 @@ function DarkCenteredHero({
           inverted
         />
         {image && (
-          <div className="mt-16 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="mt-16 rounded-2xl overflow-hidden">
             <img
               src={image}
               alt={imageAlt}
+              width={1600}
+              height={900}
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto object-cover"
             />
           </div>
@@ -740,22 +804,26 @@ function DarkDeviceHero({
         {image && (
           <div className="flex justify-center lg:justify-end">
             <div
-              className="relative w-[280px] max-w-full"
+              className="relative w-70 max-w-full"
             >
               {/* Phone frame */}
               <div
-                className="rounded-[2.5rem] p-3 shadow-2xl bg-[#1a1a1a] border-2 border-[#2a2a2a] shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_25px_60px_rgba(0,0,0,0.6)]"
+                className="rounded-[2.5rem] p-3 bg-[#1a1a1a] border-2 border-[#2a2a2a]"
               >
                 {/* Notch */}
                 <div
-                  className="mx-auto mb-2 rounded-full w-[80px] h-[6px] bg-[#2a2a2a]"
+                  className="mx-auto mb-2 rounded-full w-20 h-1.5 bg-[#2a2a2a]"
                 />
                 {/* Screen */}
                 <div className="rounded-[1.75rem] overflow-hidden">
                   <img
                     src={image}
                     alt={imageAlt}
-                    className="w-full h-auto object-cover aspect-[9/16] max-h-[480px]"
+                    width={900}
+                    height={1600}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto object-cover aspect-9/16 max-h-120"
                   />
                 </div>
               </div>
@@ -782,18 +850,24 @@ const variantMap: Record<HeroVariant, React.FC<HeroSectionProps>> = {
 };
 
 export function HeroSection(props: HeroSectionProps) {
-  const Variant = variantMap[props.variant] ?? CenteredHero;
-  const royal = props.royalStyle ?? "none";
+  const normalizedProps = {
+    ...props,
+    primaryCta: normalizeCta((props as { primaryCta?: unknown }).primaryCta),
+    secondaryCta: normalizeCta((props as { secondaryCta?: unknown }).secondaryCta),
+  };
+
+  const Variant = variantMap[normalizedProps.variant] ?? CenteredHero;
+  const royal = normalizedProps.royalStyle ?? "none";
 
   if (royal === "none") {
-    return <Variant {...props} />;
+    return <Variant {...normalizedProps} />;
   }
 
   return (
     <div className="relative">
       <YantraBackground royalStyle={royal} />
       <RoyalCorners royalStyle={royal} />
-      <Variant {...props} />
+      <Variant {...normalizedProps} />
     </div>
   );
 }

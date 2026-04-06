@@ -1,5 +1,6 @@
 
-import type { ServicesGridProps } from "./services-grid";
+
+import { summaryText } from "../../utils/puck-summary";
 
 export const servicesGridConfig = {
   fields: {
@@ -20,7 +21,7 @@ export const servicesGridConfig = {
         description: { type: "textarea", label: "Service Description" },
         href: { type: "text", label: "Link URL (optional)" },
       },
-      getItemSummary: (item: any) => item.title || "Service",
+      getItemSummary: (item: unknown) => summaryText(item, "title") || "Service",
     },
   },
   defaultProps: {

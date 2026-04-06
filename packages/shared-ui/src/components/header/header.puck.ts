@@ -1,4 +1,5 @@
-import type { HeaderProps } from "./header";
+
+import { summaryText } from "../../utils/puck-summary";
 
 export const headerConfig = {
   fields: {
@@ -32,10 +33,10 @@ export const headerConfig = {
             label: { type: "text", label: "Label" },
             href: { type: "text", label: "Link URL" },
           },
-          getItemSummary: (item: any) => item.label || "Sub Item",
+          getItemSummary: (item: unknown) => summaryText(item, "label") || "Sub Item",
         },
       },
-      getItemSummary: (item: any) => item.label || "Nav Item",
+      getItemSummary: (item: unknown) => summaryText(item, "label") || "Nav Item",
     },
     ctaButton: {
       type: "object",

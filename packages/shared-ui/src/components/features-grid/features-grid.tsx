@@ -2,7 +2,7 @@
 
 import { Icon } from "../icon-map";
 import "./features-grid.css";
-import { type AnimationType, useScrollReveal, getRevealStyles } from "../scroll-reveal";
+import { type AnimationType, useScrollReveal } from "../scroll-reveal";
 import type { RoyalStyle } from "../royal/types";
 import { YantraBackground } from "../royal/yantra-background";
 

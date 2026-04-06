@@ -1,5 +1,6 @@
 
-import type { PricingTableProps } from "./pricing-table";
+
+import { summaryStringValue, summaryText } from "../../utils/puck-summary";
 
 export const pricingTableConfig = {
   fields: {
@@ -24,7 +25,7 @@ export const pricingTableConfig = {
           arrayFields: {
             value: { type: "text", label: "Feature" },
           },
-          getItemSummary: (item: any) => (item as unknown as string) || "Feature",
+          getItemSummary: (item: unknown) => summaryStringValue(item) || "Feature",
         },
         cta: {
           type: "object",
@@ -43,7 +44,7 @@ export const pricingTableConfig = {
           ],
         },
       },
-      getItemSummary: (item: any) => item.name || "Plan",
+      getItemSummary: (item: unknown) => summaryText(item, "name") || "Plan",
     },
   },
   defaultProps: {

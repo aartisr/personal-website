@@ -1,5 +1,4 @@
 
-import type { SpacerProps } from "./spacer";
 
 export const spacerConfig = {
   fields: {

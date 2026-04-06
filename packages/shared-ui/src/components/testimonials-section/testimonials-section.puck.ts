@@ -1,6 +1,6 @@
 
-import type { TestimonialsSectionProps } from "./testimonials-section";
 import { royalStyleField } from "../royal/royal-field";
+import { summaryText } from "../../utils/puck-summary";
 
 export const testimonialsSectionConfig =
   {
@@ -19,7 +19,7 @@ export const testimonialsSectionConfig =
           role: { type: "text", label: "Role / Company" },
           avatar: { type: "text", label: "Avatar URL (optional)" },
         },
-        getItemSummary: (item: any) => item.name || "Testimonial",
+        getItemSummary: (item: unknown) => summaryText(item, "name") || "Testimonial",
       },
     },
     defaultProps: {

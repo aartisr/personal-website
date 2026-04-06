@@ -1,5 +1,6 @@
 
-import type { BlogSectionProps } from "./blog-section";
+
+import { summaryText } from "../../utils/puck-summary";
 
 export const blogSectionConfig = {
   fields: {
@@ -44,7 +45,7 @@ export const blogSectionConfig = {
           label: "Post URL",
         },
       },
-      getItemSummary: (item: any) => item.title || "Post",
+      getItemSummary: (item: unknown) => summaryText(item, "title") || "Post",
     },
   },
   defaultProps: {

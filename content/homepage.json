@@ -29,13 +29,13 @@
       "props": {
         "id": "HeroSection-1",
         "variant": "editorial",
-        "heading": "Education. Research. Progressive Product Building.",
-        "subheading": "Aarti Sri Ravikumar • Student Research Portfolio",
-        "description": "Explore academic work and software projects presented with objective language, clear hierarchy, and measurable outcomes.",
+        "heading": "Education-led Research. Systems-minded Execution.",
+        "subheading": "Student Research Portfolio • Aarti Sri Ravikumar",
+        "description": "Review projects, methods, and outcomes in a concise format built for mentors, collaborators, and rapid technical evaluation.",
         "highlights": [
-          { "text": "Find key projects in under 30 seconds" },
-          { "text": "Easy to browse on mobile, tablet, and desktop" },
-          { "text": "Support, contact, and policy links in one place" }
+          { "text": "Project fit in under 30 seconds" },
+          { "text": "Clear evidence and implementation context" },
+          { "text": "Mobile-first reading flow" }
         ],
         "proofPoints": [
           { "value": "131+", "label": "GitHub contributions" },
@@ -43,7 +43,7 @@
           { "value": "2", "label": "Active research tracks" }
         ],
         "primaryCta": {
-          "label": "View Research Projects",
+          "label": "Explore Projects",
           "href": "https://github.com/aartisr?tab=repositories"
         },
         "secondaryCta": {

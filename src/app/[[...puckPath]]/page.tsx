@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getPageData } from "@/lib/get-page-data";
+import { hydratePageGithubStats } from "@/lib/github-stats";
 import { resolvePageSlug } from "@/lib/resolve-path";
 import { PuckRenderer } from "@/lib/puck-render";
 
@@ -16,5 +17,7 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
 
-  return <PuckRenderer data={data} />;
+  const hydratedData = await hydratePageGithubStats(slug, data);
+
+  return <PuckRenderer data={hydratedData} />;
 }

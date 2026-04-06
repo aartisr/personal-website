@@ -1,5 +1,4 @@
 
-import type { CtaSectionProps } from "./cta-section";
 import { royalStyleField } from "../royal/royal-field";
 
 export const ctaSectionConfig = {

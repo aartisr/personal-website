@@ -63,6 +63,10 @@ If these values are missing, protected routes return `500` until configured.
 - `src/app/` — app routes and APIs
 - `src/lib/` — render + content utilities
 
+## Architecture
+
+- Repository architecture and dependency boundaries: `docs/ARCHITECTURE.md`
+
 ## Profile Source
 
 - GitHub profile: `https://github.com/aartisr`
@@ -73,3 +77,19 @@ If these values are missing, protected routes return `500` until configured.
 - `npm run build` — production build
 - `npm run start` — run production build
 - `npm run lint` — lint project
+- `npm run typecheck` — strict TypeScript checks
+- `npm run test` — run unit tests in watch mode
+- `npm run test:ci` — run unit tests with coverage
+- `npm run quality` — full quality gate (lint + types + tests + build)
+
+## Engineering Quality Standard
+
+This repo now enforces a quality gate intended for production reliability:
+
+- CI workflow runs on every pull request and push to `main`/`master`
+- Required checks: lint, type-check, unit tests with coverage, production build
+- Security response headers are set at the framework level for all routes
+
+CI workflow file:
+
+- `.github/workflows/quality.yml`

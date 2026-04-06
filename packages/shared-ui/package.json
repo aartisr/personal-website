@@ -7,7 +7,9 @@
   "types": "./src/index.ts",
   "exports": {
     ".": "./src/index.ts",
-    "./config": "./src/config.ts"
+    "./config": "./src/config.ts",
+    "./contracts/page-contract": "./src/contracts/page-contract.ts",
+    "./utils/puck-summary": "./src/utils/puck-summary.ts"
   },
   "scripts": {
     "build": "tsc",

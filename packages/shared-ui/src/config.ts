@@ -37,7 +37,7 @@ import { timelineSectionConfig } from "./components/timeline-section/timeline-se
 
 // Puck wraps component props with {id, puck} — cast to satisfy strict typing
 // while keeping runtime behavior correct (Puck passes all declared fields)
-const r = (fn: Function) => fn as any; // eslint-disable-line @typescript-eslint/no-explicit-any
+const r = (fn: Function) => fn as any;
 
 export function createPuckConfig(): Config {
   return {

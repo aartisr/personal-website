@@ -1,5 +1,6 @@
 
-import type { FAQSectionProps } from "./faq-section";
+
+import { summaryText } from "../../utils/puck-summary";
 
 export const faqSectionConfig = {
   fields: {
@@ -18,7 +19,8 @@ export const faqSectionConfig = {
         question: { type: "text", label: "Question" },
         answer: { type: "textarea", label: "Answer" },
       },
-      getItemSummary: (item: any) => item.question || "FAQ",
+      getItemSummary: (item: unknown) =>
+        summaryText(item, "question") || "FAQ",
     },
   },
   defaultProps: {

@@ -1,5 +1,6 @@
 
-import type { ContactFormProps } from "./contact-form";
+
+import { summaryText } from "../../utils/puck-summary";
 
 export const contactFormConfig = {
   fields: {
@@ -42,7 +43,8 @@ export const contactFormConfig = {
           ],
         },
       },
-      getItemSummary: (item: any) => item.label || item.name || "Field",
+      getItemSummary: (item: unknown) =>
+        summaryText(item, "label", "name") || "Field",
     },
     submitEndpoint: {
       type: "text",

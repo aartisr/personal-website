@@ -15,13 +15,20 @@ const eslintConfig = defineConfig([
       "react/no-children-prop": "off",
     },
   },
+  {
+    files: ["packages/shared-ui/src/**/*.{ts,tsx}"],
+    rules: {
+      "@next/next/no-img-element": "off",
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
     "node_modules/**",
-    ".next/**",
-    "out/**",
-    "build/**",
+    "**/.next/**",
+    "**/out/**",
+    "**/build/**",
+    "**/coverage/**",
     "packages/**/dist/**",
     "next-env.d.ts",
   ]),

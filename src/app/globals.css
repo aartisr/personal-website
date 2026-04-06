@@ -10,6 +10,22 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(46, 124, 255, 0.08), transparent 34%),
+    radial-gradient(circle at 90% 4%, rgba(0, 198, 174, 0.1), transparent 28%),
+    linear-gradient(180deg, rgba(247, 250, 255, 0.96), var(--background));
 }
 
 html {
@@ -20,4 +36,9 @@ html {
   html {
     scroll-behavior: auto;
   }
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }

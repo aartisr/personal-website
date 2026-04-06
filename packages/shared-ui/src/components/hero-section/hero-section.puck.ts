@@ -1,5 +1,5 @@
-import type { HeroSectionProps } from "./hero-section";
 import { royalStyleField } from "../royal/royal-field";
+import { summaryText } from "../../utils/puck-summary";
 
 export const heroSectionConfig = {
   fields: {
@@ -37,7 +37,7 @@ export const heroSectionConfig = {
       arrayFields: {
         text: { type: "text", label: "Highlight" },
       },
-      getItemSummary: (item: any) => item.text || "Highlight",
+      getItemSummary: (item: unknown) => summaryText(item, "text") || "Highlight",
     },
     proofPoints: {
       type: "array",
@@ -46,8 +46,11 @@ export const heroSectionConfig = {
         value: { type: "text", label: "Value" },
         label: { type: "text", label: "Label" },
       },
-      getItemSummary: (item: any) =>
-        item.label ? `${item.value ?? ""} — ${item.label}` : "Proof point",
+      getItemSummary: (item: unknown) => {
+        const label = summaryText(item, "label");
+        const value = summaryText(item, "value");
+        return label ? `${value} — ${label}` : "Proof point";
+      },
     },
     primaryCta: {
       type: "object",

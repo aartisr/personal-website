@@ -1,6 +1,6 @@
 
-import type { FeaturesGridProps } from "./features-grid";
 import { royalStyleField } from "../royal/royal-field";
+import { summaryText } from "../../utils/puck-summary";
 
 export const featuresGridConfig = {
   fields: {
@@ -40,7 +40,7 @@ export const featuresGridConfig = {
         title: { type: "text", label: "Title" },
         description: { type: "textarea", label: "Description" },
       },
-      getItemSummary: (item: any) => item.title || "Feature",
+      getItemSummary: (item: unknown) => summaryText(item, "title") || "Feature",
     },
   },
   defaultProps: {

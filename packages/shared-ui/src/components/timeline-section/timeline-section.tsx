@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { type AnimationType, useScrollReveal, getRevealStyles } from "../scroll-reveal";
+import { type AnimationType } from "../scroll-reveal";
 import type { RoyalStyle } from "../royal/types";
 import { RoyalCorners } from "../royal/royal-corners";
 import { RoyalDivider } from "../royal/royal-divider";
+import { normalizeTimelineItems } from "./normalize-timeline-items";
 import "./timeline-section.css";
 
 export type TimelineVariant = "alternating" | "left" | "centered";
@@ -19,7 +20,7 @@ export type TimelineItem = {
 export type TimelineSectionProps = {
   heading: string;
   description: string;
-  items: TimelineItem[];
+  items?: TimelineItem[];
   variant: TimelineVariant;
   animation: AnimationType;
   royalStyle?: RoyalStyle;
@@ -29,30 +30,17 @@ function TimelineCard({
   item,
   index,
   side,
-  animation,
   royalStyle = "none",
 }: {
   item: TimelineItem;
   index: number;
   side: "left" | "right" | "center";
-  animation: AnimationType;
   royalStyle?: RoyalStyle;
 }) {
   const [expanded, setExpanded] = useState(index === 0);
-  const revealAnimation: AnimationType =
-    animation === "none"
-      ? "none"
-      : side === "left"
-        ? "slide-right"
-        : side === "right"
-          ? "slide-left"
-          : animation;
-
-  const { ref, style } = useScrollReveal(revealAnimation);
 
   return (
     <div
-      ref={ref}
       className={`relative flex timeline-card-reveal ${
         side === "right"
           ? "md:justify-end md:text-left"
@@ -60,7 +48,6 @@ function TimelineCard({
             ? "md:justify-start md:text-right"
             : "justify-center"
       }`}
-      data-reveal-style={JSON.stringify(style)}
     >
       <div
         className={`relative w-full md:w-5/12 timeline-card${royalStyle === "ornate" ? " ornate" : ""}`}
@@ -90,6 +77,10 @@ function TimelineCard({
                 <img
                   src={item.image}
                   alt={item.title}
+                  width={1200}
+                  height={480}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-40 object-cover rounded-lg mt-2"
                 />
               )}
@@ -106,9 +97,10 @@ export function TimelineSection({
   description,
   items,
   variant = "alternating",
-  animation = "slide-up",
   royalStyle = "none",
 }: TimelineSectionProps) {
+  const safeItems = normalizeTimelineItems(items);
+
   return (
     <section
       className="py-20 px-4 sm:px-6 lg:px-8 timeline-section"
@@ -142,7 +134,7 @@ export function TimelineSection({
           />
 
           <div className="flex flex-col gap-10">
-            {items.map((item, index) => {
+            {safeItems.map((item, index) => {
               const side: "left" | "right" | "center" =
                 variant === "centered"
                   ? "center"
@@ -163,7 +155,7 @@ export function TimelineSection({
                     </span>
                   </div>
                   {/* Connector line between dots */}
-                  {index < items.length - 1 && (
+                  {index < safeItems.length - 1 && (
                     <div
                       className="timeline-section-connector"
                       data-connector
@@ -173,7 +165,6 @@ export function TimelineSection({
                     item={item}
                     index={index}
                     side={side}
-                    animation={animation}
                     royalStyle={royalStyle}
                   />
                 </div>

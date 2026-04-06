@@ -1,6 +1,6 @@
 
-import type { AboutSectionProps } from "./about-section";
 import { royalStyleField } from "../royal/royal-field";
+import { summaryText } from "../../utils/puck-summary";
 
 export const aboutSectionConfig = {
   fields: {
@@ -47,7 +47,7 @@ export const aboutSectionConfig = {
         value: { type: "text", label: "Stat Value (e.g. 10K+)" },
         label: { type: "text", label: "Stat Label" },
       },
-      getItemSummary: (item: any) => item.label || "Stat",
+      getItemSummary: (item: unknown) => summaryText(item, "label") || "Stat",
     },
   },
   defaultProps: {

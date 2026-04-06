@@ -27,6 +27,8 @@ packages/*/out/
 coverage/
 apps/*/coverage/
 packages/*/coverage/
+playwright-report/
+test-results/
 
 # Cache & diagnostics
 cache/

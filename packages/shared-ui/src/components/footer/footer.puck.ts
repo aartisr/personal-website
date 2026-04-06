@@ -1,5 +1,6 @@
 
-import type { FooterProps } from "./footer";
+
+import { summaryText } from "../../utils/puck-summary";
 
 export const footerConfig = {
   fields: {
@@ -26,10 +27,10 @@ export const footerConfig = {
             label: { type: "text", label: "Link Label" },
             href: { type: "text", label: "URL" },
           },
-          getItemSummary: (item: any) => item.label || "Link",
+          getItemSummary: (item: unknown) => summaryText(item, "label") || "Link",
         },
       },
-      getItemSummary: (item: any) => item.title || "Column",
+      getItemSummary: (item: unknown) => summaryText(item, "title") || "Column",
     },
     socialLinks: {
       type: "array",
@@ -51,7 +52,8 @@ export const footerConfig = {
           label: "Profile URL",
         },
       },
-      getItemSummary: (item: any) => item.platform || "Social link",
+      getItemSummary: (item: unknown) =>
+        summaryText(item, "platform") || "Social link",
     },
     copyright: {
       type: "text",

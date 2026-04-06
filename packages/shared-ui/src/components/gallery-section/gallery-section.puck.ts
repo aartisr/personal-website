@@ -1,6 +1,6 @@
 
-import type { GallerySectionProps } from "./gallery-section";
 import { royalStyleField } from "../royal/royal-field";
+import { summaryText } from "../../utils/puck-summary";
 
 export const gallerySectionConfig = {
   fields: {
@@ -39,7 +39,8 @@ export const gallerySectionConfig = {
           label: "Caption (shown on hover)",
         },
       },
-      getItemSummary: (item: any) => item.alt || item.caption || "Image",
+      getItemSummary: (item: unknown) =>
+        summaryText(item, "alt", "caption") || "Image",
     },
   },
   defaultProps: {

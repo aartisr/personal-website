@@ -1,5 +1,6 @@
 
-import type { StatsCounterProps } from "./stats-counter";
+
+import { summaryText } from "../../utils/puck-summary";
 
 export const statsCounterConfig = {
   fields: {
@@ -34,10 +35,13 @@ export const statsCounterConfig = {
           label: "Suffix (e.g. +, %, K)",
         },
       },
-      getItemSummary: (item: any) =>
-        item.label
-          ? `${item.prefix ?? ""}${item.value ?? ""}${item.suffix ?? ""} — ${item.label}`
-          : "Stat",
+      getItemSummary: (item: unknown) => {
+        const label = summaryText(item, "label");
+        const prefix = summaryText(item, "prefix");
+        const value = summaryText(item, "value");
+        const suffix = summaryText(item, "suffix");
+        return label ? `${prefix}${value}${suffix} — ${label}` : "Stat";
+      },
     },
   },
   defaultProps: {

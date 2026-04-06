@@ -25,7 +25,9 @@ const visibleStyles: React.CSSProperties = {
 };
 
 const transitionStyle: React.CSSProperties = {
-  transition: "opacity 0.6s ease, transform 0.6s ease",
+  transition:
+    "opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1)",
+  willChange: "opacity, transform",
 };
 
 export function getRevealStyles(
@@ -48,6 +50,18 @@ export function useScrollReveal(animation: AnimationType = "fade-in") {
       setIsVisible(true);
       return;
     }
+
+    if (typeof window !== "undefined") {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      if (prefersReducedMotion) {
+        setIsVisible(true);
+        return;
+      }
+    }
+
     const el = ref.current;
     if (!el) return;
 

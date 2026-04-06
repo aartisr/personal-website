@@ -1,5 +1,6 @@
 
-import type { LogoCloudProps } from "./logo-cloud";
+
+import { summaryText } from "../../utils/puck-summary";
 
 export const logoCloudConfig = {
   fields: {
@@ -24,7 +25,7 @@ export const logoCloudConfig = {
           label: "Link URL (optional, leave blank to disable)",
         },
       },
-      getItemSummary: (item: any) => item.alt || "Logo",
+      getItemSummary: (item: unknown) => summaryText(item, "alt") || "Logo",
     },
   },
   defaultProps: {

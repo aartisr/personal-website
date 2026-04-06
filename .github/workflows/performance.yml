@@ -1,0 +1,45 @@
+name: Performance Budget
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run production Lighthouse performance gate
+        run: npm run perf:ci
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports-${{ github.run_id }}
+          path: |
+            .lighthouseci/*.html
+            .lighthouseci/*.json
+          if-no-files-found: warn
+
+      - name: Add Lighthouse artifact link to summary
+        if: always()
+        run: |
+          echo "## Lighthouse Reports" >> "$GITHUB_STEP_SUMMARY"
+          echo "Download the artifact named lighthouse-reports-${{ github.run_id }} from this workflow run." >> "$GITHUB_STEP_SUMMARY"

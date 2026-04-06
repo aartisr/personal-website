@@ -3,29 +3,41 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --webpack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "NEXT_IGNORE_INCORRECT_LOCKFILE=1 next dev --webpack",
+    "build": "NEXT_IGNORE_INCORRECT_LOCKFILE=1 next build",
+    "start": "NEXT_IGNORE_INCORRECT_LOCKFILE=1 next start",
+    "lint": "eslint . --ext .js,.mjs,.cjs,.ts,.tsx",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "test:ci": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ci": "playwright test --reporter=line",
+    "perf:ci": "npm run build && lhci autorun --config=./lighthouserc.json --collect.url=http://127.0.0.1:3003/ --collect.startServerCommand='PORT=3003 node .next/standalone/server.js' --collect.startServerReadyPattern='- Local:'",
+    "quality": "npm run lint && npm run typecheck && npm run test:ci && npm run build"
   },
   "dependencies": {
     "@kindoms/shared-ui": "file:./packages/shared-ui",
     "@puckeditor/core": "^0.21.1",
     "lightningcss": "^1.31.1",
     "lucide-react": "^0.575.0",
-    "next": "16.1.6",
+    "next": "^16.2.2",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.54.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "^3.2.4",
     "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "eslint-config-next": "^16.2.2",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.2.4"
   },
   "ignoreScripts": [
     "sharp",

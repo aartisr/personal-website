@@ -24,6 +24,21 @@ export type FooterProps = {
   socialLinks: SocialLink[];
 };
 
+type NormalizedFooterLink = {
+  label: string;
+  href: string;
+};
+
+type NormalizedFooterColumn = {
+  title: string;
+  links: NormalizedFooterLink[];
+};
+
+type NormalizedSocialLink = {
+  platform: string;
+  url: string;
+};
+
 const socialIcons: Record<string, React.ReactNode> = {
   twitter: (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -63,6 +78,92 @@ function resolveCopyright(text: string): string {
   return text.replace(/© \d{4}/, `© ${new Date().getFullYear()}`);
 }
 
+function toText(value: unknown, fallback = ""): string {
+  return typeof value === "string" ? value.trim() : fallback;
+}
+
+function sanitizeHref(rawHref: unknown): string {
+  const href = toText(rawHref);
+  if (!href) return "#";
+  if (href.startsWith("/")) return href;
+  if (href.startsWith("#")) return href;
+  if (href.startsWith("mailto:")) return href;
+  if (href.startsWith("tel:")) return href;
+
+  try {
+    const url = new URL(href);
+    if (url.protocol === "http:" || url.protocol === "https:") {
+      return href;
+    }
+  } catch {
+    return "#";
+  }
+
+  return "#";
+}
+
+function normalizeColumns(value: unknown): NormalizedFooterColumn[] {
+  if (!Array.isArray(value)) return [];
+
+  return value
+    .map((column) => {
+      const title = toText((column as { title?: unknown })?.title, "Resources");
+      const rawLinks = (column as { links?: unknown })?.links;
+      const links = Array.isArray(rawLinks)
+        ? rawLinks
+            .map((link) => {
+              const label = toText((link as { label?: unknown })?.label);
+              const href = sanitizeHref((link as { href?: unknown })?.href);
+              if (!label) return null;
+              return { label, href };
+            })
+            .filter((link): link is NormalizedFooterLink => Boolean(link))
+        : [];
+
+      if (!title && links.length === 0) return null;
+      return { title: title || "Resources", links };
+    })
+    .filter((column): column is NormalizedFooterColumn => Boolean(column));
+}
+
+function normalizeSocialLinks(value: unknown): NormalizedSocialLink[] {
+  if (!Array.isArray(value)) return [];
+
+  return value
+    .map((social) => {
+      const platform = toText((social as { platform?: unknown })?.platform);
+      const url = sanitizeHref((social as { url?: unknown })?.url);
+      if (!platform) return null;
+      return { platform, url };
+    })
+    .filter((social): social is NormalizedSocialLink => Boolean(social));
+}
+
+function isExternalHref(href: string): boolean {
+  return href.startsWith("http://") || href.startsWith("https://");
+}
+
+function getQuickHelpLink(columns: NormalizedFooterColumn[]): NormalizedFooterLink | null {
+  const priorityWords = ["support", "help", "contact", "book", "demo"];
+
+  for (const column of columns) {
+    for (const link of column.links) {
+      const combined = `${column.title} ${link.label}`.toLowerCase();
+      if (priorityWords.some((word) => combined.includes(word))) {
+        return link;
+      }
+    }
+  }
+
+  return null;
+}
+
+const trustHighlights = [
+  "Response within 24 hours",
+  "Privacy-first communication",
+  "Clear pricing and expectations",
+];
+
 export function Footer({
   logo,
   logoAlt,
@@ -70,13 +171,44 @@ export function Footer({
   copyright,
   socialLinks,
 }: FooterProps) {
+  const normalizedColumns = normalizeColumns(columns);
+  const normalizedSocialLinks = normalizeSocialLinks(socialLinks);
+  const helpLink = getQuickHelpLink(normalizedColumns);
+
   return (
     <footer
       className="w-full pt-16 pb-8 px-4 footer"
+      aria-labelledby="footer-heading"
     >
       <div className="max-w-6xl mx-auto">
+        <h2 id="footer-heading" className="sr-only">Site footer</h2>
+
+        {helpLink && (
+          <div className="mb-7 rounded-2xl px-4 py-4 sm:px-5 sm:py-4 footer-help-panel">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm sm:text-[0.95rem] footer-help-copy">
+                Need quick help before you leave?
+              </p>
+              <a
+                href={helpLink.href}
+                className="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold footer-help-cta"
+              >
+                {helpLink.label}
+              </a>
+            </div>
+          </div>
+        )}
+
+        <div className="mb-10 grid grid-cols-1 gap-3 sm:grid-cols-3" aria-label="Trust highlights">
+          {trustHighlights.map((item) => (
+            <div key={item} className="rounded-xl px-4 py-3 footer-trust-item">
+              <p className="text-xs sm:text-[0.8rem] font-medium footer-trust-item-text">{item}</p>
+            </div>
+          ))}
+        </div>
+
         {/* Top section: logo + columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand column */}
           <div className="lg:col-span-2">
             {logo && (
@@ -87,15 +219,15 @@ export function Footer({
               />
             )}
             {/* Social links */}
-            {socialLinks && socialLinks.length > 0 && (
+            {normalizedSocialLinks.length > 0 && (
               <div className="flex gap-3 mt-2">
-                {socialLinks.map((social, index) => (
+                {normalizedSocialLinks.map((social, index) => (
                   <a
                     key={index}
                     href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.platform}
+                    target={isExternalHref(social.url) ? "_blank" : undefined}
+                    rel={isExternalHref(social.url) ? "noopener noreferrer" : undefined}
+                    aria-label={`${social.platform} profile`}
                     className="flex items-center justify-center w-9 h-9 rounded-full footer-social-link"
                   >
                     <SocialIcon platform={social.platform} />
@@ -106,7 +238,7 @@ export function Footer({
           </div>
 
           {/* Link columns */}
-          {columns.map((col, colIndex) => (
+          {normalizedColumns.map((col, colIndex) => (
             <div key={colIndex}>
               <h3 className="text-xs font-semibold uppercase tracking-widest mb-4 footer-column-title">
                 {col.title}
@@ -116,6 +248,8 @@ export function Footer({
                   <li key={linkIndex}>
                     <a
                       href={link.href}
+                      target={isExternalHref(link.href) ? "_blank" : undefined}
+                      rel={isExternalHref(link.href) ? "noopener noreferrer" : undefined}
                       className="text-sm footer-link"
                     >
                       {link.label}
@@ -130,8 +264,11 @@ export function Footer({
         {/* Bottom bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 footer-bottom-bar">
           <p className="text-xs footer-copyright">
-            {resolveCopyright(copyright)}
+            {resolveCopyright(toText(copyright, "© 2026 All rights reserved."))}
           </p>
+          <a href="#main-content" className="text-xs font-medium footer-back-to-top">
+            Back to top
+          </a>
         </div>
       </div>
     </footer>
