@@ -35,12 +35,12 @@ export async function generateMetadata({
 
   if (!post) {
     return {
-      title: "Post Not Found | Aarti Sri Ravikumar",
+      title: "Post Not Found",
     };
   }
 
   return {
-    title: `${post.title} | Aarti Sri Ravikumar`,
+    title: post.title,
     description: post.excerpt,
     alternates: {
       canonical: `/blog/${post.slug}`,
@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             ← Back to Blog
           </Link>
 
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-foreground">
+          <h1 className="mt-4 text-4xl font-bold text-foreground">
             {post.title}
           </h1>
 
@@ -145,7 +145,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             alt={post.title}
             width={1200}
             height={675}
-            className="w-full aspect-video object-cover rounded-xl mb-8"
+            className="w-full aspect-video object-cover rounded-lg mb-8"
           />
         )}
 

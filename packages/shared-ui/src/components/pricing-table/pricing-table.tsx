@@ -66,21 +66,21 @@ export function PricingTable({
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`flex flex-col rounded-2xl overflow-hidden ${
+              className={`flex flex-col rounded-lg overflow-hidden ${
                 plan.featured
                   ? "bg-[var(--primary)] border-2 border-[color:var(--primary)] shadow-[0_20px_60px_color-mix(in_oklch,var(--primary)_30%,transparent)]"
                   : "bg-[var(--surface)] border border-[color:var(--border)]"
               }`}
             >
               {plan.featured && (
-                <div className="py-1.5 px-4 text-center text-xs font-semibold uppercase tracking-widest bg-[color:color-mix(in_oklch,var(--primary-foreground)_20%,transparent)] text-[color:var(--primary-foreground)]">
+                <div className="py-1.5 px-4 text-center text-xs font-semibold uppercase bg-[color:color-mix(in_oklch,var(--primary-foreground)_20%,transparent)] text-[color:var(--primary-foreground)]">
                   Most Popular
                 </div>
               )}
 
               <div className="p-7 flex flex-col flex-1">
                 {/* Plan name */}
-                <p className={`text-sm font-semibold uppercase tracking-widest mb-2 ${
+                <p className={`text-sm font-semibold uppercase mb-2 ${
                   plan.featured
                     ? "text-[color:var(--primary-foreground)] opacity-80"
                     : "text-[color:var(--text-secondary)]"

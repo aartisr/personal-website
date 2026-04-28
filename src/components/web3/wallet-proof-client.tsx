@@ -139,7 +139,7 @@ export function WalletProofClient() {
   };
 
   return (
-    <section className="rounded-xl border p-6 md:p-8 border-[color:var(--border)] bg-[var(--card)]">
+    <section className="rounded-lg border p-6 md:p-8 border-[color:var(--border)] bg-[var(--card)]">
       <h2 className="text-2xl font-semibold text-[color:var(--foreground)]">
         Wallet Verification
       </h2>

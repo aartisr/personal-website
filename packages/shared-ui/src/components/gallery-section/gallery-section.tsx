@@ -39,7 +39,7 @@ export function GallerySection({
           <div className="mb-12 text-center max-w-2xl mx-auto">
             {heading && (
               <h2
-                className="text-3xl md:text-4xl font-bold tracking-tight mb-3"
+                className="text-3xl md:text-4xl font-bold mb-3"
                 style={{ color: "var(--foreground)" }}
               >
                 {heading}
@@ -61,7 +61,7 @@ export function GallerySection({
           {images.map((image, index) => (
             <RoyalFrame key={index} royalStyle={royalStyle}>
               <figure
-                className="group relative overflow-hidden rounded-2xl"
+                className="group relative overflow-hidden rounded-lg"
                 style={{ background: "var(--card)" }}
               >
                 <div className="aspect-square overflow-hidden">

@@ -44,6 +44,16 @@ function isAuthorized(request: NextRequest) {
 }
 
 export function middleware(request: NextRequest) {
+  const { pathname, search } = request.nextUrl;
+
+  if (pathname === "/personal-website" || pathname.startsWith("/personal-website/")) {
+    const url = request.nextUrl.clone();
+    const withoutBasePath = pathname.replace(/^\/personal-website/, "") || "/";
+    url.pathname = withoutBasePath;
+    url.search = search;
+    return NextResponse.rewrite(url);
+  }
+
   const authorized = isAuthorized(request);
 
   if (authorized === null) {
@@ -58,5 +68,10 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/api/pages", "/api/page/:path*"],
+  matcher: [
+    "/personal-website/:path*",
+    "/admin/:path*",
+    "/api/pages",
+    "/api/page/:path*",
+  ],
 };

@@ -24,6 +24,7 @@ export type TimelineSectionProps = {
   variant: TimelineVariant;
   animation: AnimationType;
   royalStyle?: RoyalStyle;
+  anchorId?: string;
 };
 
 function TimelineCard({
@@ -56,7 +57,7 @@ function TimelineCard({
         {royalStyle === "ornate" && <RoyalCorners royalStyle="subtle" />}
         {/* Year badge */}
         <div
-          className="px-4 py-2 text-xs font-bold uppercase tracking-widest timeline-card-year"
+          className="px-4 py-2 text-xs font-bold uppercase timeline-card-year"
         >
           {item.year}
         </div>
@@ -98,12 +99,14 @@ export function TimelineSection({
   items,
   variant = "alternating",
   royalStyle = "none",
+  anchorId,
 }: TimelineSectionProps) {
   const safeItems = normalizeTimelineItems(items);
 
   return (
     <section
-      className="py-20 px-4 sm:px-6 lg:px-8 timeline-section"
+      id={anchorId}
+      className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-24 timeline-section"
     >
       <div className="max-w-5xl mx-auto">
         {/* Section header */}

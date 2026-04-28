@@ -1,0 +1,85 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Aether student resilience research map</title>
+  <desc id="desc">A refined research map showing evidence, belonging, privacy, human support, and student resilience connected through a calm academic workflow.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fbfcf8"/>
+      <stop offset="0.58" stop-color="#eef6f2"/>
+      <stop offset="1" stop-color="#f7efe5"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="180" y1="120" x2="1420" y2="780" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#18355f"/>
+      <stop offset="1" stop-color="#0d5f57"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#efb74e"/>
+      <stop offset="1" stop-color="#d86d4b"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#12324d" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#paper)"/>
+  <path d="M120 174C306 102 486 92 660 145C811 191 922 282 1080 298C1218 312 1345 269 1480 204V748C1344 803 1211 816 1080 782C914 739 809 653 650 635C471 615 300 666 120 752V174Z" fill="#e2f0ec"/>
+  <path d="M156 736C334 653 502 610 674 627C830 643 941 728 1097 765C1216 794 1330 784 1444 742" stroke="#bad9d2" stroke-width="4"/>
+  <path d="M155 186C333 122 498 114 657 164C819 214 924 305 1082 319C1211 331 1334 296 1446 241" stroke="#d9c8ab" stroke-width="4"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="174" y="144" width="1252" height="612" rx="8" fill="#fffdfa" stroke="#d9e4dc" stroke-width="2"/>
+  </g>
+
+  <rect x="224" y="194" width="410" height="168" rx="8" fill="#f2f7f4" stroke="#c9ddd4"/>
+  <text x="260" y="255" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#18355f">Aether Research Question</text>
+  <text x="260" y="298" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="18" fill="#35556f">How can student support become earlier,</text>
+  <text x="260" y="328" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="18" fill="#35556f">kinder, safer, and easier to trust?</text>
+
+  <rect x="704" y="194" width="672" height="168" rx="8" fill="#f9f3e8" stroke="#e1cfaa"/>
+  <text x="744" y="255" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="24" font-weight="700" fill="#5d3a16">Evidence to Practice</text>
+  <path d="M752 314H1328" stroke="#d7ba7a" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="782" cy="314" r="11" fill="#18355f"/>
+  <circle cx="936" cy="314" r="11" fill="#0d5f57"/>
+  <circle cx="1090" cy="314" r="11" fill="#d86d4b"/>
+  <circle cx="1244" cy="314" r="11" fill="#efb74e"/>
+  <text x="744" y="288" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="15" fill="#6a5b45">belonging</text>
+  <text x="890" y="288" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="15" fill="#6a5b45">reflection</text>
+  <text x="1032" y="288" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="15" fill="#6a5b45">privacy</text>
+  <text x="1188" y="288" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="15" fill="#6a5b45">human care</text>
+
+  <g>
+    <rect x="224" y="424" width="252" height="198" rx="8" fill="#ffffff" stroke="#d9e4dc"/>
+    <rect x="254" y="468" width="132" height="14" rx="7" fill="#18355f"/>
+    <rect x="254" y="499" width="172" height="14" rx="7" fill="#7ca69d"/>
+    <rect x="254" y="530" width="150" height="14" rx="7" fill="#d7ba7a"/>
+    <text x="254" y="582" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#18355f">Clear literature base</text>
+  </g>
+
+  <g>
+    <rect x="516" y="424" width="252" height="198" rx="8" fill="#ffffff" stroke="#d9e4dc"/>
+    <path d="M574 550C546 523 510 506 510 474C510 447 530 428 554 428C570 428 584 436 594 449C604 436 618 428 634 428C658 428 678 447 678 474C678 506 642 523 614 550L594 570L574 550Z" transform="translate(42 6)" fill="url(#warm)"/>
+    <text x="546" y="582" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#18355f">Kindness as method</text>
+  </g>
+
+  <g>
+    <rect x="808" y="424" width="252" height="198" rx="8" fill="#ffffff" stroke="#d9e4dc"/>
+    <rect x="878" y="482" width="112" height="82" rx="8" fill="#e7f2ee" stroke="#0d5f57" stroke-width="4"/>
+    <path d="M906 482V454C906 434 919 421 934 421C949 421 962 434 962 454V482" stroke="#0d5f57" stroke-width="12" stroke-linecap="round"/>
+    <text x="844" y="582" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#18355f">Privacy before prediction</text>
+  </g>
+
+  <g>
+    <rect x="1100" y="424" width="252" height="198" rx="8" fill="#ffffff" stroke="#d9e4dc"/>
+    <circle cx="1172" cy="500" r="32" fill="#18355f"/>
+    <circle cx="1278" cy="500" r="32" fill="#0d5f57"/>
+    <path d="M1204 500H1246" stroke="#efb74e" stroke-width="8" stroke-linecap="round"/>
+    <path d="M1218 482L1246 500L1218 518" stroke="#efb74e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1138" y="582" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#18355f">Human handoff</text>
+  </g>
+
+  <path d="M476 523H516" stroke="#9fbfb6" stroke-width="4" stroke-linecap="round"/>
+  <path d="M768 523H808" stroke="#9fbfb6" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1060 523H1100" stroke="#9fbfb6" stroke-width="4" stroke-linecap="round"/>
+
+  <text x="224" y="696" font-family="Iowan Old Style, Palatino Linotype, Georgia, serif" font-size="36" font-weight="700" fill="url(#ink)">Evidence-led kindness for student resilience</text>
+  <text x="224" y="730" font-family="Avenir Next, Segoe UI, Arial, sans-serif" font-size="18" fill="#456171">Academic rigor, plain-language clarity, privacy-aware AI, and care that stays human.</text>
+</svg>

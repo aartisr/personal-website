@@ -45,7 +45,7 @@ export function BlogListClient({ posts, tags }: BlogListClientProps) {
 
   return (
     <>
-      <div className="rounded-xl border p-4 md:p-5 mb-8 border-[color:var(--border)] bg-[var(--card)]">
+      <div className="rounded-lg border p-4 md:p-5 mb-8 border-[color:var(--border)] bg-[var(--card)]">
         <label htmlFor="blog-search" className="sr-only">
           Search blog posts
         </label>
@@ -90,11 +90,11 @@ export function BlogListClient({ posts, tags }: BlogListClientProps) {
         {filteredPosts.map((post) => (
           <article
             key={post.slug}
-            className="rounded-xl border p-6 border-[color:var(--border)] bg-[var(--card)]"
+            className="rounded-lg border p-6 border-[color:var(--border)] bg-[var(--card)]"
           >
             <time
               dateTime={post.date}
-              className="text-xs uppercase tracking-wider text-[color:var(--primary)]"
+              className="text-xs uppercase text-[color:var(--primary)]"
             >
               {formatDate(post.date)}
             </time>

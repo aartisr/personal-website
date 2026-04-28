@@ -19,6 +19,7 @@ export type FeaturesGridProps = {
   columns: 2 | 3 | 4;
   animation?: AnimationType;
   royalStyle?: RoyalStyle;
+  anchorId?: string;
 };
 
 const columnClasses: Record<number, string> = {
@@ -34,14 +35,16 @@ export function FeaturesGrid({
   columns,
   animation = "slide-up",
   royalStyle = "none",
+  anchorId,
 }: FeaturesGridProps) {
   const gridClass = columnClasses[columns] ?? columnClasses[3];
   const { ref, isVisible } = useScrollReveal(animation);
 
   return (
     <section
+      id={anchorId}
       ref={ref}
-      className="relative py-20 px-4 sm:px-6 lg:px-8 features-grid-section"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 scroll-mt-24 features-grid-section"
     >
       {royalStyle !== "none" && <YantraBackground royalStyle={royalStyle} />}
       <div className="max-w-7xl mx-auto">
@@ -66,11 +69,11 @@ export function FeaturesGrid({
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`flex flex-col p-6 rounded-2xl features-grid-card${royalStyle === "ornate" ? " ornate" : ""} ${isVisible ? "features-grid-reveal" : ""}`}
+              className={`flex flex-col p-6 rounded-lg features-grid-card${royalStyle === "ornate" ? " ornate" : ""} ${isVisible ? "features-grid-reveal" : ""}`}
               data-transition-delay={isVisible ? `${index * 100}` : "0"}
             >
               {feature.icon && (
-                <div className="text-3xl mb-4 w-12 h-12 flex items-center justify-center rounded-xl features-grid-icon">
+                <div className="text-3xl mb-4 w-12 h-12 flex items-center justify-center rounded-lg features-grid-icon">
                   <Icon name={feature.icon} size={24} />
                 </div>
               )}

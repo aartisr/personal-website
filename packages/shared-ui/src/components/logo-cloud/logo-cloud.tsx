@@ -21,7 +21,7 @@ export function LogoCloud({ heading, logos }: LogoCloudProps) {
       <div className="max-w-5xl mx-auto">
         {heading && (
           <p
-            className="text-center text-[11px] font-semibold uppercase tracking-[0.22em] mb-8 text-muted-foreground"
+            className="text-center text-[11px] font-semibold uppercase mb-8 text-muted-foreground"
           >
             {heading}
           </p>
@@ -48,14 +48,14 @@ export function LogoCloud({ heading, logos }: LogoCloudProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={logo.alt}
-                className="group flex items-center justify-center rounded-2xl border border-(--border)/85 bg-(--card)/78 px-4 py-5 shadow-[0_8px_24px_rgba(12,22,48,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(12,22,48,0.1)]"
+                className="group flex items-center justify-center rounded-lg border border-(--border)/85 bg-(--card)/78 px-4 py-5 shadow-[0_8px_24px_rgba(12,22,48,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(12,22,48,0.1)]"
               >
                 {image}
               </a>
             ) : (
               <span
                 key={index}
-                className="group flex items-center justify-center rounded-2xl border border-(--border)/85 bg-(--card)/78 px-4 py-5 shadow-[0_8px_24px_rgba(12,22,48,0.05)]"
+                className="group flex items-center justify-center rounded-lg border border-(--border)/85 bg-(--card)/78 px-4 py-5 shadow-[0_8px_24px_rgba(12,22,48,0.05)]"
               >
                 {image}
               </span>

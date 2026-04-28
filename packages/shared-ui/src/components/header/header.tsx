@@ -96,10 +96,10 @@ function DesktopMegaMenu({ items }: { items: NavItem[] }) {
 
   return (
     <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 w-[90vw] max-w-190">
-      <div className="rounded-xl p-6 shadow-lg grid grid-cols-2 md:grid-cols-4 gap-6 bg-(--surface) border border-border">
+      <div className="rounded-lg p-6 shadow-lg grid grid-cols-2 md:grid-cols-4 gap-6 bg-(--surface) border border-border">
         {columns.map((column) => (
           <div key={column.heading}>
-            <p className="text-[11px] uppercase tracking-[0.16em] font-semibold text-muted-foreground mb-2">
+            <p className="text-[11px] uppercase font-semibold text-muted-foreground mb-2">
               {column.heading}
             </p>
             <div className="space-y-1">
@@ -195,13 +195,9 @@ export function Header({
   const ctaHref = ctaButton?.href || "/support-center";
   const ctaLabel = ctaButton?.label || "Get in Touch";
 
-  const resolvedCtaLabel =
-    ctaVariant === "engage" ? `Start: ${ctaLabel}` : ctaLabel;
-
+  const resolvedCtaLabel = ctaLabel;
   const resolvedCtaClass =
-    ctaVariant === "engage"
-      ? "bg-[color:var(--primary)] text-[color:var(--primary-foreground)] ring-2 ring-[color:var(--primary)]/25"
-      : "bg-[var(--primary)] text-[color:var(--primary-foreground)]";
+    "bg-[var(--primary)] text-[color:var(--primary-foreground)]";
 
   const resolveActiveState = (href: string): boolean => {
     if (!href) return false;

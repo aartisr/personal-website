@@ -16,6 +16,7 @@ export type CtaSectionProps = {
   primaryCta: CtaLink;
   secondaryCta: CtaLink;
   royalStyle?: RoyalStyle;
+  anchorId?: string;
 };
 
 function PrimaryButton({ label, href }: CtaLink) {
@@ -47,14 +48,15 @@ export function CtaSection({
   primaryCta,
   secondaryCta,
   royalStyle = "none",
+  anchorId,
 }: CtaSectionProps) {
   if (variant === "banner") {
     return (
-      <section className="w-full py-20 px-4">
-        <div className="relative max-w-5xl mx-auto rounded-3xl px-8 py-16 text-center overflow-hidden cta-section-banner">
+      <section id={anchorId} className="w-full py-20 px-4 scroll-mt-24">
+        <div className="relative max-w-5xl mx-auto rounded-lg px-8 py-16 text-center overflow-hidden cta-section-banner">
           {royalStyle !== "none" && <YantraBackground royalStyle={royalStyle} />}
           {royalStyle !== "none" && <RoyalCorners royalStyle={royalStyle} />}
-          <h2 className="relative text-3xl md:text-4xl font-bold tracking-tight mb-4 cta-section-banner-heading">
+          <h2 className="relative text-3xl md:text-4xl font-bold mb-4 cta-section-banner-heading">
             {heading}
           </h2>
           {description && (
@@ -87,11 +89,11 @@ export function CtaSection({
 
   // Split variant
   return (
-    <section className="w-full py-16 px-4 cta-section-split">
+    <section id={anchorId} className="w-full py-16 px-4 scroll-mt-24 cta-section-split">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Text side */}
         <div className="flex-1 max-w-xl">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3 cta-section-split-heading">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 cta-section-split-heading">
             {heading}
           </h2>
           {description && (

@@ -1,6 +1,6 @@
-# Aarti Sri Ravikumar — Student Portfolio
+# Aarti Sri Ravikumar — Evidence-Led Student Resilience Research
 
-A visual, CMS-editable student portfolio built with **Next.js 16**, **Puck CMS**, and reusable shared UI components.
+A visual, CMS-editable student research portfolio built with **Next.js 16**, **Puck CMS**, and reusable shared UI components.
 
 ## Tech Stack
 
@@ -12,9 +12,10 @@ A visual, CMS-editable student portfolio built with **Next.js 16**, **Puck CMS**
 
 ## Positioning
 
-- Student-focused personal website with a clear and modern voice
-- GitHub-first portfolio flow for projects and collaboration
-- Support + legal pages aligned for trust and transparency
+- Research-first homepage centered on Aether, a student-authored resiliency framework
+- Evidence ledger linking claims to credible public health and academic sources
+- GitHub-first portfolio flow for projects, review, mentorship, and collaboration
+- SEO/GEO support through metadata, structured data, sitemap, robots, and `llms.txt`
 
 ## Getting Started
 
@@ -50,7 +51,8 @@ If these values are missing, protected routes return `500` until configured.
 
 ## Key Content Pages
 
-- `/` — homepage (student portfolio)
+- `/` — homepage (student resilience research portfolio)
+- `/aether-student-resiliency-framework-2026.pdf` — Aether proposal PDF
 - `/support-center` — onboarding/help/collaboration support
 - `/testimony` — roadmap and social-proof page
 - `/privacy-policy` — privacy commitments

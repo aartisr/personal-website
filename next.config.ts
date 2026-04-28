@@ -61,6 +61,18 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: "/personal-website",
+        destination: "/",
+      },
+      {
+        source: "/personal-website/:path*",
+        destination: "/:path*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

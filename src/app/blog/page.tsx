@@ -5,7 +5,7 @@ import { getAllBlogPosts, getAllBlogTags } from "@/lib/blog";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Blog | Aarti Sri Ravikumar",
+  title: "Journal",
   description:
     "Notes on learning, engineering, and student project execution.",
   alternates: {
@@ -40,8 +40,8 @@ export default function BlogPage() {
           >
             ← Back to Home
           </Link>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-[color:var(--foreground)]">
-            Blog
+          <h1 className="mt-4 text-4xl font-bold text-[color:var(--foreground)]">
+            Journal
           </h1>
           <p className="mt-3 text-base text-[color:var(--muted-foreground)]">
             Real posts about projects, research, writing, and technical execution.
@@ -53,7 +53,7 @@ export default function BlogPage() {
 
         <BlogListClient posts={posts} tags={tags} />
 
-        <section className="mt-10 rounded-xl border p-6 border-[color:var(--border)] bg-[var(--card)]">
+        <section className="mt-10 rounded-lg border p-6 border-[color:var(--border)] bg-[var(--card)]">
           <h2 className="text-lg font-semibold text-[color:var(--foreground)]">
             Academic & Collaboration Updates
           </h2>

@@ -9,15 +9,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     "",
     "/blog",
+    "/aether-student-resiliency-framework-2026.pdf",
     "/support-center",
     "/testimony",
+    "/web3-proof",
     "/privacy-policy",
     "/terms-of-service",
   ].map((path) => ({
     url: `${base}${path}`,
     lastModified: now,
     changeFrequency: path === "/blog" ? "daily" : "weekly",
-    priority: path === "" ? 1 : 0.8,
+    priority:
+      path === ""
+        ? 1
+        : path === "/aether-student-resiliency-framework-2026.pdf"
+          ? 0.9
+          : 0.8,
   }));
 
   const blogPages: MetadataRoute.Sitemap = getAllBlogPosts().map((post) => ({

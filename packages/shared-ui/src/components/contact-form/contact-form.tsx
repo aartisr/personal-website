@@ -90,7 +90,7 @@ export function ContactForm({
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="mb-10 text-center">
-          <h2 className="contact-form-section-heading text-3xl font-bold tracking-tight mb-3">
+          <h2 className="contact-form-section-heading text-3xl font-bold mb-3">
             {heading}
           </h2>
           {description && (
@@ -102,7 +102,7 @@ export function ContactForm({
 
         {/* Success state */}
         {submitted ? (
-          <div className="rounded-2xl p-8 text-center contact-form-section-success">
+          <div className="rounded-lg p-8 text-center contact-form-section-success">
             <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 contact-form-section-success-icon">
               <svg
                 width="24"
@@ -129,7 +129,7 @@ export function ContactForm({
           >
             {errorMessage ? (
               <div
-                className="rounded-xl px-4 py-3 text-sm contact-form-section-error"
+                className="rounded-lg px-4 py-3 text-sm contact-form-section-error"
                 role="alert"
                 aria-live="polite"
               >
@@ -163,7 +163,7 @@ export function ContactForm({
                     value={values[field.name] ?? ""}
                     disabled={submitting}
                     onChange={handleChange}
-                    className="contact-form-section-textarea w-full rounded-xl px-4 py-3 text-sm resize-none outline-none transition-all"
+                    className="contact-form-section-textarea w-full rounded-lg px-4 py-3 text-sm resize-none outline-none transition-all"
                   />
                 ) : (
                   <input
@@ -174,7 +174,7 @@ export function ContactForm({
                     value={values[field.name] ?? ""}
                     disabled={submitting}
                     onChange={handleChange}
-                    className="contact-form-section-input w-full rounded-xl px-4 py-3 text-sm outline-none transition-all"
+                    className="contact-form-section-input w-full rounded-lg px-4 py-3 text-sm outline-none transition-all"
                   />
                 )}
               </div>

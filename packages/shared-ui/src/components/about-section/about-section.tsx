@@ -19,6 +19,7 @@ export type AboutSectionProps = {
   reverse: boolean;
   animation?: AnimationType;
   royalStyle?: RoyalStyle;
+  anchorId?: string;
 };
 
 export function AboutSection({
@@ -30,14 +31,16 @@ export function AboutSection({
   reverse,
   animation,
   royalStyle = "none",
+  anchorId,
 }: AboutSectionProps) {
   const defaultAnim: AnimationType = reverse ? "slide-right" : "slide-left";
   const { ref } = useScrollReveal(animation ?? defaultAnim);
 
   return (
     <section
+      id={anchorId}
       ref={ref}
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--background)]"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--background)] scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto">
         <div
@@ -85,7 +88,7 @@ export function AboutSection({
           {/* Image */}
           {image && (
             <RoyalFrame royalStyle={royalStyle}>
-              <div className="rounded-2xl overflow-hidden shadow-xl">
+              <div className="rounded-lg overflow-hidden shadow-lg">
                 <img
                   src={image}
                   alt={imageAlt}

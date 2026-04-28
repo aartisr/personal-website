@@ -30,7 +30,7 @@ export function RoyalFrame({
     >
       {/* Outer border */}
       <div
-        className="absolute inset-0 rounded-2xl pointer-events-none"
+        className="absolute inset-0 rounded-lg pointer-events-none"
         style={{
           border: `${borderWidth}px solid var(--royal-gold)`,
           opacity: borderOpacity,
@@ -38,7 +38,7 @@ export function RoyalFrame({
       />
       {/* Inner border */}
       <div
-        className="absolute rounded-xl pointer-events-none"
+        className="absolute rounded-lg pointer-events-none"
         style={{
           top: gap,
           left: gap,
@@ -49,7 +49,7 @@ export function RoyalFrame({
         }}
       />
       {/* Content — no opacity applied */}
-      <div className="relative overflow-hidden rounded-xl">
+      <div className="relative overflow-hidden rounded-lg">
         {children}
       </div>
 

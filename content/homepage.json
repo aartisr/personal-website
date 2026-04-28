@@ -1,25 +1,27 @@
 {
   "root": {
-    "props": {}
+    "props": {
+      "title": "Home"
+    }
   },
   "content": [
     {
       "type": "Header",
       "props": {
-        "id": "Header-0",
+        "id": "Header-1",
         "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
-        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "logoAlt": "Aarti Sri Ravikumar",
         "navStyle": "flat",
         "navItems": [
-          { "label": "Home", "href": "/" },
-          { "label": "About", "href": "/testimony" },
-          { "label": "Blog", "href": "/blog" },
-          { "label": "Web3 Proof", "href": "/web3-proof" },
+          { "label": "Research", "href": "/#research" },
+          { "label": "Evidence", "href": "/#evidence" },
+          { "label": "Pathway", "href": "/#pathway" },
+          { "label": "Journal", "href": "/blog" },
           { "label": "Contact", "href": "/support-center" }
         ],
         "ctaButton": {
-          "label": "Get in Touch",
-          "href": "/support-center"
+          "label": "Review proposal",
+          "href": "/aether-student-resiliency-framework-2026.pdf"
         },
         "sticky": true
       }
@@ -29,139 +31,134 @@
       "props": {
         "id": "HeroSection-1",
         "variant": "editorial",
-        "heading": "Education-led Research. Systems-minded Execution.",
-        "subheading": "Student Research Portfolio • Aarti Sri Ravikumar",
-        "description": "Review projects, methods, and outcomes in a concise format built for mentors, collaborators, and rapid technical evaluation.",
+        "heading": "Evidence-led kindness for student resilience.",
+        "subheading": "Aether Student Resiliency Framework 2026",
+        "description": "Aarti Sri Ravikumar's research portfolio explores how school connectedness, reflective expression, privacy-aware AI, and human support can help students feel seen before they feel sorted.",
         "highlights": [
-          { "text": "Project fit in under 30 seconds" },
-          { "text": "Clear evidence and implementation context" },
-          { "text": "Mobile-first reading flow" }
+          { "text": "Academic evidence before hype" },
+          { "text": "Clear safety boundaries" },
+          { "text": "Kindness as a design constraint" }
         ],
         "proofPoints": [
-          { "value": "131+", "label": "GitHub contributions" },
-          { "value": "3+", "label": "Public repositories" },
-          { "value": "2", "label": "Active research tracks" }
+          { "value": "5", "label": "Evidence anchors" },
+          { "value": "4", "label": "Aether pathway stages" },
+          { "value": "1", "label": "Student-authored framework" }
         ],
         "primaryCta": {
-          "label": "Explore Projects",
-          "href": "https://github.com/aartisr?tab=repositories"
+          "label": "Read the proposal",
+          "href": "/aether-student-resiliency-framework-2026.pdf"
         },
         "secondaryCta": {
-          "label": "Read Journey",
-          "href": "/testimony"
+          "label": "See the evidence",
+          "href": "#evidence"
         },
-        "image": "/hero-academic-kindness-minimal.svg",
-        "imageAlt": "Minimal academic research and kindness illustration",
+        "image": "/aether-resilience-hero.svg",
+        "imageAlt": "Aether student resilience research map connecting evidence, reflection, privacy, and human support",
         "animation": "fade-in",
         "royalStyle": "none"
       }
     },
     {
-      "type": "LogoCloud",
-      "props": {
-        "id": "LogoCloud-2",
-        "heading": "Research, Engineering, and Collaboration Ecosystem",
-        "logos": [
-          {
-            "src": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-            "alt": "GitHub",
-            "href": "https://github.com/aartisr"
-          },
-          {
-            "src": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Python.svg",
-            "alt": "Python",
-            "href": "https://www.python.org/"
-          },
-          {
-            "src": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-            "alt": "React",
-            "href": "https://react.dev/"
-          },
-          {
-            "src": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
-            "alt": "Node.js",
-            "href": "https://nodejs.org/"
-          },
-          {
-            "src": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
-            "alt": "Open Source Learning",
-            "href": "https://github.com/explore"
-          }
-        ]
-      }
-    },
-    {
       "type": "StatsCounter",
       "props": {
-        "id": "StatsCounter-3",
+        "id": "StatsCounter-1",
+        "anchorId": "research",
         "animation": "scale-in",
         "stats": [
-          {
-            "value": "131",
-            "label": "GitHub Contributions",
-            "prefix": "",
-            "suffix": "+"
-          },
-          {
-            "value": "3",
-            "label": "Public Repositories",
-            "prefix": "",
-            "suffix": "+"
-          },
-          {
-            "value": "2",
-            "label": "Research Tracks",
-            "prefix": "",
-            "suffix": ""
-          },
-          {
-            "value": "100",
-            "label": "Progressive Learning Orientation",
-            "prefix": "",
-            "suffix": "%"
-          }
+          { "value": "5", "label": "External evidence sources", "prefix": "", "suffix": "" },
+          { "value": "4", "label": "Student support stages", "prefix": "", "suffix": "" },
+          { "value": "0", "label": "Medical claims made", "prefix": "", "suffix": "" },
+          { "value": "988", "label": "Crisis line named clearly", "prefix": "", "suffix": "" }
         ]
       }
     },
     {
       "type": "FeaturesGrid",
       "props": {
-        "id": "FeaturesGrid-4",
-        "heading": "Academic and Research Design Principles",
-        "description": "Built for clarity, evidence, and objective communication.",
+        "id": "FeaturesGrid-1",
+        "anchorId": "principles",
+        "heading": "A homepage built like a research abstract, not a pitch deck.",
+        "description": "The page leads with thesis, method, evidence, boundaries, and next steps so mentors, search engines, and AI answer systems can understand the work without guessing.",
         "columns": 3,
         "animation": "slide-up",
         "royalStyle": "none",
         "features": [
           {
-            "icon": "▣",
-            "title": "Scannable Information Hierarchy",
-            "description": "Clear headings, concise sections, and structured pathways reduce cognitive load for reviewers."
+            "icon": "book-open",
+            "title": "Connection before content",
+            "description": "School connectedness is treated as a protective design goal: students should know where support lives before pressure peaks."
           },
           {
-            "icon": "◉",
-            "title": "Evidence-Oriented Communication",
-            "description": "Content emphasizes objective results, process transparency, and reproducible project thinking."
+            "icon": "brain",
+            "title": "Reflection with agency",
+            "description": "Student voice matters. Reflection prompts are framed to help students name patterns, organize thoughts, and choose what to share."
           },
           {
-            "icon": "◌",
-            "title": "Research to Application Pipeline",
-            "description": "Concepts move from exploration to implementation through disciplined iteration."
+            "icon": "hand-heart",
+            "title": "Kind language by default",
+            "description": "The experience avoids shame, labels, and diagnosis. It uses calm words that preserve dignity while making support easier to reach."
           },
           {
-            "icon": "◈",
-            "title": "Academic Trust Signals",
-            "description": "Consistent navigation, policy visibility, and contextual documentation strengthen credibility."
+            "icon": "lock-keyhole",
+            "title": "Privacy-aware AI boundaries",
+            "description": "Aether is positioned as educational research. Any future AI layer should minimize data, preserve consent, and route sensitive needs to humans."
           },
           {
-            "icon": "◎",
-            "title": "Accessible, Inclusive UX",
-            "description": "High-contrast visual language and predictable interaction patterns support wider audiences."
+            "icon": "route",
+            "title": "Human handoff by design",
+            "description": "Digital tools should reduce friction, not replace trusted adults, counselors, families, or emergency resources."
           },
           {
-            "icon": "◇",
-            "title": "Progressive Orientation",
-            "description": "The portfolio evolves continuously with measurable milestones and reflective updates."
+            "icon": "github",
+            "title": "Public implementation trail",
+            "description": "The portfolio links ideas to code, writing, PDFs, and public project history so claims can be checked instead of merely admired."
+          }
+        ]
+      }
+    },
+    {
+      "type": "ServicesGrid",
+      "props": {
+        "id": "ServicesGrid-1",
+        "anchorId": "evidence",
+        "heading": "Evidence ledger",
+        "description": "Aether's homepage now names the research it leans on, separates evidence from aspiration, and keeps safety boundaries visible.",
+        "services": [
+          {
+            "icon": "book-open",
+            "title": "CDC: youth mental health",
+            "description": "Youth mental health is a real public health concern. The portfolio uses this context to explain why early, humane support systems matter.",
+            "href": "https://www.cdc.gov/healthy-youth/mental-health/index.html"
+          },
+          {
+            "icon": "hand-heart",
+            "title": "CDC: school connectedness",
+            "description": "Connectedness with school and trusted adults is treated as a core design principle, not a decorative value statement.",
+            "href": "https://www.cdc.gov/youth-behavior/school-connectedness/index.html"
+          },
+          {
+            "icon": "route",
+            "title": "U.S. Surgeon General: social connection",
+            "description": "Social connection is framed as a health-relevant need, supporting Aether's emphasis on belonging and human support.",
+            "href": "https://www.ncbi.nlm.nih.gov/books/NBK595227/"
+          },
+          {
+            "icon": "brain",
+            "title": "Pennebaker: expressive writing",
+            "description": "Reflective expression is included as a student voice pathway, with care not to overstate it as treatment.",
+            "href": "https://doi.org/10.1111/j.1467-9280.1997.tb00403.x"
+          },
+          {
+            "icon": "lock-keyhole",
+            "title": "Nature: digital resilience review",
+            "description": "The digital support layer is described with caution: promising, bounded, and strongest when paired with responsible implementation.",
+            "href": "https://www.nature.com/articles/s41746-024-01017-8"
+          },
+          {
+            "icon": "book-open",
+            "title": "Google Search Central",
+            "description": "The site now favors crawlable text, descriptive titles, canonical URLs, structured data, sitemap entries, and helpful source links.",
+            "href": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
           }
         ]
       }
@@ -169,29 +166,36 @@
     {
       "type": "TimelineSection",
       "props": {
-        "id": "TimelineSection-5",
-        "heading": "Academic Growth Timeline",
-        "description": "Milestones from foundational learning to applied research.",
+        "id": "TimelineSection-1",
+        "anchorId": "pathway",
+        "heading": "The Aether pathway",
+        "description": "A practical sequence for a student resilience ecosystem: listen carefully, reflect safely, route support, and keep improving through evidence.",
         "variant": "alternating",
         "animation": "slide-up",
         "royalStyle": "none",
         "items": [
           {
-            "year": "2025",
-            "title": "Foundation Stage",
-            "description": "Established a structured portfolio baseline and documented initial project outputs.",
+            "year": "1",
+            "title": "Listen for context",
+            "description": "Start with school connectedness, stress signals, and the student's own words. The first goal is understanding, not judgment.",
             "image": ""
           },
           {
-            "year": "2026",
-            "title": "Research and Systems Expansion",
-            "description": "Expanded into stronger architecture, methodology-led development, and reusable systems.",
+            "year": "2",
+            "title": "Reflect without shame",
+            "description": "Offer structured, optional reflection so students can organize thoughts, notice patterns, and decide what support might help.",
             "image": ""
           },
           {
-            "year": "Now",
-            "title": "Progressive Impact",
-            "description": "Driving collaborative projects that balance technical depth, clarity, and practical relevance.",
+            "year": "3",
+            "title": "Route to humans",
+            "description": "Escalate urgent or sensitive needs to trusted adults and official resources. Digital systems should make help easier to find.",
+            "image": ""
+          },
+          {
+            "year": "4",
+            "title": "Review the evidence",
+            "description": "Keep the framework honest through source links, privacy review, student feedback, and clear limits on what the system can claim.",
             "image": ""
           }
         ]
@@ -200,89 +204,84 @@
     {
       "type": "AboutSection",
       "props": {
-        "id": "AboutSection-6",
-        "heading": "Academic Profile",
-        "body": "I am a student at Pioneer Charter School of Science II (PCSS-II), Saugus, Massachusetts.\n\nMy focus combines academic rigor, research curiosity, and implementation discipline to turn ideas into practical systems.\n\nThis website is designed as a clear, professional research portfolio for mentors, peers, and collaborators.",
+        "id": "AboutSection-1",
+        "anchorId": "profile",
+        "heading": "A student research artifact with a human center.",
+        "body": "I am Aarti Sri Ravikumar, a student builder researching Aether: a resiliency ecosystem for students.\n\nThis homepage is designed to be kind to human readers and legible to search engines: clear thesis, explicit evidence, source links, safety boundaries, and a direct path to the full proposal.\n\nThe standard is simple: if a claim affects trust, a reader should be able to inspect where it came from.",
         "image": "https://avatars.githubusercontent.com/u/166765628?v=4",
         "imageAlt": "Aarti Sri Ravikumar",
         "reverse": true,
-        "animation": "",
-        "royalStyle": "corners",
+        "animation": "slide-left",
+        "royalStyle": "none",
         "stats": [
-          {
-            "value": "PCSS-II",
-            "label": "School"
-          },
-          {
-            "value": "Saugus, MA",
-            "label": "Location"
-          },
-          {
-            "value": "Student Builder",
-            "label": "Identity"
-          }
+          { "value": "Aether", "label": "Framework" },
+          { "value": "PCSS-II", "label": "Student context" },
+          { "value": "Saugus, MA", "label": "Community" }
         ]
       }
     },
     {
       "type": "BlogSection",
       "props": {
-        "id": "BlogSection-7",
-        "anchorId": "blog",
-        "heading": "Blog",
-        "description": "Key destinations for evaluating work quality, direction, and trust.",
+        "id": "BlogSection-1",
+        "anchorId": "journal",
+        "heading": "Field notes from research to shipping",
+        "description": "Short essays that make the portfolio easier to evaluate: how ideas become features, how writing improves systems, and how student work becomes readable.",
         "posts": [
-          {
-            "title": "Building a Student Portfolio That Actually Gets Read",
-            "excerpt": "A practical structure for making project work easy to scan for mentors, teachers, and collaborators.",
-            "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&q=80",
-            "imageAlt": "Student portfolio planning",
-            "date": "2026-03-06",
-            "href": "/blog/building-a-student-portfolio"
-          },
           {
             "title": "From Research Notes to Shipped Features",
             "excerpt": "How I move ideas from exploration into implementation without losing rigor.",
-            "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1600&q=80",
-            "imageAlt": "Research to implementation workflow",
-            "date": "2026-02-20",
+            "image": "/hero-academic-kindness-vibrant.svg",
+            "imageAlt": "Research notes becoming shipped features",
+            "date": "2026-03-12",
             "href": "/blog/research-to-shipping"
           },
           {
             "title": "Why Clear Writing Improves Code Quality",
             "excerpt": "Writing decisions down early catches architecture mistakes before they become implementation debt.",
-            "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=80",
-            "imageAlt": "Writing and software quality",
-            "date": "2026-01-28",
+            "image": "/hero-academic-kindness-minimal.svg",
+            "imageAlt": "Clear writing and code quality",
+            "date": "2026-03-08",
             "href": "/blog/why-clear-writing-improves-code"
+          },
+          {
+            "title": "Building a Student Portfolio That Actually Gets Read",
+            "excerpt": "A practical structure for making project work easy to scan for mentors, teachers, and collaborators.",
+            "image": "/hero-support-academic.svg",
+            "imageAlt": "Student portfolio structure",
+            "date": "2026-03-01",
+            "href": "/blog/building-a-student-portfolio"
           }
         ]
       }
     },
     {
-      "type": "TestimonialsSection",
+      "type": "FAQSection",
       "props": {
-        "id": "TestimonialsSection-8",
-        "heading": "Research Principles",
-        "royalStyle": "none",
-        "testimonials": [
+        "id": "FAQSection-1",
+        "anchorId": "questions",
+        "heading": "Reviewer FAQ",
+        "description": "The page answers the trust questions first: what is claimed, what is sourced, and where the limits are.",
+        "faqs": [
           {
-            "quote": "I focus on objective, evidence-led execution where design and engineering decisions are explainable.",
-            "name": "Aarti Sri Ravikumar",
-            "role": "Student Researcher",
-            "avatar": "https://avatars.githubusercontent.com/u/166765628?v=4"
+            "question": "Is Aether medical advice or therapy?",
+            "answer": "No. This site is educational research and portfolio documentation. It is not medical advice, diagnosis, therapy, emergency care, or a crisis service. In the United States, anyone in immediate crisis can call or text 988 or contact local emergency services."
           },
           {
-            "quote": "Good engineering is disciplined simplicity: robust enough to scale, clear enough to teach.",
-            "name": "Aarti Sri Ravikumar",
-            "role": "Academic Builder",
-            "avatar": "https://avatars.githubusercontent.com/u/166765628?v=4"
+            "question": "What makes the work evidence-led?",
+            "answer": "The homepage links claims to public sources from the CDC, the U.S. Surgeon General, peer-reviewed research, and Google Search Central. The point is not to sound impressive; it is to make the reasoning inspectable."
           },
           {
-            "quote": "Every project follows a progressive cycle: investigate, prototype, validate, and improve.",
-            "name": "Aarti Sri Ravikumar",
-            "role": "Continuous Learner",
-            "avatar": "https://avatars.githubusercontent.com/u/166765628?v=4"
+            "question": "How is kindness treated as more than tone?",
+            "answer": "Kindness becomes a design requirement: avoid shame, use plain language, reduce friction to human help, and never let a digital system pretend to be more certain than the evidence allows."
+          },
+          {
+            "question": "Where should a mentor or collaborator begin?",
+            "answer": "Start with the Aether proposal PDF, scan the evidence ledger, then read the journal notes to see how the research is being translated into implementation choices."
+          },
+          {
+            "question": "Why is this structured for SEO and AI answer engines?",
+            "answer": "The page uses descriptive headings, source links, canonical metadata, structured data, a sitemap, llms.txt, and direct PDF access so both people and machines can understand the work accurately."
           }
         ]
       }
@@ -290,105 +289,66 @@
     {
       "type": "CTASection",
       "props": {
-        "id": "CTASection-9",
+        "id": "CTASection-1",
+        "anchorId": "contact",
         "variant": "split",
-        "heading": "Open to Academic and Research Collaboration",
-        "description": "Open to student research collaborations, interdisciplinary projects, and progressive product thinking.",
+        "heading": "Read the framework, then challenge it kindly.",
+        "description": "Aether is strongest when the evidence is visible and the feedback is thoughtful. Review the proposal or send a note for mentorship, collaboration, or research feedback.",
         "primaryCta": {
-          "label": "Review GitHub Profile",
-          "href": "https://github.com/aartisr"
+          "label": "Open proposal",
+          "href": "/aether-student-resiliency-framework-2026.pdf"
         },
         "secondaryCta": {
-          "label": "Get in Touch",
+          "label": "Contact Aarti",
           "href": "/support-center"
         },
-        "royalStyle": "corners"
-      }
-    },
-    {
-      "type": "FAQSection",
-      "props": {
-        "id": "FAQSection-10",
-        "heading": "Frequently Asked Questions",
-        "description": "Quick answers for collaborators, reviewers, and visitors.",
-        "faqs": [
-          {
-            "question": "What is the purpose of this site?",
-            "answer": "This is a professional student portfolio that presents projects, direction, and collaboration channels in one place."
-          },
-          {
-            "question": "How can I review technical work quickly?",
-            "answer": "Start with the Projects section and GitHub repositories, then check the journey page for context and progress."
-          },
-          {
-            "question": "How do collaboration requests work?",
-            "answer": "Use the Support page and include your project idea, scope, and expected timeline."
-          },
-          {
-            "question": "Is this portfolio actively updated?",
-            "answer": "Yes. New progress, documentation, and structural improvements are published continuously."
-          }
-        ]
+        "royalStyle": "none"
       }
     },
     {
       "type": "Footer",
       "props": {
-        "id": "Footer-11",
+        "id": "Footer-1",
         "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
-        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "logoAlt": "Aarti Sri Ravikumar",
         "columns": [
           {
-            "title": "Portfolio",
+            "title": "Research",
             "links": [
-              {
-                "label": "GitHub Profile",
-                "href": "https://github.com/aartisr"
-              },
-              {
-                "label": "Research Projects",
-                "href": "https://github.com/aartisr?tab=repositories"
-              },
-              {
-                "label": "Journey",
-                "href": "/testimony"
-              }
+              { "label": "Homepage", "href": "/" },
+              { "label": "Aether proposal PDF", "href": "/aether-student-resiliency-framework-2026.pdf" },
+              { "label": "Journal", "href": "/blog" }
             ]
           },
           {
-            "title": "Support",
+            "title": "Evidence",
             "links": [
-              {
-                "label": "Support Center",
-                "href": "/support-center"
-              }
+              { "label": "CDC youth mental health", "href": "https://www.cdc.gov/healthy-youth/mental-health/index.html" },
+              { "label": "CDC school connectedness", "href": "https://www.cdc.gov/youth-behavior/school-connectedness/index.html" },
+              { "label": "Surgeon General advisory", "href": "https://www.ncbi.nlm.nih.gov/books/NBK595227/" }
+            ]
+          },
+          {
+            "title": "Connect",
+            "links": [
+              { "label": "Contact", "href": "/support-center" },
+              { "label": "GitHub", "href": "https://github.com/aartisr" },
+              { "label": "Web3 Proof", "href": "/web3-proof" }
             ]
           },
           {
             "title": "Legal",
             "links": [
-              {
-                "label": "Privacy Policy",
-                "href": "/privacy-policy"
-              },
-              {
-                "label": "Terms of Service",
-                "href": "/terms-of-service"
-              }
+              { "label": "Privacy Policy", "href": "/privacy-policy" },
+              { "label": "Terms of Service", "href": "/terms-of-service" },
+              { "label": "llms.txt", "href": "/llms.txt" }
             ]
           }
         ],
         "socialLinks": [
-          {
-            "platform": "instagram",
-            "url": "https://www.instagram.com/pcssii/"
-          },
-          {
-            "platform": "youtube",
-            "url": "https://www.youtube.com/user/PCSSII"
-          }
+          { "platform": "github", "url": "https://github.com/aartisr" }
         ],
-        "copyright": "© 2026 Aarti Sri Ravikumar. All rights reserved."
+        "copyright": "© 2026 Aarti Sri Ravikumar. Educational research portfolio."
       }
     }
   ]

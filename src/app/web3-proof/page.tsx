@@ -4,7 +4,7 @@ import { WalletProofClient } from "@/components/web3/wallet-proof-client";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Web3 Proof | Aarti Sri Ravikumar",
+  title: "Web3 Proof",
   description:
     "Wallet-based verification proof for academic profile authenticity.",
   alternates: {

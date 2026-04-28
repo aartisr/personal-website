@@ -1,22 +1,41 @@
-# Aarti Sri Ravikumar — Student Web3 Portfolio
+# Aarti Sri Ravikumar — Evidence-Led Student Resilience Research
 
-> A modern, student-led Web3 portfolio focused on open-source projects, research thinking, and intuitive decentralized product design.
+> A student research portfolio about Aether, a privacy-aware framework for student resilience grounded in academic research, school connectedness, reflective expression, human support, and kindness.
 
-## Pages
+## Primary Pages
 
-- / — Student Web3 landing page and portfolio overview
-- /support-center — Web3 support hub and collaboration contact form
-- /testimony — Roadmap and social-proof style progress page
-- /privacy-policy — Data usage and privacy commitments
-- /terms-of-service — Usage terms and legal policy
+- / — Homepage with research thesis, evidence ledger, Aether pathway, profile, journal, and reviewer FAQ
+- /aether-student-resiliency-framework-2026.pdf — Student-authored Aether proposal PDF
+- /blog — Field notes on research, writing, engineering, and portfolio development
+- /support-center — Contact, collaboration, and support pathway
+- /testimony — Portfolio journey and milestone context
+- /web3-proof — Optional Web3-style identity proof page
+- /privacy-policy — Privacy commitments
+- /terms-of-service — Usage terms
 
-## Topics
+## Core Topics
 
-- Student developer profile (Aarti Sri Ravikumar)
-- Web3 learning journey and decentralized product principles
-- Open-source projects and GitHub-first collaboration flow
-- Privacy, trust, and legal transparency
+- Aarti Sri Ravikumar, student researcher and systems builder
+- Aether: The Student Resiliency Ecosystem
+- Evidence-led kindness and student resilience
+- School connectedness, belonging, and social support
+- Expressive reflection and student voice
+- Privacy-aware AI, human handoff, and responsible boundaries
+- Clear writing, implementation discipline, and public academic communication
+
+## Evidence Sources Referenced
+
+- CDC adolescent mental health data: https://www.cdc.gov/healthy-youth/mental-health/index.html
+- CDC school connectedness guidance: https://www.cdc.gov/youth-behavior/school-connectedness/index.html
+- U.S. Surgeon General advisory on social connection: https://www.ncbi.nlm.nih.gov/books/NBK595227/
+- Pennebaker expressive writing research: https://doi.org/10.1111/j.1467-9280.1997.tb00403.x
+- Digital resilience interventions review: https://www.nature.com/articles/s41746-024-01017-8
+
+## Safety Boundary
+
+This site is educational research and project documentation. It is not medical advice, therapy, diagnosis, emergency care, or a crisis service. In the United States, people in immediate crisis can call or text 988 or contact local emergency services.
 
 ## Contact
 
 - GitHub: https://github.com/aartisr
+- Contact page: /support-center

@@ -41,7 +41,7 @@ export function BlogSection({
         {(heading || description) && (
           <div className="mb-12 text-center max-w-2xl mx-auto">
             {heading && (
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3 text-[color:var(--foreground)]">
+              <h2 className="text-3xl md:text-4xl font-bold mb-3 text-[color:var(--foreground)]">
                 {heading}
               </h2>
             )}
@@ -59,7 +59,7 @@ export function BlogSection({
             <a
               key={index}
               href={post.href}
-              className="group flex flex-col rounded-2xl overflow-hidden transition-all hover:-translate-y-1 bg-[var(--card)] border border-[color:var(--border)] shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
+              className="group flex flex-col rounded-lg overflow-hidden transition-all hover:-translate-y-1 bg-[var(--card)] border border-[color:var(--border)] shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
             >
               {/* Image */}
               {post.image && (
@@ -77,7 +77,7 @@ export function BlogSection({
                 {post.date && (
                   <time
                     dateTime={post.date}
-                    className="text-xs font-medium uppercase tracking-wider mb-3 text-[color:var(--primary)]"
+                    className="text-xs font-medium uppercase mb-3 text-[color:var(--primary)]"
                   >
                     {formatDate(post.date)}
                   </time>

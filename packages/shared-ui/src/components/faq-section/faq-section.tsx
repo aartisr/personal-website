@@ -12,6 +12,7 @@ export type FAQSectionProps = {
   heading: string;
   description: string;
   faqs: FAQ[];
+  anchorId?: string;
 };
 
 function AccordionItem({
@@ -62,7 +63,12 @@ function AccordionItem({
   );
 }
 
-export function FAQSection({ heading, description, faqs }: FAQSectionProps) {
+export function FAQSection({
+  heading,
+  description,
+  faqs,
+  anchorId,
+}: FAQSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const handleToggle = (index: number) => {
@@ -71,7 +77,8 @@ export function FAQSection({ heading, description, faqs }: FAQSectionProps) {
 
   return (
     <section
-      className="py-20 px-4 sm:px-6 lg:px-8 faq-section"
+      id={anchorId}
+      className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-24 faq-section"
     >
       <div className="max-w-3xl mx-auto">
         {/* Section header */}

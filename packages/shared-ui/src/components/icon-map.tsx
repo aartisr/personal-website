@@ -15,6 +15,12 @@ import {
   TrendingUp,
   Settings,
   MessageCircle,
+  BookOpen,
+  Brain,
+  HandHeart,
+  LockKeyhole,
+  Route,
+  Github,
   type LucideIcon,
 } from "lucide-react";
 
@@ -35,6 +41,12 @@ const icons: Record<string, LucideIcon> = {
   "trending-up": TrendingUp,
   settings: Settings,
   "message-circle": MessageCircle,
+  "book-open": BookOpen,
+  brain: Brain,
+  "hand-heart": HandHeart,
+  "lock-keyhole": LockKeyhole,
+  route: Route,
+  github: Github,
 };
 
 export function Icon({

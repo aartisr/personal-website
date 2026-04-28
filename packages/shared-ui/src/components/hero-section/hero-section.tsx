@@ -135,7 +135,7 @@ function CtaButtons({
           {proofPoints.slice(0, 3).map((point, index) => (
             <div
               key={`${point.label}-${index}`}
-              className={`rounded-xl px-4 py-3 border ${
+              className={`rounded-lg px-4 py-3 border ${
                 inverted ? "border-white/35" : "border-border"
               }`}
             >
@@ -175,7 +175,7 @@ function CenteredHero({
     >
       <div className="max-w-4xl mx-auto text-center">
         {subheading && (
-          <p className="text-sm font-semibold uppercase tracking-widest mb-4 text-primary">
+          <p className="text-sm font-semibold uppercase mb-4 text-primary">
             {subheading}
           </p>
         )}
@@ -195,7 +195,7 @@ function CenteredHero({
           align="center"
         />
         {image && (
-          <div className="mt-16 rounded-2xl overflow-hidden">
+          <div className="mt-16 rounded-lg overflow-hidden">
             <img
               src={image}
               alt={imageAlt}
@@ -236,7 +236,7 @@ function SplitImageHero({
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           {subheading && (
-            <p className="text-sm font-semibold uppercase tracking-widest mb-4 text-primary">
+            <p className="text-sm font-semibold uppercase mb-4 text-primary">
               {subheading}
             </p>
           )}
@@ -257,7 +257,7 @@ function SplitImageHero({
           />
         </div>
         {image && (
-          <div className="rounded-2xl overflow-hidden">
+          <div className="rounded-lg overflow-hidden">
             <img
               src={image}
               alt={imageAlt}
@@ -313,7 +313,7 @@ function BackgroundImageHero({
       {/* Content */}
       <div className="relative z-20 max-w-4xl mx-auto text-center">
         {subheading && (
-          <p className="text-sm font-semibold uppercase tracking-widest mb-4 text-white/80">
+          <p className="text-sm font-semibold uppercase mb-4 text-white/80">
             {subheading}
           </p>
         )}
@@ -377,7 +377,7 @@ function GradientOverlayHero({
       <div className="relative z-20 max-w-7xl mx-auto w-full">
         <div className="max-w-xl">
           {subheading && (
-            <p className="text-sm font-semibold uppercase tracking-widest mb-4 text-white/80">
+            <p className="text-sm font-semibold uppercase mb-4 text-white/80">
               {subheading}
             </p>
           )}
@@ -425,11 +425,7 @@ function EditorialHero({
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-28 top-20 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,color-mix(in_oklch,var(--primary)_18%,transparent),transparent_70%)]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-0 h-80 w-136 bg-[linear-gradient(125deg,color-mix(in_oklch,var(--primary)_7%,transparent),transparent_70%)]"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg,transparent,color-mix(in_oklch,var(--primary)_32%,transparent),transparent)]"
       />
       <div className="max-w-7xl mx-auto">
         {/* Asymmetric grid: 7/5 split */}
@@ -437,18 +433,18 @@ function EditorialHero({
           {/* Large heading spanning left 7 columns */}
           <div className="lg:col-span-7">
             {subheading && (
-              <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] mb-6 text-primary">
+              <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase mb-6 text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
                 {subheading}
               </p>
             )}
-            <h1 className="max-w-[16ch] text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight text-foreground text-balance">
+            <h1 className="max-w-[16ch] text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold leading-[0.98] text-foreground text-balance">
               {heading}
             </h1>
             <div className="mt-8 hidden lg:block h-px w-28 bg-[linear-gradient(90deg,var(--primary),transparent)]" />
           </div>
           {/* Description + CTAs in the right 5 columns */}
-          <div className="lg:col-span-5 lg:pb-2 rounded-3xl border border-(--border)/80 bg-(--card)/72 backdrop-blur-sm p-6 md:p-7 shadow-[0_16px_42px_rgba(12,22,48,0.08)]">
+          <div className="lg:col-span-5 lg:pb-2 lg:border-l lg:border-(--border)/80 lg:pl-8">
             {description && (
               <p className="max-w-[36ch] text-base sm:text-lg leading-relaxed text-muted-foreground">
                 {description}
@@ -461,14 +457,14 @@ function EditorialHero({
               proofPoints={proofPoints}
               align="left"
             />
-            <p className="mt-4 text-xs font-medium tracking-wide text-muted-foreground">
-              Fast review path: Projects &rarr; Timeline &rarr; Contact.
+            <p className="mt-4 text-xs font-medium text-muted-foreground">
+              Fast review path: proposal, evidence, journal, contact.
             </p>
           </div>
         </div>
         {/* Full-width image below */}
         {image && (
-          <div className="mt-12 rounded-2xl overflow-hidden">
+          <div className="mt-12 overflow-hidden rounded-lg border border-(--border)/80 bg-(--card)">
             <img
               src={image}
               alt={imageAlt}
@@ -508,12 +504,12 @@ function StackedNarrativeHero({
       <div className="max-w-7xl mx-auto">
         {/* Eyebrow */}
         {subheading && (
-          <p className="text-sm font-semibold uppercase tracking-widest mb-8 text-primary">
+          <p className="text-sm font-semibold uppercase mb-8 text-primary">
             {subheading}
           </p>
         )}
         {/* Oversized heading — full width, left-aligned */}
-        <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold leading-tight lg:leading-none tracking-tight text-foreground">
+        <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold leading-tight lg:leading-none text-foreground">
           {heading}
         </h1>
         {/* Divider */}
@@ -535,7 +531,7 @@ function StackedNarrativeHero({
             />
           </div>
           {image && (
-            <div className="rounded-2xl overflow-hidden">
+            <div className="rounded-lg overflow-hidden">
               <img
                 src={image}
                 alt={imageAlt}
@@ -573,11 +569,11 @@ function MinimalTypeHero({
     >
       <div className="max-w-5xl mx-auto text-center">
         {subheading && (
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-6 text-primary">
+          <p className="text-xs font-semibold uppercase mb-6 text-primary">
             {subheading}
           </p>
         )}
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none tracking-tight text-foreground">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none text-foreground">
           {heading}
         </h1>
         {description && (
@@ -622,7 +618,7 @@ function DarkSplitHero({
         {/* Text side */}
         <div>
           {subheading && (
-            <p className="text-sm font-semibold uppercase tracking-widest mb-4 text-primary">
+            <p className="text-sm font-semibold uppercase mb-4 text-primary">
               {subheading}
             </p>
           )}
@@ -659,7 +655,7 @@ function DarkSplitHero({
         {image && (
           <div className="flex justify-center lg:justify-end">
             <div
-              className="rounded-2xl overflow-hidden"
+              className="rounded-lg overflow-hidden"
             >
               <img
                 src={image}
@@ -702,10 +698,10 @@ function DarkCenteredHero({
       className="relative flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] min-h-[80vh]"
     >
       {/* Subtle radial gradient glow behind content */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_50%_40%,color-mix(in_oklch,var(--primary)_8%,transparent),transparent)]" />
+      <div className="absolute inset-x-0 top-0 pointer-events-none h-px bg-[linear-gradient(90deg,transparent,color-mix(in_oklch,var(--primary)_20%,transparent),transparent)]" />
       <div className="relative max-w-4xl mx-auto text-center py-20">
         {subheading && (
-          <p className="text-sm font-semibold uppercase tracking-widest mb-4 text-primary">
+          <p className="text-sm font-semibold uppercase mb-4 text-primary">
             {subheading}
           </p>
         )}
@@ -726,7 +722,7 @@ function DarkCenteredHero({
           inverted
         />
         {image && (
-          <div className="mt-16 rounded-2xl overflow-hidden">
+          <div className="mt-16 rounded-lg overflow-hidden">
             <img
               src={image}
               alt={imageAlt}
@@ -768,7 +764,7 @@ function DarkDeviceHero({
         {/* Text side */}
         <div>
           {subheading && (
-            <p className="text-sm font-semibold uppercase tracking-widest mb-4 text-primary">
+            <p className="text-sm font-semibold uppercase mb-4 text-primary">
               {subheading}
             </p>
           )}
