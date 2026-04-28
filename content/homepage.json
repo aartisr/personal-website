@@ -15,18 +15,32 @@
         "logoAlt": "Aarti Sri Ravikumar",
         "brandName": "Aarti Sri Ravikumar",
         "brandSubtext": "Student Research Portfolio",
+        "eyebrow": "Evidence-led portfolio",
+        "affiliation": "Pioneer Charter School of Science II",
+        "location": "Saugus, Massachusetts",
+        "statusLabel": "Open to thoughtful collaboration",
         "navStyle": "flat",
         "navItems": [
           { "label": "Research", "href": "/#research" },
-          { "label": "Methods", "href": "/#method" },
+          { "label": "Method", "href": "/#method" },
           { "label": "Writing", "href": "/blog" },
           { "label": "Journey", "href": "/testimony" },
-          { "label": "Proof", "href": "/web3-proof" }
+          { "label": "Contact", "href": "/support-center" }
         ],
         "ctaButton": {
-          "label": "Collaborate",
+          "label": "Start Collaboration",
           "href": "/support-center"
         },
+        "secondaryCta": {
+          "label": "Framework PDF",
+          "href": "/aether-student-resiliency-framework-2026.pdf"
+        },
+        "utilityLinks": [
+          { "label": "Framework PDF", "href": "/aether-student-resiliency-framework-2026.pdf" },
+          { "label": "GitHub", "href": "https://github.com/aartisr" },
+          { "label": "Proof", "href": "/web3-proof" }
+        ],
+        "showReadingProgress": true,
         "sticky": true
       }
     },
@@ -132,7 +146,7 @@
         "id": "StatsCounter-3",
         "anchorId": "metrics",
         "animation": "scale-in",
-        "topSpacing": "normal",
+        "topSpacing": "compact",
         "bottomSpacing": "compact",
         "dynamicMetricsEndpoint": "/api/github-stats",
         "stats": [
@@ -415,9 +429,30 @@
         "id": "Footer-11",
         "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
         "logoAlt": "Aarti Sri Ravikumar",
+        "brandName": "Aarti Sri Ravikumar",
+        "eyebrow": "Student Research Portfolio",
+        "tagline": "Evidence-led software, resilient learning systems, and technical writing presented so mentors, reviewers, collaborators, and answer engines can understand the work quickly.",
+        "affiliation": "Pioneer Charter School of Science II",
+        "location": "Saugus, Massachusetts",
+        "availability": "Open to thoughtful academic and technical collaboration when the question, scope, timeline, and evidence standard are clear.",
+        "citation": "Aarti Sri Ravikumar. Student Research Portfolio. 2026. https://ai-aarti.com",
+        "primaryAction": {
+          "label": "Start Collaboration",
+          "href": "/support-center"
+        },
+        "secondaryAction": {
+          "label": "Review GitHub",
+          "href": "https://github.com/aartisr"
+        },
+        "highlights": [
+          { "text": "Research-informed software" },
+          { "text": "Resilient learning systems" },
+          { "text": "Technical writing" },
+          { "text": "Search and AI legibility" }
+        ],
         "columns": [
           {
-            "title": "Research",
+            "title": "Begin Here",
             "links": [
               {
                 "label": "Research Agenda",
@@ -430,6 +465,10 @@
               {
                 "label": "Academic Journey",
                 "href": "/testimony"
+              },
+              {
+                "label": "Research Notes",
+                "href": "/blog"
               }
             ]
           },
@@ -441,8 +480,12 @@
                 "href": "https://github.com/aartisr"
               },
               {
-                "label": "Blog Notes",
-                "href": "/blog"
+                "label": "Research Projects",
+                "href": "https://github.com/aartisr?tab=repositories"
+              },
+              {
+                "label": "Aether Framework PDF",
+                "href": "/aether-student-resiliency-framework-2026.pdf"
               },
               {
                 "label": "Authenticity Proof",
@@ -451,20 +494,24 @@
             ]
           },
           {
-            "title": "Support",
+            "title": "For Reviewers",
             "links": [
               {
                 "label": "Support Center",
                 "href": "/support-center"
               },
               {
-                "label": "Collaboration",
+                "label": "Collaboration Path",
                 "href": "/support-center"
+              },
+              {
+                "label": "Reviewer Questions",
+                "href": "/#collaborate"
               }
             ]
           },
           {
-            "title": "Legal",
+            "title": "Policies",
             "links": [
               {
                 "label": "Privacy Policy",
@@ -490,6 +537,11 @@
             "platform": "youtube",
             "url": "https://www.youtube.com/user/PCSSII"
           }
+        ],
+        "utilityLinks": [
+          { "label": "Privacy", "href": "/privacy-policy" },
+          { "label": "Terms", "href": "/terms-of-service" },
+          { "label": "Support", "href": "/support-center" }
         ],
         "copyright": "© 2026 Aarti Sri Ravikumar. All rights reserved."
       }

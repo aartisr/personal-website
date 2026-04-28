@@ -1,7 +1,24 @@
 "use client";
 
-import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
-import { ChevronDown } from "lucide-react";
+import {
+  BookOpen,
+  ChevronDown,
+  ExternalLink,
+  FileText,
+  Github,
+  GraduationCap,
+  MapPin,
+  Menu,
+  X,
+} from "lucide-react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type MouseEvent as ReactMouseEvent,
+} from "react";
+import "./header.css";
 
 export type NavItem = {
   label: string;
@@ -14,6 +31,11 @@ export type CtaButton = {
   href: string;
 };
 
+export type HeaderUtilityLink = {
+  label: string;
+  href: string;
+};
+
 export type NavStyle = "flat" | "dropdown" | "mega";
 
 export type HeaderProps = {
@@ -21,11 +43,75 @@ export type HeaderProps = {
   logoAlt: string;
   brandName?: string;
   brandSubtext?: string;
+  eyebrow?: string;
+  affiliation?: string;
+  location?: string;
+  statusLabel?: string;
   navItems: NavItem[];
   ctaButton: CtaButton;
+  secondaryCta?: CtaButton;
+  utilityLinks?: HeaderUtilityLink[];
   sticky: boolean;
   navStyle?: NavStyle;
+  showReadingProgress?: boolean;
 };
+
+type NormalizedLink = {
+  label: string;
+  href: string;
+};
+
+function isExternalHref(href: string): boolean {
+  return href.startsWith("http://") || href.startsWith("https://");
+}
+
+function sanitizeHref(rawHref: unknown): string {
+  const href = typeof rawHref === "string" ? rawHref.trim() : "";
+  if (!href) return "#";
+  if (href.startsWith("/") || href.startsWith("#")) return href;
+  if (href.startsWith("mailto:") || href.startsWith("tel:")) return href;
+
+  try {
+    const url = new URL(href);
+    return url.protocol === "http:" || url.protocol === "https:" ? href : "#";
+  } catch {
+    return "#";
+  }
+}
+
+function normalizeAction(value: unknown): NormalizedLink | null {
+  if (!value || typeof value !== "object") {
+    return null;
+  }
+
+  const label = (value as { label?: unknown }).label;
+  const href = (value as { href?: unknown }).href;
+  return typeof label === "string" && label.trim()
+    ? { label: label.trim(), href: sanitizeHref(href) }
+    : null;
+}
+
+function normalizeUtilityLinks(value: unknown): NormalizedLink[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((link) => normalizeAction(link))
+    .filter((link): link is NormalizedLink => Boolean(link))
+    .slice(0, 3);
+}
+
+function anchorIdFromHref(href: string): string | null {
+  const [, hashPart] = href.split("#");
+  const anchorId = hashPart?.trim();
+  return anchorId || null;
+}
+
+function isHomeAnchor(href: string): boolean {
+  const [pathPart, hashPart] = href.split("#");
+  return Boolean(hashPart) && (pathPart === "" || pathPart === "/");
+}
 
 function scrollToAnchor(
   anchorId: string,
@@ -53,16 +139,21 @@ function scrollToAnchor(
   }
 }
 
+function UtilityLinkIcon({ href, label }: NormalizedLink) {
+  const text = `${label} ${href}`.toLowerCase();
+  if (text.includes("github")) return <Github size={14} aria-hidden="true" />;
+  if (text.includes("pdf") || text.includes("framework")) {
+    return <FileText size={14} aria-hidden="true" />;
+  }
+  return <ExternalLink size={14} aria-hidden="true" />;
+}
+
 function DesktopDropdown({ children }: { children: NavItem[] }) {
   return (
-    <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 min-w-50">
-      <div className="rounded-lg py-2 shadow-lg bg-(--surface) border border-border">
+    <div className="academic-header-dropdown">
+      <div className="academic-header-dropdown-panel">
         {children.map((child) => (
-          <a
-            key={child.href}
-            href={child.href}
-            className="block px-4 py-2 text-sm font-medium transition-colors text-(--text-secondary) hover:text-primary"
-          >
+          <a key={child.href} href={child.href} className="academic-header-dropdown-link">
             {child.label}
           </a>
         ))}
@@ -73,40 +164,34 @@ function DesktopDropdown({ children }: { children: NavItem[] }) {
 
 function DesktopMegaMenu({ items }: { items: NavItem[] }) {
   const groupedItems = {
-    work: items.filter((item) => /project|blog|work|portfolio/i.test(item.label)),
-    profile: items.filter((item) => /about|journey|proof|bio/i.test(item.label)),
-    connect: items.filter((item) => /contact|support|get in touch/i.test(item.label)),
+    research: items.filter((item) => /research|method|project|writing|blog/i.test(item.label)),
+    profile: items.filter((item) => /about|journey|proof|bio|cv/i.test(item.label)),
+    connect: items.filter((item) => /contact|support|collaborat|get in touch/i.test(item.label)),
   };
 
   const remainder = items.filter(
     (item) =>
-      !groupedItems.work.includes(item) &&
+      !groupedItems.research.includes(item) &&
       !groupedItems.profile.includes(item) &&
       !groupedItems.connect.includes(item),
   );
 
   const columns = [
-    { heading: "Work", links: groupedItems.work },
+    { heading: "Research", links: groupedItems.research },
     { heading: "Profile", links: groupedItems.profile },
     { heading: "Connect", links: groupedItems.connect },
     { heading: "More", links: remainder },
   ].filter((column) => column.links.length > 0);
 
   return (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 w-[90vw] max-w-190">
-      <div className="rounded-xl p-6 shadow-lg grid grid-cols-2 md:grid-cols-4 gap-6 bg-(--surface) border border-border">
+    <div className="academic-header-mega">
+      <div className="academic-header-mega-panel">
         {columns.map((column) => (
           <div key={column.heading}>
-            <p className="text-[11px] uppercase tracking-[0.16em] font-semibold text-muted-foreground mb-2">
-              {column.heading}
-            </p>
+            <p className="academic-header-mega-heading">{column.heading}</p>
             <div className="space-y-1">
               {column.links.map((child) => (
-                <a
-                  key={child.href}
-                  href={child.href}
-                  className="block text-sm font-medium py-1 transition-colors text-(--text-secondary) hover:text-primary"
-                >
+                <a key={child.href} href={child.href} className="academic-header-dropdown-link">
                   {child.label}
                 </a>
               ))}
@@ -121,9 +206,11 @@ function DesktopMegaMenu({ items }: { items: NavItem[] }) {
 function MobileAccordion({
   item,
   onNavigate,
+  active,
 }: {
   item: NavItem;
   onNavigate: (event: ReactMouseEvent<HTMLAnchorElement>, href: string) => void;
+  active: (href: string) => boolean;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -131,7 +218,8 @@ function MobileAccordion({
     return (
       <a
         href={item.href}
-        className="text-sm font-medium py-1 text-(--text-secondary)"
+        className={`academic-mobile-link ${active(item.href) ? "is-active" : ""}`}
+        aria-current={active(item.href) ? "page" : undefined}
         onClick={(event) => onNavigate(event, item.href)}
       >
         {item.label}
@@ -140,32 +228,33 @@ function MobileAccordion({
   }
 
   return (
-    <div>
+    <div className="academic-mobile-accordion">
       <button
         type="button"
-        className="w-full flex items-center justify-between text-sm font-medium py-1 text-(--text-secondary)"
+        className="academic-mobile-accordion-button"
         onClick={() => setOpen((prev) => !prev)}
+        aria-expanded={open}
       >
         {item.label}
         <ChevronDown
           size={14}
           className={`transition-transform duration-200 ${open ? "rotate-180" : "rotate-0"}`}
+          aria-hidden="true"
         />
       </button>
-      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? "max-h-80" : "max-h-0"}`}>
-        <div>
-          <div className="flex flex-col gap-2 pl-4 pt-2">
-            {item.children.map((child) => (
-              <a
-                key={child.href}
-                href={child.href}
-                className="text-sm py-1 text-(--text-secondary)"
-                onClick={(event) => onNavigate(event, child.href)}
-              >
-                {child.label}
-              </a>
-            ))}
-          </div>
+      <div className={`academic-mobile-accordion-panel ${open ? "is-open" : ""}`}>
+        <div className="flex flex-col gap-2 pl-4 pt-2">
+          {item.children.map((child) => (
+            <a
+              key={child.href}
+              href={child.href}
+              className={`academic-mobile-link ${active(child.href) ? "is-active" : ""}`}
+              aria-current={active(child.href) ? "page" : undefined}
+              onClick={(event) => onNavigate(event, child.href)}
+            >
+              {child.label}
+            </a>
+          ))}
         </div>
       </div>
     </div>
@@ -177,42 +266,85 @@ export function Header({
   logoAlt,
   brandName,
   brandSubtext,
+  eyebrow,
+  affiliation,
+  location,
+  statusLabel,
   navItems = [],
   ctaButton = { label: "Get in Touch", href: "/support-center" },
+  secondaryCta,
+  utilityLinks,
   sticky = true,
   navStyle = "flat",
+  showReadingProgress = true,
 }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [activePathname, setActivePathname] = useState("/");
-  const lastScrollYRef = useRef(0);
+  const [activeHash, setActiveHash] = useState("");
+  const [readingProgress, setReadingProgress] = useState(0);
   const headerRef = useRef<HTMLElement | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
-  const safeNavItems = Array.isArray(navItems) ? navItems : [];
-  const ctaHref = ctaButton?.href || "/support-center";
-  const ctaLabel = ctaButton?.label || "Get in Touch";
+  const safeNavItems = useMemo(
+    () => (Array.isArray(navItems) ? navItems : []),
+    [navItems]
+  );
+  const cta = normalizeAction(ctaButton) ?? {
+    label: "Get in Touch",
+    href: "/support-center",
+  };
+  const secondary = normalizeAction(secondaryCta);
+  const normalizedUtilityLinks = normalizeUtilityLinks(utilityLinks);
   const resolvedBrandName = brandName?.trim() || logoAlt || "Aarti Sri Ravikumar";
   const resolvedBrandSubtext = brandSubtext?.trim();
-  const resolvedCtaClass =
-    "bg-[var(--primary)] text-[color:var(--primary-foreground)]";
+  const resolvedEyebrow = eyebrow?.trim() || "Evidence-led portfolio";
+  const resolvedStatusLabel = statusLabel?.trim();
+  const homeAnchorIds = useMemo(
+    () =>
+      safeNavItems
+        .map((item) => anchorIdFromHref(item.href))
+        .filter((item): item is string => Boolean(item)),
+    [safeNavItems]
+  );
 
   const resolveActiveState = (href: string): boolean => {
     if (!href) return false;
 
-    const [pathPart, hashPart] = href.split("#");
-    if (hashPart) {
-      return false;
+    const anchorId = anchorIdFromHref(href);
+    if (anchorId) {
+      return activePathname === "/" && activeHash === anchorId;
     }
+
+    const [pathPart] = href.split("#");
     const normalized = pathPart || "/";
 
     if (normalized === "/") {
-      return activePathname === "/";
+      return activePathname === "/" && !activeHash;
     }
 
     return activePathname === normalized;
   };
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const updateLocationState = () => {
+      setActivePathname(window.location.pathname || "/");
+      setActiveHash(window.location.hash.replace(/^#/, "").trim());
+    };
+
+    updateLocationState();
+    window.addEventListener("popstate", updateLocationState);
+    window.addEventListener("hashchange", updateLocationState);
+
+    return () => {
+      window.removeEventListener("popstate", updateLocationState);
+      window.removeEventListener("hashchange", updateLocationState);
+    };
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -226,11 +358,9 @@ export function Header({
 
       const anchorId = window.location.hash.replace(/^#/, "").trim();
 
-      if (!anchorId) {
-        return;
+      if (anchorId) {
+        scrollToAnchor(anchorId, "auto");
       }
-
-      scrollToAnchor(anchorId, "auto");
     };
 
     handleHashScroll();
@@ -247,65 +377,54 @@ export function Header({
     }
 
     const handleScroll = () => {
+      const scrollMax =
+        document.documentElement.scrollHeight - window.innerHeight;
       setIsScrolled(window.scrollY > 12);
+      setReadingProgress(scrollMax > 0 ? Math.min(1, window.scrollY / scrollMax) : 0);
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, []);
 
   useEffect(() => {
-    if (typeof window === "undefined") {
+    if (typeof window === "undefined" || window.location.pathname !== "/") {
       return;
     }
 
-    const updatePath = () => {
-      setActivePathname(window.location.pathname || "/");
-    };
+    const elements = homeAnchorIds
+      .map((id) => document.getElementById(id))
+      .filter((element): element is HTMLElement => Boolean(element));
 
-    updatePath();
-    window.addEventListener("popstate", updatePath);
-
-    return () => {
-      window.removeEventListener("popstate", updatePath);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
+    if (elements.length === 0) {
       return;
     }
 
-    const handleAdaptiveScroll = () => {
-      const y = window.scrollY;
-      const delta = y - lastScrollYRef.current;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-      if (menuOpen) {
-        setIsHeaderHidden(false);
-        lastScrollYRef.current = y;
-        return;
+        if (visible?.target.id) {
+          setActiveHash(visible.target.id);
+        }
+      },
+      {
+        rootMargin: "-24% 0px -58% 0px",
+        threshold: [0.12, 0.24, 0.4, 0.6],
       }
+    );
 
-      if (y < 16 || delta < -10) {
-        setIsHeaderHidden(false);
-      } else if (delta > 12 && y > 120) {
-        setIsHeaderHidden(true);
-      }
-
-      lastScrollYRef.current = y;
-    };
-
-    handleAdaptiveScroll();
-    window.addEventListener("scroll", handleAdaptiveScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleAdaptiveScroll);
-    };
-  }, [menuOpen]);
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, [activePathname, homeAnchorIds]);
 
   useEffect(() => {
     const onEscape = (event: KeyboardEvent) => {
@@ -358,96 +477,113 @@ export function Header({
       return;
     }
 
-    const [pathPart, hashPart] = href.split("#");
-    const anchorId = hashPart?.trim();
-
-    if (!anchorId) {
+    const anchorId = anchorIdFromHref(href);
+    if (!anchorId || !isHomeAnchor(href)) {
       return;
     }
 
-    const isHomeAnchor = pathPart === "" || pathPart === "/";
-    const isOnHomePage = window.location.pathname === "/";
-
-    if (!isHomeAnchor) {
-      return;
-    }
-
-    if (!isOnHomePage) {
+    if (window.location.pathname !== "/") {
       event.preventDefault();
       window.location.assign(`/#${anchorId}`);
       return;
     }
 
     event.preventDefault();
+    setActiveHash(anchorId);
     scrollToAnchor(anchorId, "smooth");
   };
 
   return (
     <header
       ref={headerRef}
-      className={`${sticky ? "sticky top-0" : "relative"} z-50 border-b border-(--border)/80 backdrop-blur-md transition-all duration-300 ${
-        isScrolled
-          ? "bg-(--surface)/90 shadow-[0_12px_35px_rgba(12,22,48,0.08)]"
-          : "bg-(--surface)/75"
-      } ${sticky && isHeaderHidden ? "-translate-y-full" : "translate-y-0"}`}
+      className={`academic-header ${sticky ? "is-sticky" : ""} ${isScrolled ? "is-scrolled" : ""}`}
     >
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-60 focus:px-3 focus:py-2 focus:rounded-md focus:bg-(--surface) focus:text-foreground"
-      >
+      <a href="#main-content" className="academic-skip-link">
         Skip to main content
       </a>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <a href="/" className="flex items-center gap-3 shrink-0" aria-label={`${resolvedBrandName} homepage`}>
+
+      <div className="academic-header-rail">
+        <div className="academic-header-inner academic-header-rail-inner">
+          <div className="academic-header-context" aria-label="Academic context">
+            <span className="academic-header-eyebrow">
+              <BookOpen size={14} aria-hidden="true" />
+              {resolvedEyebrow}
+            </span>
+            {affiliation && (
+              <span>
+                <GraduationCap size={14} aria-hidden="true" />
+                {affiliation}
+              </span>
+            )}
+            {location && (
+              <span>
+                <MapPin size={14} aria-hidden="true" />
+                {location}
+              </span>
+            )}
+          </div>
+
+          <div className="academic-header-utilities" aria-label="Research utility links">
+            {resolvedStatusLabel && (
+              <span className="academic-header-status">{resolvedStatusLabel}</span>
+            )}
+            {normalizedUtilityLinks.map((link) => (
+              <a
+                key={`${link.label}-${link.href}`}
+                href={link.href}
+                target={isExternalHref(link.href) ? "_blank" : undefined}
+                rel={isExternalHref(link.href) ? "noopener noreferrer" : undefined}
+              >
+                <UtilityLinkIcon {...link} />
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="academic-header-main">
+        <div className="academic-header-inner academic-header-main-inner">
+          <a href="/" className="academic-header-brand" aria-label={`${resolvedBrandName} homepage`}>
             {logo ? (
               <img
                 src={logo}
                 alt={logoAlt}
-                width={40}
-                height={40}
+                width={44}
+                height={44}
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
-                className="h-9 w-9 rounded-md object-cover border border-border"
+                className="academic-header-logo"
               />
             ) : (
-              <span className="flex h-9 w-9 items-center justify-center rounded-md bg-primary text-sm font-bold text-primary-foreground">
+              <span className="academic-header-logo-fallback">
                 {resolvedBrandName.slice(0, 2).toUpperCase()}
               </span>
             )}
-            <span className="hidden sm:block leading-tight">
-              <span className="block text-sm font-bold text-foreground">
-                {resolvedBrandName}
-              </span>
+            <span className="academic-header-brand-copy">
+              <span className="academic-header-brand-name">{resolvedBrandName}</span>
               {resolvedBrandSubtext && (
-                <span className="block text-[11px] font-medium text-muted-foreground">
-                  {resolvedBrandSubtext}
-                </span>
+                <span className="academic-header-brand-subtext">{resolvedBrandSubtext}</span>
               )}
             </span>
           </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6" aria-label="Primary navigation">
+          <nav className="academic-header-nav" aria-label="Primary navigation">
             {safeNavItems.map((item) => {
               const hasChildren =
                 item.children &&
                 item.children.length > 0 &&
                 navStyle !== "flat";
+              const active = resolveActiveState(item.href);
 
               if (!hasChildren) {
                 return (
                   <a
                     key={item.href}
                     href={item.href}
-                    aria-current={resolveActiveState(item.href) ? "page" : undefined}
-                    className={`text-sm font-medium transition-colors ${
-                      resolveActiveState(item.href)
-                        ? "text-primary"
-                        : "text-(--text-secondary) hover:text-primary"
-                    }`}
+                    aria-current={active ? "page" : undefined}
+                    className={`academic-header-nav-link ${active ? "is-active" : ""}`}
                     onClick={(event) => handleNavClick(event, item.href)}
                   >
                     {item.label}
@@ -456,13 +592,10 @@ export function Header({
               }
 
               return (
-                <div key={item.label} className="relative group">
-                  <button
-                    type="button"
-                    className="flex items-center gap-1 text-sm font-medium transition-colors text-(--text-secondary) hover:text-primary"
-                  >
+                <div key={item.label} className="academic-header-menu-group">
+                  <button type="button" className="academic-header-nav-link">
                     {item.label}
-                    <ChevronDown size={14} />
+                    <ChevronDown size={14} aria-hidden="true" />
                   </button>
                   {navStyle === "mega" ? (
                     <DesktopMegaMenu items={item.children!} />
@@ -474,53 +607,53 @@ export function Header({
             })}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center">
-            <a
-              href={ctaHref}
-              className={`px-4 py-2 text-sm font-semibold rounded-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(37,86,160,0.18)] ${resolvedCtaClass}`}
-            >
-              {ctaLabel}
+          <div className="academic-header-actions">
+            {secondary && (
+              <a
+                href={secondary.href}
+                target={isExternalHref(secondary.href) ? "_blank" : undefined}
+                rel={isExternalHref(secondary.href) ? "noopener noreferrer" : undefined}
+                className="academic-header-secondary"
+              >
+                {secondary.label}
+              </a>
+            )}
+            <a href={cta.href} className="academic-header-primary">
+              {cta.label}
             </a>
           </div>
 
-          {/* Mobile hamburger */}
           <button
             type="button"
-            className="lg:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
-            aria-label="Toggle menu"
+            className="academic-header-toggle"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             aria-controls="mobile-primary-nav"
             onClick={() => setMenuOpen((prev) => !prev)}
           >
-            <span
-              className={`block w-5 h-0.5 transition-transform duration-200 bg-(--text-primary) ${
-                menuOpen ? "rotate-45 translate-x-0.5 translate-y-1.5" : ""
-              }`}
-            />
-            <span
-              className={`block w-5 h-0.5 transition-opacity duration-200 bg-(--text-primary) ${
-                menuOpen ? "opacity-0" : "opacity-100"
-              }`}
-            />
-            <span
-              className={`block w-5 h-0.5 transition-transform duration-200 bg-(--text-primary) ${
-                menuOpen ? "-rotate-45 translate-x-0.5 -translate-y-1.5" : ""
-              }`}
-            />
+            {menuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
       <div
         ref={mobileMenuRef}
         id="mobile-primary-nav"
         hidden={!menuOpen}
         aria-hidden={!menuOpen}
-        className="lg:hidden border-t bg-(--surface) border-border"
+        className="academic-mobile-drawer"
       >
-        <nav className="flex flex-col px-4 py-4 gap-3 max-h-[calc(100vh-4rem)] overflow-y-auto" aria-label="Mobile primary navigation">
+        <div className="academic-mobile-card">
+          <p className="academic-header-eyebrow">
+            <BookOpen size={14} aria-hidden="true" />
+            {resolvedEyebrow}
+          </p>
+          <p className="academic-mobile-title">{resolvedBrandName}</p>
+          {affiliation && <p className="academic-mobile-meta">{affiliation}</p>}
+          {location && <p className="academic-mobile-meta">{location}</p>}
+        </div>
+
+        <nav className="academic-mobile-nav" aria-label="Mobile primary navigation">
           {safeNavItems.map((item) =>
             navStyle !== "flat" &&
             item.children &&
@@ -528,6 +661,7 @@ export function Header({
               <MobileAccordion
                 key={item.label}
                 item={item}
+                active={resolveActiveState}
                 onNavigate={(event, href) => handleNavClick(event, href, true)}
               />
             ) : (
@@ -535,26 +669,59 @@ export function Header({
                 key={item.href}
                 href={item.href}
                 aria-current={resolveActiveState(item.href) ? "page" : undefined}
-                className={`text-sm font-medium py-1 ${
-                  resolveActiveState(item.href)
-                    ? "text-primary"
-                    : "text-(--text-secondary)"
-                }`}
+                className={`academic-mobile-link ${resolveActiveState(item.href) ? "is-active" : ""}`}
                 onClick={(event) => handleNavClick(event, item.href, true)}
               >
                 {item.label}
               </a>
             ),
           )}
+        </nav>
+
+        <div className="academic-mobile-actions">
+          {secondary && (
+            <a
+              href={secondary.href}
+              target={isExternalHref(secondary.href) ? "_blank" : undefined}
+              rel={isExternalHref(secondary.href) ? "noopener noreferrer" : undefined}
+              className="academic-header-secondary"
+              onClick={() => setMenuOpen(false)}
+            >
+              {secondary.label}
+            </a>
+          )}
           <a
-            href={ctaHref}
-            className={`mt-2 px-4 py-2 text-sm font-semibold rounded-md text-center ${resolvedCtaClass}`}
+            href={cta.href}
+            className="academic-header-primary"
             onClick={() => setMenuOpen(false)}
           >
-            {ctaLabel}
+            {cta.label}
           </a>
-        </nav>
+        </div>
+
+        {normalizedUtilityLinks.length > 0 && (
+          <div className="academic-mobile-utilities">
+            {normalizedUtilityLinks.map((link) => (
+              <a
+                key={`${link.label}-${link.href}`}
+                href={link.href}
+                target={isExternalHref(link.href) ? "_blank" : undefined}
+                rel={isExternalHref(link.href) ? "noopener noreferrer" : undefined}
+                onClick={() => setMenuOpen(false)}
+              >
+                <UtilityLinkIcon {...link} />
+                {link.label}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
+
+      {showReadingProgress && (
+        <div className="academic-header-progress" aria-hidden="true">
+          <span style={{ transform: `scaleX(${readingProgress})` }} />
+        </div>
+      )}
     </header>
   );
 }

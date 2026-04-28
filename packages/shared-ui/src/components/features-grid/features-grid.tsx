@@ -40,13 +40,13 @@ const columnClasses: Record<number, string> = {
 };
 
 const topSpacingClasses = {
-  compact: "pt-8 sm:pt-10 lg:pt-10",
+  compact: "pt-5 sm:pt-6 lg:pt-6",
   normal: "pt-16 sm:pt-20 lg:pt-20",
   relaxed: "pt-20 sm:pt-24 lg:pt-28",
 };
 
 const bottomSpacingClasses = {
-  compact: "pb-8 sm:pb-10 lg:pb-10",
+  compact: "pb-6 sm:pb-7 lg:pb-8",
   normal: "pb-16 sm:pb-20 lg:pb-20",
   relaxed: "pb-20 sm:pb-24 lg:pb-28",
 };
@@ -69,6 +69,8 @@ export function FeaturesGrid({
   const normalizedSteps = Array.isArray(processSteps)
     ? processSteps.filter((step) => step?.title)
     : [];
+  const headerSpacingClass = normalizedSteps.length > 0 ? "mb-8" : "mb-14";
+  const descriptionSpacingClass = normalizedSteps.length > 0 ? "mt-3" : "mt-4";
 
   return (
     <section
@@ -80,14 +82,14 @@ export function FeaturesGrid({
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
         {(heading || description) && (
-          <div className="text-center mb-14">
+          <div className={`text-center ${headerSpacingClass}`}>
             {heading && (
               <h2 className="text-3xl sm:text-4xl font-bold features-grid-heading">
                 {heading}
               </h2>
             )}
             {description && (
-              <p className="mt-4 text-lg max-w-2xl mx-auto features-grid-description">
+              <p className={`${descriptionSpacingClass} text-lg max-w-2xl mx-auto features-grid-description`}>
                 {description}
               </p>
             )}

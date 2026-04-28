@@ -8,7 +8,7 @@ afterEach(() => {
 describe("getSiteUrl", () => {
   it("uses fallback when NEXT_PUBLIC_SITE_URL is missing", () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "");
-    expect(getSiteUrl()).toBe("https://aartisr.github.io/personal-website");
+    expect(getSiteUrl()).toBe("https://ai-aarti.com");
   });
 
   it("trims whitespace and trailing slash from configured URL", () => {

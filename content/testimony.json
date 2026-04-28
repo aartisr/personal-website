@@ -15,18 +15,32 @@
         "logoAlt": "Aarti Sri Ravikumar",
         "brandName": "Aarti Sri Ravikumar",
         "brandSubtext": "Student Research Portfolio",
+        "eyebrow": "Evidence-led portfolio",
+        "affiliation": "Pioneer Charter School of Science II",
+        "location": "Saugus, Massachusetts",
+        "statusLabel": "Open to thoughtful collaboration",
         "navStyle": "flat",
         "navItems": [
           { "label": "Research", "href": "/#research" },
-          { "label": "Methods", "href": "/#method" },
+          { "label": "Method", "href": "/#method" },
           { "label": "Writing", "href": "/blog" },
           { "label": "Journey", "href": "/testimony" },
-          { "label": "Proof", "href": "/web3-proof" }
+          { "label": "Contact", "href": "/support-center" }
         ],
         "ctaButton": {
-          "label": "Collaborate",
+          "label": "Start Collaboration",
           "href": "/support-center"
         },
+        "secondaryCta": {
+          "label": "Framework PDF",
+          "href": "/aether-student-resiliency-framework-2026.pdf"
+        },
+        "utilityLinks": [
+          { "label": "Framework PDF", "href": "/aether-student-resiliency-framework-2026.pdf" },
+          { "label": "GitHub", "href": "https://github.com/aartisr" },
+          { "label": "Proof", "href": "/web3-proof" }
+        ],
+        "showReadingProgress": true,
         "sticky": true
       }
     },

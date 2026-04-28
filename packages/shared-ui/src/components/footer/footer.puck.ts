@@ -12,6 +12,58 @@ export const footerConfig = {
       type: "text",
       label: "Logo Alt Text",
     },
+    brandName: {
+      type: "text",
+      label: "Brand Name",
+    },
+    eyebrow: {
+      type: "text",
+      label: "Eyebrow",
+    },
+    tagline: {
+      type: "textarea",
+      label: "Tagline",
+    },
+    affiliation: {
+      type: "text",
+      label: "Affiliation",
+    },
+    location: {
+      type: "text",
+      label: "Location",
+    },
+    availability: {
+      type: "textarea",
+      label: "Availability / Reviewer Note",
+    },
+    citation: {
+      type: "textarea",
+      label: "Preferred Citation",
+    },
+    primaryAction: {
+      type: "object",
+      label: "Primary Action",
+      objectFields: {
+        label: { type: "text", label: "Label" },
+        href: { type: "text", label: "URL" },
+      },
+    },
+    secondaryAction: {
+      type: "object",
+      label: "Secondary Action",
+      objectFields: {
+        label: { type: "text", label: "Label" },
+        href: { type: "text", label: "URL" },
+      },
+    },
+    highlights: {
+      type: "array",
+      label: "Research Focus Chips",
+      arrayFields: {
+        text: { type: "text", label: "Text" },
+      },
+      getItemSummary: (item: unknown) => summaryText(item, "text") || "Focus",
+    },
     columns: {
       type: "array",
       label: "Link Columns",
@@ -45,6 +97,7 @@ export const footerConfig = {
             { label: "Facebook", value: "facebook" },
             { label: "Instagram", value: "instagram" },
             { label: "YouTube", value: "youtube" },
+            { label: "GitHub", value: "github" },
           ],
         },
         url: {
@@ -55,6 +108,15 @@ export const footerConfig = {
       getItemSummary: (item: unknown) =>
         summaryText(item, "platform") || "Social link",
     },
+    utilityLinks: {
+      type: "array",
+      label: "Bottom Utility Links",
+      arrayFields: {
+        label: { type: "text", label: "Link Label" },
+        href: { type: "text", label: "URL" },
+      },
+      getItemSummary: (item: unknown) => summaryText(item, "label") || "Utility link",
+    },
     copyright: {
       type: "text",
       label: "Copyright Text",
@@ -63,6 +125,30 @@ export const footerConfig = {
   defaultProps: {
     logo: "/logo.svg",
     logoAlt: "Company Logo",
+    brandName: "Aarti Sri Ravikumar",
+    eyebrow: "Student Research Portfolio",
+    tagline:
+      "Evidence-led research, software, and technical writing presented for reviewers, mentors, and collaborators.",
+    affiliation: "Pioneer Charter School of Science II",
+    location: "Saugus, Massachusetts",
+    availability:
+      "Open to thoughtful academic and technical collaboration with clear questions, scope, and evidence standards.",
+    citation:
+      "Aarti Sri Ravikumar. Student Research Portfolio. 2026. https://ai-aarti.com",
+    primaryAction: {
+      label: "Start Collaboration",
+      href: "/support-center",
+    },
+    secondaryAction: {
+      label: "Review GitHub",
+      href: "https://github.com/aartisr",
+    },
+    highlights: [
+      { text: "Research-informed software" },
+      { text: "Resilient learning systems" },
+      { text: "Technical writing" },
+      { text: "Search and AI legibility" },
+    ],
     columns: [
       {
         title: "Product",
@@ -92,8 +178,13 @@ export const footerConfig = {
       },
     ],
     socialLinks: [
-      { platform: "twitter", url: "https://twitter.com/" },
-      { platform: "linkedin", url: "https://linkedin.com/company/" },
+      { platform: "github", url: "https://github.com/aartisr" },
+      { platform: "instagram", url: "https://www.instagram.com/pcssii/" },
+    ],
+    utilityLinks: [
+      { label: "Privacy", href: "/privacy-policy" },
+      { label: "Terms", href: "/terms-of-service" },
+      { label: "Support", href: "/support-center" },
     ],
     copyright: `© ${new Date().getFullYear()} Your Company. All rights reserved.`,
   },

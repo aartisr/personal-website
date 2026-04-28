@@ -5,7 +5,7 @@ export function getSiteUrl() {
     return configured.replace(/\/$/, "");
   }
 
-  return "https://aartisr.github.io/personal-website";
+  return "https://ai-aarti.com";
 }
 
 export function absoluteUrl(path: string) {
