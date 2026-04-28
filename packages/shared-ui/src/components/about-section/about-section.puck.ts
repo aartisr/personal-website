@@ -8,6 +8,10 @@ export const aboutSectionConfig = {
       type: "text",
       label: "Heading",
     },
+    anchorId: {
+      type: "text",
+      label: "Anchor ID",
+    },
     body: {
       type: "textarea",
       label: "Body Text",
@@ -52,6 +56,7 @@ export const aboutSectionConfig = {
   },
   defaultProps: {
     heading: "Our Story",
+    anchorId: "",
     body: "We started with a simple belief: that powerful tools should be accessible to everyone. Over the years, we've helped thousands of businesses build their digital presence and reach their goals.\n\nOur team is driven by a passion for craftsmanship and a commitment to your success.",
     image: "",
     imageAlt: "Team at work",

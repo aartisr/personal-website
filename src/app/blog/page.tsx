@@ -3,26 +3,36 @@ import type { Metadata } from "next";
 import { BlogListClient } from "@/components/blog/blog-list-client";
 import { getAllBlogPosts, getAllBlogTags } from "@/lib/blog";
 import { absoluteUrl } from "@/lib/site";
+import { siteProfile } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Blog | Aarti Sri Ravikumar",
+  title: "Research Notes & Field Memos | Aarti Sri Ravikumar",
   description:
-    "Notes on learning, engineering, and student project execution.",
+    "Technical writing from Aarti Sri Ravikumar on research, software engineering, project execution, and clear academic communication.",
   alternates: {
     canonical: "/blog",
   },
   openGraph: {
-    title: "Blog | Aarti Sri Ravikumar",
+    title: "Research Notes & Field Memos | Aarti Sri Ravikumar",
     description:
-      "Notes on learning, engineering, and student project execution.",
+      "Technical writing on research, software engineering, project execution, and clear academic communication.",
     type: "website",
     url: absoluteUrl("/blog"),
+    images: [
+      {
+        url: absoluteUrl(siteProfile.socialImagePath),
+        width: 1200,
+        height: 630,
+        alt: `${siteProfile.name} academic portfolio social card`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog | Aarti Sri Ravikumar",
+    title: "Research Notes & Field Memos | Aarti Sri Ravikumar",
     description:
-      "Notes on learning, engineering, and student project execution.",
+      "Technical writing on research, software engineering, project execution, and clear academic communication.",
+    images: [absoluteUrl(siteProfile.socialImagePath)],
   },
 };
 

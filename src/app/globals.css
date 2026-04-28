@@ -13,6 +13,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
   position: relative;
 }
 
@@ -23,18 +24,44 @@ body::before {
   pointer-events: none;
   z-index: -1;
   background:
-    radial-gradient(circle at 12% 18%, rgba(46, 124, 255, 0.08), transparent 34%),
-    radial-gradient(circle at 90% 4%, rgba(0, 198, 174, 0.1), transparent 28%),
-    linear-gradient(180deg, rgba(247, 250, 255, 0.96), var(--background));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78), transparent 38%),
+    linear-gradient(90deg, rgba(25, 63, 132, 0.045) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(25, 63, 132, 0.035) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, li, dt, dd) {
+  overflow-wrap: break-word;
+}
+
+#main-content > section:nth-of-type(n + 3) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
   }
 }
 

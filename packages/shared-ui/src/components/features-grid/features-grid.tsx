@@ -12,12 +12,24 @@ export type Feature = {
   description: string;
 };
 
+export type ProcessStep = {
+  icon?: string;
+  label?: string;
+  title: string;
+  description?: string;
+};
+
 export type FeaturesGridProps = {
+  anchorId?: string;
   heading: string;
   description: string;
   features: Feature[];
+  processEyebrow?: string;
+  processSteps?: ProcessStep[];
   columns: 2 | 3 | 4;
   animation?: AnimationType;
+  topSpacing?: "compact" | "normal" | "relaxed";
+  bottomSpacing?: "compact" | "normal" | "relaxed";
   royalStyle?: RoyalStyle;
 };
 
@@ -27,21 +39,42 @@ const columnClasses: Record<number, string> = {
   4: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4",
 };
 
+const topSpacingClasses = {
+  compact: "pt-8 sm:pt-10 lg:pt-10",
+  normal: "pt-16 sm:pt-20 lg:pt-20",
+  relaxed: "pt-20 sm:pt-24 lg:pt-28",
+};
+
+const bottomSpacingClasses = {
+  compact: "pb-8 sm:pb-10 lg:pb-10",
+  normal: "pb-16 sm:pb-20 lg:pb-20",
+  relaxed: "pb-20 sm:pb-24 lg:pb-28",
+};
+
 export function FeaturesGrid({
+  anchorId,
   heading,
   description,
   features,
+  processEyebrow,
+  processSteps,
   columns,
   animation = "slide-up",
+  topSpacing = "normal",
+  bottomSpacing = "normal",
   royalStyle = "none",
 }: FeaturesGridProps) {
   const gridClass = columnClasses[columns] ?? columnClasses[3];
   const { ref, isVisible } = useScrollReveal(animation);
+  const normalizedSteps = Array.isArray(processSteps)
+    ? processSteps.filter((step) => step?.title)
+    : [];
 
   return (
     <section
+      id={anchorId || undefined}
       ref={ref}
-      className="relative py-20 px-4 sm:px-6 lg:px-8 features-grid-section"
+      className={`relative scroll-mt-24 px-4 sm:px-6 lg:px-8 features-grid-section ${topSpacingClasses[topSpacing] ?? topSpacingClasses.normal} ${bottomSpacingClasses[bottomSpacing] ?? bottomSpacingClasses.normal}`}
     >
       {royalStyle !== "none" && <YantraBackground royalStyle={royalStyle} />}
       <div className="max-w-7xl mx-auto">
@@ -61,16 +94,45 @@ export function FeaturesGrid({
           </div>
         )}
 
+        {normalizedSteps.length > 0 && (
+          <div
+            className="features-grid-process"
+            aria-label={processEyebrow || "Methodology process diagram"}
+          >
+            {processEyebrow && (
+              <p className="features-grid-process-eyebrow">{processEyebrow}</p>
+            )}
+            <ol className="features-grid-process-list">
+              {normalizedSteps.map((step, index) => (
+                <li key={`${step.title}-${index}`} className="features-grid-process-step">
+                  <div className="features-grid-process-icon" aria-hidden="true">
+                    <Icon name={step.icon || String(index + 1)} size={20} />
+                  </div>
+                  {step.label && (
+                    <p className="features-grid-process-label">{step.label}</p>
+                  )}
+                  <h3 className="features-grid-process-title">{step.title}</h3>
+                  {step.description && (
+                    <p className="features-grid-process-description">
+                      {step.description}
+                    </p>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+
         {/* Feature cards */}
         <div className={`grid ${gridClass} gap-8`}>
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`flex flex-col p-6 rounded-2xl features-grid-card${royalStyle === "ornate" ? " ornate" : ""} ${isVisible ? "features-grid-reveal" : ""}`}
+              className={`flex flex-col p-6 rounded-lg features-grid-card${royalStyle === "ornate" ? " ornate" : ""} ${isVisible ? "features-grid-reveal" : ""}`}
               data-transition-delay={isVisible ? `${index * 100}` : "0"}
             >
               {feature.icon && (
-                <div className="text-3xl mb-4 w-12 h-12 flex items-center justify-center rounded-xl features-grid-icon">
+                <div className="text-3xl mb-4 w-12 h-12 flex items-center justify-center rounded-md features-grid-icon">
                   <Icon name={feature.icon} size={24} />
                 </div>
               )}

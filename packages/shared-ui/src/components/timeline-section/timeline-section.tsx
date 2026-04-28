@@ -18,6 +18,7 @@ export type TimelineItem = {
 };
 
 export type TimelineSectionProps = {
+  anchorId?: string;
   heading: string;
   description: string;
   items?: TimelineItem[];
@@ -93,6 +94,7 @@ function TimelineCard({
 }
 
 export function TimelineSection({
+  anchorId,
   heading,
   description,
   items,
@@ -103,7 +105,8 @@ export function TimelineSection({
 
   return (
     <section
-      className="py-20 px-4 sm:px-6 lg:px-8 timeline-section"
+      id={anchorId || undefined}
+      className="scroll-mt-24 py-20 px-4 sm:px-6 lg:px-8 timeline-section"
     >
       <div className="max-w-5xl mx-auto">
         {/* Section header */}

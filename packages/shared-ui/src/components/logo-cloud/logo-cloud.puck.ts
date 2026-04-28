@@ -8,6 +8,10 @@ export const logoCloudConfig = {
       type: "text",
       label: "Section Label (e.g. 'Trusted by teams at')",
     },
+    anchorId: {
+      type: "text",
+      label: "Anchor ID",
+    },
     logos: {
       type: "array",
       label: "Logos",
@@ -30,6 +34,7 @@ export const logoCloudConfig = {
   },
   defaultProps: {
     heading: "Trusted by industry leaders",
+    anchorId: "",
     logos: [
       {
         src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png",

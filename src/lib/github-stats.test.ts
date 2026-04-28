@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import type { Data } from "@puckeditor/core";
 import {
   __resetGithubStatsCacheForTests,
+  getGithubMetricPayload,
   hydratePageGithubStats,
 } from "@/lib/github-stats";
 
@@ -141,5 +142,62 @@ describe("hydratePageGithubStats", () => {
     expect(heroPoints[0].value).toBe("1+");
     expect(heroPoints[1].value).toBe("2+");
     expect(heroPoints[2].value).toBe("1");
+  });
+
+  it("serializes stats for async client-side metric hydration", async () => {
+    vi.stubEnv("GITHUB_USERNAME", "octocat");
+
+    vi.spyOn(global, "fetch").mockImplementation(async (input: string | URL | Request) => {
+      const url = String(input);
+
+      if (url.includes("/users/octocat/contributions")) {
+        return new Response('<svg><rect data-count="5"></rect></svg>', {
+          status: 200,
+        });
+      }
+
+      if (url.endsWith("/users/octocat")) {
+        return new Response(JSON.stringify({ public_repos: 7 }), {
+          status: 200,
+        });
+      }
+
+      if (url.includes("/users/octocat/repos")) {
+        return new Response(
+          JSON.stringify([
+            {
+              fork: false,
+              pushed_at: new Date().toISOString(),
+              topics: ["education", "research"],
+              language: "Python",
+            },
+          ]),
+          { status: 200 }
+        );
+      }
+
+      return new Response("not found", { status: 404 });
+    });
+
+    const payload = await getGithubMetricPayload();
+
+    expect(payload).toMatchObject({
+      ok: true,
+      source: "github",
+      username: "octocat",
+      metrics: {
+        githubContributions: {
+          value: "5",
+          suffix: "+",
+        },
+        githubPublicRepos: {
+          value: "7",
+          suffix: "+",
+        },
+      },
+    });
+    expect(
+      Number.parseInt(payload.metrics.githubActiveResearchTracks.value, 10)
+    ).toBeGreaterThanOrEqual(2);
   });
 });

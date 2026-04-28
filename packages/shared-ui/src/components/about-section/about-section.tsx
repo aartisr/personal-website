@@ -11,6 +11,7 @@ export type Stat = {
 };
 
 export type AboutSectionProps = {
+  anchorId?: string;
   heading: string;
   body: string;
   image: string;
@@ -22,6 +23,7 @@ export type AboutSectionProps = {
 };
 
 export function AboutSection({
+  anchorId,
   heading,
   body,
   image,
@@ -36,8 +38,9 @@ export function AboutSection({
 
   return (
     <section
+      id={anchorId || undefined}
       ref={ref}
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--background)]"
+      className="scroll-mt-24 py-20 px-4 sm:px-6 lg:px-8 bg-[var(--background)]"
     >
       <div className="max-w-7xl mx-auto">
         <div

@@ -7,18 +7,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const staticPages: MetadataRoute.Sitemap = [
-    "",
-    "/blog",
-    "/support-center",
-    "/testimony",
-    "/privacy-policy",
-    "/terms-of-service",
-  ].map((path) => ({
+    { path: "", changeFrequency: "weekly", priority: 1 },
+    { path: "/blog", changeFrequency: "daily", priority: 0.86 },
+    { path: "/support-center", changeFrequency: "weekly", priority: 0.82 },
+    { path: "/testimony", changeFrequency: "weekly", priority: 0.78 },
+    { path: "/web3-proof", changeFrequency: "monthly", priority: 0.58 },
+    { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.32 },
+    { path: "/terms-of-service", changeFrequency: "yearly", priority: 0.32 },
+    { path: "/terms", changeFrequency: "yearly", priority: 0.18 },
+  ].map(({ path, changeFrequency, priority }) => ({
     url: `${base}${path}`,
     lastModified: now,
-    changeFrequency: path === "/blog" ? "daily" : "weekly",
-    priority: path === "" ? 1 : 0.8,
-  }));
+    changeFrequency,
+    priority,
+  })) as MetadataRoute.Sitemap;
 
   const blogPages: MetadataRoute.Sitemap = getAllBlogPosts().map((post) => ({
     url: `${base}/blog/${post.slug}`,

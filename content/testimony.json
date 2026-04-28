@@ -1,6 +1,10 @@
 {
   "root": {
-    "props": {}
+    "props": {
+      "title": "Academic Journey & Progress Signals",
+      "description": "Aarti Sri Ravikumar's academic journey, project progress, and student research portfolio signals.",
+      "keywords": "Aarti Sri Ravikumar academic journey, student research progress, portfolio milestones"
+    }
   },
   "content": [
     {
@@ -8,17 +12,19 @@
       "props": {
         "id": "Header-0",
         "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
-        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "logoAlt": "Aarti Sri Ravikumar",
+        "brandName": "Aarti Sri Ravikumar",
+        "brandSubtext": "Student Research Portfolio",
         "navStyle": "flat",
         "navItems": [
-          { "label": "Home", "href": "/" },
-          { "label": "About", "href": "/testimony" },
-          { "label": "Blog", "href": "/blog" },
-          { "label": "Web3 Proof", "href": "/web3-proof" },
-          { "label": "Contact", "href": "/support-center" }
+          { "label": "Research", "href": "/#research" },
+          { "label": "Methods", "href": "/#method" },
+          { "label": "Writing", "href": "/blog" },
+          { "label": "Journey", "href": "/testimony" },
+          { "label": "Proof", "href": "/web3-proof" }
         ],
         "ctaButton": {
-          "label": "Get in Touch",
+          "label": "Collaborate",
           "href": "/support-center"
         },
         "sticky": true
@@ -38,10 +44,29 @@
           { "text": "Built for quick reviewer scanning" }
         ],
         "proofPoints": [
-          { "value": "131+", "label": "Annual contributions" },
-          { "value": "3+", "label": "Public repositories" },
-          { "value": "2", "label": "Core project tracks" }
+          {
+            "value": "131",
+            "label": "Annual contributions",
+            "prefix": "",
+            "suffix": "+",
+            "metricKey": "githubContributions"
+          },
+          {
+            "value": "3",
+            "label": "Public repositories",
+            "prefix": "",
+            "suffix": "+",
+            "metricKey": "githubPublicRepos"
+          },
+          {
+            "value": "2",
+            "label": "Core project tracks",
+            "prefix": "",
+            "suffix": "",
+            "metricKey": "githubActiveResearchTracks"
+          }
         ],
+        "dynamicMetricsEndpoint": "/api/github-stats",
         "primaryCta": {
           "label": "Review Research Projects",
           "href": "https://github.com/aartisr?tab=repositories"
@@ -61,10 +86,29 @@
       "props": {
         "id": "StatsCounter-2",
         "animation": "scale-in",
+        "dynamicMetricsEndpoint": "/api/github-stats",
         "stats": [
-          { "value": "131", "label": "Annual Contributions", "prefix": "", "suffix": "+" },
-          { "value": "3", "label": "Public Repositories", "prefix": "", "suffix": "+" },
-          { "value": "2", "label": "Core Project Tracks", "prefix": "", "suffix": "" },
+          {
+            "value": "131",
+            "label": "Annual Contributions",
+            "prefix": "",
+            "suffix": "+",
+            "metricKey": "githubContributions"
+          },
+          {
+            "value": "3",
+            "label": "Public Repositories",
+            "prefix": "",
+            "suffix": "+",
+            "metricKey": "githubPublicRepos"
+          },
+          {
+            "value": "2",
+            "label": "Core Project Tracks",
+            "prefix": "",
+            "suffix": "",
+            "metricKey": "githubActiveResearchTracks"
+          },
           { "value": "1", "label": "Academic Portfolio Mission", "prefix": "", "suffix": "" }
         ]
       }

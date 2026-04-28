@@ -45,12 +45,19 @@ export const heroSectionConfig = {
       arrayFields: {
         value: { type: "text", label: "Value" },
         label: { type: "text", label: "Label" },
+        prefix: { type: "text", label: "Prefix" },
+        suffix: { type: "text", label: "Suffix" },
+        metricKey: { type: "text", label: "Dynamic Metric Key" },
       },
       getItemSummary: (item: unknown) => {
         const label = summaryText(item, "label");
         const value = summaryText(item, "value");
         return label ? `${value} — ${label}` : "Proof point";
       },
+    },
+    dynamicMetricsEndpoint: {
+      type: "text",
+      label: "Dynamic Metrics Endpoint",
     },
     primaryCta: {
       type: "object",
@@ -117,10 +124,29 @@ export const heroSectionConfig = {
       { text: "Accessible by design" },
     ],
     proofPoints: [
-      { value: "131+", label: "Contributions" },
-      { value: "3+", label: "Public repositories" },
-      { value: "2", label: "Research tracks" },
+      {
+        value: "131",
+        label: "Contributions",
+        prefix: "",
+        suffix: "+",
+        metricKey: "githubContributions",
+      },
+      {
+        value: "3",
+        label: "Public repositories",
+        prefix: "",
+        suffix: "+",
+        metricKey: "githubPublicRepos",
+      },
+      {
+        value: "2",
+        label: "Research tracks",
+        prefix: "",
+        suffix: "",
+        metricKey: "githubActiveResearchTracks",
+      },
     ],
+    dynamicMetricsEndpoint: "/api/github-stats",
     primaryCta: {
       label: "Get Started",
       href: "/contact",

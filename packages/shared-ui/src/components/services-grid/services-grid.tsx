@@ -10,19 +10,22 @@ export type Service = {
 };
 
 export type ServicesGridProps = {
+  anchorId?: string;
   heading: string;
   description: string;
   services: Service[];
 };
 
 export function ServicesGrid({
+  anchorId,
   heading,
   description,
   services,
 }: ServicesGridProps) {
   return (
     <section
-      className="py-20 px-4 sm:px-6 lg:px-8"
+      id={anchorId || undefined}
+      className="scroll-mt-24 py-20 px-4 sm:px-6 lg:px-8"
       style={{ backgroundColor: "var(--surface)" }}
     >
       <div className="max-w-7xl mx-auto">
@@ -60,7 +63,7 @@ export function ServicesGrid({
               <Tag
                 key={index}
                 {...linkProps}
-                className="group flex flex-col p-7 rounded-2xl transition-all duration-200 cursor-pointer"
+                className="group flex flex-col p-7 rounded-lg transition-all duration-200 cursor-pointer"
                 style={{
                   backgroundColor: "var(--background)",
                   border: "1px solid var(--border)",
@@ -80,7 +83,7 @@ export function ServicesGrid({
               >
                 {service.icon && (
                   <div
-                    className="text-3xl mb-4 w-12 h-12 flex items-center justify-center rounded-xl"
+                    className="text-3xl mb-4 w-12 h-12 flex items-center justify-center rounded-md"
                     style={{
                       backgroundColor:
                         "color-mix(in oklch, var(--primary) 12%, transparent)",

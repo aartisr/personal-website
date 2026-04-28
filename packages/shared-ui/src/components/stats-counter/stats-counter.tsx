@@ -1,17 +1,26 @@
 "use client";
 
 import { type AnimationType, useScrollReveal } from "../scroll-reveal";
+import {
+  resolveDynamicMetric,
+  useDynamicMetrics,
+} from "../dynamic-metrics";
 
 export type Stat = {
   value: string;
   label: string;
   prefix: string;
   suffix: string;
+  metricKey?: string;
 };
 
 export type StatsCounterProps = {
+  anchorId?: string;
   stats?: Stat[];
   animation?: AnimationType;
+  topSpacing?: "compact" | "normal" | "relaxed";
+  bottomSpacing?: "compact" | "normal" | "relaxed";
+  dynamicMetricsEndpoint?: string;
 };
 
 function normalizeStats(stats: unknown): Stat[] {
@@ -26,15 +35,59 @@ function normalizeStats(stats: unknown): Stat[] {
       label: typeof item.label === "string" ? item.label : "",
       prefix: typeof item.prefix === "string" ? item.prefix : "",
       suffix: typeof item.suffix === "string" ? item.suffix : "",
+      metricKey: typeof item.metricKey === "string" ? item.metricKey : "",
     }));
 }
 
-export function StatsCounter({ stats, animation = "scale-in" }: StatsCounterProps) {
-  const { ref } = useScrollReveal(animation);
+const topSpacingClasses = {
+  compact: "pt-8 sm:pt-10 lg:pt-10",
+  normal: "pt-14 sm:pt-16 lg:pt-20",
+  relaxed: "pt-20 sm:pt-24 lg:pt-28",
+};
+
+const bottomSpacingClasses = {
+  compact: "pb-8 sm:pb-10 lg:pb-10",
+  normal: "pb-14 sm:pb-16 lg:pb-20",
+  relaxed: "pb-20 sm:pb-24 lg:pb-28",
+};
+
+export function StatsCounter({
+  anchorId,
+  stats,
+  animation = "scale-in",
+  topSpacing = "normal",
+  bottomSpacing = "normal",
+  dynamicMetricsEndpoint = "/api/github-stats",
+}: StatsCounterProps) {
+  const { ref, style } = useScrollReveal(animation);
   const safeStats = normalizeStats(stats);
+  const hasDynamicMetrics = safeStats.some((stat) => stat.metricKey);
+  const metrics = useDynamicMetrics(dynamicMetricsEndpoint, hasDynamicMetrics);
+  const renderedStats = safeStats.map((stat) => {
+    const dynamicMetric = resolveDynamicMetric(metrics, stat.metricKey);
+    if (!dynamicMetric) {
+      return stat;
+    }
+
+    return {
+      ...stat,
+      value:
+        dynamicMetric.value === undefined
+          ? stat.value
+          : String(dynamicMetric.value),
+      prefix: dynamicMetric.prefix ?? stat.prefix,
+      suffix: dynamicMetric.suffix ?? stat.suffix,
+      label: dynamicMetric.label ?? stat.label,
+    };
+  });
 
   return (
-    <section ref={ref} className="relative w-full py-20 px-4">
+    <section
+      id={anchorId || undefined}
+      ref={ref}
+      style={style}
+      className={`relative w-full scroll-mt-24 px-4 ${topSpacingClasses[topSpacing] ?? topSpacingClasses.normal} ${bottomSpacingClasses[bottomSpacing] ?? bottomSpacingClasses.normal}`}
+    >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-[linear-gradient(180deg,color-mix(in_oklch,var(--primary)_8%,transparent),transparent)]"
@@ -46,18 +99,19 @@ export function StatsCounter({ stats, animation = "scale-in" }: StatsCounterProp
           </p>
         </div>
         <dl
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,12rem),1fr))] gap-4 sm:gap-5 lg:gap-6"
+          aria-live={hasDynamicMetrics ? "polite" : undefined}
         >
-          {safeStats.map((stat, index) => (
+          {renderedStats.map((stat, index) => (
             <div
               key={`${stat.label}-${index}`}
-              className="group relative flex flex-col items-center text-center px-4 py-8 rounded-2xl bg-card border border-(--border)/85 shadow-[0_8px_28px_rgba(12,22,48,0.06)] transition-all duration-300 hover:-translate-y-1"
+              className="group relative flex min-h-42 flex-col items-center justify-center text-center px-4 py-7 rounded-lg bg-card border border-(--border)/85 shadow-[0_8px_28px_rgba(12,22,48,0.06)] transition-all duration-300 hover:-translate-y-1"
             >
               <div
                 aria-hidden="true"
                 className="absolute inset-x-5 top-0 h-px bg-[linear-gradient(90deg,transparent,var(--primary),transparent)] opacity-75"
               />
-              <dt className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight tabular-nums mb-2 text-primary">
+              <dt className="mb-2 min-h-12 whitespace-nowrap text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-normal tabular-nums text-primary">
                 {stat.prefix && (
                   <span className="text-2xl sm:text-3xl md:text-4xl">{stat.prefix}</span>
                 )}
@@ -66,7 +120,7 @@ export function StatsCounter({ stats, animation = "scale-in" }: StatsCounterProp
                   <span className="text-2xl sm:text-3xl md:text-4xl">{stat.suffix}</span>
                 )}
               </dt>
-              <dd className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+              <dd className="max-w-38 text-xs sm:text-sm font-medium uppercase tracking-[0.12em] text-muted-foreground">
                 {stat.label}
               </dd>
             </div>

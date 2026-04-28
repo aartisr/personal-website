@@ -7,6 +7,10 @@ export const timelineSectionConfig = {
       type: "text",
       label: "Section Heading",
     },
+    anchorId: {
+      type: "text",
+      label: "Anchor ID",
+    },
     description: {
       type: "textarea",
       label: "Section Description",
@@ -48,6 +52,7 @@ export const timelineSectionConfig = {
   },
   defaultProps: {
     heading: "Our Journey",
+    anchorId: "",
     description: "Key milestones that shaped who we are today.",
     variant: "alternating",
     animation: "slide-up",

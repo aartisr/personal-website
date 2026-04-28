@@ -11,6 +11,14 @@ export const headerConfig = {
       type: "text",
       label: "Logo Alt / Brand Name",
     },
+    brandName: {
+      type: "text",
+      label: "Visible Brand Name",
+    },
+    brandSubtext: {
+      type: "text",
+      label: "Visible Brand Subtext",
+    },
     navStyle: {
       type: "radio",
       label: "Navigation Style",
@@ -58,6 +66,8 @@ export const headerConfig = {
   defaultProps: {
     logo: "",
     logoAlt: "Brand Name",
+    brandName: "Brand Name",
+    brandSubtext: "",
     navStyle: "flat",
     navItems: [
       { label: "Home", href: "/" },

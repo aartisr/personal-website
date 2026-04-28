@@ -1,6 +1,10 @@
 {
   "root": {
-    "props": {}
+    "props": {
+      "title": "Terms of Use",
+      "description": "Legacy terms page for Aarti Sri Ravikumar's student research portfolio.",
+      "keywords": "Aarti Sri Ravikumar terms, student portfolio terms"
+    }
   },
   "content": [
     {
@@ -8,17 +12,19 @@
       "props": {
         "id": "Header-0",
         "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
-        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "logoAlt": "Aarti Sri Ravikumar",
+        "brandName": "Aarti Sri Ravikumar",
+        "brandSubtext": "Student Research Portfolio",
         "navStyle": "flat",
         "navItems": [
-          { "label": "Home", "href": "/" },
-          { "label": "About", "href": "/testimony" },
-          { "label": "Blog", "href": "/blog" },
-          { "label": "Web3 Proof", "href": "/web3-proof" },
-          { "label": "Contact", "href": "/support-center" }
+          { "label": "Research", "href": "/#research" },
+          { "label": "Methods", "href": "/#method" },
+          { "label": "Writing", "href": "/blog" },
+          { "label": "Journey", "href": "/testimony" },
+          { "label": "Proof", "href": "/web3-proof" }
         ],
         "ctaButton": {
-          "label": "Get in Touch",
+          "label": "Collaborate",
           "href": "/support-center"
         },
         "sticky": true
@@ -57,12 +63,12 @@
         "royalStyle": "none",
         "features": [
           {
-            "icon": "📜",
+            "icon": "file-text",
             "title": "Terms of Service",
             "description": "Full service usage terms, AI limitations, disclaimers, and legal responsibilities."
           },
           {
-            "icon": "🔒",
+            "icon": "shield",
             "title": "Privacy Policy",
             "description": "Data collection, usage, retention, rights, and contact channels for privacy questions."
           }

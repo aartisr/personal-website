@@ -1,6 +1,10 @@
 {
   "root": {
-    "props": {}
+    "props": {
+      "title": "Aarti Sri Ravikumar | Student Research Portfolio",
+      "description": "Academic student research portfolio for evidence-led software projects, resilient learning systems, technical writing, and collaboration.",
+      "keywords": "Aarti Sri Ravikumar, student research portfolio, academic portfolio, software engineering student, resilient learning systems, technical writing"
+    }
   },
   "content": [
     {
@@ -8,17 +12,19 @@
       "props": {
         "id": "Header-0",
         "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
-        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "logoAlt": "Aarti Sri Ravikumar",
+        "brandName": "Aarti Sri Ravikumar",
+        "brandSubtext": "Student Research Portfolio",
         "navStyle": "flat",
         "navItems": [
-          { "label": "Home", "href": "/" },
-          { "label": "About", "href": "/testimony" },
-          { "label": "Blog", "href": "/blog" },
-          { "label": "Web3 Proof", "href": "/web3-proof" },
-          { "label": "Contact", "href": "/support-center" }
+          { "label": "Research", "href": "/#research" },
+          { "label": "Methods", "href": "/#method" },
+          { "label": "Writing", "href": "/blog" },
+          { "label": "Journey", "href": "/testimony" },
+          { "label": "Proof", "href": "/web3-proof" }
         ],
         "ctaButton": {
-          "label": "Get in Touch",
+          "label": "Collaborate",
           "href": "/support-center"
         },
         "sticky": true
@@ -29,63 +35,93 @@
       "props": {
         "id": "HeroSection-1",
         "variant": "editorial",
-        "heading": "Education-led Research. Systems-minded Execution.",
-        "subheading": "Student Research Portfolio • Aarti Sri Ravikumar",
-        "description": "Review projects, methods, and outcomes in a concise format built for mentors, collaborators, and rapid technical evaluation.",
+        "heading": "Aarti Sri Ravikumar",
+        "subheading": "Pioneer Charter School of Science II • Saugus, Massachusetts",
+        "description": "Academic portfolio for research-informed software, resilient learning systems, and evidence-led project execution. Built so mentors, reviewers, collaborators, and search engines can understand the work quickly.",
         "highlights": [
-          { "text": "Project fit in under 30 seconds" },
-          { "text": "Clear evidence and implementation context" },
-          { "text": "Mobile-first reading flow" }
+          { "text": "Research agenda" },
+          { "text": "Evidence-first projects" },
+          { "text": "Technical writing" }
         ],
         "proofPoints": [
-          { "value": "131+", "label": "GitHub contributions" },
-          { "value": "3+", "label": "Public repositories" },
-          { "value": "2", "label": "Active research tracks" }
+          {
+            "value": "131",
+            "label": "GitHub contributions",
+            "prefix": "",
+            "suffix": "+",
+            "metricKey": "githubContributions"
+          },
+          {
+            "value": "3",
+            "label": "Public repositories",
+            "prefix": "",
+            "suffix": "+",
+            "metricKey": "githubPublicRepos"
+          },
+          {
+            "value": "2",
+            "label": "Active research tracks",
+            "prefix": "",
+            "suffix": "",
+            "metricKey": "githubActiveResearchTracks"
+          }
         ],
+        "dynamicMetricsEndpoint": "/api/github-stats",
         "primaryCta": {
-          "label": "Explore Projects",
-          "href": "https://github.com/aartisr?tab=repositories"
+          "label": "Review Research",
+          "href": "/#research"
         },
         "secondaryCta": {
-          "label": "Read Journey",
-          "href": "/testimony"
+          "label": "Read Notes",
+          "href": "/blog"
         },
-        "image": "/hero-academic-kindness-minimal.svg",
-        "imageAlt": "Minimal academic research and kindness illustration",
+        "image": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "imageAlt": "Aarti Sri Ravikumar",
         "animation": "fade-in",
         "royalStyle": "none"
       }
     },
     {
-      "type": "LogoCloud",
+      "type": "ResearchShowcase",
       "props": {
-        "id": "LogoCloud-2",
-        "heading": "Research, Engineering, and Collaboration Ecosystem",
-        "logos": [
+        "id": "ResearchShowcase-2",
+        "anchorId": "research",
+        "eyebrow": "Research agenda",
+        "heading": "Projects presented as evidence, not decoration.",
+        "description": "The strongest academic portfolios help a reader move from question to method to artifact. These tracks frame the work in the same way reviewers evaluate it: purpose, evidence, and next step.",
+        "items": [
           {
-            "src": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-            "alt": "GitHub",
-            "href": "https://github.com/aartisr"
+            "eyebrow": "Track 01",
+            "status": "Active framework",
+            "title": "Aether Student Resiliency Framework",
+            "description": "A structured approach to student support that connects wellbeing, learning habits, and clear intervention pathways.",
+            "method": "Define needs, map support touchpoints, identify measurable signals, and turn the framework into a usable artifact.",
+            "evidence": "Framework PDF, portfolio documentation, and support-center workflow.",
+            "outcome": "A clearer model for communicating student resiliency work to mentors and collaborators.",
+            "href": "/aether-student-resiliency-framework-2026.pdf",
+            "tags": "education, resiliency, research, systems"
           },
           {
-            "src": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Python.svg",
-            "alt": "Python",
-            "href": "https://www.python.org/"
+            "eyebrow": "Track 02",
+            "status": "Writing system",
+            "title": "Research Notes to Shipped Features",
+            "description": "A workflow for moving from early research notes into implementation decisions without losing academic rigor.",
+            "method": "Use a hypothesis, prototype, validation, and reflection loop for each feature or project decision.",
+            "evidence": "Published blog notes and reusable portfolio architecture.",
+            "outcome": "Faster iteration with stronger reasoning and less implementation drift.",
+            "href": "/blog/research-to-shipping",
+            "tags": "workflow, engineering, writing, validation"
           },
           {
-            "src": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-            "alt": "React",
-            "href": "https://react.dev/"
-          },
-          {
-            "src": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
-            "alt": "Node.js",
-            "href": "https://nodejs.org/"
-          },
-          {
-            "src": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
-            "alt": "Open Source Learning",
-            "href": "https://github.com/explore"
+            "eyebrow": "Track 03",
+            "status": "Open source",
+            "title": "Modular Portfolio Architecture",
+            "description": "A maintainable content system that keeps design blocks reusable while preserving a polished public experience.",
+            "method": "Separate content JSON, Puck block contracts, shared UI components, metadata helpers, and tests.",
+            "evidence": "Next.js app, shared-ui package, typed helpers, sitemap, robots, llms.txt, and structured data.",
+            "outcome": "A portfolio that can grow into projects, publications, case studies, and collaboration pages.",
+            "href": "https://github.com/aartisr",
+            "tags": "Next.js, architecture, SEO, maintainability"
           }
         ]
       }
@@ -94,31 +130,38 @@
       "type": "StatsCounter",
       "props": {
         "id": "StatsCounter-3",
+        "anchorId": "metrics",
         "animation": "scale-in",
+        "topSpacing": "normal",
+        "bottomSpacing": "compact",
+        "dynamicMetricsEndpoint": "/api/github-stats",
         "stats": [
           {
             "value": "131",
             "label": "GitHub Contributions",
             "prefix": "",
-            "suffix": "+"
+            "suffix": "+",
+            "metricKey": "githubContributions"
           },
           {
             "value": "3",
             "label": "Public Repositories",
             "prefix": "",
-            "suffix": "+"
+            "suffix": "+",
+            "metricKey": "githubPublicRepos"
           },
           {
             "value": "2",
-            "label": "Research Tracks",
+            "label": "Active Research Tracks",
             "prefix": "",
-            "suffix": ""
+            "suffix": "",
+            "metricKey": "githubActiveResearchTracks"
           },
           {
-            "value": "100",
-            "label": "Progressive Learning Orientation",
+            "value": "4",
+            "label": "Reviewer Pathways",
             "prefix": "",
-            "suffix": "%"
+            "suffix": ""
           }
         ]
       }
@@ -127,72 +170,71 @@
       "type": "FeaturesGrid",
       "props": {
         "id": "FeaturesGrid-4",
-        "heading": "Academic and Research Design Principles",
-        "description": "Built for clarity, evidence, and objective communication.",
+        "anchorId": "method",
+        "heading": "Methodology: how questions become useful systems.",
+        "description": "A repeatable academic workflow keeps the site clear for humans, search engines, and generative answer systems.",
         "columns": 3,
         "animation": "slide-up",
+        "topSpacing": "compact",
+        "bottomSpacing": "normal",
         "royalStyle": "none",
+        "processEyebrow": "Research-to-system loop",
+        "processSteps": [
+          {
+            "icon": "search",
+            "label": "01",
+            "title": "Frame",
+            "description": "Name the question, audience, constraint, and success signal before building."
+          },
+          {
+            "icon": "file-text",
+            "label": "02",
+            "title": "Capture",
+            "description": "Preserve notes, artifacts, decisions, and references as reviewable evidence."
+          },
+          {
+            "icon": "code",
+            "label": "03",
+            "title": "Build",
+            "description": "Translate the evidence into modular components, typed contracts, and tests."
+          },
+          {
+            "icon": "check",
+            "label": "04",
+            "title": "Validate",
+            "description": "Check performance, accessibility, clarity, usefulness, and search legibility."
+          }
+        ],
         "features": [
           {
-            "icon": "▣",
-            "title": "Scannable Information Hierarchy",
-            "description": "Clear headings, concise sections, and structured pathways reduce cognitive load for reviewers."
+            "icon": "search",
+            "title": "Question Framing",
+            "description": "Each project starts with a precise question, audience, and success signal so the work has a visible reason to exist."
           },
           {
-            "icon": "◉",
-            "title": "Evidence-Oriented Communication",
-            "description": "Content emphasizes objective results, process transparency, and reproducible project thinking."
+            "icon": "file-text",
+            "title": "Evidence Capture",
+            "description": "Artifacts, notes, decisions, and references are preserved so reviewers can trace how conclusions were reached."
           },
           {
-            "icon": "◌",
-            "title": "Research to Application Pipeline",
-            "description": "Concepts move from exploration to implementation through disciplined iteration."
+            "icon": "code",
+            "title": "Implementation Discipline",
+            "description": "Reusable components, typed contracts, and tests turn ideas into maintainable software rather than isolated demos."
           },
           {
-            "icon": "◈",
-            "title": "Academic Trust Signals",
-            "description": "Consistent navigation, policy visibility, and contextual documentation strengthen credibility."
+            "icon": "check",
+            "title": "Validation Loop",
+            "description": "Work is reviewed through performance, accessibility, clarity, and practical usefulness before it is presented."
           },
           {
-            "icon": "◎",
-            "title": "Accessible, Inclusive UX",
-            "description": "High-contrast visual language and predictable interaction patterns support wider audiences."
+            "icon": "users",
+            "title": "Collaboration Readiness",
+            "description": "The support pathway asks for project scope, timeline, and context so collaboration starts with shared expectations."
           },
           {
-            "icon": "◇",
-            "title": "Progressive Orientation",
-            "description": "The portfolio evolves continuously with measurable milestones and reflective updates."
-          }
-        ]
-      }
-    },
-    {
-      "type": "TimelineSection",
-      "props": {
-        "id": "TimelineSection-5",
-        "heading": "Academic Growth Timeline",
-        "description": "Milestones from foundational learning to applied research.",
-        "variant": "alternating",
-        "animation": "slide-up",
-        "royalStyle": "none",
-        "items": [
-          {
-            "year": "2025",
-            "title": "Foundation Stage",
-            "description": "Established a structured portfolio baseline and documented initial project outputs.",
-            "image": ""
-          },
-          {
-            "year": "2026",
-            "title": "Research and Systems Expansion",
-            "description": "Expanded into stronger architecture, methodology-led development, and reusable systems.",
-            "image": ""
-          },
-          {
-            "year": "Now",
-            "title": "Progressive Impact",
-            "description": "Driving collaborative projects that balance technical depth, clarity, and practical relevance.",
-            "image": ""
+            "icon": "globe",
+            "title": "Search & AI Legibility",
+            "description": "Metadata, structured data, canonical URLs, llms.txt, and readable section copy help machines summarize the site accurately."
           }
         ]
       }
@@ -200,14 +242,15 @@
     {
       "type": "AboutSection",
       "props": {
-        "id": "AboutSection-6",
+        "id": "AboutSection-5",
+        "anchorId": "profile",
         "heading": "Academic Profile",
-        "body": "I am a student at Pioneer Charter School of Science II (PCSS-II), Saugus, Massachusetts.\n\nMy focus combines academic rigor, research curiosity, and implementation discipline to turn ideas into practical systems.\n\nThis website is designed as a clear, professional research portfolio for mentors, peers, and collaborators.",
+        "body": "I am a student at Pioneer Charter School of Science II (PCSS-II) in Saugus, Massachusetts.\n\nMy work focuses on research-informed software, clear technical writing, and systems that make learning and collaboration easier to understand.\n\nThis portfolio is designed as a living academic dossier: a place where mentors, teachers, collaborators, and future reviewers can evaluate direction, evidence, and growth without digging through scattered links.",
         "image": "https://avatars.githubusercontent.com/u/166765628?v=4",
         "imageAlt": "Aarti Sri Ravikumar",
         "reverse": true,
         "animation": "",
-        "royalStyle": "corners",
+        "royalStyle": "none",
         "stats": [
           {
             "value": "PCSS-II",
@@ -218,8 +261,40 @@
             "label": "Location"
           },
           {
-            "value": "Student Builder",
-            "label": "Identity"
+            "value": "Research + Code",
+            "label": "Focus"
+          }
+        ]
+      }
+    },
+    {
+      "type": "TimelineSection",
+      "props": {
+        "id": "TimelineSection-6",
+        "anchorId": "journey",
+        "heading": "Academic Growth Timeline",
+        "description": "A concise map of how the portfolio moves from foundation to applied research and public communication.",
+        "variant": "alternating",
+        "animation": "slide-up",
+        "royalStyle": "none",
+        "items": [
+          {
+            "year": "2025",
+            "title": "Foundation and Documentation",
+            "description": "Established a portfolio baseline, clarified academic direction, and began presenting project work in a structured format.",
+            "image": ""
+          },
+          {
+            "year": "2026",
+            "title": "Research and Systems Expansion",
+            "description": "Expanded into methodology-led development, modular architecture, stronger metadata, and reusable evidence presentation.",
+            "image": ""
+          },
+          {
+            "year": "Now",
+            "title": "Public Learning Loop",
+            "description": "Publishing notes, improving project evidence, and using feedback to turn academic curiosity into practical systems.",
+            "image": ""
           }
         ]
       }
@@ -228,9 +303,9 @@
       "type": "BlogSection",
       "props": {
         "id": "BlogSection-7",
-        "anchorId": "blog",
-        "heading": "Blog",
-        "description": "Key destinations for evaluating work quality, direction, and trust.",
+        "anchorId": "writing",
+        "heading": "Research Notes & Field Memos",
+        "description": "Writing turns project decisions into durable knowledge. These notes show how ideas are framed, tested, and improved.",
         "posts": [
           {
             "title": "Building a Student Portfolio That Actually Gets Read",
@@ -263,26 +338,54 @@
       "type": "TestimonialsSection",
       "props": {
         "id": "TestimonialsSection-8",
-        "heading": "Research Principles",
+        "anchorId": "reviewer-questions",
+        "heading": "Reviewer questions this site answers",
         "royalStyle": "none",
+        "showRating": false,
         "testimonials": [
           {
-            "quote": "I focus on objective, evidence-led execution where design and engineering decisions are explainable.",
-            "name": "Aarti Sri Ravikumar",
-            "role": "Student Researcher",
-            "avatar": "https://avatars.githubusercontent.com/u/166765628?v=4"
+            "quote": "What is the research direction? The homepage states the agenda and links each track to evidence.",
+            "name": "Research Fit",
+            "role": "Academic Review",
+            "avatar": ""
           },
           {
-            "quote": "Good engineering is disciplined simplicity: robust enough to scale, clear enough to teach.",
-            "name": "Aarti Sri Ravikumar",
-            "role": "Academic Builder",
-            "avatar": "https://avatars.githubusercontent.com/u/166765628?v=4"
+            "quote": "Can the work be evaluated quickly? Metrics, methods, artifacts, and writing are grouped by visitor intent.",
+            "name": "Evaluation Speed",
+            "role": "Reviewer Experience",
+            "avatar": ""
           },
           {
-            "quote": "Every project follows a progressive cycle: investigate, prototype, validate, and improve.",
-            "name": "Aarti Sri Ravikumar",
-            "role": "Continuous Learner",
-            "avatar": "https://avatars.githubusercontent.com/u/166765628?v=4"
+            "quote": "Is the site trustworthy? It includes policy pages, contact context, structured data, and an authenticity proof path.",
+            "name": "Trust Signals",
+            "role": "Search and Social",
+            "avatar": ""
+          }
+        ]
+      }
+    },
+    {
+      "type": "FAQSection",
+      "props": {
+        "id": "FAQSection-9",
+        "heading": "Frequently Asked Questions",
+        "description": "Short answers for mentors, collaborators, teachers, and search visitors.",
+        "faqs": [
+          {
+            "question": "What is the purpose of this portfolio?",
+            "answer": "It presents Aarti Sri Ravikumar's academic direction, research-informed software projects, writing, and collaboration pathways in one evidence-oriented website."
+          },
+          {
+            "question": "Where should a reviewer start?",
+            "answer": "Start with the Research section for project evidence, then read Methodology for process, Blog for writing, and Journey for progress context."
+          },
+          {
+            "question": "How can someone collaborate?",
+            "answer": "Use the Support Center and include the project idea, scope, expected timeline, and relevant academic or technical context."
+          },
+          {
+            "question": "Is this portfolio built for search and AI discovery?",
+            "answer": "Yes. It includes canonical metadata, structured data, sitemap generation, robots rules, llms.txt, share metadata, and content sections written for clear summarization."
           }
         ]
       }
@@ -290,45 +393,20 @@
     {
       "type": "CTASection",
       "props": {
-        "id": "CTASection-9",
+        "id": "CTASection-10",
+        "anchorId": "collaborate",
         "variant": "split",
-        "heading": "Open to Academic and Research Collaboration",
-        "description": "Open to student research collaborations, interdisciplinary projects, and progressive product thinking.",
+        "heading": "Open to thoughtful academic and technical collaboration.",
+        "description": "Useful collaborations begin with a clear question, a realistic scope, and a shared standard for evidence.",
         "primaryCta": {
-          "label": "Review GitHub Profile",
-          "href": "https://github.com/aartisr"
-        },
-        "secondaryCta": {
-          "label": "Get in Touch",
+          "label": "Start Collaboration",
           "href": "/support-center"
         },
-        "royalStyle": "corners"
-      }
-    },
-    {
-      "type": "FAQSection",
-      "props": {
-        "id": "FAQSection-10",
-        "heading": "Frequently Asked Questions",
-        "description": "Quick answers for collaborators, reviewers, and visitors.",
-        "faqs": [
-          {
-            "question": "What is the purpose of this site?",
-            "answer": "This is a professional student portfolio that presents projects, direction, and collaboration channels in one place."
-          },
-          {
-            "question": "How can I review technical work quickly?",
-            "answer": "Start with the Projects section and GitHub repositories, then check the journey page for context and progress."
-          },
-          {
-            "question": "How do collaboration requests work?",
-            "answer": "Use the Support page and include your project idea, scope, and expected timeline."
-          },
-          {
-            "question": "Is this portfolio actively updated?",
-            "answer": "Yes. New progress, documentation, and structural improvements are published continuously."
-          }
-        ]
+        "secondaryCta": {
+          "label": "Review GitHub",
+          "href": "https://github.com/aartisr"
+        },
+        "royalStyle": "none"
       }
     },
     {
@@ -336,22 +414,39 @@
       "props": {
         "id": "Footer-11",
         "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
-        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "logoAlt": "Aarti Sri Ravikumar",
         "columns": [
           {
-            "title": "Portfolio",
+            "title": "Research",
+            "links": [
+              {
+                "label": "Research Agenda",
+                "href": "/#research"
+              },
+              {
+                "label": "Methodology",
+                "href": "/#method"
+              },
+              {
+                "label": "Academic Journey",
+                "href": "/testimony"
+              }
+            ]
+          },
+          {
+            "title": "Evidence",
             "links": [
               {
                 "label": "GitHub Profile",
                 "href": "https://github.com/aartisr"
               },
               {
-                "label": "Research Projects",
-                "href": "https://github.com/aartisr?tab=repositories"
+                "label": "Blog Notes",
+                "href": "/blog"
               },
               {
-                "label": "Journey",
-                "href": "/testimony"
+                "label": "Authenticity Proof",
+                "href": "/web3-proof"
               }
             ]
           },
@@ -360,6 +455,10 @@
             "links": [
               {
                 "label": "Support Center",
+                "href": "/support-center"
+              },
+              {
+                "label": "Collaboration",
                 "href": "/support-center"
               }
             ]
@@ -379,6 +478,10 @@
           }
         ],
         "socialLinks": [
+          {
+            "platform": "github",
+            "url": "https://github.com/aartisr"
+          },
           {
             "platform": "instagram",
             "url": "https://www.instagram.com/pcssii/"

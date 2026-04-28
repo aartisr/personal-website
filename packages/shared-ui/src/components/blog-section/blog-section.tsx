@@ -59,7 +59,7 @@ export function BlogSection({
             <a
               key={index}
               href={post.href}
-              className="group flex flex-col rounded-2xl overflow-hidden transition-all hover:-translate-y-1 bg-[var(--card)] border border-[color:var(--border)] shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
+              className="group flex flex-col rounded-lg overflow-hidden transition-all hover:-translate-y-1 bg-[var(--card)] border border-[color:var(--border)] shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
             >
               {/* Image */}
               {post.image && (

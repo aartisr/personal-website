@@ -11,6 +11,10 @@ export const ctaSectionConfig = {
         { label: "Split (text left, CTAs right)", value: "split" },
       ],
     },
+    anchorId: {
+      type: "text",
+      label: "Anchor ID",
+    },
     heading: {
       type: "text",
       label: "Heading",
@@ -39,6 +43,7 @@ export const ctaSectionConfig = {
   },
   defaultProps: {
     variant: "banner",
+    anchorId: "",
     heading: "Ready to Get Started?",
     description:
       "Join thousands of organizations already using our platform to transform their operations.",

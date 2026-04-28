@@ -9,7 +9,19 @@ export const testimonialsSectionConfig =
         type: "text",
         label: "Section Heading",
       },
+      anchorId: {
+        type: "text",
+        label: "Anchor ID",
+      },
       royalStyle: royalStyleField,
+      showRating: {
+        type: "radio",
+        label: "Show Rating Icons",
+        options: [
+          { label: "Yes", value: true },
+          { label: "No", value: false },
+        ],
+      },
       testimonials: {
         type: "array",
         label: "Testimonials",
@@ -24,7 +36,9 @@ export const testimonialsSectionConfig =
     },
     defaultProps: {
       heading: "What Our Customers Say",
+      anchorId: "",
       royalStyle: "none",
+      showRating: true,
       testimonials: [
         {
           quote:

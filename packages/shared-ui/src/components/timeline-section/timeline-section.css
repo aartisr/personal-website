@@ -20,7 +20,7 @@
 .timeline-card {
   background-color: var(--card);
   border: 1px solid var(--border);
-  border-radius: 1rem;
+  border-radius: var(--radius);
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08), 0 1.5px 6px 0 rgba(0,0,0,0.04);
@@ -32,13 +32,13 @@
     width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    border-radius: 0.75rem;
+    border-radius: var(--radius);
   }
 }
 
 .timeline-card:hover {
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.16), 0 3px 12px 0 rgba(0,0,0,0.08);
-  transform: translateY(-4px) scale(1.02);
+  transform: translateY(-2px);
 }
 
 .timeline-card.ornate {
@@ -75,15 +75,14 @@
 
   /* Central vertical line */
   .timeline-section-vertical-line {
-  background: linear-gradient(180deg, var(--primary, #0070f3) 0%, var(--accent, #00c6ae) 100%);
-  width: 4px;
+  background: linear-gradient(180deg, var(--primary, #0070f3) 0%, var(--research-green, #00a78f) 100%);
+  width: 2px;
   left: 50%;
   top: 0;
   bottom: 0;
   position: absolute;
   border-radius: 2px;
-  box-shadow: 0 0 12px 0 rgba(0, 112, 243, 0.12);
-  animation: vertical-glow 2s infinite alternate;
+  box-shadow: none;
 }
 
 @media (max-width: 640px) {
@@ -93,24 +92,18 @@
   }
 }
 
-@keyframes vertical-glow {
-  0% { box-shadow: 0 0 12px 0 rgba(0, 112, 243, 0.12); }
-  100% { box-shadow: 0 0 24px 4px rgba(0, 198, 174, 0.18); }
-}
-
 .timeline-section-dot {
   position: relative;
-  background: radial-gradient(circle, var(--accent, #00c6ae) 60%, var(--primary, #0070f3) 100%);
+  background: var(--research-green, #00a78f);
   border: 2px solid var(--background, #fff);
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  box-shadow: 0 0 0 2px var(--primary, #0070f3), 0 0 8px 0 rgba(0,198,174,0.15);
-  animation: dot-pulse 1.2s infinite alternate;
+  box-shadow: 0 0 0 2px var(--primary, #0070f3);
 }
 @media (max-width: 640px) {
   .timeline-section-dot {
@@ -130,7 +123,7 @@
   font-size: 0.95rem;
   font-weight: 500;
   padding: 0.4em 0.8em;
-  border-radius: 0.5em;
+  border-radius: var(--radius);
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
   white-space: nowrap;
   z-index: 10;
@@ -139,11 +132,6 @@
  .timeline-section-dot:focus .timeline-dot-tooltip {
    display: block;
  }
-
-@keyframes dot-pulse {
-  0% { box-shadow: 0 0 0 2px var(--primary, #0070f3), 0 0 8px 0 rgba(0,198,174,0.15); }
-  100% { box-shadow: 0 0 0 4px var(--accent, #00c6ae), 0 0 16px 2px rgba(0,198,174,0.25); }
-}
 
   @keyframes connector-glow {
   0% { box-shadow: 0 0 8px 0 rgba(0, 112, 243, 0.15); }

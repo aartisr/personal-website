@@ -2,6 +2,7 @@
 export { Header } from "./components/header/header";
 export { HeroSection } from "./components/hero-section/hero-section";
 export { FeaturesGrid } from "./components/features-grid/features-grid";
+export { ResearchShowcase } from "./components/research-showcase/research-showcase";
 export { AboutSection } from "./components/about-section/about-section";
 export { ServicesGrid } from "./components/services-grid/services-grid";
 export { TestimonialsSection } from "./components/testimonials-section/testimonials-section";
@@ -35,6 +36,7 @@ export { createPuckConfig } from "./config";
 export type { HeaderProps } from "./components/header/header";
 export type { HeroSectionProps } from "./components/hero-section/hero-section";
 export type { FeaturesGridProps } from "./components/features-grid/features-grid";
+export type { ResearchShowcaseProps } from "./components/research-showcase/research-showcase";
 export type { AboutSectionProps } from "./components/about-section/about-section";
 export type { ServicesGridProps } from "./components/services-grid/services-grid";
 export type { TestimonialsSectionProps } from "./components/testimonials-section/testimonials-section";

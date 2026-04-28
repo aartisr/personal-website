@@ -1,6 +1,10 @@
 "use client";
 
 import { type AnimationType, useScrollReveal } from "../scroll-reveal";
+import {
+  resolveDynamicMetric,
+  useDynamicMetrics,
+} from "../dynamic-metrics";
 import type { RoyalStyle } from "../royal/types";
 import { RoyalCorners } from "../royal/royal-corners";
 import { YantraBackground } from "../royal/yantra-background";
@@ -25,6 +29,9 @@ export type HeroCta = {
 export type HeroProofPoint = {
   value: string;
   label: string;
+  prefix?: string;
+  suffix?: string;
+  metricKey?: string;
 };
 
 export type HeroHighlight = string | { text?: string };
@@ -43,6 +50,7 @@ export type HeroSectionProps = {
   minHeight?: string;
   highlights?: HeroHighlight[];
   proofPoints?: HeroProofPoint[];
+  dynamicMetricsEndpoint?: string;
   royalStyle?: RoyalStyle;
 };
 
@@ -56,6 +64,14 @@ function normalizeCta(value: unknown): HeroCta {
     label: typeof cta.label === "string" ? cta.label : "",
     href: typeof cta.href === "string" && cta.href.trim() ? cta.href : "#",
   };
+}
+
+function hasDynamicProofPoints(proofPoints?: HeroProofPoint[]): boolean {
+  return (proofPoints ?? []).some((point) => point.metricKey?.trim());
+}
+
+function formatProofPointValue(point: HeroProofPoint): string {
+  return `${point.prefix ?? ""}${point.value}${point.suffix ?? ""}`;
 }
 
 function CtaButtons({
@@ -87,7 +103,7 @@ function CtaButtons({
         {primaryCta.label && (
           <a
             href={primaryCta.href}
-            className={`group px-6 py-3 text-base font-semibold rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(33,74,141,0.24)] ${
+            className={`group px-6 py-3 text-base font-semibold rounded-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(33,74,141,0.2)] ${
               inverted
                 ? "bg-white text-primary"
                 : "bg-primary text-primary-foreground"
@@ -102,7 +118,7 @@ function CtaButtons({
         {secondaryCta.label && (
           <a
             href={secondaryCta.href}
-            className={`px-6 py-3 text-base font-semibold rounded-full border bg-transparent transition-all duration-200 hover:-translate-y-0.5 ${
+            className={`px-6 py-3 text-base font-semibold rounded-md border bg-transparent transition-all duration-200 hover:-translate-y-0.5 ${
               inverted ? "border-white/50 text-white" : "border-primary text-primary"
             }`}
           >
@@ -118,7 +134,7 @@ function CtaButtons({
           {normalizedHighlights.map((highlight, index) => (
             <li
               key={`${highlight}-${index}`}
-              className={`px-3 py-1 rounded-full text-xs sm:text-sm border ${
+              className={`px-3 py-1 rounded-md text-xs sm:text-sm border ${
                 inverted ? "border-white/35 text-white/90" : "border-border text-muted-foreground"
               }`}
             >
@@ -135,12 +151,12 @@ function CtaButtons({
           {proofPoints.slice(0, 3).map((point, index) => (
             <div
               key={`${point.label}-${index}`}
-              className={`rounded-xl px-4 py-3 border ${
+              className={`rounded-lg px-4 py-3 border ${
                 inverted ? "border-white/35" : "border-border"
               }`}
             >
               <p className={`text-xl sm:text-2xl font-semibold ${inverted ? "text-white" : "text-foreground"}`}>
-                {point.value}
+                {formatProofPointValue(point)}
               </p>
               <p className={`text-xs sm:text-sm ${inverted ? "text-white/75" : "text-muted-foreground"}`}>
                 {point.label}
@@ -421,36 +437,55 @@ function EditorialHero({
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden py-20 md:py-24 px-4 sm:px-6 lg:px-8"
+      className="relative overflow-hidden py-20 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-border/75"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-28 top-20 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,color-mix(in_oklch,var(--primary)_18%,transparent),transparent_70%)]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-0 h-80 w-136 bg-[linear-gradient(125deg,color-mix(in_oklch,var(--primary)_7%,transparent),transparent_70%)]"
-      />
       <div className="max-w-7xl mx-auto">
-        {/* Asymmetric grid: 7/5 split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end">
-          {/* Large heading spanning left 7 columns */}
-          <div className="lg:col-span-7">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          <div className="lg:col-span-7 flex flex-col justify-between">
+            <div>
             {subheading && (
-              <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] mb-6 text-primary">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
+              <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] mb-6 text-primary">
+                <span className="h-px w-8 bg-primary" aria-hidden="true" />
                 {subheading}
               </p>
             )}
-            <h1 className="max-w-[16ch] text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight text-foreground text-balance">
+            <h1 className="max-w-[13ch] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.02] text-foreground text-balance">
               {heading}
             </h1>
-            <div className="mt-8 hidden lg:block h-px w-28 bg-[linear-gradient(90deg,var(--primary),transparent)]" />
+            </div>
+            {!!proofPoints?.length && (
+              <dl className="mt-10 hidden grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl lg:grid">
+                {proofPoints.slice(0, 3).map((point, index) => (
+                  <div
+                    key={`${point.label}-${index}`}
+                    className="border-l-2 border-primary bg-card px-4 py-3"
+                  >
+                    <dt className="text-2xl font-bold text-foreground">
+                      {formatProofPointValue(point)}
+                    </dt>
+                    <dd className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                      {point.label}
+                    </dd>
+                  </div>
+              ))}
+              </dl>
+            )}
           </div>
-          {/* Description + CTAs in the right 5 columns */}
-          <div className="lg:col-span-5 lg:pb-2 rounded-3xl border border-(--border)/80 bg-(--card)/72 backdrop-blur-sm p-6 md:p-7 shadow-[0_16px_42px_rgba(12,22,48,0.08)]">
+          <div className="lg:col-span-5 border border-(--border)/90 bg-(--card)/86 p-5 md:p-6 shadow-[0_12px_30px_rgba(12,22,48,0.06)]">
+            {image && (
+              <img
+                src={image}
+                alt={imageAlt}
+                width={480}
+                height={480}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                className="mb-5 h-24 w-24 rounded-lg object-cover border border-border"
+              />
+            )}
             {description && (
-              <p className="max-w-[36ch] text-base sm:text-lg leading-relaxed text-muted-foreground">
+              <p className="text-base sm:text-lg leading-relaxed text-muted-foreground">
                 {description}
               </p>
             )}
@@ -458,28 +493,30 @@ function EditorialHero({
               primaryCta={primaryCta}
               secondaryCta={secondaryCta}
               highlights={highlights}
-              proofPoints={proofPoints}
               align="left"
             />
-            <p className="mt-4 text-xs font-medium tracking-wide text-muted-foreground">
-              Fast review path: Projects &rarr; Timeline &rarr; Contact.
+            <p className="mt-5 border-t border-border pt-4 text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
+              Review path: research, methods, writing, contact.
             </p>
           </div>
+          {!!proofPoints?.length && (
+            <dl className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:hidden">
+              {proofPoints.slice(0, 3).map((point, index) => (
+                <div
+                  key={`${point.label}-mobile-${index}`}
+                  className="border-l-2 border-primary bg-card px-4 py-3"
+                >
+                  <dt className="text-2xl font-bold text-foreground">
+                    {formatProofPointValue(point)}
+                  </dt>
+                  <dd className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                    {point.label}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          )}
         </div>
-        {/* Full-width image below */}
-        {image && (
-          <div className="mt-12 rounded-2xl overflow-hidden">
-            <img
-              src={image}
-              alt={imageAlt}
-              width={1600}
-              height={900}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-65 sm:h-90 lg:h-130 object-contain bg-transparent"
-            />
-          </div>
-        )}
       </div>
     </section>
   );
@@ -850,8 +887,31 @@ const variantMap: Record<HeroVariant, React.FC<HeroSectionProps>> = {
 };
 
 export function HeroSection(props: HeroSectionProps) {
+  const metricsEnabled = hasDynamicProofPoints(props.proofPoints);
+  const metrics = useDynamicMetrics(
+    props.dynamicMetricsEndpoint ?? "/api/github-stats",
+    metricsEnabled
+  );
+  const proofPoints = (props.proofPoints ?? []).map((point) => {
+    const dynamicMetric = resolveDynamicMetric(metrics, point.metricKey);
+    if (!dynamicMetric) {
+      return point;
+    }
+
+    return {
+      ...point,
+      value:
+        dynamicMetric.value === undefined
+          ? point.value
+          : String(dynamicMetric.value),
+      prefix: dynamicMetric.prefix ?? point.prefix,
+      suffix: dynamicMetric.suffix ?? point.suffix,
+      label: dynamicMetric.label ?? point.label,
+    };
+  });
   const normalizedProps = {
     ...props,
+    proofPoints,
     primaryCta: normalizeCta((props as { primaryCta?: unknown }).primaryCta),
     secondaryCta: normalizeCta((props as { secondaryCta?: unknown }).secondaryCta),
   };

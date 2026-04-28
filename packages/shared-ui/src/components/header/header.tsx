@@ -19,15 +19,13 @@ export type NavStyle = "flat" | "dropdown" | "mega";
 export type HeaderProps = {
   logo: string;
   logoAlt: string;
+  brandName?: string;
+  brandSubtext?: string;
   navItems: NavItem[];
   ctaButton: CtaButton;
   sticky: boolean;
   navStyle?: NavStyle;
 };
-
-type HeaderCtaVariant = "control" | "engage";
-
-const CTA_VARIANT_STORAGE_KEY = "header-cta-variant";
 
 function scrollToAnchor(
   anchorId: string,
@@ -177,6 +175,8 @@ function MobileAccordion({
 export function Header({
   logo,
   logoAlt,
+  brandName,
+  brandSubtext,
   navItems = [],
   ctaButton = { label: "Get in Touch", href: "/support-center" },
   sticky = true,
@@ -186,7 +186,6 @@ export function Header({
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [activePathname, setActivePathname] = useState("/");
-  const [ctaVariant, setCtaVariant] = useState<HeaderCtaVariant>("control");
   const lastScrollYRef = useRef(0);
   const headerRef = useRef<HTMLElement | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
@@ -194,19 +193,18 @@ export function Header({
   const safeNavItems = Array.isArray(navItems) ? navItems : [];
   const ctaHref = ctaButton?.href || "/support-center";
   const ctaLabel = ctaButton?.label || "Get in Touch";
-
-  const resolvedCtaLabel =
-    ctaVariant === "engage" ? `Start: ${ctaLabel}` : ctaLabel;
-
+  const resolvedBrandName = brandName?.trim() || logoAlt || "Aarti Sri Ravikumar";
+  const resolvedBrandSubtext = brandSubtext?.trim();
   const resolvedCtaClass =
-    ctaVariant === "engage"
-      ? "bg-[color:var(--primary)] text-[color:var(--primary-foreground)] ring-2 ring-[color:var(--primary)]/25"
-      : "bg-[var(--primary)] text-[color:var(--primary-foreground)]";
+    "bg-[var(--primary)] text-[color:var(--primary-foreground)]";
 
   const resolveActiveState = (href: string): boolean => {
     if (!href) return false;
 
-    const [pathPart] = href.split("#");
+    const [pathPart, hashPart] = href.split("#");
+    if (hashPart) {
+      return false;
+    }
     const normalized = pathPart || "/";
 
     if (normalized === "/") {
@@ -310,33 +308,6 @@ export function Header({
   }, [menuOpen]);
 
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    const params = new URLSearchParams(window.location.search);
-    const queryVariant = params.get("ctaVariant");
-
-    if (queryVariant === "control" || queryVariant === "engage") {
-      setCtaVariant(queryVariant);
-      window.localStorage.setItem(CTA_VARIANT_STORAGE_KEY, queryVariant);
-      return;
-    }
-
-    const savedVariant = window.localStorage.getItem(CTA_VARIANT_STORAGE_KEY);
-    if (savedVariant === "control" || savedVariant === "engage") {
-      setCtaVariant(savedVariant);
-      return;
-    }
-
-    const assignedVariant: HeaderCtaVariant =
-      Math.random() > 0.5 ? "engage" : "control";
-
-    setCtaVariant(assignedVariant);
-    window.localStorage.setItem(CTA_VARIANT_STORAGE_KEY, assignedVariant);
-  }, []);
-
-  useEffect(() => {
     const onEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setMenuOpen(false);
@@ -429,23 +400,33 @@ export function Header({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center shrink-0">
+          <a href="/" className="flex items-center gap-3 shrink-0" aria-label={`${resolvedBrandName} homepage`}>
             {logo ? (
               <img
                 src={logo}
                 alt={logoAlt}
-                width={96}
-                height={32}
+                width={40}
+                height={40}
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
-                className="h-8 w-auto object-contain"
+                className="h-9 w-9 rounded-md object-cover border border-border"
               />
             ) : (
-              <span className="text-xl font-bold text-primary">
-                {logoAlt}
+              <span className="flex h-9 w-9 items-center justify-center rounded-md bg-primary text-sm font-bold text-primary-foreground">
+                {resolvedBrandName.slice(0, 2).toUpperCase()}
               </span>
             )}
+            <span className="hidden sm:block leading-tight">
+              <span className="block text-sm font-bold text-foreground">
+                {resolvedBrandName}
+              </span>
+              {resolvedBrandSubtext && (
+                <span className="block text-[11px] font-medium text-muted-foreground">
+                  {resolvedBrandSubtext}
+                </span>
+              )}
+            </span>
           </a>
 
           {/* Desktop Nav */}
@@ -497,10 +478,9 @@ export function Header({
           <div className="hidden lg:flex items-center">
             <a
               href={ctaHref}
-              data-cta-variant={ctaVariant}
-              className={`px-4 py-2 text-sm font-semibold rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(37,86,160,0.28)] ${resolvedCtaClass}`}
+              className={`px-4 py-2 text-sm font-semibold rounded-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_rgba(37,86,160,0.18)] ${resolvedCtaClass}`}
             >
-              {resolvedCtaLabel}
+              {ctaLabel}
             </a>
           </div>
 
@@ -568,11 +548,10 @@ export function Header({
           )}
           <a
             href={ctaHref}
-            data-cta-variant={ctaVariant}
-            className={`mt-2 px-4 py-2 text-sm font-semibold rounded-full text-center ${resolvedCtaClass}`}
+            className={`mt-2 px-4 py-2 text-sm font-semibold rounded-md text-center ${resolvedCtaClass}`}
             onClick={() => setMenuOpen(false)}
           >
-            {resolvedCtaLabel}
+            {ctaLabel}
           </a>
         </nav>
       </div>

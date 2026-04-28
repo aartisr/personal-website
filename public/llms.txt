@@ -1,22 +1,31 @@
-# Aarti Sri Ravikumar — Student Web3 Portfolio
+# Aarti Sri Ravikumar — Student Research Portfolio
 
-> A modern, student-led Web3 portfolio focused on open-source projects, research thinking, and intuitive decentralized product design.
+> Academic portfolio for student research, evidence-led software projects, resilient learning systems, technical writing, and collaboration.
 
 ## Pages
 
-- / — Student Web3 landing page and portfolio overview
-- /support-center — Web3 support hub and collaboration contact form
-- /testimony — Roadmap and social-proof style progress page
+- / — Research profile, project evidence, methods, writing, and collaboration pathways
+- /blog — Technical writing and research notes
+- /support-center — Collaboration and mentor contact path
+- /testimony — Academic journey and progress signals
+- /web3-proof — Wallet-based authenticity signal
 - /privacy-policy — Data usage and privacy commitments
 - /terms-of-service — Usage terms and legal policy
 
 ## Topics
 
 - Student developer profile (Aarti Sri Ravikumar)
-- Web3 learning journey and decentralized product principles
-- Open-source projects and GitHub-first collaboration flow
+- Academic portfolio and research communication
+- Evidence-backed student projects and GitHub-first collaboration
+- Resilient learning systems and student support research
+- Software architecture, technical writing, and implementation discipline
 - Privacy, trust, and legal transparency
+
+## Preferred Summary
+
+Aarti Sri Ravikumar is a student at Pioneer Charter School of Science II in Saugus, Massachusetts, presenting research-informed software projects, writing, and collaboration channels through a clear academic portfolio.
 
 ## Contact
 
 - GitHub: https://github.com/aartisr
+- Collaboration: /support-center

@@ -10,6 +10,7 @@ export type CtaLink = {
 };
 
 export type CtaSectionProps = {
+  anchorId?: string;
   variant: "banner" | "split";
   heading: string;
   description: string;
@@ -22,7 +23,7 @@ function PrimaryButton({ label, href }: CtaLink) {
   return (
     <a
       href={href}
-      className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98] cta-section-split-primary"
+      className="inline-flex items-center justify-center rounded-md px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98] cta-section-split-primary"
     >
       {label}
     </a>
@@ -33,7 +34,7 @@ function SecondaryButton({ label, href }: CtaLink) {
   return (
     <a
       href={href}
-      className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-80 active:scale-[0.98] cta-section-split-secondary"
+      className="inline-flex items-center justify-center rounded-md px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-80 active:scale-[0.98] cta-section-split-secondary"
     >
       {label}
     </a>
@@ -41,6 +42,7 @@ function SecondaryButton({ label, href }: CtaLink) {
 }
 
 export function CtaSection({
+  anchorId,
   variant,
   heading,
   description,
@@ -50,8 +52,8 @@ export function CtaSection({
 }: CtaSectionProps) {
   if (variant === "banner") {
     return (
-      <section className="w-full py-20 px-4">
-        <div className="relative max-w-5xl mx-auto rounded-3xl px-8 py-16 text-center overflow-hidden cta-section-banner">
+      <section id={anchorId || undefined} className="w-full scroll-mt-24 py-20 px-4">
+        <div className="relative max-w-5xl mx-auto rounded-lg px-8 py-16 text-center overflow-hidden cta-section-banner">
           {royalStyle !== "none" && <YantraBackground royalStyle={royalStyle} />}
           {royalStyle !== "none" && <RoyalCorners royalStyle={royalStyle} />}
           <h2 className="relative text-3xl md:text-4xl font-bold tracking-tight mb-4 cta-section-banner-heading">
@@ -66,7 +68,7 @@ export function CtaSection({
             {primaryCta?.label && (
               <a
                 href={primaryCta.href}
-                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98] cta-section-banner-primary"
+                className="inline-flex items-center justify-center rounded-md px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98] cta-section-banner-primary"
               >
                 {primaryCta.label}
               </a>
@@ -74,7 +76,7 @@ export function CtaSection({
             {secondaryCta?.label && (
               <a
                 href={secondaryCta.href}
-                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold transition-all hover:bg-white/10 active:scale-[0.98] cta-section-banner-secondary"
+                className="inline-flex items-center justify-center rounded-md px-8 py-3.5 text-sm font-semibold transition-all hover:bg-white/10 active:scale-[0.98] cta-section-banner-secondary"
               >
                 {secondaryCta.label}
               </a>
@@ -87,7 +89,7 @@ export function CtaSection({
 
   // Split variant
   return (
-    <section className="w-full py-16 px-4 cta-section-split">
+    <section id={anchorId || undefined} className="w-full scroll-mt-24 py-16 px-4 cta-section-split">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Text side */}
         <div className="flex-1 max-w-xl">

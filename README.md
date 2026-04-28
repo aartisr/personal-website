@@ -1,6 +1,6 @@
-# Aarti Sri Ravikumar — Student Portfolio
+# Aarti Sri Ravikumar — Student Research Portfolio
 
-A visual, CMS-editable student portfolio built with **Next.js 16**, **Puck CMS**, and reusable shared UI components.
+A CMS-editable academic research portfolio built with **Next.js 16**, **Puck CMS**, reusable shared UI components, and search/social metadata designed for humans, crawlers, and AI answer engines.
 
 ## Tech Stack
 
@@ -12,9 +12,11 @@ A visual, CMS-editable student portfolio built with **Next.js 16**, **Puck CMS**
 
 ## Positioning
 
-- Student-focused personal website with a clear and modern voice
-- GitHub-first portfolio flow for projects and collaboration
-- Support + legal pages aligned for trust and transparency
+- Academic student research portfolio with a clear evidence-first voice
+- Reviewer-friendly routes for research, methods, writing, journey, proof, and collaboration
+- GitHub-first evidence model with structured project context and public writing
+- SEO/GEO foundation with dynamic metadata, structured data, sitemap, robots, social card, and `llms.txt`
+- Static-first rendering with async metrics hydration so third-party APIs never block the first page render
 
 ## Getting Started
 
@@ -50,9 +52,11 @@ If these values are missing, protected routes return `500` until configured.
 
 ## Key Content Pages
 
-- `/` — homepage (student portfolio)
+- `/` — homepage (student research portfolio)
+- `/blog` — research notes and field memos
 - `/support-center` — onboarding/help/collaboration support
 - `/testimony` — roadmap and social-proof page
+- `/web3-proof` — authenticity proof
 - `/privacy-policy` — privacy commitments
 - `/terms-of-service` — legal terms
 
@@ -61,7 +65,23 @@ If these values are missing, protected routes return `500` until configured.
 - `content/` — page JSON data
 - `packages/shared-ui/` — reusable Puck components
 - `src/app/` — app routes and APIs
-- `src/lib/` — render + content utilities
+- `src/lib/` — render, content, SEO, and metadata utilities
+
+## Search and Social
+
+- `src/lib/seo.ts` derives canonical metadata and JSON-LD from Puck content.
+- `src/app/sitemap.ts` and `src/app/robots.ts` generate crawl configuration from the configured site URL.
+- `src/app/opengraph-image.tsx` generates a branded 1200×630 social card.
+- `public/llms.txt` summarizes the site for AI crawlers and answer engines.
+- Blog posts include article metadata and share controls for LinkedIn, X, WhatsApp, email, native share, and copy link.
+
+## Performance and Dynamic Metrics
+
+- Puck content pages are statically generated from `content/*.json` and revalidated hourly.
+- GitHub metrics are served by `src/app/api/github-stats/route.ts` with edge-friendly cache headers and a server timeout fallback.
+- UI blocks stay generic: add `metricKey` to a hero proof point or stat item, and set `dynamicMetricsEndpoint` to any endpoint that returns `{ "metrics": { "<key>": { "value": "...", "prefix": "", "suffix": "" } } }`.
+- The shared UI waits for browser idle time before fetching metrics, caches the result in the client module, and leaves editorial fallback values in place if the network is slow or unavailable.
+- Static assets, the social image route, and the metrics route include cache-control headers in `next.config.ts`.
 
 ## Architecture
 

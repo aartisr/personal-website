@@ -13,9 +13,11 @@ export type Testimonial = {
 };
 
 export type TestimonialsSectionProps = {
+  anchorId?: string;
   heading: string;
   testimonials: Testimonial[];
   royalStyle?: RoyalStyle;
+  showRating?: boolean;
 };
 
 function StarRating() {
@@ -64,13 +66,16 @@ function Avatar({ src, name }: { src: string; name: string }) {
 }
 
 export function TestimonialsSection({
+  anchorId,
   heading,
   testimonials,
   royalStyle = "none",
+  showRating = true,
 }: TestimonialsSectionProps) {
   return (
     <section
-      className="relative py-20 px-4 sm:px-6 lg:px-8 testimonials-section"
+      id={anchorId || undefined}
+      className="relative scroll-mt-24 py-20 px-4 sm:px-6 lg:px-8 testimonials-section"
     >
       {royalStyle !== "none" && <YantraBackground royalStyle={royalStyle} />}
       <div className="max-w-7xl mx-auto">
@@ -86,10 +91,10 @@ export function TestimonialsSection({
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`relative flex flex-col p-7 rounded-2xl testimonials-section-card${royalStyle === "ornate" ? " ornate" : ""}`}
+              className={`relative flex flex-col p-7 rounded-lg testimonials-section-card${royalStyle === "ornate" ? " ornate" : ""}`}
             >
               {royalStyle === "ornate" && <RoyalCorners royalStyle="subtle" />}
-              <StarRating />
+              {showRating && <StarRating />}
 
               <blockquote className="flex-1 text-base leading-relaxed mb-6 testimonials-section-blockquote">
                 <span className={royalStyle !== "none" ? "testimonials-section-blockquote-gold" : undefined}>

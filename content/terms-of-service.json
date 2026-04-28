@@ -1,6 +1,10 @@
 {
   "root": {
-    "props": {}
+    "props": {
+      "title": "Terms of Service",
+      "description": "Terms of service for Aarti Sri Ravikumar's student research portfolio and related pages.",
+      "keywords": "Aarti Sri Ravikumar terms of service, student portfolio terms, academic portfolio policy"
+    }
   },
   "content": [
     {
@@ -8,17 +12,19 @@
       "props": {
         "id": "Header-0",
         "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
-        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "logoAlt": "Aarti Sri Ravikumar",
+        "brandName": "Aarti Sri Ravikumar",
+        "brandSubtext": "Student Research Portfolio",
         "navStyle": "flat",
         "navItems": [
-          { "label": "Home", "href": "/" },
-          { "label": "About", "href": "/testimony" },
-          { "label": "Blog", "href": "/blog" },
-          { "label": "Web3 Proof", "href": "/web3-proof" },
-          { "label": "Contact", "href": "/support-center" }
+          { "label": "Research", "href": "/#research" },
+          { "label": "Methods", "href": "/#method" },
+          { "label": "Writing", "href": "/blog" },
+          { "label": "Journey", "href": "/testimony" },
+          { "label": "Proof", "href": "/web3-proof" }
         ],
         "ctaButton": {
-          "label": "Get in Touch",
+          "label": "Collaborate",
           "href": "/support-center"
         },
         "sticky": true
@@ -67,22 +73,22 @@
         "royalStyle": "none",
         "features": [
           {
-            "icon": "✅",
+            "icon": "check",
             "title": "Use implies acceptance",
             "description": "By accessing the services, you agree to these Terms and must stop using them if you do not agree."
           },
           {
-            "icon": "🔞",
+            "icon": "shield",
             "title": "Age and eligibility",
             "description": "Users must meet minimum age and consent requirements, including guardian permission where required."
           },
           {
-            "icon": "🤖",
+            "icon": "settings",
             "title": "AI outputs have limits",
             "description": "Outputs are probabilistic and may be inaccurate; do not treat them as professional advice."
           },
           {
-            "icon": "⚖️",
+            "icon": "file-text",
             "title": "Liability limitations",
             "description": "Services are provided as-is, with liability limited to the maximum extent allowed by law."
           }
@@ -107,7 +113,7 @@
       "props": {
         "id": "AboutSection-4",
         "heading": "Acceptance of These Terms",
-        "body": "Thank you for using Personal Website (\"Service\"). These Terms of Use (\"Terms\") govern your access to and use of Personal Website, including any related websites, applications, tools, or content (collectively, the \"Services\"), operated by the service provider (\"we\", \"us\", or \"our\").\n\nBy accessing or using the Services, you agree to be bound by these Terms. If you do not agree to these Terms, you must not use the Services.",
+        "body": "Thank you for using Aarti Sri Ravikumar Portfolio (\"Service\"). These Terms of Use (\"Terms\") govern your access to and use of this student research portfolio, including any related pages, tools, or content (collectively, the \"Services\"), operated by the service provider (\"we\", \"us\", or \"our\").\n\nBy accessing or using the Services, you agree to be bound by these Terms. If you do not agree to these Terms, you must not use the Services.",
         "image": "",
         "imageAlt": "",
         "reverse": false,

@@ -7,13 +7,14 @@ export type LogoItem = {
 };
 
 export type LogoCloudProps = {
+  anchorId?: string;
   heading: string;
   logos: LogoItem[];
 };
 
-export function LogoCloud({ heading, logos }: LogoCloudProps) {
+export function LogoCloud({ anchorId, heading, logos }: LogoCloudProps) {
   return (
-    <section className="relative w-full py-16 px-4">
+    <section id={anchorId || undefined} className="relative w-full py-16 px-4">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,color-mix(in_oklch,var(--primary)_7%,transparent),transparent)]"
@@ -48,14 +49,14 @@ export function LogoCloud({ heading, logos }: LogoCloudProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={logo.alt}
-                className="group flex items-center justify-center rounded-2xl border border-(--border)/85 bg-(--card)/78 px-4 py-5 shadow-[0_8px_24px_rgba(12,22,48,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(12,22,48,0.1)]"
+                className="group flex items-center justify-center rounded-lg border border-(--border)/85 bg-(--card)/78 px-4 py-5 shadow-[0_8px_24px_rgba(12,22,48,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_34px_rgba(12,22,48,0.1)]"
               >
                 {image}
               </a>
             ) : (
               <span
                 key={index}
-                className="group flex items-center justify-center rounded-2xl border border-(--border)/85 bg-(--card)/78 px-4 py-5 shadow-[0_8px_24px_rgba(12,22,48,0.05)]"
+                className="group flex items-center justify-center rounded-lg border border-(--border)/85 bg-(--card)/78 px-4 py-5 shadow-[0_8px_24px_rgba(12,22,48,0.05)]"
               >
                 {image}
               </span>

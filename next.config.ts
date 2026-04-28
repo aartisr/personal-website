@@ -26,6 +26,33 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: "/aether-student-resiliency-framework-2026.pdf",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/opengraph-image",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, s-maxage=86400, stale-while-revalidate=604800",
+          },
+        ],
+      },
+      {
+        source: "/api/github-stats",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, s-maxage=3600, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      {
         source: "/:path*",
         headers: [
           {
@@ -46,7 +73,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "X-DNS-Prefetch-Control",
-            value: "off",
+            value: "on",
           },
           {
             key: "Permissions-Policy",

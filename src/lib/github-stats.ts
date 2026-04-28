@@ -43,6 +43,28 @@ type GithubStats = {
   activeResearchTracks: number;
 };
 
+export const GITHUB_METRIC_KEYS = {
+  contributions: "githubContributions",
+  publicRepos: "githubPublicRepos",
+  activeResearchTracks: "githubActiveResearchTracks",
+} as const;
+
+export type DynamicMetricValue = {
+  value: string;
+  prefix: string;
+  suffix: string;
+  label: string;
+};
+
+export type GithubMetricPayload = {
+  ok: true;
+  source: "github";
+  username: string;
+  updatedAt: string;
+  revalidateSeconds: number;
+  metrics: Record<string, DynamicMetricValue>;
+};
+
 type GithubUserResponse = {
   public_repos?: number;
 };
@@ -340,6 +362,45 @@ export async function getGithubStats(): Promise<GithubStats> {
   };
 
   return value;
+}
+
+export function githubStatsToMetrics(stats: GithubStats): GithubMetricPayload {
+  const metrics: Record<string, DynamicMetricValue> = {
+    [GITHUB_METRIC_KEYS.publicRepos]: {
+      value: String(stats.publicRepos),
+      prefix: "",
+      suffix: "+",
+      label: "Public Repositories",
+    },
+    [GITHUB_METRIC_KEYS.activeResearchTracks]: {
+      value: String(stats.activeResearchTracks),
+      prefix: "",
+      suffix: "",
+      label: "Active Research Tracks",
+    },
+  };
+
+  if (stats.contributions > 0) {
+    metrics[GITHUB_METRIC_KEYS.contributions] = {
+      value: String(stats.contributions),
+      prefix: "",
+      suffix: "+",
+      label: "GitHub Contributions",
+    };
+  }
+
+  return {
+    ok: true,
+    source: "github",
+    username: getGithubUsername(),
+    updatedAt: new Date().toISOString(),
+    revalidateSeconds: Math.floor(CACHE_TTL_MS / 1000),
+    metrics,
+  };
+}
+
+export async function getGithubMetricPayload(): Promise<GithubMetricPayload> {
+  return githubStatsToMetrics(await getGithubStats());
 }
 
 function isContributionsLabel(label: string): boolean {

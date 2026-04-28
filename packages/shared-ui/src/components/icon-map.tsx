@@ -15,6 +15,9 @@ import {
   TrendingUp,
   Settings,
   MessageCircle,
+  FileText,
+  Search,
+  Github,
   type LucideIcon,
 } from "lucide-react";
 
@@ -35,6 +38,9 @@ const icons: Record<string, LucideIcon> = {
   "trending-up": TrendingUp,
   settings: Settings,
   "message-circle": MessageCircle,
+  "file-text": FileText,
+  search: Search,
+  github: Github,
 };
 
 export function Icon({

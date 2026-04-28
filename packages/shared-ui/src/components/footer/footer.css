@@ -1,7 +1,6 @@
 .footer {
   background:
-    radial-gradient(120% 120% at 100% 0%, rgba(46, 124, 255, 0.12) 0%, transparent 45%),
-    radial-gradient(90% 80% at 0% 100%, rgba(15, 23, 42, 0.06) 0%, transparent 55%),
+    linear-gradient(180deg, color-mix(in oklch, var(--muted) 72%, transparent), transparent 58%),
     var(--footer-bg, var(--card));
   border-top: 1px solid var(--border);
 }
@@ -9,6 +8,7 @@
 .footer-help-panel {
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.72);
+  border-radius: var(--radius);
 }
 
 .footer-help-copy {
@@ -18,6 +18,7 @@
 .footer-trust-item {
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.58);
+  border-radius: var(--radius);
 }
 
 .footer-trust-item-text {

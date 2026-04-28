@@ -1,6 +1,10 @@
 {
   "root": {
-    "props": {}
+    "props": {
+      "title": "Privacy Policy",
+      "description": "Privacy policy for Aarti Sri Ravikumar's student research portfolio, including data use, rights, and safeguards.",
+      "keywords": "Aarti Sri Ravikumar privacy policy, student portfolio privacy, data rights"
+    }
   },
   "content": [
     {
@@ -8,17 +12,19 @@
       "props": {
         "id": "Header-0",
         "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
-        "logoAlt": "Aarti Sri Ravikumar Portfolio",
+        "logoAlt": "Aarti Sri Ravikumar",
+        "brandName": "Aarti Sri Ravikumar",
+        "brandSubtext": "Student Research Portfolio",
         "navStyle": "flat",
         "navItems": [
-          { "label": "Home", "href": "/" },
-          { "label": "About", "href": "/testimony" },
-          { "label": "Blog", "href": "/blog" },
-          { "label": "Web3 Proof", "href": "/web3-proof" },
-          { "label": "Contact", "href": "/support-center" }
+          { "label": "Research", "href": "/#research" },
+          { "label": "Methods", "href": "/#method" },
+          { "label": "Writing", "href": "/blog" },
+          { "label": "Journey", "href": "/testimony" },
+          { "label": "Proof", "href": "/web3-proof" }
         ],
         "ctaButton": {
-          "label": "Get in Touch",
+          "label": "Collaborate",
           "href": "/support-center"
         },
         "sticky": true
@@ -67,22 +73,22 @@
         "royalStyle": "none",
         "features": [
           {
-            "icon": "🛡️",
+            "icon": "shield",
             "title": "We do not sell personal data",
             "description": "Personal data is shared only in limited, lawful cases with trusted service providers under strict controls."
           },
           {
-            "icon": "🧾",
+            "icon": "file-text",
             "title": "Transparent data usage",
             "description": "We explain what data we collect, why we collect it, and how it supports secure operations."
           },
           {
-            "icon": "⚙️",
+            "icon": "settings",
             "title": "Portfolio improvement with safeguards",
             "description": "Interaction signals may improve quality and usability while respecting lawful controls and user rights."
           },
           {
-            "icon": "✅",
+            "icon": "check",
             "title": "Your rights and choices",
             "description": "Depending on your location, you may access, correct, delete, restrict, or request portability of your data."
           }
@@ -107,7 +113,7 @@
       "props": {
         "id": "AboutSection-4",
         "heading": "Introduction",
-        "body": "Personal Website (\"we\", \"our\", or \"us\") respects your privacy and is committed to protecting personal information collected through your use of our websites, applications, and AI-powered services (collectively, the \"Services\").\n\nThis Privacy Policy explains how we collect, use, store, and protect personal data when you interact with the Services. It also explains your rights and choices regarding that data.\n\nBy using the Services, you agree to the collection and use of information in accordance with this Privacy Policy.",
+        "body": "Aarti Sri Ravikumar Portfolio (\"we\", \"our\", or \"us\") respects your privacy and is committed to protecting personal information collected through your use of this student research portfolio and related contact flows (collectively, the \"Services\").\n\nThis Privacy Policy explains how we collect, use, store, and protect personal data when you interact with the Services. It also explains your rights and choices regarding that data.\n\nBy using the Services, you agree to the collection and use of information in accordance with this Privacy Policy.",
         "image": "",
         "imageAlt": "",
         "reverse": false,
@@ -121,7 +127,7 @@
       "props": {
         "id": "AboutSection-5",
         "heading": "Scope of This Policy",
-        "body": "This Privacy Policy applies to individuals who access or use Personal Website, visitors to our websites and digital platforms, and users who interact with our AI systems through any supported interface.\n\nThis policy does not apply to third-party websites, applications, or services that may be linked from or integrated with the Services.",
+        "body": "This Privacy Policy applies to individuals who access or use Aarti Sri Ravikumar Portfolio, visitors to portfolio pages, and users who submit collaboration or support requests through supported forms.\n\nThis policy does not apply to third-party websites, applications, or services that may be linked from or integrated with the Services.",
         "image": "",
         "imageAlt": "",
         "reverse": true,
@@ -219,7 +225,7 @@
       "props": {
         "id": "AboutSection-12",
         "heading": "AI Output and Accuracy",
-        "body": "Personal Website generates responses using probabilistic models. While designed to be helpful, outputs may occasionally be incomplete, inaccurate, or contextually incorrect.\n\nUsers should apply discernment and should not treat AI outputs as professional, legal, medical, or financial advice. Requests for correction or removal of personal data appearing in outputs will be reviewed in accordance with applicable law and technical feasibility.",
+        "body": "Some portfolio workflows may use probabilistic or automated systems. While designed to be helpful, outputs may occasionally be incomplete, inaccurate, or contextually incorrect.\n\nUsers should apply discernment and should not treat automated outputs as professional, legal, medical, or financial advice. Requests for correction or removal of personal data appearing in outputs will be reviewed in accordance with applicable law and technical feasibility.",
         "image": "",
         "imageAlt": "",
         "reverse": false,

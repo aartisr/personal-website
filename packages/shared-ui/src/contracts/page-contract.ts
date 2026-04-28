@@ -1,6 +1,7 @@
 export const PUCK_BLOCK_TYPE = {
   HEADER: "Header",
   HERO_SECTION: "HeroSection",
+  RESEARCH_SHOWCASE: "ResearchShowcase",
   TIMELINE_SECTION: "TimelineSection",
   STATS_COUNTER: "StatsCounter",
 } as const;

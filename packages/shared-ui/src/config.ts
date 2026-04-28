@@ -6,6 +6,8 @@ import { HeroSection } from "./components/hero-section/hero-section";
 import { heroSectionConfig } from "./components/hero-section/hero-section.puck";
 import { FeaturesGrid } from "./components/features-grid/features-grid";
 import { featuresGridConfig } from "./components/features-grid/features-grid.puck";
+import { ResearchShowcase } from "./components/research-showcase/research-showcase";
+import { researchShowcaseConfig } from "./components/research-showcase/research-showcase.puck";
 import { AboutSection } from "./components/about-section/about-section";
 import { aboutSectionConfig } from "./components/about-section/about-section.puck";
 import { ServicesGrid } from "./components/services-grid/services-grid";
@@ -54,6 +56,7 @@ export function createPuckConfig(): Config {
         title: "Content",
         components: [
           "FeaturesGrid",
+          "ResearchShowcase",
           "AboutSection",
           "ServicesGrid",
           "FAQSection",
@@ -86,6 +89,10 @@ export function createPuckConfig(): Config {
       FeaturesGrid: {
         ...featuresGridConfig,
         render: r(FeaturesGrid),
+      },
+      ResearchShowcase: {
+        ...researchShowcaseConfig,
+        render: r(ResearchShowcase),
       },
       AboutSection: {
         ...aboutSectionConfig,

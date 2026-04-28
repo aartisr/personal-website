@@ -1,6 +1,6 @@
 # Architecture and Boundaries
 
-This repository is a content-driven Next.js portfolio app with reusable block components and shared configuration packages.
+This repository is a content-driven Next.js academic portfolio app with reusable block components, shared configuration packages, and metadata helpers that make page content legible to search engines, social platforms, and AI answer systems.
 
 ## Layered Structure
 
@@ -9,12 +9,16 @@ This repository is a content-driven Next.js portfolio app with reusable block co
 - Owns routing, API handlers, and runtime orchestration.
 - Reads/writes content files and applies request-level validation rules.
 - Composes UI blocks through Puck configuration.
+- Derives page metadata, JSON-LD, sitemap, robots, manifest, and social image routes.
+- Serves live provider data, such as GitHub metrics, through cached API routes instead of blocking page render.
 
 1. Shared UI layer (`packages/shared-ui`)
 
 - Owns reusable visual components and block configuration primitives.
 - Exposes stable block contracts and helper utilities used by app runtime code.
 - Must stay framework-agnostic where possible (no route-level business logic).
+- Provides generic academic blocks such as `ResearchShowcase` for evidence, method, outcome, and artifact links.
+- Provides generic metric hydration hooks: blocks can opt into async values with `metricKey` + `dynamicMetricsEndpoint` while preserving static fallback copy.
 
 1. Site config layer (`packages/site-config`)
 
@@ -52,6 +56,24 @@ Rules:
 - Promote repeated literals and cross-layer rules to shared contracts.
 - Add tests for guardrails and regression-prone content workflows.
 - Prefer explicit types at API boundaries and block summaries.
+- Add new content sections as generic Puck blocks when they could be reused on more than one page.
+- Keep SEO/GEO data derived from page content where possible; use root props only for explicit overrides.
+
+## SEO/GEO Model
+
+- Page metadata is derived in `src/lib/seo.ts` from root props and the leading hero block.
+- Puck pages emit `WebSite`, `Person`, `ProfilePage`/`WebPage`, `BreadcrumbList`, optional `FAQPage`, and optional `ItemList` JSON-LD.
+- Blog posts emit article metadata at the route level.
+- `llms.txt` provides a concise machine-readable summary of site purpose, pages, topics, and preferred attribution.
+- Stale static `robots.txt` and `sitemap.xml` files should not be reintroduced; generated app routes are the source of truth.
+
+## Performance Model
+
+- Known Puck pages are statically generated from `content/*.json` via `generateStaticParams`.
+- Third-party data is never fetched in the page route. The page ships editorial fallback values first, then client components fetch dynamic metrics during browser idle time.
+- `src/app/api/github-stats/route.ts` wraps GitHub data behind cache headers, an in-memory server cache, and a timeout fallback that returns an empty metric map instead of delaying the UI.
+- Shared UI components must stay provider-neutral. GitHub is represented as an endpoint payload, not as hard-coded route behavior inside visual components.
+- Below-the-fold sections use browser rendering containment where possible so long pages remain responsive on laptops and mobile devices.
 
 ## Extension Checklist
 
