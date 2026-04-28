@@ -106,7 +106,7 @@ export function TimelineSection({
   return (
     <section
       id={anchorId || undefined}
-      className="scroll-mt-24 py-20 px-4 sm:px-6 lg:px-8 timeline-section"
+      className="scroll-mt-24 py-16 px-4 sm:px-6 lg:px-8 timeline-section"
     >
       <div className="max-w-5xl mx-auto">
         {/* Section header */}

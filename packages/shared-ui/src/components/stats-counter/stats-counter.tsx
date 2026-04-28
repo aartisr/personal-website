@@ -40,13 +40,13 @@ function normalizeStats(stats: unknown): Stat[] {
 }
 
 const topSpacingClasses = {
-  compact: "pt-6 sm:pt-7 lg:pt-8",
+  compact: "pt-4 sm:pt-5 lg:pt-5",
   normal: "pt-14 sm:pt-16 lg:pt-20",
   relaxed: "pt-20 sm:pt-24 lg:pt-28",
 };
 
 const bottomSpacingClasses = {
-  compact: "pb-5 sm:pb-6 lg:pb-6",
+  compact: "pb-3 sm:pb-4 lg:pb-4",
   normal: "pb-14 sm:pb-16 lg:pb-20",
   relaxed: "pb-20 sm:pb-24 lg:pb-28",
 };

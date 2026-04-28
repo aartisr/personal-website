@@ -40,14 +40,14 @@ const columnClasses: Record<number, string> = {
 };
 
 const topSpacingClasses = {
-  compact: "pt-5 sm:pt-6 lg:pt-6",
-  normal: "pt-16 sm:pt-20 lg:pt-20",
+  compact: "pt-3 sm:pt-4 lg:pt-4",
+  normal: "pt-14 sm:pt-16 lg:pt-16",
   relaxed: "pt-20 sm:pt-24 lg:pt-28",
 };
 
 const bottomSpacingClasses = {
-  compact: "pb-6 sm:pb-7 lg:pb-8",
-  normal: "pb-16 sm:pb-20 lg:pb-20",
+  compact: "pb-5 sm:pb-6 lg:pb-7",
+  normal: "pb-14 sm:pb-16 lg:pb-16",
   relaxed: "pb-20 sm:pb-24 lg:pb-28",
 };
 

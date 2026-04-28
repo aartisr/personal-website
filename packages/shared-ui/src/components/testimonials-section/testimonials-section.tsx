@@ -75,7 +75,7 @@ export function TestimonialsSection({
   return (
     <section
       id={anchorId || undefined}
-      className="relative scroll-mt-24 py-20 px-4 sm:px-6 lg:px-8 testimonials-section"
+      className="relative scroll-mt-24 py-16 px-4 sm:px-6 lg:px-8 testimonials-section"
     >
       {royalStyle !== "none" && <YantraBackground royalStyle={royalStyle} />}
       <div className="max-w-7xl mx-auto">

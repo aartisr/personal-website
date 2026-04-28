@@ -71,7 +71,7 @@ export function FAQSection({ heading, description, faqs }: FAQSectionProps) {
 
   return (
     <section
-      className="py-20 px-4 sm:px-6 lg:px-8 faq-section"
+      className="py-16 px-4 sm:px-6 lg:px-8 faq-section"
     >
       <div className="max-w-3xl mx-auto">
         {/* Section header */}

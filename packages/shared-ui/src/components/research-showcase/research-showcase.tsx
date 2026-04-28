@@ -52,7 +52,7 @@ export function ResearchShowcase({
   return (
     <section
       id={anchorId || undefined}
-      className="w-full scroll-mt-24 border-b border-border/70 bg-card/72 px-4 py-20 sm:px-6 lg:px-8"
+      className="w-full scroll-mt-24 border-b border-border/70 bg-card/72 px-4 py-16 sm:px-6 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">

@@ -437,7 +437,7 @@ function EditorialHero({
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden py-20 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-border/75"
+      className="relative overflow-hidden px-4 pt-10 pb-14 sm:px-6 sm:pt-12 sm:pb-16 lg:px-8 lg:pt-14 lg:pb-16 border-b border-border/75"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">

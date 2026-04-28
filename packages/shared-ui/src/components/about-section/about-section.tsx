@@ -40,7 +40,7 @@ export function AboutSection({
     <section
       id={anchorId || undefined}
       ref={ref}
-      className="scroll-mt-24 py-20 px-4 sm:px-6 lg:px-8 bg-[var(--background)]"
+      className="scroll-mt-24 py-16 px-4 sm:px-6 lg:px-8 bg-[var(--background)]"
     >
       <div className="max-w-7xl mx-auto">
         <div
