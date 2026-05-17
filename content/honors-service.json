@@ -1,0 +1,529 @@
+{
+  "root": {
+    "props": {
+      "title": "Honors & Service | Aarti Sri Ravikumar",
+      "description": "Aarti Sri Ravikumar's honors, service, leadership, and voluntary contribution dossier, organized around evidence, context, impact, and reflection.",
+      "keywords": "Aarti Sri Ravikumar honors, Aarti Ravikumar awards, student service portfolio, volunteer work, leadership, academic recognition, college admissions portfolio"
+    }
+  },
+  "content": [
+    {
+      "type": "Header",
+      "props": {
+        "id": "Header-0",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar",
+        "brandName": "Aarti Sri Ravikumar",
+        "brandSubtext": "Student Research Portfolio",
+        "eyebrow": "Evidence-led portfolio",
+        "affiliation": "Pioneer Charter School of Science II",
+        "location": "Saugus, Massachusetts",
+        "statusLabel": "Open to thoughtful collaboration",
+        "navStyle": "flat",
+        "navItems": [
+          { "label": "Research", "href": "/#research" },
+          { "label": "Method", "href": "/#method" },
+          { "label": "Writing", "href": "/blog" },
+          { "label": "Honors", "href": "/honors-service" },
+          { "label": "Journey", "href": "/testimony" },
+          { "label": "Contact", "href": "/support-center" }
+        ],
+        "ctaButton": {
+          "label": "Start Collaboration",
+          "href": "/support-center"
+        },
+        "secondaryCta": {
+          "label": "Framework PDF",
+          "href": "/aether-student-resiliency-framework-2026.pdf"
+        },
+        "utilityLinks": [
+          { "label": "Framework PDF", "href": "/aether-student-resiliency-framework-2026.pdf" },
+          { "label": "GitHub", "href": "https://github.com/aartisr" },
+          { "label": "Proof", "href": "/web3-proof" }
+        ],
+        "showReadingProgress": true,
+        "sticky": true
+      }
+    },
+    {
+      "type": "HeroSection",
+      "props": {
+        "id": "HeroSection-1",
+        "variant": "editorial",
+        "heading": "Honors & Service",
+        "subheading": "Distinction in service of learning",
+        "description": "A dossier for earned recognition, voluntary contribution, leadership, and community-facing work. Each signal is framed with context, evidence, impact, and reflection so reviewers can see not only what was achieved, but what it changed.",
+        "highlights": [
+          { "text": "Recognition with context" },
+          { "text": "Service with impact" },
+          { "text": "Leadership with evidence" }
+        ],
+        "proofPoints": [
+          {
+            "value": "4",
+            "label": "Evaluation lenses",
+            "prefix": "",
+            "suffix": ""
+          },
+          {
+            "value": "5",
+            "label": "Honors-ready slots",
+            "prefix": "",
+            "suffix": ""
+          },
+          {
+            "value": "1",
+            "label": "Verification standard",
+            "prefix": "",
+            "suffix": ""
+          }
+        ],
+        "primaryCta": {
+          "label": "Review Framework",
+          "href": "#framework"
+        },
+        "secondaryCta": {
+          "label": "See Service Arc",
+          "href": "#service-arc"
+        },
+        "image": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "imageAlt": "Aarti Sri Ravikumar",
+        "animation": "fade-in",
+        "royalStyle": "none"
+      }
+    },
+    {
+      "type": "StatsCounter",
+      "props": {
+        "id": "StatsCounter-2",
+        "anchorId": "snapshot",
+        "animation": "scale-in",
+        "topSpacing": "compact",
+        "bottomSpacing": "compact",
+        "stats": [
+          {
+            "value": "4",
+            "label": "Evaluation Lenses",
+            "prefix": "",
+            "suffix": ""
+          },
+          {
+            "value": "3",
+            "label": "Evidence Ledgers",
+            "prefix": "",
+            "suffix": ""
+          },
+          {
+            "value": "1",
+            "label": "Service Thesis",
+            "prefix": "",
+            "suffix": ""
+          },
+          {
+            "value": "All",
+            "label": "Claims Verified",
+            "prefix": "",
+            "suffix": ""
+          }
+        ]
+      }
+    },
+    {
+      "type": "ResearchShowcase",
+      "props": {
+        "id": "ResearchShowcase-3",
+        "anchorId": "framework",
+        "eyebrow": "Recognition framework",
+        "heading": "Achievements are strongest when they show contribution, not decoration.",
+        "description": "The page is organized for selective academic review: earned distinction, sustained voluntary work, leadership behavior, and evidence that can be checked without guesswork.",
+        "items": [
+          {
+            "eyebrow": "Track 01",
+            "status": "Honors ledger",
+            "title": "Awards and Academic Recognition",
+            "description": "Honors should be presented by level, selectivity, issuer, date, and relationship to Aarti's academic direction.",
+            "method": "Prioritize verified honors first, then group school, regional, state, national, and international signals in a clean hierarchy.",
+            "evidence": "Certificate, official listing, teacher confirmation, competition page, transcript notation, or published result.",
+            "outcome": "Reviewers can quickly understand what was earned, how selective it was, and why it matters.",
+            "tags": "awards, honors, academic recognition, verification"
+          },
+          {
+            "eyebrow": "Track 02",
+            "status": "Service ledger",
+            "title": "Voluntary Work and Community Contribution",
+            "description": "Service entries should explain the need, Aarti's role, the people served, time commitment, and the practical outcome.",
+            "method": "Frame each service item as problem, action, impact, reflection, and next step.",
+            "evidence": "Organization link, hours log, supervisor note, event artifact, project output, or public documentation.",
+            "outcome": "The work reads as sustained responsibility rather than a scattered activity list.",
+            "tags": "volunteer work, service, community, responsibility"
+          },
+          {
+            "eyebrow": "Track 03",
+            "status": "Leadership ledger",
+            "title": "Initiative, Mentorship, and Systems Built for Others",
+            "description": "Leadership should show where Aarti made something easier, clearer, more humane, or more useful for a group.",
+            "method": "Name the constraint, the decision Aarti owned, the collaboration involved, and the result others could use.",
+            "evidence": "Project links, GitHub commits, writing, meeting artifacts, testimonials from known adults, or shipped resources.",
+            "outcome": "Leadership becomes visible as behavior: initiative, follow-through, care, and accountable execution.",
+            "tags": "leadership, mentoring, initiative, systems"
+          }
+        ]
+      }
+    },
+    {
+      "type": "AboutSection",
+      "props": {
+        "id": "AboutSection-4",
+        "anchorId": "thesis",
+        "heading": "The throughline: distinction should leave useful evidence behind.",
+        "body": "For Aarti's portfolio, honors and service should not feel separate from research and software. They should show the same pattern: observe a real need, take responsibility, build or contribute something useful, document the work, and reflect honestly on what improved.\n\nThat is the admissions-grade case: not a long list of impressive nouns, but a consistent record of curiosity becoming contribution.",
+        "image": "",
+        "imageAlt": "Honors and service thesis",
+        "reverse": false,
+        "animation": "slide-up",
+        "royalStyle": "none",
+        "stats": [
+          {
+            "value": "Context",
+            "label": "Why the work mattered"
+          },
+          {
+            "value": "Action",
+            "label": "What Aarti did"
+          },
+          {
+            "value": "Impact",
+            "label": "What changed"
+          }
+        ]
+      }
+    },
+    {
+      "type": "FeaturesGrid",
+      "props": {
+        "id": "FeaturesGrid-5",
+        "anchorId": "evaluation",
+        "heading": "A generic system for every award, honor, and service entry.",
+        "description": "Each entry should be written so a teacher, mentor, university reviewer, or collaborator can evaluate significance in under a minute.",
+        "columns": 3,
+        "animation": "slide-up",
+        "topSpacing": "compact",
+        "bottomSpacing": "normal",
+        "royalStyle": "none",
+        "processEyebrow": "Evidence-to-impact loop",
+        "processSteps": [
+          {
+            "icon": "search",
+            "label": "01",
+            "title": "Name the signal",
+            "description": "Award, honor, role, service project, leadership action, or contribution."
+          },
+          {
+            "icon": "file-text",
+            "label": "02",
+            "title": "Give context",
+            "description": "Issuer, scope, selectivity, need served, and time commitment."
+          },
+          {
+            "icon": "check",
+            "label": "03",
+            "title": "Attach evidence",
+            "description": "A verifiable artifact or adult-confirmable record."
+          },
+          {
+            "icon": "users",
+            "label": "04",
+            "title": "Explain impact",
+            "description": "Who benefited, what improved, and what Aarti learned."
+          }
+        ],
+        "features": [
+          {
+            "icon": "award",
+            "title": "Academic Distinction",
+            "description": "Awards and honors should connect to preparation, intellectual seriousness, discipline, and growth."
+          },
+          {
+            "icon": "shield",
+            "title": "Verified Recognition",
+            "description": "Every claim should be traceable to a certificate, official page, adult reference, publication, or durable artifact."
+          },
+          {
+            "icon": "users",
+            "title": "Community Contribution",
+            "description": "Volunteer work should show responsibility toward people, not just completed hours."
+          },
+          {
+            "icon": "code",
+            "title": "Builder's Initiative",
+            "description": "Technical and research projects can count as service when they make learning, access, or collaboration easier for others."
+          },
+          {
+            "icon": "file-text",
+            "title": "Reflection Quality",
+            "description": "Short reflections should explain how the work changed Aarti's judgment, skills, or sense of responsibility."
+          },
+          {
+            "icon": "globe",
+            "title": "Reviewer Legibility",
+            "description": "The strongest page lets readers scan scope, role, impact, and evidence without decoding a resume."
+          }
+        ]
+      }
+    },
+    {
+      "type": "TimelineSection",
+      "props": {
+        "id": "TimelineSection-6",
+        "anchorId": "service-arc",
+        "heading": "Service and recognition arc",
+        "description": "A simple chronology that can grow as verified awards, service roles, and leadership milestones are added.",
+        "variant": "alternating",
+        "animation": "slide-up",
+        "royalStyle": "none",
+        "items": [
+          {
+            "year": "Foundation",
+            "title": "Document the record honestly",
+            "description": "Collect certificates, dates, issuer names, service logs, project links, and adult-confirmable context before publishing claims.",
+            "image": ""
+          },
+          {
+            "year": "Contribution",
+            "title": "Connect service to real needs",
+            "description": "Frame voluntary work around the people served, the problem addressed, the action taken, and the responsibility sustained over time.",
+            "image": ""
+          },
+          {
+            "year": "Leadership",
+            "title": "Show initiative through useful systems",
+            "description": "Treat mentoring, organizing, writing, research, and software as leadership when they help others learn, participate, or collaborate more effectively.",
+            "image": ""
+          },
+          {
+            "year": "Reflection",
+            "title": "Turn evidence into a coherent academic story",
+            "description": "Use short reflections to connect recognition and service back to Aarti's broader portfolio: resilient learning systems, technical clarity, and evidence-led work.",
+            "image": ""
+          }
+        ]
+      }
+    },
+    {
+      "type": "TestimonialsSection",
+      "props": {
+        "id": "TestimonialsSection-7",
+        "anchorId": "reviewer-summary",
+        "heading": "Reviewer questions this page should answer",
+        "royalStyle": "none",
+        "showRating": false,
+        "testimonials": [
+          {
+            "quote": "What recognition has Aarti earned, and how selective or meaningful was it in context?",
+            "name": "Recognition",
+            "role": "Awards and honors review",
+            "avatar": ""
+          },
+          {
+            "quote": "Where has Aarti taken responsibility for people, learning, community, or shared work?",
+            "name": "Responsibility",
+            "role": "Service review",
+            "avatar": ""
+          },
+          {
+            "quote": "Can each claim be verified through a durable artifact, official source, or adult-confirmable record?",
+            "name": "Trust",
+            "role": "Evidence review",
+            "avatar": ""
+          },
+          {
+            "quote": "Does the work show initiative, collaboration, follow-through, and care for something beyond self-presentation?",
+            "name": "Character",
+            "role": "Leadership review",
+            "avatar": ""
+          },
+          {
+            "quote": "How do honors and service connect to Aarti's academic direction in research, software, writing, and resilient learning systems?",
+            "name": "Fit",
+            "role": "Academic narrative review",
+            "avatar": ""
+          },
+          {
+            "quote": "What would Aarti contribute to a university community if given more resources, peers, and mentorship?",
+            "name": "Potential",
+            "role": "Future contribution review",
+            "avatar": ""
+          }
+        ]
+      }
+    },
+    {
+      "type": "FAQSection",
+      "props": {
+        "id": "FAQSection-8",
+        "anchorId": "faq",
+        "heading": "Honors and service FAQ",
+        "description": "Short guidance for keeping the page useful, credible, and ready for future verified entries.",
+        "faqs": [
+          {
+            "question": "Why not publish a long list immediately?",
+            "answer": "For selective academic review, accuracy is stronger than volume. Each item should include enough context and evidence to be trusted."
+          },
+          {
+            "question": "What counts as an honor?",
+            "answer": "Academic awards, subject recognition, honor societies, competition results, research or writing recognition, and other earned distinctions can qualify when the issuer, scope, and date are clear."
+          },
+          {
+            "question": "What counts as service?",
+            "answer": "Volunteer work, mentoring, community support, student support projects, technical tools built for others, and sustained responsibilities can all count when the beneficiary and contribution are clear."
+          },
+          {
+            "question": "How should future entries be added?",
+            "answer": "Use the same pattern for each entry: title, organization, date, level or scope, role, action, impact, evidence, and reflection."
+          }
+        ]
+      }
+    },
+    {
+      "type": "CTASection",
+      "props": {
+        "id": "CTASection-9",
+        "anchorId": "collaborate",
+        "variant": "split",
+        "heading": "Recognition matters most when it points toward useful contribution.",
+        "description": "This page is designed to grow into a verified record of awards, service, leadership, and reflection as Aarti's work expands.",
+        "primaryCta": {
+          "label": "Review Research",
+          "href": "/#research"
+        },
+        "secondaryCta": {
+          "label": "Start Collaboration",
+          "href": "/support-center"
+        },
+        "royalStyle": "none"
+      }
+    },
+    {
+      "type": "Footer",
+      "props": {
+        "id": "Footer-10",
+        "logo": "https://avatars.githubusercontent.com/u/166765628?v=4",
+        "logoAlt": "Aarti Sri Ravikumar",
+        "brandName": "Aarti Sri Ravikumar",
+        "eyebrow": "Student Research Portfolio",
+        "tagline": "Evidence-led software, resilient learning systems, technical writing, honors, and service presented so mentors, reviewers, collaborators, and answer engines can understand the work quickly.",
+        "affiliation": "Pioneer Charter School of Science II",
+        "location": "Saugus, Massachusetts",
+        "availability": "Open to thoughtful academic and technical collaboration when the question, scope, timeline, and evidence standard are clear.",
+        "citation": "Aarti Sri Ravikumar. Student Research Portfolio. 2026. https://ai-aarti.com",
+        "primaryAction": {
+          "label": "Start Collaboration",
+          "href": "/support-center"
+        },
+        "secondaryAction": {
+          "label": "Review GitHub",
+          "href": "https://github.com/aartisr"
+        },
+        "highlights": [
+          { "text": "Research-informed software" },
+          { "text": "Honors and service" },
+          { "text": "Technical writing" },
+          { "text": "Search and AI legibility" }
+        ],
+        "columns": [
+          {
+            "title": "Begin Here",
+            "links": [
+              {
+                "label": "Research Agenda",
+                "href": "/#research"
+              },
+              {
+                "label": "Methodology",
+                "href": "/#method"
+              },
+              {
+                "label": "Honors & Service",
+                "href": "/honors-service"
+              },
+              {
+                "label": "Academic Journey",
+                "href": "/testimony"
+              },
+              {
+                "label": "Research Notes",
+                "href": "/blog"
+              }
+            ]
+          },
+          {
+            "title": "Evidence",
+            "links": [
+              {
+                "label": "GitHub Profile",
+                "href": "https://github.com/aartisr"
+              },
+              {
+                "label": "Research Projects",
+                "href": "https://github.com/aartisr?tab=repositories"
+              },
+              {
+                "label": "Aether Framework PDF",
+                "href": "/aether-student-resiliency-framework-2026.pdf"
+              },
+              {
+                "label": "Authenticity Proof",
+                "href": "/web3-proof"
+              }
+            ]
+          },
+          {
+            "title": "For Reviewers",
+            "links": [
+              {
+                "label": "Support Center",
+                "href": "/support-center"
+              },
+              {
+                "label": "Collaboration Path",
+                "href": "/support-center"
+              },
+              {
+                "label": "Reviewer Summary",
+                "href": "/honors-service#reviewer-summary"
+              }
+            ]
+          },
+          {
+            "title": "Policies",
+            "links": [
+              {
+                "label": "Privacy Policy",
+                "href": "/privacy-policy"
+              },
+              {
+                "label": "Terms of Service",
+                "href": "/terms-of-service"
+              }
+            ]
+          }
+        ],
+        "socialLinks": [
+          {
+            "platform": "github",
+            "url": "https://github.com/aartisr"
+          },
+          {
+            "platform": "instagram",
+            "url": "https://www.instagram.com/pcssii/"
+          },
+          {
+            "platform": "youtube",
+            "url": "https://www.youtube.com/user/PCSSII"
+          }
+        ],
+        "copyright": "© 2026 Aarti Sri Ravikumar. All rights reserved."
+      }
+    }
+  ]
+}

@@ -24,6 +24,7 @@
           { "label": "Research", "href": "/#research" },
           { "label": "Method", "href": "/#method" },
           { "label": "Writing", "href": "/blog" },
+          { "label": "Honors", "href": "/honors-service" },
           { "label": "Journey", "href": "/testimony" },
           { "label": "Contact", "href": "/support-center" }
         ],
@@ -203,6 +204,7 @@
             "links": [
               { "label": "GitHub Profile", "href": "https://github.com/aartisr" },
               { "label": "Research Projects", "href": "https://github.com/aartisr?tab=repositories" },
+              { "label": "Honors & Service", "href": "/honors-service" },
               { "label": "Journey", "href": "/testimony" }
             ]
           },

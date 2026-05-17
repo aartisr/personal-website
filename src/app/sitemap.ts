@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { path: "", changeFrequency: "weekly", priority: 1 },
     { path: "/blog", changeFrequency: "daily", priority: 0.86 },
+    { path: "/honors-service", changeFrequency: "weekly", priority: 0.84 },
     { path: "/support-center", changeFrequency: "weekly", priority: 0.82 },
     { path: "/testimony", changeFrequency: "weekly", priority: 0.78 },
     { path: "/web3-proof", changeFrequency: "monthly", priority: 0.58 },
