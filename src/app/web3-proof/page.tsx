@@ -5,16 +5,16 @@ import { absoluteUrl } from "@/lib/site";
 import { siteProfile } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Authenticity Proof | Aarti Sri Ravikumar",
+  title: "Wallet Authenticity Proof for Student Portfolio | Aarti Sri Ravikumar",
   description:
-    "Wallet-based authenticity proof for Aarti Sri Ravikumar's academic portfolio.",
+    "Verify wallet-based authenticity proof for Aarti Sri Ravikumar's student research portfolio using cryptographic signature checks and transparent identity signals.",
   alternates: {
     canonical: "/web3-proof",
   },
   openGraph: {
-    title: "Authenticity Proof | Aarti Sri Ravikumar",
+    title: "Wallet Authenticity Proof for Student Portfolio | Aarti Sri Ravikumar",
     description:
-      "Wallet-based authenticity proof for Aarti Sri Ravikumar's academic portfolio.",
+      "Verify wallet-based authenticity proof for Aarti Sri Ravikumar's student research portfolio using cryptographic signature checks and transparent identity signals.",
     type: "website",
     url: absoluteUrl("/web3-proof"),
     images: [
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Authenticity Proof | Aarti Sri Ravikumar",
+    title: "Wallet Authenticity Proof for Student Portfolio | Aarti Sri Ravikumar",
     description:
-      "Wallet-based authenticity proof for Aarti Sri Ravikumar's academic portfolio.",
+      "Verify wallet-based authenticity proof for Aarti Sri Ravikumar's student research portfolio using cryptographic signature checks and transparent identity signals.",
     images: [absoluteUrl(siteProfile.socialImagePath)],
   },
 };

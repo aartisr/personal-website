@@ -58,6 +58,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://avatars.githubusercontent.com" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`${siteProfile.name} research notes RSS feed`}
+          href="/blog/rss.xml"
+        />
       </head>
       <body className="antialiased">
         <main id="main-content">{children}</main>

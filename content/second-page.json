@@ -1,3 +1,9 @@
 {
-  "root": {}
+  "root": {
+    "props": {
+      "title": "Second Page",
+      "seoTitle": "Secondary Portfolio Draft Page for Aarti Ravikumar's Student Research Site",
+      "seoDescription": "Secondary draft page metadata for Aarti Sri Ravikumar's student research portfolio, providing complete search metadata if the route is temporarily available."
+    }
+  }
 }

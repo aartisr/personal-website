@@ -2,7 +2,9 @@
   "root": {
     "props": {
       "title": "Privacy Policy",
+      "seoTitle": "Privacy Policy for Aarti Ravikumar's Student Research Portfolio",
       "description": "Privacy policy for Aarti Sri Ravikumar's student research portfolio, including data use, rights, and safeguards.",
+      "seoDescription": "Read the privacy policy for Aarti Sri Ravikumar's student research portfolio, including how contact data, analytics signals, rights, safeguards, and support requests are handled.",
       "keywords": "Aarti Sri Ravikumar privacy policy, student portfolio privacy, data rights"
     }
   },

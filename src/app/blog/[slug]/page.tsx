@@ -10,6 +10,7 @@ import {
 } from "@/lib/blog";
 import { ShareButtons } from "@/components/blog/share-buttons";
 import { absoluteUrl } from "@/lib/site";
+import { siteProfile } from "@/lib/seo";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -42,6 +43,8 @@ export async function generateMetadata({
   return {
     title: `${post.title} | Aarti Sri Ravikumar`,
     description: post.excerpt,
+    authors: [{ name: post.author ?? siteProfile.name, url: absoluteUrl("/") }],
+    keywords: post.tags,
     alternates: {
       canonical: `/blog/${post.slug}`,
     },
@@ -50,7 +53,9 @@ export async function generateMetadata({
       description: post.excerpt,
       type: "article",
       url: absoluteUrl(`/blog/${post.slug}`),
+      siteName: siteProfile.name,
       publishedTime: post.date,
+      authors: [post.author ?? siteProfile.name],
       images: post.coverImage
         ? [
             {
@@ -82,15 +87,29 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const postUrl = absoluteUrl(`/blog/${post.slug}`);
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    "@id": `${postUrl}#article`,
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
+    dateModified: post.date,
+    inLanguage: siteProfile.language,
+    keywords: post.tags?.join(", "),
+    wordCount: [post.title, post.excerpt, ...post.body].join(" ").split(/\s+/).filter(Boolean).length,
     author: {
       "@type": "Person",
       name: post.author ?? "Aarti Sri Ravikumar",
+      url: absoluteUrl("/"),
     },
-    mainEntityOfPage: postUrl,
+    publisher: {
+      "@type": "Person",
+      name: siteProfile.name,
+      url: absoluteUrl("/"),
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": postUrl,
+    },
     image: post.coverImage,
   };
 

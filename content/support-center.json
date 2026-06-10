@@ -2,7 +2,9 @@
   "root": {
     "props": {
       "title": "Academic Support Center",
+      "seoTitle": "Academic Support Center for Student Research Collaboration | Aarti Ravikumar",
       "description": "Contact and collaboration support for Aarti Sri Ravikumar's student research portfolio.",
+      "seoDescription": "Contact Aarti Sri Ravikumar for student research portfolio questions, software project collaboration, mentorship conversations, academic context, and support requests.",
       "keywords": "Aarti Sri Ravikumar support, student portfolio contact, academic collaboration"
     }
   },

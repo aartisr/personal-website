@@ -2,7 +2,9 @@
   "root": {
     "props": {
       "title": "Terms of Use",
+      "seoTitle": "Terms of Use and Canonical Terms Link | Aarti Ravikumar Portfolio",
       "description": "Legacy terms page for Aarti Sri Ravikumar's student research portfolio.",
+      "seoDescription": "Use this legacy terms page to reach the canonical Terms of Service and Privacy Policy for Aarti Sri Ravikumar's student research portfolio and related pages.",
       "keywords": "Aarti Sri Ravikumar terms, student portfolio terms"
     }
   },

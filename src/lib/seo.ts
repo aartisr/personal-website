@@ -20,6 +20,7 @@ export const siteProfile = {
   githubUrl: "https://github.com/aartisr",
   avatarUrl: "https://avatars.githubusercontent.com/u/166765628?v=4",
   socialImagePath: "/opengraph-image",
+  language: "en-US",
   keywords: [
     "Aarti Sri Ravikumar",
     "student research portfolio",
@@ -273,8 +274,10 @@ export function buildPageJsonLd(slug: string, data: Data | null): JsonLd[] {
       "@type": "WebSite",
       "@id": `${absoluteUrl("/")}#website`,
       name: siteProfile.title,
+      alternateName: siteProfile.shortName,
       url: absoluteUrl("/"),
       description: siteProfile.description,
+      inLanguage: siteProfile.language,
       publisher: {
         "@id": `${absoluteUrl("/")}#person`,
       },
@@ -284,9 +287,15 @@ export function buildPageJsonLd(slug: string, data: Data | null): JsonLd[] {
       "@type": "Person",
       "@id": `${absoluteUrl("/")}#person`,
       name: siteProfile.name,
+      alternateName: siteProfile.shortName,
       url: absoluteUrl("/"),
       image: siteProfile.avatarUrl,
       sameAs: [siteProfile.githubUrl],
+      nationality: "US",
+      homeLocation: {
+        "@type": "Place",
+        name: siteProfile.location,
+      },
       affiliation: {
         "@type": "EducationalOrganization",
         name: siteProfile.school,
@@ -297,6 +306,8 @@ export function buildPageJsonLd(slug: string, data: Data | null): JsonLd[] {
         "software engineering",
         "technical writing",
         "resilient learning systems",
+        "academic portfolio",
+        "generative AI search readiness",
       ],
     },
     {
@@ -306,6 +317,12 @@ export function buildPageJsonLd(slug: string, data: Data | null): JsonLd[] {
       url: seo.url,
       name: seo.title,
       description: seo.description,
+      inLanguage: siteProfile.language,
+      keywords: seo.keywords.join(", "),
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: seo.image,
+      },
       isPartOf: {
         "@id": `${absoluteUrl("/")}#website`,
       },

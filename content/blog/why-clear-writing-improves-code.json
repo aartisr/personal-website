@@ -1,6 +1,6 @@
 {
   "title": "Why Clear Writing Improves Code Quality",
-  "excerpt": "Writing decisions down early catches architecture mistakes before they become implementation debt.",
+  "excerpt": "Writing decisions down early catches architecture mistakes before they become implementation debt, making code reviews, planning, debugging, and collaboration clearer.",
   "date": "2026-01-28",
   "author": "Aarti Sri Ravikumar",
   "tags": ["writing", "architecture", "quality"],

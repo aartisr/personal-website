@@ -8,14 +8,14 @@ import { siteProfile } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Research Notes & Field Memos | Aarti Sri Ravikumar",
   description:
-    "Technical writing from Aarti Sri Ravikumar on research, software engineering, project execution, and clear academic communication.",
+    "Read research notes and field memos from Aarti Sri Ravikumar on software engineering, resilient learning systems, project execution, and clear academic communication.",
   alternates: {
     canonical: "/blog",
   },
   openGraph: {
     title: "Research Notes & Field Memos | Aarti Sri Ravikumar",
     description:
-      "Technical writing on research, software engineering, project execution, and clear academic communication.",
+      "Read research notes and field memos from Aarti Sri Ravikumar on software engineering, resilient learning systems, project execution, and clear academic communication.",
     type: "website",
     url: absoluteUrl("/blog"),
     images: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Research Notes & Field Memos | Aarti Sri Ravikumar",
     description:
-      "Technical writing on research, software engineering, project execution, and clear academic communication.",
+      "Read research notes and field memos from Aarti Sri Ravikumar on software engineering, resilient learning systems, project execution, and clear academic communication.",
     images: [absoluteUrl(siteProfile.socialImagePath)],
   },
 };

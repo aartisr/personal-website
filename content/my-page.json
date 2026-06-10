@@ -1,7 +1,9 @@
 {
   "root": {
     "props": {
-      "title": "My Page"
+      "title": "My Page",
+      "seoTitle": "Portfolio Draft Page for Aarti Ravikumar's Student Research Site",
+      "seoDescription": "Draft portfolio page metadata for Aarti Sri Ravikumar's student research website, kept descriptive so crawler tools never see an empty title or missing page summary."
     }
   }
 }

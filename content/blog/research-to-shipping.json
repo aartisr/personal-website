@@ -1,6 +1,6 @@
 {
   "title": "From Research Notes to Shipped Features",
-  "excerpt": "How I move ideas from exploration into implementation without losing rigor.",
+  "excerpt": "How I move ideas from research exploration into shipped software features while preserving rigor, traceability, review context, and practical implementation discipline.",
   "date": "2026-02-20",
   "author": "Aarti Sri Ravikumar",
   "tags": ["research", "engineering", "workflow"],

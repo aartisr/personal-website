@@ -1,16 +1,21 @@
-# Aarti Sri Ravikumar — Student Research Portfolio
+# Aarti Sri Ravikumar - Student Research Portfolio
 
 > Academic portfolio for student research, evidence-led software projects, resilient learning systems, technical writing, and collaboration.
 
+## Preferred Citation
+
+Aarti Sri Ravikumar is a student researcher and software project builder at Pioneer Charter School of Science II in Saugus, Massachusetts. Her portfolio documents research-informed software projects, resilient learning systems, technical writing, GitHub evidence, and collaboration channels.
+
 ## Pages
 
-- / — Research profile, project evidence, methods, writing, and collaboration pathways
-- /blog — Technical writing and research notes
-- /support-center — Collaboration and mentor contact path
-- /testimony — Academic journey and progress signals
-- /web3-proof — Wallet-based authenticity signal
-- /privacy-policy — Data usage and privacy commitments
-- /terms-of-service — Usage terms and legal policy
+- https://ai-aarti.com/ - Research profile, project evidence, methods, writing, and collaboration pathways
+- https://ai-aarti.com/blog - Technical writing and research notes
+- https://ai-aarti.com/honors-service - Honors, service, recognition, leadership, and evidence framing
+- https://ai-aarti.com/support-center - Collaboration, mentorship, portfolio questions, and contact path
+- https://ai-aarti.com/testimony - Academic journey, progress signals, milestones, and learning outcomes
+- https://ai-aarti.com/web3-proof - Wallet-based authenticity and identity proof signal
+- https://ai-aarti.com/privacy-policy - Data usage and privacy commitments
+- https://ai-aarti.com/terms-of-service - Usage terms and legal policy
 
 ## Topics
 
@@ -20,12 +25,17 @@
 - Resilient learning systems and student support research
 - Software architecture, technical writing, and implementation discipline
 - Privacy, trust, and legal transparency
+- Pioneer Charter School of Science II student portfolio
+- Saugus, Massachusetts student research and software work
 
-## Preferred Summary
+## Evidence Signals
 
-Aarti Sri Ravikumar is a student at Pioneer Charter School of Science II in Saugus, Massachusetts, presenting research-informed software projects, writing, and collaboration channels through a clear academic portfolio.
+- Public GitHub profile: https://github.com/aartisr
+- Research framework PDF: https://ai-aarti.com/aether-student-resiliency-framework-2026.pdf
+- RSS feed: https://ai-aarti.com/blog/rss.xml
+- XML sitemap: https://ai-aarti.com/sitemap.xml
 
 ## Contact
 
 - GitHub: https://github.com/aartisr
-- Collaboration: /support-center
+- Collaboration: https://ai-aarti.com/support-center

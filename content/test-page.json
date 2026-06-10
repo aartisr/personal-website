@@ -1,7 +1,9 @@
 {
   "root": {
     "props": {
-      "title": "Test Page"
+      "title": "Test Page",
+      "seoTitle": "Portfolio Test Page for Aarti Ravikumar's Student Research Site",
+      "seoDescription": "Testing page metadata for Aarti Sri Ravikumar's student research portfolio, with a complete crawler-friendly title and description for any temporary route exposure."
     }
   },
   "content": []
