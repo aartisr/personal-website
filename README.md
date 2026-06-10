@@ -75,6 +75,20 @@ If these values are missing, protected routes return `500` until configured.
 - `public/llms.txt` summarizes the site for AI crawlers and answer engines.
 - Blog posts include article metadata and share controls for LinkedIn, X, WhatsApp, email, native share, and copy link.
 
+## Analytics
+
+Microsoft Clarity is wired through `src/components/analytics/microsoft-clarity.tsx`.
+
+Set the Clarity project ID in the production environment:
+
+```bash
+NEXT_PUBLIC_MICROSOFT_CLARITY_ID=your_clarity_project_id
+```
+
+The script is skipped when the ID is missing, so local builds and preview environments stay clean until analytics is intentionally enabled.
+
+Microsoft notes that Clarity should not be used on websites or apps targeting users under 18 globally. Confirm the intended audience and privacy posture before enabling the production project ID.
+
 ## Performance and Dynamic Metrics
 
 - Puck content pages are statically generated from `content/*.json` and revalidated hourly.

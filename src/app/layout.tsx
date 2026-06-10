@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { MicrosoftClarity } from "@/components/analytics/microsoft-clarity";
 import { getSiteUrl } from "@/lib/site";
 import { siteProfile } from "@/lib/seo";
 
@@ -67,6 +68,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <main id="main-content">{children}</main>
+        <MicrosoftClarity />
       </body>
     </html>
   );

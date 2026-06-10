@@ -50,6 +50,7 @@ yarn-error.log*
 
 # Environment & config
 .env*
+!.env.example
 apps/*/.env*
 packages/*/.env*
 local.env*
