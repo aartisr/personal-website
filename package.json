@@ -20,6 +20,7 @@
   "dependencies": {
     "@kindoms/shared-ui": "file:./packages/shared-ui",
     "@puckeditor/core": "^0.21.1",
+    "@vercel/analytics": "^2.0.1",
     "lightningcss": "^1.31.1",
     "lucide-react": "^0.575.0",
     "next": "^16.2.2",
