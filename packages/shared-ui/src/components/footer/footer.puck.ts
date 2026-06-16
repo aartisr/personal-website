@@ -123,7 +123,7 @@ export const footerConfig = {
     },
   },
   defaultProps: {
-    logo: "/logo.svg",
+    logo: "/file.svg",
     logoAlt: "Company Logo",
     brandName: "Aarti Sri Ravikumar",
     eyebrow: "Student Research Portfolio",

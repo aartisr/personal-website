@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getPageData, savePageData, deletePage } from "@/lib/get-page-data";
+import { normalizePageSlug } from "@/lib/page-slug";
 import {
   HOMEPAGE_REQUIRED_BLOCK_TYPES,
   type PuckBlock,
@@ -113,7 +114,7 @@ function isHomepageSkeletonPayload(data: unknown): boolean {
 
 export async function GET(_request: NextRequest, context: RouteContext) {
   const { slug } = await context.params;
-  const pageSlug = slug.join("-");
+  const pageSlug = normalizePageSlug(slug.join("/"));
   const data = getPageData(pageSlug);
 
   if (!data) {
@@ -125,7 +126,7 @@ export async function GET(_request: NextRequest, context: RouteContext) {
 
 export async function PUT(request: NextRequest, context: RouteContext) {
   const { slug } = await context.params;
-  const pageSlug = slug.join("-");
+  const pageSlug = normalizePageSlug(slug.join("/"));
   const data = await request.json();
 
   const forceHomepageSave = new URL(request.url).searchParams.get("force") === "1";
@@ -184,7 +185,7 @@ export async function PUT(request: NextRequest, context: RouteContext) {
 
 export async function DELETE(_request: NextRequest, context: RouteContext) {
   const { slug } = await context.params;
-  const pageSlug = slug.join("-");
+  const pageSlug = normalizePageSlug(slug.join("/"));
   const deleted = deletePage(pageSlug);
 
   if (!deleted) {

@@ -32,6 +32,18 @@ Open `http://localhost:3000` for the site.
 - `http://localhost:3000/admin` — page dashboard
 - `http://localhost:3000/admin/edit` — edit homepage
 - `http://localhost:3000/admin/edit/<slug>` — edit any page by slug
+- `http://localhost:3000/admin/edit/layout` — global layout hub
+- `http://localhost:3000/admin/edit/layout/header` — edit global reusable header component
+- `http://localhost:3000/admin/edit/layout/footer` — edit global reusable footer component
+
+Puck page JSON files are stored in `content/pages/`.
+
+If you still have legacy page JSON files in `content/*.json`, migrate them:
+
+```bash
+npm run migrate:pages        # dry-run
+npm run migrate:pages:apply  # move files to content/pages
+```
 
 ## Admin Protection
 

@@ -49,6 +49,17 @@ describe("get-page-data utilities", () => {
     );
   });
 
+  it("supports nested page slugs", () => {
+    const payload = { root: { props: { title: "Nested Docs" } }, content: [] } as any;
+
+    savePageData("docs/getting-started", payload);
+
+    expect(getPageData("docs/getting-started")).toEqual(payload);
+    expect(listPages()).toEqual(
+      expect.arrayContaining([{ slug: "docs/getting-started", title: "Nested Docs" }])
+    );
+  });
+
   it("deletes an existing page", () => {
     savePageData("to-delete", { root: {} } as any);
 
@@ -62,5 +73,15 @@ describe("get-page-data utilities", () => {
     writeFileSync(join(tempDir, "content", "broken.json"), "{ not-json ");
 
     expect(getPageData("broken")).toBeNull();
+  });
+
+  it("ignores non-Puck json files when listing pages", () => {
+    mkdirSync(join(tempDir, "content", "blog"), { recursive: true });
+    writeFileSync(
+      join(tempDir, "content", "blog", "post.json"),
+      JSON.stringify({ title: "A Blog Post", excerpt: "not a puck page" }, null, 2)
+    );
+
+    expect(listPages().some((page) => page.slug === "blog/post")).toBe(false);
   });
 });

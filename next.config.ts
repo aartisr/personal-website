@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+const isDevelopment = process.env.NODE_ENV !== "production";
+
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -7,11 +9,12 @@ const contentSecurityPolicy = [
   "frame-ancestors 'none'",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https:",
-  "script-src 'self' 'unsafe-inline'",
-  "style-src 'self' 'unsafe-inline'",
-  "connect-src 'self' https:",
+  `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""}`,
+  `style-src 'self' 'unsafe-inline'${isDevelopment ? " https: data: blob:" : ""}`,
+  `style-src-elem 'self' 'unsafe-inline'${isDevelopment ? " https: data: blob:" : ""}`,
+  `connect-src 'self' https:${isDevelopment ? " ws: wss:" : ""}`,
   "object-src 'none'",
-  "upgrade-insecure-requests",
+  ...(isDevelopment ? [] : ["upgrade-insecure-requests"]),
 ].join("; ");
 
 const nextConfig: NextConfig = {
@@ -82,7 +85,9 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Strict-Transport-Security",
-            value: "max-age=63072000; includeSubDomains; preload",
+            value: isDevelopment
+              ? "max-age=0"
+              : "max-age=63072000; includeSubDomains; preload",
           },
         ],
       },

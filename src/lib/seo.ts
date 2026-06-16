@@ -69,6 +69,7 @@ function titleFromSlug(slug: string): string {
   }
 
   return slug
+    .replace(/\//g, " ")
     .replace(/-/g, " ")
     .replace(/\b\w/g, (letter) => letter.toUpperCase());
 }

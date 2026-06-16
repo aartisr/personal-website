@@ -10,7 +10,7 @@ describe("resolvePageSlug", () => {
     expect(resolvePageSlug([])).toBe("homepage");
   });
 
-  it("joins multi-segment paths with dashes", () => {
-    expect(resolvePageSlug(["blog", "post-1"])).toBe("blog-post-1");
+  it("joins multi-segment paths with slashes", () => {
+    expect(resolvePageSlug(["blog", "post-1"])).toBe("blog/post-1");
   });
 });

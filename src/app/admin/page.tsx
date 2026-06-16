@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { apiPathFromSlug, editorPathFromSlug, normalizePageSlug, viewPathFromSlug } from "@/lib/page-slug";
+import { createDefaultPageData } from "@/lib/puck-page-factory";
 
 interface PageEntry {
   slug: string;
@@ -11,17 +13,33 @@ interface PageEntry {
 export default function AdminDashboard() {
   const [pages, setPages] = useState<PageEntry[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [newSlug, setNewSlug] = useState("");
   const router = useRouter();
 
-  const fetchPages = () => {
+  const fetchPages = async () => {
     setLoading(true);
-    fetch("/api/pages")
-      .then((res) => res.json())
-      .then((data) => {
-        setPages(data);
-        setLoading(false);
-      });
+    setError(null);
+
+    try {
+      const response = await fetch("/api/pages", { cache: "no-store" });
+
+      if (!response.ok) {
+        const body = await response.text();
+        throw new Error(
+          body || `Failed to load pages (HTTP ${response.status})`
+        );
+      }
+
+      const data = (await response.json()) as unknown;
+      setPages(Array.isArray(data) ? (data as PageEntry[]) : []);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Failed to load pages.";
+      setPages([]);
+      setError(message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -29,51 +47,58 @@ export default function AdminDashboard() {
   }, []);
 
   const handleCreate = async () => {
-    const slug = newSlug
-      .trim()
-      .toLowerCase()
-      .replace(/[^a-z0-9-]/g, "-")
-      .replace(/-+/g, "-")
-      .replace(/^-|-$/g, "");
+    const slug = normalizePageSlug(newSlug);
 
-    if (!slug) return;
+    if (!slug || slug === "homepage") return;
 
-    await fetch(`/api/page/${slug}`, {
+    await fetch(apiPathFromSlug(slug), {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        root: { props: { title: slug.replace(/-/g, " ").replace(/\b\w/g, (c: string) => c.toUpperCase()) } },
-        content: [],
-      }),
+      body: JSON.stringify(createDefaultPageData(slug)),
     });
 
     setNewSlug("");
-    router.push(`/admin/edit/${slug}`);
+    router.push(editorPathFromSlug(slug));
   };
 
   const handleDelete = async (slug: string) => {
     if (!confirm(`Delete "${slug}" page? This cannot be undone.`)) return;
 
-    await fetch(`/api/page/${slug}`, { method: "DELETE" });
+    await fetch(apiPathFromSlug(slug), { method: "DELETE" });
     fetchPages();
   };
-
-  const editPath = (slug: string) =>
-    slug === "homepage" ? "/admin/edit" : `/admin/edit/${slug}`;
-
-  const viewPath = (slug: string) =>
-    slug === "homepage" ? "/" : `/${slug}`;
 
   return (
     <div className="mx-auto max-w-200 px-5 py-10 font-sans">
       <h1 className="mb-2 text-[28px] font-bold text-foreground">Pages</h1>
       <p className="mb-8 text-muted-foreground">Manage your site pages. Click a page to edit it in the visual editor.</p>
 
+      <div className="mb-4 flex items-center justify-between rounded-lg border border-border bg-card px-4 py-3">
+        <div>
+          <div className="text-[15px] font-semibold text-foreground">Global Header & Footer</div>
+          <div className="text-[13px] text-gray-500">Single source of truth shared by every page. Edit each independently.</div>
+        </div>
+        <div className="flex gap-2">
+          <button
+            onClick={() => router.push("/admin/edit/layout/header")}
+            className="cursor-pointer rounded-md bg-blue-600 px-3.5 py-1.5 text-[13px] font-semibold text-white"
+          >
+            Edit Header
+          </button>
+          <button
+            onClick={() => router.push("/admin/edit/layout/footer")}
+            className="cursor-pointer rounded-md border border-border bg-card px-3.5 py-1.5 text-[13px] font-semibold text-foreground"
+          >
+            Edit Footer
+          </button>
+        </div>
+      </div>
+
       {/* Create new page */}
       <div className="mb-8 flex gap-2 rounded-lg border border-border bg-card p-4">
         <input
           type="text"
-          placeholder="new-page-slug"
+          placeholder="new-page or docs/new-page"
           value={newSlug}
           onChange={(e) => setNewSlug(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleCreate()}
@@ -91,6 +116,14 @@ export default function AdminDashboard() {
       {/* Page list */}
       {loading ? (
         <p className="text-gray-500">Loading pages...</p>
+      ) : error ? (
+        <div className="rounded-lg border border-red-300 bg-red-50 px-4 py-3 text-sm text-red-700">
+          <p className="font-semibold">Unable to load pages</p>
+          <p className="mt-1">{error}</p>
+          <p className="mt-1">
+            If this mentions authentication or configuration, verify <code>ADMIN_USERNAME</code> and <code>ADMIN_PASSWORD</code> are set and then reload.
+          </p>
+        </div>
       ) : pages.length === 0 ? (
         <p className="text-gray-500">No pages yet. Create one above.</p>
       ) : (
@@ -106,7 +139,7 @@ export default function AdminDashboard() {
               </div>
               <div className="flex gap-2">
                 <a
-                  href={viewPath(page.slug)}
+                  href={viewPathFromSlug(page.slug)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-md border border-gray-300 bg-white px-3.5 py-1.5 text-[13px] text-gray-700 no-underline"
@@ -114,7 +147,7 @@ export default function AdminDashboard() {
                   View
                 </a>
                 <button
-                  onClick={() => router.push(editPath(page.slug))}
+                  onClick={() => router.push(editorPathFromSlug(page.slug))}
                   className="cursor-pointer rounded-md bg-blue-600 px-3.5 py-1.5 text-[13px] font-semibold text-white"
                 >
                   Edit

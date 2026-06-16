@@ -4,6 +4,8 @@ import { getPageData, listPages } from "@/lib/get-page-data";
 import { resolvePageSlug } from "@/lib/resolve-path";
 import { PuckRenderer } from "@/lib/puck-render";
 import { buildPageJsonLd, buildPageMetadata } from "@/lib/seo";
+import { applyGlobalLayout } from "@/lib/global-layout";
+import { slugToSegments } from "@/lib/page-slug";
 
 type PageProps = {
   params: Promise<{ puckPath?: string[] }>;
@@ -20,7 +22,7 @@ export function generateStaticParams() {
       return Array.isArray(content) && content.length > 0;
     })
     .map(({ slug }) => ({
-      puckPath: slug === "homepage" ? [] : [slug],
+      puckPath: slugToSegments(slug),
     }));
 }
 
@@ -53,7 +55,8 @@ export default async function Page({ params }: PageProps) {
     notFound();
   }
 
-  const jsonLd = buildPageJsonLd(slug, data);
+  const pageData = applyGlobalLayout(data);
+  const jsonLd = buildPageJsonLd(slug, pageData);
 
   return (
     <>
@@ -64,7 +67,7 @@ export default async function Page({ params }: PageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(entry) }}
         />
       ))}
-      <PuckRenderer data={data} />
+      <PuckRenderer data={pageData} />
     </>
   );
 }
