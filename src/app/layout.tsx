@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next";
-import { MicrosoftClarity } from "@/components/analytics/microsoft-clarity";
+import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
 import { getSiteUrl } from "@/lib/site";
 import { siteProfile } from "@/lib/seo";
 
@@ -69,8 +68,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <main id="main-content">{children}</main>
-        <MicrosoftClarity />
-        <Analytics />
+        <AnalyticsProvider />
       </body>
     </html>
   );
