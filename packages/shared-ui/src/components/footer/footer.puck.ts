@@ -128,7 +128,7 @@ export const footerConfig = {
     brandName: "All Inclusive Aarti (ai-aarti)",
     eyebrow: "Student Research Portfolio",
     tagline:
-      "Evidence-led research, software, and technical writing presented for reviewers, mentors, and collaborators.",
+      "Knowledge is boundless, kindness is the path, and enlightenment emerges from the sacred balance of rising aspiration and grounded wisdom. All are included.",
     affiliation: "Pioneer Charter School of Science II",
     location: "Saugus, Massachusetts",
     availability:
