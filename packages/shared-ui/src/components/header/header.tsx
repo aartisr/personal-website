@@ -546,7 +546,7 @@ export function Header({
 
       <div className="academic-header-main">
         <div className="academic-header-inner academic-header-main-inner">
-          <a href={logoHref} className="academic-header-brand" aria-label={`${logoAlt} - Learn about our philosophy`}>
+          <a href={logoHref} className="academic-header-brand" aria-label={`${logoAlt} homepage`}>
             {logo ? (
               <img
                 src={logo}
