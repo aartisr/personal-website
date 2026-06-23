@@ -123,6 +123,11 @@
   align-items: flex-start;
 }
 
+.footer-logo-shell {
+  position: relative;
+  flex: 0 0 auto;
+}
+
 .footer-logo {
   /* Span 3 rows: brand name + affiliation + location
      Calculated from: brand-name line (~1.62rem) + 2 meta lines (~1.28rem each) + margins */
@@ -140,17 +145,60 @@
 }
 
 .footer-logo-trigger {
+  position: relative;
+  z-index: 1;
   border: 0;
   padding: 0;
   background: transparent;
   border-radius: var(--radius);
   cursor: pointer;
+  transition: transform 0.22s ease;
 }
 
 .footer-logo-trigger:hover .footer-logo,
 .footer-logo-trigger:focus-visible .footer-logo {
   border-color: var(--primary);
   box-shadow: 0 0 0 2px color-mix(in oklch, var(--primary) 20%, transparent);
+}
+
+.footer-logo-shell:hover .footer-logo-trigger,
+.footer-logo-shell:focus-within .footer-logo-trigger {
+  transform: translateY(-1px);
+}
+
+.footer-logo-preview {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.75rem);
+  z-index: 20;
+  width: min(14rem, 72vw);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-0.35rem) scale(0.94);
+  transform-origin: top left;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-logo-preview-card {
+  padding: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 6px);
+  background: color-mix(in oklch, var(--card) 96%, white);
+  box-shadow: 0 22px 50px rgba(10, 16, 30, 0.22);
+}
+
+.footer-logo-preview-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius) - 2px);
+  object-fit: contain;
+}
+
+.footer-logo-shell:hover .footer-logo-preview,
+.footer-logo-shell:focus-within .footer-logo-preview {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .footer-philosophy-modal {
@@ -469,6 +517,10 @@ body.footer-modal-open {
 
   .footer-brand-row {
     align-items: center;
+  }
+
+  .footer-logo-preview {
+    width: min(12rem, 78vw);
   }
 
   .footer-identity-panel,

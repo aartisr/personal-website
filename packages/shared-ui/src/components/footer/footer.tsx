@@ -380,21 +380,34 @@ export function Footer({
           <section className="footer-identity-panel" aria-label="Academic identity">
             <div className="footer-brand-row">
               {logo && (
-                <button
-                  type="button"
-                  className="footer-logo-trigger"
-                  onClick={() => setIsPhilosophyOpen(true)}
-                  aria-haspopup="dialog"
-                  aria-label="Open logo philosophy"
-                >
-                  <img
-                    src={logo}
-                    alt={logoAlt || resolvedBrandName}
-                    className="footer-logo"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </button>
+                <div className="footer-logo-shell">
+                  <button
+                    type="button"
+                    className="footer-logo-trigger"
+                    onClick={() => setIsPhilosophyOpen(true)}
+                    aria-haspopup="dialog"
+                    aria-label="Open logo philosophy"
+                  >
+                    <img
+                      src={logo}
+                      alt={logoAlt || resolvedBrandName}
+                      className="footer-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <div className="footer-logo-preview" aria-hidden="true">
+                    <div className="footer-logo-preview-card">
+                      <img
+                        src={logo}
+                        alt=""
+                        className="footer-logo-preview-image"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                </div>
               )}
               <div>
                 <p className="footer-brand-name">{resolvedBrandName}</p>
