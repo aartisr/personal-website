@@ -39,16 +39,14 @@ export function GallerySection({
           <div className="mb-12 text-center max-w-2xl mx-auto">
             {heading && (
               <h2
-                className="text-3xl md:text-4xl font-bold tracking-tight mb-3"
-                style={{ color: "var(--foreground)" }}
+                className="text-3xl md:text-4xl font-bold tracking-tight mb-3 text-foreground"
               >
                 {heading}
               </h2>
             )}
             {description && (
               <p
-                className="text-base md:text-lg leading-relaxed"
-                style={{ color: "var(--muted-foreground)" }}
+                className="text-base md:text-lg leading-relaxed text-muted-foreground"
               >
                 {description}
               </p>
@@ -61,8 +59,7 @@ export function GallerySection({
           {images.map((image, index) => (
             <RoyalFrame key={index} royalStyle={royalStyle}>
               <figure
-                className="group relative overflow-hidden rounded-2xl"
-                style={{ background: "var(--card)" }}
+                className="group relative overflow-hidden rounded-2xl bg-card"
               >
                 <div className="aspect-square overflow-hidden">
                   <img
@@ -75,11 +72,7 @@ export function GallerySection({
                 {/* Caption overlay */}
                 {image.caption && (
                   <figcaption
-                    className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 px-4 py-3"
-                    style={{
-                      background:
-                        "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)",
-                    }}
+                    className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 px-4 py-3 bg-linear-to-t from-black/75 to-transparent"
                   >
                     <p className="text-sm font-medium text-white leading-snug">
                       {image.caption}

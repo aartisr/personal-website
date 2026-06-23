@@ -1,5 +1,9 @@
 # Aarti Sri Ravikumar — Student Research Portfolio
 
+[![Ravi-Aarti Infinity Logo](public/ravi-aarti-infinity-logo.svg)](docs/LOGO_PHILOSOPHY.md)
+
+**[Read the logo meaning and symbolism](docs/LOGO_PHILOSOPHY.md)**
+
 A CMS-editable academic research portfolio built with **Next.js 16**, **Puck CMS**, reusable shared UI components, and search/social metadata designed for humans, crawlers, and AI answer engines.
 
 ## Tech Stack

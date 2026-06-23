@@ -234,7 +234,6 @@ function MobileAccordion({
         type="button"
         className="academic-mobile-accordion-button"
         onClick={() => setOpen((prev) => !prev)}
-        aria-expanded={open}
       >
         {item.label}
         <ChevronDown
@@ -631,7 +630,6 @@ export function Header({
             type="button"
             className="academic-header-toggle"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
             aria-controls="mobile-primary-nav"
             onClick={() => setMenuOpen((prev) => !prev)}
           >
@@ -723,7 +721,21 @@ export function Header({
 
       {showReadingProgress && (
         <div className="academic-header-progress" aria-hidden="true">
-          <span style={{ transform: `scaleX(${readingProgress})` }} />
+          <svg viewBox="0 0 100 1" preserveAspectRatio="none" className="academic-header-progress-bar">
+            <defs>
+              <linearGradient id="academicHeaderProgressGradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="var(--primary)" />
+                <stop offset="100%" stopColor="var(--research-green)" />
+              </linearGradient>
+            </defs>
+            <rect
+              x="0"
+              y="0"
+              width={Math.max(0, Math.min(100, readingProgress * 100))}
+              height="1"
+              fill="url(#academicHeaderProgressGradient)"
+            />
+          </svg>
         </div>
       )}
     </header>

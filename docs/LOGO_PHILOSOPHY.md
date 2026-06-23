@@ -1,8 +1,10 @@
-# The Ravi-Aarti Infinity Logo: A Symbol of All Inclusive Aarti
+<!-- markdownlint-disable MD032 MD060 MD026 -->
+
+# The Logo: A Symbol of All Inclusive Aarti
 
 ## Overview
 
-The Ravi-Aarti Infinity logo is an academic and spiritual emblem encoding infinite knowledge, sacred enlightenment, academic kindness, and scholarly wisdom into a single, cohesive visual metaphor. It transcends conventional branding to function as both a mark of identity and a philosophical statement about the nature of inclusive learning and compassionate knowledge.
+The logo is an academic and spiritual emblem encoding infinite knowledge, sacred enlightenment, academic kindness, and scholarly wisdom into a single, cohesive visual metaphor. It transcends conventional branding to function as both a mark of identity and a philosophical statement about the nature of inclusive learning and compassionate knowledge.
 
 ---
 

@@ -1,8 +1,9 @@
 .academic-header {
   z-index: 50;
   width: 100%;
-  border-bottom: 1px solid color-mix(in oklch, var(--border) 88%, transparent);
+  border-bottom: 1px solid var(--border);
   background: color-mix(in oklch, var(--surface) 84%, transparent);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   transition: background-color 0.24s ease, box-shadow 0.24s ease;
 }
@@ -44,7 +45,7 @@
 
 .academic-header-rail {
   display: none;
-  border-bottom: 1px solid color-mix(in oklch, var(--border) 74%, transparent);
+  border-bottom: 1px solid var(--border);
   background:
     linear-gradient(90deg, color-mix(in oklch, var(--primary) 8%, transparent), transparent 32%),
     color-mix(in oklch, var(--muted) 58%, transparent);
@@ -101,7 +102,7 @@
 }
 
 .academic-header-status {
-  border: 1px solid color-mix(in oklch, var(--primary) 24%, var(--border));
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 0.24rem 0.48rem;
   background: color-mix(in oklch, var(--primary) 7%, transparent);
@@ -180,7 +181,7 @@
   align-items: center;
   gap: 0.18rem;
   padding: 0.28rem;
-  border: 1px solid color-mix(in oklch, var(--border) 86%, transparent);
+  border: 1px solid var(--border);
   border-radius: calc(var(--radius) + 0.2rem);
   background: color-mix(in oklch, var(--card) 58%, transparent);
 }
@@ -335,7 +336,7 @@
 
 .academic-header-secondary:hover {
   color: var(--primary);
-  border-color: color-mix(in oklch, var(--primary) 42%, var(--border));
+  border-color: var(--primary);
 }
 
 .academic-header-toggle {
@@ -456,13 +457,10 @@
   overflow: hidden;
 }
 
-.academic-header-progress span {
+.academic-header-progress-bar {
   display: block;
   width: 100%;
   height: 100%;
-  transform-origin: left center;
-  background: linear-gradient(90deg, var(--primary), var(--research-green));
-  transition: transform 0.12s linear;
 }
 
 .academic-skip-link:focus-visible,
@@ -526,7 +524,7 @@
   .academic-header-primary,
   .academic-header-secondary,
   .academic-mobile-accordion-panel,
-  .academic-header-progress span {
+  .academic-header-progress-bar {
     transition: none;
   }
 

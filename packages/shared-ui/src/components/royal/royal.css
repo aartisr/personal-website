@@ -1,0 +1,127 @@
+.royal-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.royal-divider.is-subtle {
+  opacity: 0.6;
+}
+
+.royal-divider.is-ornate {
+  opacity: 0.9;
+}
+
+.royal-divider-line {
+  flex: 1 1 auto;
+  height: 1px;
+}
+
+.royal-divider-line.left {
+  background: linear-gradient(to right, transparent, var(--royal-gold));
+}
+
+.royal-divider-line.right {
+  background: linear-gradient(to left, transparent, var(--royal-gold));
+}
+
+.royal-frame {
+  position: relative;
+  border-radius: 1rem;
+}
+
+.royal-frame.is-subtle {
+  padding: 8px;
+}
+
+.royal-frame.is-ornate {
+  padding: 9px;
+}
+
+.royal-frame-outer {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  pointer-events: none;
+}
+
+.royal-frame.is-subtle .royal-frame-outer {
+  border: 2px solid var(--royal-gold);
+  opacity: 0.5;
+}
+
+.royal-frame.is-ornate .royal-frame-outer {
+  border: 3px solid var(--royal-gold);
+  opacity: 0.85;
+}
+
+.royal-frame-inner {
+  position: absolute;
+  border-radius: 0.75rem;
+  pointer-events: none;
+}
+
+.royal-frame.is-subtle .royal-frame-inner {
+  top: 4px;
+  right: 4px;
+  bottom: 4px;
+  left: 4px;
+  border: 1px solid var(--royal-gold);
+  opacity: 0.35;
+}
+
+.royal-frame.is-ornate .royal-frame-inner {
+  top: 6px;
+  right: 6px;
+  bottom: 6px;
+  left: 6px;
+  border: 2px solid var(--royal-gold);
+  opacity: 0.6;
+}
+
+.royal-frame-content {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.royal-frame-corner {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.royal-frame-corner.is-subtle {
+  width: 16px;
+  height: 16px;
+}
+
+.royal-frame-corner.is-ornate {
+  width: 24px;
+  height: 24px;
+}
+
+.royal-frame-corner.top-left {
+  top: -2px;
+  left: -2px;
+}
+
+.royal-frame-corner.top-right {
+  top: -2px;
+  right: -2px;
+  transform: scaleX(-1);
+}
+
+.royal-frame-corner.bottom-left {
+  bottom: -2px;
+  left: -2px;
+  transform: scaleY(-1);
+}
+
+.royal-frame-corner.bottom-right {
+  bottom: -2px;
+  right: -2px;
+  transform: scale(-1);
+}

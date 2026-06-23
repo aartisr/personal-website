@@ -13,14 +13,14 @@ export default function Image() {
     (
       <div
         style={{
-          width: "100%",
-          height: "100%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
+          width: "100%",
+          height: "100%",
+          padding: 56,
           background: "#fbfaf4",
           color: "#13213a",
-          padding: "70px",
           fontFamily: "Georgia, serif",
         }}
       >
@@ -28,101 +28,103 @@ export default function Image() {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "flex-start",
+            alignItems: "center",
             borderBottom: "3px solid #183f84",
-            paddingBottom: "34px",
+            paddingBottom: 24,
           }}
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <span
+            <div
               style={{
-                fontSize: 30,
-                letterSpacing: 0,
+                display: "flex",
+                fontSize: 28,
+                fontWeight: 700,
                 color: "#183f84",
                 fontFamily: "Arial, sans-serif",
-                fontWeight: 700,
               }}
             >
               Student Research Portfolio
-            </span>
-            <span
+            </div>
+            <div
               style={{
-                marginTop: 12,
-                fontSize: 24,
+                display: "flex",
+                marginTop: 10,
+                fontSize: 22,
                 color: "#5b6472",
                 fontFamily: "Arial, sans-serif",
               }}
             >
               {siteProfile.school} • {siteProfile.location}
-            </span>
+            </div>
           </div>
           <div
             style={{
-              width: 120,
-              height: 120,
+              display: "flex",
+              width: 116,
+              height: 116,
+              borderRadius: 58,
               border: "3px solid #d5b25f",
               background: "#ffffff",
-              display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 42,
-              fontWeight: 700,
-              color: "#183f84",
+              fontSize: 52,
+              lineHeight: 1,
+              color: "#d97706",
               fontFamily: "Arial, sans-serif",
             }}
           >
-            AR
+            ∞
           </div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <h1
+        <div style={{ display: "flex", flexDirection: "column", marginTop: 28 }}>
+          <div
             style={{
+              display: "flex",
               margin: 0,
               maxWidth: 900,
-              fontSize: 92,
+              fontSize: 86,
               lineHeight: 0.98,
-              letterSpacing: 0,
               fontWeight: 700,
             }}
           >
             {siteProfile.name}
-          </h1>
-          <p
+          </div>
+          <div
             style={{
-              margin: "28px 0 0",
-              maxWidth: 900,
-              fontSize: 34,
+              display: "flex",
+              marginTop: 22,
+              maxWidth: 940,
+              fontSize: 32,
               lineHeight: 1.28,
               color: "#39465b",
               fontFamily: "Arial, sans-serif",
             }}
           >
-            Evidence-led software projects, resilient learning systems, and
-            technical writing.
-          </p>
+            Evidence-led software projects, resilient learning systems, and technical writing.
+          </div>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            gap: 18,
-            fontFamily: "Arial, sans-serif",
-          }}
-        >
-          {["Research", "Methods", "Writing", "Collaboration"].map((item) => (
-            <span
+        <div style={{ display: "flex", gap: 14, marginTop: 28, fontFamily: "Arial, sans-serif" }}>
+          {[
+            "Research",
+            "Methods",
+            "Writing",
+            "Collaboration",
+          ].map((item) => (
+            <div
               key={item}
               style={{
+                display: "flex",
                 border: "2px solid #d8d1bf",
-                padding: "12px 18px",
-                fontSize: 24,
+                padding: "10px 16px",
+                fontSize: 22,
                 color: "#183f84",
                 background: "#ffffff",
               }}
             >
               {item}
-            </span>
+            </div>
           ))}
         </div>
       </div>

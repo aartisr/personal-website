@@ -1,22 +1,17 @@
 import type { RoyalStyle } from "./types";
+import "./royal.css";
 
 /** Ornamental horizontal divider with a central lotus/fleur-de-lis motif */
 export function RoyalDivider({ royalStyle }: { royalStyle: RoyalStyle }) {
   if (royalStyle === "none") return null;
 
   const motifSize = royalStyle === "subtle" ? 28 : 42;
-  const opacity = royalStyle === "subtle" ? 0.6 : 0.9;
+  const dividerClass = royalStyle === "subtle" ? "royal-divider is-subtle" : "royal-divider is-ornate";
 
   return (
-    <div
-      className="flex items-center gap-3 my-6 w-full"
-      style={{ opacity }}
-    >
+    <div className={dividerClass}>
       {/* Left line */}
-      <div
-        className="flex-1 h-px"
-        style={{ background: "linear-gradient(to right, transparent, var(--royal-gold))" }}
-      />
+      <div className="royal-divider-line left" />
       {/* Center motif — lotus/fleur-de-lis */}
       <svg
         width={motifSize}
@@ -63,10 +58,7 @@ export function RoyalDivider({ royalStyle }: { royalStyle: RoyalStyle }) {
         <circle cx="18" cy="18" r="1.5" fill="var(--royal-gold)" />
       </svg>
       {/* Right line */}
-      <div
-        className="flex-1 h-px"
-        style={{ background: "linear-gradient(to left, transparent, var(--royal-gold))" }}
-      />
+      <div className="royal-divider-line right" />
     </div>
   );
 }

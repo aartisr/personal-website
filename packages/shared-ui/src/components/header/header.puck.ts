@@ -109,7 +109,7 @@ export const headerConfig = {
     },
   },
   defaultProps: {
-    logo: "/ravi-aarti-infinity-logo.svg",
+    logo: "/ravi-aarti-infinity-logo-small.svg",
     logoHref: "/",
     logoAlt: "All Inclusive Aarti",
     brandName: "Knowledge with Kindness",
