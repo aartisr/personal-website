@@ -123,8 +123,8 @@ export const footerConfig = {
     },
   },
   defaultProps: {
-    logo: "/file.svg",
-    logoAlt: "Company Logo",
+    logo: "/logo.png",
+    logoAlt: "Pioneer Charter School of Science II",
     brandName: "Aarti Sri Ravikumar",
     eyebrow: "Student Research Portfolio",
     tagline:

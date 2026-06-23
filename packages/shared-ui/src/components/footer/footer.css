@@ -118,18 +118,26 @@
 }
 
 .footer-brand-row {
+.footer-brand-row {
   display: flex;
-  gap: 0.95rem;
+  gap: 1rem;
   align-items: flex-start;
 }
 
 .footer-logo {
-  width: 3.25rem;
-  height: 3.25rem;
+  /* Span 3 rows: brand name + affiliation + location
+     Calculated from: brand-name line (~1.62rem) + 2 meta lines (~1.28rem each) + margins */
   flex: 0 0 auto;
+  width: auto;
+  height: 5.5rem;
+  min-width: 3rem;
+  max-width: 4.5rem;
+  object-fit: contain;
+  object-position: top center;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  object-fit: cover;
+  /* Prevent logo from being compressed on narrow containers */
+  align-self: flex-start;
 }
 
 .footer-brand-name {
