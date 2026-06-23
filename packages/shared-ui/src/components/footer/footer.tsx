@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ArrowUpRight,
   BookOpen,
@@ -14,6 +16,7 @@ import {
   Youtube,
   type LucideIcon,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 import "./footer.css";
 
 export type FooterLink = {
@@ -71,6 +74,63 @@ type NormalizedSocialLink = {
   platform: string;
   url: string;
 };
+
+type PhilosophySection = {
+  title: string;
+  body: string;
+  points: string[];
+};
+
+const logoPhilosophySections: PhilosophySection[] = [
+  {
+    title: "The Infinity Symbol (∞)",
+    body: "Boundless learning, continuity, and connection between ideas, mentors, and collaborators.",
+    points: [
+      "No ceiling on intellectual growth.",
+      "Knowledge flows across disciplines and generations.",
+      "The two lobes represent distinct paths joined by one center.",
+    ],
+  },
+  {
+    title: "The Zero (0) at the Center",
+    body: "The paradox of emptiness and completeness: the origin point where humility and discovery meet.",
+    points: [
+      "Inquiry begins with unknowing.",
+      "Potential emerges from stillness.",
+      "Origin and return are part of one cycle.",
+    ],
+  },
+  {
+    title: "Aarti Flames",
+    body: "Sacred light that symbolizes compassion, service, and enlightenment through practice.",
+    points: [
+      "Top flame: rising aspiration and kindness.",
+      "Bottom flame: grounded wisdom and application.",
+      "Together they balance spiritual and academic purpose.",
+    ],
+  },
+  {
+    title: "Ravi: Solar Rays",
+    body: "Eight rays convey illumination, reliability, and universal reach.",
+    points: [
+      "Knowledge reveals what was hidden.",
+      "Clarity should travel in every direction.",
+      "Energy, consistency, and trustworthiness define the work.",
+    ],
+  },
+  {
+    title: "Kindness and Elegance",
+    body: "Gentle curves and measured geometry encode accessibility with rigor.",
+    points: [
+      "Compassion improves comprehension.",
+      "Precision and openness can coexist.",
+      "Academic excellence should remain human-centered.",
+    ],
+  },
+];
+
+const unifiedMessage =
+  "Knowledge is boundless, kindness is the path, and enlightenment emerges from the sacred balance of rising aspiration and grounded wisdom. All are included.";
 
 const socialIcons: Record<string, LucideIcon> = {
   facebook: Facebook,
@@ -242,6 +302,8 @@ export function Footer({
   copyright,
   socialLinks,
 }: FooterProps) {
+  const [isPhilosophyOpen, setIsPhilosophyOpen] = useState(false);
+
   const normalizedColumns = normalizeColumns(columns);
   const normalizedSocialLinks = normalizeSocialLinks(socialLinks);
   const priorityLink = getPriorityLink(normalizedColumns);
@@ -255,6 +317,24 @@ export function Footer({
     tagline,
     "Evidence-led research, software, and technical writing presented for reviewers, mentors, and collaborators."
   );
+
+  useEffect(() => {
+    if (!isPhilosophyOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsPhilosophyOpen(false);
+      }
+    };
+
+    document.body.classList.add("footer-modal-open");
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.classList.remove("footer-modal-open");
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isPhilosophyOpen]);
 
   return (
     <footer
@@ -300,13 +380,21 @@ export function Footer({
           <section className="footer-identity-panel" aria-label="Academic identity">
             <div className="footer-brand-row">
               {logo && (
-                <img
-                  src={logo}
-                  alt={logoAlt || resolvedBrandName}
-                  className="footer-logo"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <button
+                  type="button"
+                  className="footer-logo-trigger"
+                  onClick={() => setIsPhilosophyOpen(true)}
+                  aria-haspopup="dialog"
+                  aria-label="Open logo philosophy"
+                >
+                  <img
+                    src={logo}
+                    alt={logoAlt || resolvedBrandName}
+                    className="footer-logo"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </button>
               )}
               <div>
                 <p className="footer-brand-name">{resolvedBrandName}</p>
@@ -415,6 +503,56 @@ export function Footer({
           </div>
         </div>
       </div>
+
+      {isPhilosophyOpen && (
+        <div
+          className="footer-philosophy-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="footer-philosophy-title"
+          onClick={() => setIsPhilosophyOpen(false)}
+        >
+          <section
+            className="footer-philosophy-card"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <header className="footer-philosophy-header">
+              <div>
+                <p className="footer-philosophy-eyebrow">Logo Philosophy</p>
+                <h3 id="footer-philosophy-title" className="footer-philosophy-title">
+                  The Logo: A Symbol of All Inclusive Aarti
+                </h3>
+              </div>
+              <button
+                type="button"
+                className="footer-philosophy-close"
+                onClick={() => setIsPhilosophyOpen(false)}
+                aria-label="Close logo philosophy"
+              >
+                Close
+              </button>
+            </header>
+
+            <blockquote className="footer-philosophy-message">
+              {unifiedMessage}
+            </blockquote>
+
+            <div className="footer-philosophy-grid">
+              {logoPhilosophySections.map((section) => (
+                <article key={section.title} className="footer-philosophy-section">
+                  <h4>{section.title}</h4>
+                  <p>{section.body}</p>
+                  <ul>
+                    {section.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </section>
+        </div>
+      )}
     </footer>
   );
 }
