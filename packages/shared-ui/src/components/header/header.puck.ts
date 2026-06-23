@@ -7,6 +7,10 @@ export const headerConfig = {
       type: "text",
       label: "Logo URL",
     },
+    logoHref: {
+      type: "text",
+      label: "Logo Link URL (e.g., /docs/logo or /)",
+    },
     logoAlt: {
       type: "text",
       label: "Logo Alt / Brand Name",
@@ -105,9 +109,10 @@ export const headerConfig = {
     },
   },
   defaultProps: {
-    logo: "",
-    logoAlt: "Brand Name",
-    brandName: "Brand Name",
+    logo: "/ravi-aarti-infinity-logo.svg",
+    logoHref: "/docs/LOGO_PHILOSOPHY.md",
+    logoAlt: "All Inclusive Aarti",
+    brandName: "",
     brandSubtext: "",
     eyebrow: "Evidence-led portfolio",
     affiliation: "",

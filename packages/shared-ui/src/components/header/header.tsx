@@ -40,6 +40,7 @@ export type NavStyle = "flat" | "dropdown" | "mega";
 
 export type HeaderProps = {
   logo: string;
+  logoHref?: string;
   logoAlt: string;
   brandName?: string;
   brandSubtext?: string;
@@ -263,6 +264,7 @@ function MobileAccordion({
 
 export function Header({
   logo,
+  logoHref = "/",
   logoAlt,
   brandName,
   brandSubtext,
@@ -544,7 +546,7 @@ export function Header({
 
       <div className="academic-header-main">
         <div className="academic-header-inner academic-header-main-inner">
-          <a href="/" className="academic-header-brand" aria-label={`${resolvedBrandName} homepage`}>
+          <a href={logoHref} className="academic-header-brand" aria-label={`${logoAlt} - Learn about our philosophy`}>
             {logo ? (
               <img
                 src={logo}
@@ -558,15 +560,17 @@ export function Header({
               />
             ) : (
               <span className="academic-header-logo-fallback">
-                {resolvedBrandName.slice(0, 2).toUpperCase()}
+                {logoAlt.slice(0, 2).toUpperCase()}
               </span>
             )}
-            <span className="academic-header-brand-copy">
-              <span className="academic-header-brand-name">{resolvedBrandName}</span>
-              {resolvedBrandSubtext && (
-                <span className="academic-header-brand-subtext">{resolvedBrandSubtext}</span>
-              )}
-            </span>
+            {brandName && (
+              <span className="academic-header-brand-copy">
+                <span className="academic-header-brand-name">{brandName}</span>
+                {resolvedBrandSubtext && (
+                  <span className="academic-header-brand-subtext">{resolvedBrandSubtext}</span>
+                )}
+              </span>
+            )}
           </a>
 
           <nav className="academic-header-nav" aria-label="Primary navigation">
