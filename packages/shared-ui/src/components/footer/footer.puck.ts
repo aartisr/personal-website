@@ -123,9 +123,9 @@ export const footerConfig = {
     },
   },
   defaultProps: {
-    logo: "/logo.png",
-    logoAlt: "Pioneer Charter School of Science II",
-    brandName: "Aarti Sri Ravikumar",
+    logo: "/ravi-aarti-infinity-logo.svg",
+    logoAlt: "All Inclusive Aarti",
+    brandName: "All Inclusive Aarti (ai-aarti)",
     eyebrow: "Student Research Portfolio",
     tagline:
       "Evidence-led research, software, and technical writing presented for reviewers, mentors, and collaborators.",
@@ -134,7 +134,7 @@ export const footerConfig = {
     availability:
       "Open to thoughtful academic and technical collaboration with clear questions, scope, and evidence standards.",
     citation:
-      "Aarti Sri Ravikumar. Student Research Portfolio. 2026. https://ai-aarti.com",
+      "All Inclusive Aarti. Academic and Kindness Research Portfolio. 2026. https://ai-aarti.com",
     primaryAction: {
       label: "Start Collaboration",
       href: "/support-center",
