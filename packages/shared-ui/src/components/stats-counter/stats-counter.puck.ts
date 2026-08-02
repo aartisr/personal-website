@@ -89,7 +89,7 @@ export const statsCounterConfig = {
         metricKey: "githubContributions",
       },
       {
-        value: "3",
+        value: "25",
         label: "Public Repositories",
         prefix: "",
         suffix: "+",

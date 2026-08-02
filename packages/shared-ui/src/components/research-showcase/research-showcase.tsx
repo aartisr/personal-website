@@ -5,9 +5,13 @@ export type ResearchShowcaseItem = {
   status?: string;
   title: string;
   description: string;
+  question?: string;
   method?: string;
   evidence?: string;
   outcome?: string;
+  limitation?: string;
+  nextStep?: string;
+  lastUpdated?: string;
   href?: string;
   tags?: string;
 };
@@ -109,6 +113,16 @@ export function ResearchShowcase({
                 </p>
 
                 <dl className="mt-6 grid gap-3 border-t border-border pt-5">
+                  {item.question && (
+                    <div>
+                      <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                        Research question
+                      </dt>
+                      <dd className="mt-1 text-sm leading-6 text-foreground">
+                        {item.question}
+                      </dd>
+                    </div>
+                  )}
                   {item.method && (
                     <div>
                       <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
@@ -139,6 +153,26 @@ export function ResearchShowcase({
                       </dd>
                     </div>
                   )}
+                  {item.limitation && (
+                    <div>
+                      <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                        Current limit
+                      </dt>
+                      <dd className="mt-1 text-sm leading-6 text-foreground">
+                        {item.limitation}
+                      </dd>
+                    </div>
+                  )}
+                  {item.nextStep && (
+                    <div>
+                      <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                        Next test
+                      </dt>
+                      <dd className="mt-1 text-sm leading-6 text-foreground">
+                        {item.nextStep}
+                      </dd>
+                    </div>
+                  )}
                 </dl>
 
                 {tags.length > 0 && (
@@ -154,12 +188,19 @@ export function ResearchShowcase({
                   </ul>
                 )}
 
-                {item.href && (
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                    Open evidence
-                    <ArrowUpRight size={16} aria-hidden="true" />
-                  </span>
-                )}
+                <div className="mt-6 flex items-center justify-between gap-3">
+                  {item.lastUpdated && (
+                    <span className="text-xs text-muted-foreground">
+                      Updated {item.lastUpdated}
+                    </span>
+                  )}
+                  {item.href && (
+                    <span className="ml-auto inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                      Open evidence
+                      <ArrowUpRight size={16} aria-hidden="true" />
+                    </span>
+                  )}
+                </div>
               </article>
             );
 

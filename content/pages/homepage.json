@@ -15,13 +15,15 @@
         "logoAlt": "Aarti Sri Ravikumar",
         "brandName": "Aarti Sri Ravikumar",
         "brandSubtext": "Student Research Portfolio",
-        "eyebrow": "Evidence-led portfolio",
+        "eyebrow": "Research-informed community work",
         "affiliation": "Pioneer Charter School of Science II",
         "location": "Saugus, Massachusetts",
         "statusLabel": "Open to thoughtful collaboration",
         "navStyle": "flat",
         "navItems": [
+          { "label": "Start Here", "href": "/#start-here" },
           { "label": "Research", "href": "/#research" },
+          { "label": "Community Work", "href": "/#community-work" },
           { "label": "Method", "href": "/#method" },
           { "label": "Writing", "href": "/blog" },
           { "label": "Honors", "href": "/honors-service" },
@@ -29,8 +31,8 @@
           { "label": "Contact", "href": "/support-center" }
         ],
         "ctaButton": {
-          "label": "Start Collaboration",
-          "href": "/support-center"
+          "label": "Choose Your Path",
+          "href": "/#start-here"
         },
         "secondaryCta": {
           "label": "Framework PDF",
@@ -50,13 +52,13 @@
       "props": {
         "id": "HeroSection-1",
         "variant": "editorial",
-        "heading": "Aarti Sri Ravikumar",
-        "subheading": "Pioneer Charter School of Science II • Saugus, Massachusetts",
-        "description": "Academic portfolio for research-informed software, resilient learning systems, and evidence-led project execution. Built so mentors, reviewers, collaborators, and search engines can understand the work quickly.",
+        "heading": "Ideas with heart. Systems with impact.",
+        "subheading": "Aarti Sri Ravikumar • Student social entrepreneur • Saugus, Massachusetts",
+        "description": "ai-aarti.com is the registered business and public portfolio of student social entrepreneur Aarti Sri Ravikumar. Aarti turns curiosity into practical projects for communities—from student resilience and climate understanding to learning tools and civic information. Each project begins with a simple question: how can this make life clearer, kinder, or more possible for someone?",
         "highlights": [
-          { "text": "Research agenda" },
-          { "text": "Evidence-first projects" },
-          { "text": "Technical writing" }
+          { "text": "Community-first" },
+          { "text": "Research-informed" },
+          { "text": "Built in public" }
         ],
         "proofPoints": [
           {
@@ -67,28 +69,27 @@
             "metricKey": "githubContributions"
           },
           {
-            "value": "3",
+            "value": "25",
             "label": "Public repositories",
             "prefix": "",
             "suffix": "+",
             "metricKey": "githubPublicRepos"
           },
           {
-            "value": "2",
-            "label": "Active research tracks",
+            "value": "5",
+            "label": "Community Impact Areas",
             "prefix": "",
-            "suffix": "",
-            "metricKey": "githubActiveResearchTracks"
+            "suffix": ""
           }
         ],
         "dynamicMetricsEndpoint": "/api/github-stats",
         "primaryCta": {
-          "label": "Review Research",
-          "href": "/#research"
+          "label": "Find Your Starting Point",
+          "href": "/#start-here"
         },
         "secondaryCta": {
-          "label": "Read Notes",
-          "href": "/blog"
+          "label": "See What’s Being Built",
+          "href": "/#community-work"
         },
         "image": "https://avatars.githubusercontent.com/u/166765628?v=4",
         "imageAlt": "Aarti Sri Ravikumar",
@@ -97,22 +98,41 @@
       }
     },
     {
+      "type": "AudienceRouter",
+      "props": {
+        "id": "AudienceRouter-13",
+        "anchorId": "start-here",
+        "eyebrow": "A clear route for every visitor",
+        "heading": "There’s a meaningful way in for everyone.",
+        "description": "Whether you’re guiding a student, evaluating a venture, or strengthening a neighborhood, start with the work that matters most to you.",
+        "routes": [
+          { "label": "For Mentors & Educators", "description": "See Aarti’s method, learning trajectory, research questions, and responsible next steps.", "href": "/#method", "action": "Review the method" },
+          { "label": "For Venture Partners", "description": "Assess the problem-selection discipline, public project record, architecture, and collaboration readiness.", "href": "/#research", "action": "Review the portfolio" },
+          { "label": "For Community Partners", "description": "Explore the community challenges behind each project and identify a useful conversation to begin.", "href": "/#community-work", "action": "See community work" }
+        ]
+      }
+    },
+    {
       "type": "ResearchShowcase",
       "props": {
         "id": "ResearchShowcase-2",
         "anchorId": "research",
-        "eyebrow": "Research agenda",
-        "heading": "Projects presented as evidence, not decoration.",
-        "description": "The strongest academic portfolios help a reader move from question to method to artifact. These tracks frame the work in the same way reviewers evaluate it: purpose, evidence, and next step.",
+        "eyebrow": "Research-informed action",
+        "heading": "How Aarti turns community challenges into action",
+        "description": "Each project starts with a real need, becomes a practical experiment, and stays open about what has been learned and what comes next.",
         "items": [
           {
             "eyebrow": "Track 01",
             "status": "Active framework",
             "title": "Aether Student Resiliency Framework",
             "description": "A structured approach to student support that connects wellbeing, learning habits, and clear intervention pathways.",
+            "question": "How can a student-support framework make wellbeing, learning habits, and intervention pathways easier to discuss and improve?",
             "method": "Define needs, map support touchpoints, identify measurable signals, and turn the framework into a usable artifact.",
             "evidence": "Framework PDF, portfolio documentation, and support-center workflow.",
-            "outcome": "A clearer model for communicating student resiliency work to mentors and collaborators.",
+            "outcome": "A documented model for communicating the proposed support approach to mentors and collaborators.",
+            "limitation": "This is a framework artifact, not a validated clinical or school-wide intervention study.",
+            "nextStep": "Gather structured reviewer feedback and define an ethical, measurable pilot scope with an appropriate supervising adult or institution.",
+            "lastUpdated": "March 2026",
             "href": "/aether-student-resiliency-framework-2026.pdf",
             "tags": "education, resiliency, research, systems"
           },
@@ -121,9 +141,13 @@
             "status": "Writing system",
             "title": "Research Notes to Shipped Features",
             "description": "A workflow for moving from early research notes into implementation decisions without losing academic rigor.",
+            "question": "How can early research notes remain traceable when they become software decisions?",
             "method": "Use a hypothesis, prototype, validation, and reflection loop for each feature or project decision.",
             "evidence": "Published blog notes and reusable portfolio architecture.",
-            "outcome": "Faster iteration with stronger reasoning and less implementation drift.",
+            "outcome": "A repeatable documentation pattern linking a decision to its published rationale and implementation context.",
+            "limitation": "The workflow is an evolving personal practice; comparative effectiveness has not been formally measured.",
+            "nextStep": "Publish a complete case study with a decision log, before-and-after artifact, and retrospective evaluation.",
+            "lastUpdated": "March 2026",
             "href": "/blog/research-to-shipping",
             "tags": "workflow, engineering, writing, validation"
           },
@@ -132,12 +156,53 @@
             "status": "Open source",
             "title": "Modular Portfolio Architecture",
             "description": "A maintainable content system that keeps design blocks reusable while preserving a polished public experience.",
+            "question": "Can a student portfolio remain editable, fast, and auditable as its research record grows?",
             "method": "Separate content JSON, Puck block contracts, shared UI components, metadata helpers, and tests.",
             "evidence": "Next.js app, shared-ui package, typed helpers, sitemap, robots, llms.txt, and structured data.",
-            "outcome": "A portfolio that can grow into projects, publications, case studies, and collaboration pages.",
+            "outcome": "A version-controlled portfolio architecture with reusable components and an editor-facing content model.",
+            "limitation": "The system has not yet been tested with a large body of publications or multiple independent editors.",
+            "nextStep": "Add a full project case-study template and test the authoring workflow with an external reviewer.",
+            "lastUpdated": "March 2026",
             "href": "https://github.com/aartisr",
             "tags": "Next.js, architecture, SEO, maintainability"
           }
+        ]
+      }
+    },
+    {
+      "type": "CommunityChallengeLedger",
+      "props": {
+        "id": "CommunityChallengeLedger-12",
+        "anchorId": "community-work",
+        "eyebrow": "Social entrepreneurship in practice",
+        "heading": "A portfolio of community questions—not just software projects.",
+        "description": "Each public repository is connected to the community challenge it is designed to explore. “Repository evidence” means the code and documentation are public; it does not imply real-world impact without independent validation.",
+        "projects": [
+          { "name": "Aether", "challenge": "Student mental-health resilience and clearer support pathways.", "contribution": "A research-driven framework for discussing resilience across multiple modes of student support.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/aether" },
+          { "name": "Urban Heat Democratization", "challenge": "Unequal access to understandable urban-heat information.", "contribution": "An open research project exploring how heat evidence can be made more legible to communities.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/urban-heat-democratization" },
+          { "name": "Spectral Urbanism", "challenge": "Understanding local environmental conditions through student science.", "contribution": "A PCSS-II science project investigating urban systems through spectral analysis.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/spectral-urbanism" },
+          { "name": "Spectral Urbanism Boston", "challenge": "Making place-based environmental inquiry easier to share.", "contribution": "A companion repository for communicating the Boston-focused research work.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/spectral_urbanism_boston" },
+          { "name": "MBTA Tracker", "challenge": "Everyday uncertainty in public-transit use.", "contribution": "A project exploring clearer access to transit information for riders.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/mbta-tracker" },
+          { "name": "KWIN City Portal", "challenge": "Public understanding of large civic-development proposals.", "contribution": "An evidence-first portal that separates verified context, pending claims, and regional evidence.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/kwin-city-portal" },
+          { "name": "Governance App", "challenge": "Making civic and organizational processes easier to understand.", "contribution": "An exploratory application for governance-oriented workflows; scope remains in development.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/governance-app" },
+          { "name": "PCSS Robotics", "challenge": "Access to hands-on STEM learning and team problem-solving.", "contribution": "A school robotics project that supports technical learning through building and iteration.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/pcss-robotics" },
+          { "name": "PCSSII Robotics", "challenge": "Shared robotics knowledge within the school community.", "contribution": "A contribution-oriented fork supporting the broader PCSS-II robotics codebase.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/pcssiirobotics" },
+          { "name": "Student Productivity Hub", "challenge": "Students need practical, mobile-first systems for study planning.", "contribution": "A research-oriented study operating system designed around student use.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/student-productivity-hub" },
+          { "name": "Task Laureate", "challenge": "Personal task management can be overwhelming and impersonal.", "contribution": "An ongoing exploration of a more thoughtful task-management experience.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/task-laureate" },
+          { "name": "Quadratic Polypad", "challenge": "Mathematical ideas are easier to learn when students can explore them visually.", "contribution": "An interactive quadratic-learning project.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/quadratic-polypad" },
+          { "name": "Fractals", "challenge": "Science learning benefits from visual, reproducible exploration.", "contribution": "A science project focused on fractal inquiry.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/fractals" },
+          { "name": "Fractals Web", "challenge": "Learners need accessible ways to compare visual evidence and document methods.", "contribution": "A modular research and learning environment for fractal exploration.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/fractals-web" },
+          { "name": "BuddhiAlign", "challenge": "Personal reflection and clarity practices can be difficult to sustain.", "contribution": "A personal clarity companion grounded in a reflective practice framework.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/buddhi-align-app" },
+          { "name": "Salus Pramana Medical", "challenge": "Health information needs careful comparison without flattening differences in evidence.", "contribution": "An evidence-first platform comparing medical traditions while distinguishing evidence strength.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/salus-pramana-medical" },
+          { "name": "Harmony Hope Foundation", "challenge": "Charitable initiatives need clear public-facing communication.", "contribution": "A website project for a charitable foundation.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/charitable-foundation" },
+          { "name": "Autograph Exchange", "challenge": "Meaningful written appreciation and memory can be easy to lose.", "contribution": "An accessible space for asking for, giving, and preserving written autographs.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/autograph-exchange" },
+          { "name": "Forever Lotus", "challenge": "Creative and community-facing work needs room to emerge thoughtfully.", "contribution": "An early public project whose scope will be documented as the work matures.", "evidenceState": "Scope in progress", "href": "https://github.com/aartisr/forever_lotus" },
+          { "name": "WIN Material Intelligence Cloud", "challenge": "Material knowledge can be hard to organize and reuse.", "contribution": "An exploratory cloud project for material intelligence.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/win-material-intelligence-cloud" },
+          { "name": "Heimdall Electra", "challenge": "Orbital-debris research needs reproducible ways to test difficult hypotheses.", "contribution": "A reproducible research foundation for passive electromagnetic sensing inquiry.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/heimdall-electra" },
+          { "name": "Search Visibility Engine", "challenge": "Useful community information cannot help people if it cannot be found.", "contribution": "An exploratory project on improving information discoverability.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/search-visibility-engine" },
+          { "name": "Hackathon Code Optimizer", "challenge": "Learners benefit from tools that make code improvement more approachable.", "contribution": "A hackathon experiment focused on code optimization.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/hackathon-code-optimizer" },
+          { "name": "Hackathon Streamlit", "challenge": "Technical experimentation should be accessible to learners and collaborators.", "contribution": "A Python optimization prototype created in a hackathon context.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/hackathon-streamlit" },
+          { "name": "Aarti Profile", "challenge": "Open work is easier to trust when its author and context are findable.", "contribution": "The public profile configuration that links projects, identity, and contact context.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/aartisr" }
         ]
       }
     },
@@ -159,18 +224,17 @@
             "metricKey": "githubContributions"
           },
           {
-            "value": "3",
+            "value": "25",
             "label": "Public Repositories",
             "prefix": "",
             "suffix": "+",
             "metricKey": "githubPublicRepos"
           },
           {
-            "value": "2",
-            "label": "Active Research Tracks",
+            "value": "5",
+            "label": "Community Impact Areas",
             "prefix": "",
-            "suffix": "",
-            "metricKey": "githubActiveResearchTracks"
+            "suffix": ""
           },
           {
             "value": "4",
@@ -187,7 +251,7 @@
         "id": "FeaturesGrid-4",
         "anchorId": "method",
         "heading": "Methodology: how questions become useful systems.",
-        "description": "A repeatable academic workflow keeps the site clear for humans, search engines, and generative answer systems.",
+        "description": "A repeatable research workflow keeps the work clear for people, search engines, and AI-assisted discovery.",
         "columns": 3,
         "animation": "slide-up",
         "topSpacing": "compact",
@@ -260,7 +324,7 @@
         "id": "AboutSection-5",
         "anchorId": "profile",
         "heading": "Academic Profile",
-        "body": "I am a student at Pioneer Charter School of Science II (PCSS-II) in Saugus, Massachusetts.\n\nMy work focuses on research-informed software, clear technical writing, and systems that make learning and collaboration easier to understand.\n\nThis portfolio is designed as a living academic dossier: a place where mentors, teachers, collaborators, and future reviewers can evaluate direction, evidence, and growth without digging through scattered links.",
+        "body": "Aarti Sri Ravikumar is a student at Pioneer Charter School of Science II (PCSS-II) in Saugus, Massachusetts and the student social entrepreneur behind ai-aarti.com, a registered business.\n\nAarti’s work brings together research-informed software, clear technical writing, and systems that make learning and collaboration easier to navigate.\n\nai-aarti.com is a living record of that work. It gives mentors, educators, collaborators, and future reviewers a clear view of Aarti’s direction, evidence, and growth—without requiring them to piece together scattered links.",
         "image": "https://avatars.githubusercontent.com/u/166765628?v=4",
         "imageAlt": "Aarti Sri Ravikumar",
         "reverse": true,
@@ -320,7 +384,7 @@
         "id": "BlogSection-7",
         "anchorId": "writing",
         "heading": "Research Notes & Field Memos",
-        "description": "Writing turns project decisions into durable knowledge. These notes show how ideas are framed, tested, and improved.",
+        "description": "Writing turns project decisions into durable knowledge. These notes show how ideas are framed, tested, and refined.",
         "posts": [
           {
             "title": "Building a Student Portfolio That Actually Gets Read",
@@ -332,7 +396,7 @@
           },
           {
             "title": "From Research Notes to Shipped Features",
-            "excerpt": "How I move ideas from exploration into implementation without losing rigor.",
+            "excerpt": "How research moves from early exploration into implementation without losing rigor.",
             "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1600&q=80",
             "imageAlt": "Research to implementation workflow",
             "date": "2026-02-20",
@@ -388,11 +452,11 @@
         "faqs": [
           {
             "question": "What is the purpose of this portfolio?",
-            "answer": "It presents Aarti Sri Ravikumar's academic direction, research-informed software projects, writing, and collaboration pathways in one evidence-oriented website."
+            "answer": "It presents Aarti Sri Ravikumar's direction, research-informed projects, writing, and collaboration pathways in one evidence-led website."
           },
           {
             "question": "Where should a reviewer start?",
-            "answer": "Start with the Research section for project evidence, then read Methodology for process, Blog for writing, and Journey for progress context."
+            "answer": "Start with How Aarti Turns Community Challenges into Action, then explore the method, research notes, and academic journey."
           },
           {
             "question": "How can someone collaborate?",
@@ -432,11 +496,11 @@
         "logoAlt": "Aarti Sri Ravikumar",
         "brandName": "Aarti Sri Ravikumar",
         "eyebrow": "Student Research Portfolio",
-        "tagline": "Evidence-led software, resilient learning systems, and technical writing presented so mentors, reviewers, collaborators, and answer engines can understand the work quickly.",
+        "tagline": "Research-informed software, resilient learning systems, and technical writing for mentors, reviewers, collaborators, and communities.",
         "affiliation": "Pioneer Charter School of Science II",
         "location": "Saugus, Massachusetts",
         "availability": "Open to thoughtful academic and technical collaboration when the question, scope, timeline, and evidence standard are clear.",
-        "citation": "Aarti Sri Ravikumar. Student Research Portfolio. 2026. https://ai-aarti.com",
+        "citation": "ai-aarti.com. The registered business and public portfolio of Aarti Sri Ravikumar. 2026.",
         "primaryAction": {
           "label": "Start Collaboration",
           "href": "/support-center"

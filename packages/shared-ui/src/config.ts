@@ -36,6 +36,10 @@ import { Spacer } from "./components/spacer/spacer";
 import { spacerConfig } from "./components/spacer/spacer.puck";
 import { TimelineSection } from "./components/timeline-section/timeline-section";
 import { timelineSectionConfig } from "./components/timeline-section/timeline-section.puck";
+import { CommunityChallengeLedger } from "./components/community-challenge-ledger/community-challenge-ledger";
+import { communityChallengeLedgerConfig } from "./components/community-challenge-ledger/community-challenge-ledger.puck";
+import { AudienceRouter } from "./components/audience-router/audience-router";
+import { audienceRouterConfig } from "./components/audience-router/audience-router.puck";
 
 // Puck wraps component props with {id, puck} — cast to satisfy strict typing
 // while keeping runtime behavior correct (Puck passes all declared fields)
@@ -62,6 +66,8 @@ export function createPuckConfig(): Config {
           "FAQSection",
           "BlogSection",
           "TimelineSection",
+          "CommunityChallengeLedger",
+          "AudienceRouter",
         ],
       },
       social: {
@@ -150,6 +156,11 @@ export function createPuckConfig(): Config {
         ...timelineSectionConfig,
         render: r(TimelineSection),
       },
+      CommunityChallengeLedger: {
+        ...communityChallengeLedgerConfig,
+        render: r(CommunityChallengeLedger),
+      },
+      AudienceRouter: { ...audienceRouterConfig, render: r(AudienceRouter) },
     },
   };
 }

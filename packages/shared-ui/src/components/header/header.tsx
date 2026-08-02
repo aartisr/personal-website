@@ -496,6 +496,7 @@ export function Header({
 
   return (
     <header
+      role="banner"
       ref={headerRef}
       className={`academic-header ${sticky ? "is-sticky" : ""} ${isScrolled ? "is-scrolled" : ""}`}
     >

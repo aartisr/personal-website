@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllBlogPosts } from "@/lib/blog";
+import { listPages } from "@/lib/get-page-data";
 import { getSiteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -30,5 +31,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...blogPages];
+  const staticPaths = new Set(staticPages.map((entry) => entry.url));
+  const puckPages: MetadataRoute.Sitemap = listPages()
+    .filter(({ slug }) => !["my-page", "second-page", "test-page"].includes(slug))
+    .map(({ slug }) => ({
+      url: `${base}${slug === "homepage" ? "" : `/${slug}`}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: slug === "homepage" ? 1 : 0.72,
+    }))
+    .filter((entry) => !staticPaths.has(entry.url));
+
+  return [...staticPages, ...puckPages, ...blogPages];
 }

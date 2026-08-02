@@ -330,6 +330,13 @@ export function buildPageJsonLd(slug: string, data: Data | null): JsonLd[] {
       about: {
         "@id": `${absoluteUrl("/")}#person`,
       },
+      ...(slug === "homepage"
+        ? {
+            mainEntity: {
+              "@id": `${absoluteUrl("/")}#person`,
+            },
+          }
+        : {}),
       breadcrumb: buildBreadcrumbJsonLd(slug, seo.url),
     },
     buildFaqJsonLd(data),

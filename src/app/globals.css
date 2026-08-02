@@ -24,15 +24,30 @@ body::before {
   pointer-events: none;
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.78), transparent 38%),
-    linear-gradient(90deg, rgba(25, 63, 132, 0.045) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(25, 63, 132, 0.035) 1px, transparent 1px);
-  background-size: auto, 48px 48px, 48px 48px;
+    radial-gradient(circle at 8% 5%, rgba(54, 173, 189, 0.13), transparent 20rem),
+    radial-gradient(circle at 92% 12%, rgba(242, 184, 71, 0.16), transparent 22rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.84), transparent 38%),
+    linear-gradient(90deg, rgba(25, 63, 132, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(25, 63, 132, 0.03) 1px, transparent 1px);
+  background-size: auto, auto, auto, 48px 48px, 48px 48px;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, rgba(231, 250, 248, 0.7), rgba(255, 251, 235, 0.86) 52%, rgba(238, 244, 255, 0.82));
+}
+
+.hero-section h1 {
+  text-wrap: balance;
+  background: linear-gradient(110deg, var(--foreground), var(--primary) 58%, var(--research-green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 html {
   scroll-behavior: smooth;
 }
+
 
 img,
 svg,

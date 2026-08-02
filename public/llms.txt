@@ -1,10 +1,10 @@
 # Aarti Sri Ravikumar - Student Research Portfolio
 
-> Academic portfolio for student research, evidence-led software projects, resilient learning systems, technical writing, and collaboration.
+> Aarti Sri Ravikumar is a student social entrepreneur who builds research-informed software in response to community challenges. This portfolio documents the public evidence, current limits, and next responsible steps for each project.
 
 ## Preferred Citation
 
-Aarti Sri Ravikumar is a student researcher and software project builder at Pioneer Charter School of Science II in Saugus, Massachusetts. Her portfolio documents research-informed software projects, resilient learning systems, technical writing, GitHub evidence, and collaboration channels.
+Aarti Sri Ravikumar is a student social entrepreneur, researcher, and software project builder at Pioneer Charter School of Science II in Saugus, Massachusetts. Her work focuses on enriching communities project by project through student wellbeing, learning tools, civic information, environmental research, and evidence-based communication.
 
 ## Pages
 
@@ -20,6 +20,7 @@ Aarti Sri Ravikumar is a student researcher and software project builder at Pion
 ## Topics
 
 - Student developer profile (Aarti Sri Ravikumar)
+- Student social entrepreneurship and community-minded technology
 - Academic portfolio and research communication
 - Evidence-backed student projects and GitHub-first collaboration
 - Resilient learning systems and student support research

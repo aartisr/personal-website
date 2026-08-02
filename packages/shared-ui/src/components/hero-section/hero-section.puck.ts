@@ -132,7 +132,7 @@ export const heroSectionConfig = {
         metricKey: "githubContributions",
       },
       {
-        value: "3",
+        value: "25",
         label: "Public repositories",
         prefix: "",
         suffix: "+",

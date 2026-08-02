@@ -338,6 +338,7 @@ export function Footer({
 
   return (
     <footer
+      role="contentinfo"
       className="w-full px-4 pb-8 pt-16 sm:pt-18 footer"
       aria-labelledby="footer-heading"
     >

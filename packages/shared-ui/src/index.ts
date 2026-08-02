@@ -17,6 +17,8 @@ export { Footer } from "./components/footer/footer";
 export { LogoCloud } from "./components/logo-cloud/logo-cloud";
 export { Spacer } from "./components/spacer/spacer";
 export { TimelineSection } from "./components/timeline-section/timeline-section";
+export { CommunityChallengeLedger } from "./components/community-challenge-ledger/community-challenge-ledger";
+export { AudienceRouter } from "./components/audience-router/audience-router";
 
 // Royal decorative sub-components
 export { RoyalCorners } from "./components/royal/royal-corners";
@@ -51,5 +53,7 @@ export type { FooterProps } from "./components/footer/footer";
 export type { LogoCloudProps } from "./components/logo-cloud/logo-cloud";
 export type { SpacerProps } from "./components/spacer/spacer";
 export type { TimelineSectionProps } from "./components/timeline-section/timeline-section";
+export type { CommunityChallengeLedgerProps } from "./components/community-challenge-ledger/community-challenge-ledger";
+export type { AudienceRouterProps } from "./components/audience-router/audience-router";
 export type { AnimationType } from "./components/scroll-reveal";
 export type { NavStyle } from "./components/header/header";

@@ -23,6 +23,18 @@ test.describe("Homepage quality gates", () => {
     expect(drift).toBeLessThan(16);
   });
 
+  test("keeps core navigation reachable without horizontal overflow", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await expect(page.getByRole("link", { name: /skip to main content/i })).toBeAttached();
+
+    const hasHorizontalOverflow = await page.evaluate(
+      () => document.documentElement.scrollWidth > window.innerWidth
+    );
+    expect(hasHorizontalOverflow).toBe(false);
+
+    await expect(page.getByRole("link", { name: /find your starting point|choose your path/i }).first()).toBeVisible();
+  });
+
   test("has no critical accessibility violations", async ({ page }) => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
     await expect(page.getByRole("banner")).toBeVisible();
