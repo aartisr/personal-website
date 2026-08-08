@@ -45,4 +45,3 @@ export async function POST(request: NextRequest) {
   } catch { return NextResponse.json({ success: false, requestId: id, error: "Your inquiry could not be delivered. Please try again later." }, { status: 502 }); }
   return NextResponse.json({ success: true, requestId: id });
 }
-export function __resetCollaborationRateLimitForTests() { rateLimit.clear(); }
