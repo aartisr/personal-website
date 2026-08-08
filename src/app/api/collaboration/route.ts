@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+export const maxDuration = 20;
+
 const PATHS = ["mentor", "community", "technical", "other"] as const;
 const ROLES = ["mentor_educator", "community_organization", "student", "technical_collaborator", "other"] as const;
 const rateLimit = new Map<string, { count: number; resetAt: number }>();
@@ -11,6 +13,7 @@ type Submission = { requestId: string; receivedAt: string; path?: CollaborationP
 function clientKey(request: NextRequest) { return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "unknown"; }
 function requestId() { return "col_" + crypto.randomUUID(); }
 function text(value: unknown, max: number) { return typeof value === "string" ? value.trim().slice(0, max) : ""; }
+function duration(value: string | undefined) { const parsed = Number(value); return Number.isFinite(parsed) && parsed >= 1_000 && parsed <= 9_000 ? parsed : 7_000; }
 function validEmail(value: string) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); }
 function withinLimit(key: string) {
   const now = Date.now(), current = rateLimit.get(key);
@@ -37,20 +40,24 @@ type DeliveryFailure = { provider: "resend"; status?: number; reason: string };
 async function deliverWithResend(submission: Submission, apiKey: string): Promise<void> {
   const from = process.env.COLLABORATION_FROM_EMAIL?.trim();
   const to = process.env.COLLABORATION_TO_EMAIL?.trim() || "info@ai-aarti.com";
+  const timeout = duration(process.env.COLLABORATION_DELIVERY_TIMEOUT_MS);
   if (!from) throw { provider: "resend", reason: "COLLABORATION_FROM_EMAIL is not configured" } satisfies DeliveryFailure;
-  try {
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { Authorization: "Bearer " + apiKey, "Content-Type": "application/json", "Idempotency-Key": submission.requestId },
-      body: JSON.stringify({ from, to: [to], reply_to: submission.email, subject: "Collaboration inquiry: " + submission.path + " · " + submission.name, text: emailText(submission) }),
-      signal: AbortSignal.timeout(5000),
-    });
-    if (response.ok) return;
-    const body = await response.text();
-    throw { provider: "resend", status: response.status, reason: body.slice(0, 500) || response.statusText } satisfies DeliveryFailure;
-  } catch (error) {
-    if (isDeliveryFailure(error)) throw error;
-    throw { provider: "resend", reason: error instanceof Error ? error.name : "request failed" } satisfies DeliveryFailure;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      const response = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: "Bearer " + apiKey, "Content-Type": "application/json", "Idempotency-Key": submission.requestId },
+        body: JSON.stringify({ from, to: [to], reply_to: submission.email, subject: "Collaboration inquiry: " + submission.path + " · " + submission.name, text: emailText(submission) }),
+        signal: AbortSignal.timeout(timeout),
+      });
+      if (response.ok) return;
+      const body = await response.text();
+      throw { provider: "resend", status: response.status, reason: body.slice(0, 500) || response.statusText } satisfies DeliveryFailure;
+    } catch (error) {
+      const failure: DeliveryFailure = isDeliveryFailure(error) ? error : { provider: "resend", reason: error instanceof Error ? error.name : "request failed" };
+      if (attempt === 0 && failure.reason === "TimeoutError") continue;
+      throw failure;
+    }
   }
 }
 function isDeliveryFailure(error: unknown): error is DeliveryFailure { return Boolean(error && typeof error === "object" && "provider" in error && (error as DeliveryFailure).provider === "resend"); }
