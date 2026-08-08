@@ -14,10 +14,10 @@
 
 ## Delivery setup
 
-Set COLLABORATION_WEBHOOK_URL only when an owned inbox or workflow is ready to
-receive the submitted data. When it is unset, the API acknowledges valid
-inquiries without forwarding them, which keeps local and preview environments
-safe.
+Set COLLABORATION_WEBHOOK_URL when an owned inbox or workflow is ready to
+receive submitted data. The existing SUPPORT_WEBHOOK_URL is used as a fallback.
+When neither is set, the API returns an honest delivery-unavailable response;
+it never claims that an inquiry was delivered when it was not.
 
 The receiving workflow should retain only the information needed to decide
 fit, keep an owner and response status, and avoid forwarding personal details

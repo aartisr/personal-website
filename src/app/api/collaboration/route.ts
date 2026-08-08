@@ -38,7 +38,8 @@ export async function POST(request: NextRequest) {
   const error = validate(payload);
   if (error) return NextResponse.json({ success: false, requestId: id, error }, { status: 400 });
   const submission = { requestId: id, receivedAt: new Date().toISOString(), path: payload.path, name: text(payload.name, 120), email: text(payload.email, 254), role: payload.role, message: text(payload.message, 3000), details: Object.fromEntries(Object.entries(payload.details ?? {}).map(([key, value]) => [key, text(value, 500)])) };
-  const webhook = process.env.COLLABORATION_WEBHOOK_URL;
+  const webhook = process.env.COLLABORATION_WEBHOOK_URL || process.env.SUPPORT_WEBHOOK_URL;
+  if (!webhook) return NextResponse.json({ success: false, requestId: id, error: "Collaboration delivery is not configured yet. Please try again later." }, { status: 503 });
   if (webhook) try {
     const response = await fetch(webhook, { method: "POST", headers: { "Content-Type": "application/json", "X-Collaboration-Request-Id": id }, body: JSON.stringify(submission), signal: AbortSignal.timeout(5000) });
     if (!response.ok) throw new Error("webhook rejected");
