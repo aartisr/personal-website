@@ -137,7 +137,7 @@ export const footerConfig = {
       "All Inclusive Aarti. Academic and Kindness Research Portfolio. 2026. https://ai-aarti.com",
     primaryAction: {
       label: "Start Collaboration",
-      href: "/support-center",
+      href: "/collaborate",
     },
     secondaryAction: {
       label: "Review GitHub",

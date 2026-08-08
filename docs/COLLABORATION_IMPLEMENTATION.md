@@ -1,0 +1,45 @@
+# Collaboration implementation guide
+
+## What is shipped
+
+- The collaborate route is CMS-editable and uses the reusable
+  CollaborationIntake shared-ui block.
+- POST /api/collaboration accepts a fixed inquiry contract instead of client
+  supplied form schemas.
+- The flow has four configurable paths, a two-step form, private session-only
+  drafts, visible recovery errors, a working agreement, and an honest success
+  state.
+- Start Collaboration actions now lead to the collaborate route; the Support
+  Center remains the general support destination.
+
+## Delivery setup
+
+Set COLLABORATION_WEBHOOK_URL only when an owned inbox or workflow is ready to
+receive the submitted data. When it is unset, the API acknowledges valid
+inquiries without forwarding them, which keeps local and preview environments
+safe.
+
+The receiving workflow should retain only the information needed to decide
+fit, keep an owner and response status, and avoid forwarding personal details
+to analytics, session replay, or untrusted services.
+
+## Safe extension points
+
+Edit the CollaborationIntake block in content/pages/collaborate.json to change
+paths, prompts, optional details, and success resources. Keep path IDs within
+mentor, community, technical, and other unless the server allowlist is updated
+in the same change.
+
+The browser component never emits field values to analytics. If product events
+are added later, limit them to path ID, step number, role, optional-field
+count, and safe error category.
+
+## Release checklist
+
+1. Assign an inbox owner and an attainable response standard.
+2. Configure and test the webhook with a non-sensitive sample inquiry.
+3. Confirm the working-agreement wording with the responsible adult and
+   applicable institutional policy owner.
+4. Test keyboard-only completion, a small-screen submission, error recovery,
+   rate limiting, and unavailable-webhook behavior.
+5. Review operational outcomes before changing questions or adding collection.

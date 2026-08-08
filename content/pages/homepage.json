@@ -28,7 +28,7 @@
           { "label": "Writing", "href": "/blog" },
           { "label": "Honors", "href": "/honors-service" },
           { "label": "Journey", "href": "/testimony" },
-          { "label": "Contact", "href": "/support-center" }
+          { "label": "Contact", "href": "/collaborate" }
         ],
         "ctaButton": {
           "label": "Choose Your Path",
@@ -479,7 +479,7 @@
         "description": "Useful collaborations begin with a clear question, a realistic scope, and a shared standard for evidence.",
         "primaryCta": {
           "label": "Start Collaboration",
-          "href": "/support-center"
+          "href": "/collaborate"
         },
         "secondaryCta": {
           "label": "Review GitHub",
@@ -503,7 +503,7 @@
         "citation": "ai-aarti.com. The registered business and public portfolio of Aarti Sri Ravikumar. 2026.",
         "primaryAction": {
           "label": "Start Collaboration",
-          "href": "/support-center"
+          "href": "/collaborate"
         },
         "secondaryAction": {
           "label": "Review GitHub",

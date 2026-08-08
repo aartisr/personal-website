@@ -1,0 +1,69 @@
+{
+  "root": {
+    "props": {
+      "title": "Start Collaboration",
+      "seoTitle": "Start a Thoughtful Research Collaboration | Aarti Sri Ravikumar",
+      "description": "A calm, privacy-conscious path for mentorship, community research, technical contribution, and speaking inquiries.",
+      "seoDescription": "Start a thoughtful collaboration with Aarti Sri Ravikumar. Choose mentorship, community research, technical open-source, or speaking and submit a focused inquiry.",
+      "keywords": "student research collaboration, mentorship, community research, open source collaboration"
+    }
+  },
+  "content": [
+    {
+      "type": "CollaborationIntake",
+      "props": {
+        "id": "CollaborationIntake-1",
+        "eyebrow": "Collaboration",
+        "heading": "Build something useful, with care.",
+        "description": "Aarti welcomes thoughtful academic, community, and technical conversations. Start with the kind of collaboration you have in mind; the next questions stay focused.",
+        "agreement": "I understand this starts an inquiry, not a commitment, and I will not include confidential or sensitive personal information.",
+        "paths": [
+          {
+            "id": "mentor",
+            "title": "Mentor or educator",
+            "description": "Share perspective, feedback, learning opportunities, or research guidance.",
+            "prompt": "What perspective, question, or learning opportunity would you like to discuss?",
+            "fields": [
+              { "name": "subject_area", "label": "Subject area", "type": "text" },
+              { "name": "institution", "label": "Institution or program", "type": "text" }
+            ]
+          },
+          {
+            "id": "community",
+            "title": "Research or community partner",
+            "description": "Explore a local question, evidence need, or practical pilot.",
+            "prompt": "What community question, audience, or outcome are you exploring?",
+            "fields": [
+              { "name": "audience", "label": "Intended audience", "type": "text" },
+              { "name": "timeline", "label": "Desired timeline", "type": "text" }
+            ]
+          },
+          {
+            "id": "technical",
+            "title": "Technical or open-source collaborator",
+            "description": "Discuss code, design, documentation, testing, or an existing project.",
+            "prompt": "Which project or technical area is relevant, and what contribution or partnership do you have in mind?",
+            "fields": [
+              { "name": "repository", "label": "Relevant repository or public link", "type": "url" },
+              { "name": "contribution_type", "label": "Contribution or technical area", "type": "text" }
+            ]
+          },
+          {
+            "id": "other",
+            "title": "Speaking, press, or another idea",
+            "description": "For events, interviews, introductions, or a proposal that does not fit above.",
+            "prompt": "What is the purpose of your note, and why might it be a good fit?",
+            "fields": [
+              { "name": "organization", "label": "Organization or event", "type": "text" },
+              { "name": "deadline", "label": "Date or decision deadline", "type": "text" }
+            ]
+          }
+        ],
+        "resources": [
+          { "id": "research", "label": "Explore research projects", "href": "/#research" },
+          { "id": "github", "label": "Review GitHub work", "href": "https://github.com/aartisr" }
+        ]
+      }
+    }
+  ]
+}

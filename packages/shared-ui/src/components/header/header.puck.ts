@@ -128,7 +128,7 @@ export const headerConfig = {
     ],
     ctaButton: {
       label: "Start Collaboration",
-      href: "/support-center",
+      href: "/collaborate",
     },
     secondaryCta: {
       label: "Framework PDF",

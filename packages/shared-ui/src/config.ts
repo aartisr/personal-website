@@ -40,6 +40,8 @@ import { CommunityChallengeLedger } from "./components/community-challenge-ledge
 import { communityChallengeLedgerConfig } from "./components/community-challenge-ledger/community-challenge-ledger.puck";
 import { AudienceRouter } from "./components/audience-router/audience-router";
 import { audienceRouterConfig } from "./components/audience-router/audience-router.puck";
+import { CollaborationIntake } from "./components/collaboration-intake/collaboration-intake";
+import { collaborationIntakeConfig } from "./components/collaboration-intake/collaboration-intake.puck";
 
 // Puck wraps component props with {id, puck} — cast to satisfy strict typing
 // while keeping runtime behavior correct (Puck passes all declared fields)
@@ -76,7 +78,7 @@ export function createPuckConfig(): Config {
       },
       conversion: {
         title: "Conversion",
-        components: ["CTASection", "PricingTable", "ContactForm"],
+        components: ["CTASection", "PricingTable", "ContactForm", "CollaborationIntake"],
       },
       media: {
         title: "Media",
@@ -161,6 +163,7 @@ export function createPuckConfig(): Config {
         render: r(CommunityChallengeLedger),
       },
       AudienceRouter: { ...audienceRouterConfig, render: r(AudienceRouter) },
+      CollaborationIntake: { ...collaborationIntakeConfig, render: r(CollaborationIntake) },
     },
   };
 }
