@@ -18,6 +18,7 @@ import {
   useState,
   type MouseEvent as ReactMouseEvent,
 } from "react";
+import { isExternalHref, normalizeLink } from "../../utils/links";
 import "./header.css";
 
 export type NavItem = {
@@ -57,39 +58,12 @@ export type HeaderProps = {
   showReadingProgress?: boolean;
 };
 
-type NormalizedLink = {
-  label: string;
-  href: string;
-};
-
-function isExternalHref(href: string): boolean {
-  return href.startsWith("http://") || href.startsWith("https://");
-}
-
-function sanitizeHref(rawHref: unknown): string {
-  const href = typeof rawHref === "string" ? rawHref.trim() : "";
-  if (!href) return "#";
-  if (href.startsWith("/") || href.startsWith("#")) return href;
-  if (href.startsWith("mailto:") || href.startsWith("tel:")) return href;
-
-  try {
-    const url = new URL(href);
-    return url.protocol === "http:" || url.protocol === "https:" ? href : "#";
-  } catch {
-    return "#";
-  }
-}
+type NormalizedLink = ReturnType<typeof normalizeLink> extends infer Link
+  ? Exclude<Link, null>
+  : never;
 
 function normalizeAction(value: unknown): NormalizedLink | null {
-  if (!value || typeof value !== "object") {
-    return null;
-  }
-
-  const label = (value as { label?: unknown }).label;
-  const href = (value as { href?: unknown }).href;
-  return typeof label === "string" && label.trim()
-    ? { label: label.trim(), href: sanitizeHref(href) }
-    : null;
+  return normalizeLink(value);
 }
 
 function normalizeUtilityLinks(value: unknown): NormalizedLink[] {

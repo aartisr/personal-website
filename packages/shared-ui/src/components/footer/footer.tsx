@@ -17,6 +17,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import {
+  isExternalHref,
+  normalizeLink,
+  sanitizeHref,
+} from "../../utils/links";
+import { toText } from "../../utils/text";
 import "./footer.css";
 
 export type FooterLink = {
@@ -60,10 +66,7 @@ export type FooterProps = {
   socialLinks: SocialLink[];
 };
 
-type NormalizedFooterLink = {
-  label: string;
-  href: string;
-};
+type NormalizedFooterLink = NonNullable<ReturnType<typeof normalizeLink>>;
 
 type NormalizedFooterColumn = {
   title: string;
@@ -159,30 +162,6 @@ function resolveCopyright(text: string): string {
   return text.replace(/© \d{4}/, `© ${new Date().getFullYear()}`);
 }
 
-function toText(value: unknown, fallback = ""): string {
-  return typeof value === "string" ? value.trim() : fallback;
-}
-
-function sanitizeHref(rawHref: unknown): string {
-  const href = toText(rawHref);
-  if (!href) return "#";
-  if (href.startsWith("/")) return href;
-  if (href.startsWith("#")) return href;
-  if (href.startsWith("mailto:")) return href;
-  if (href.startsWith("tel:")) return href;
-
-  try {
-    const url = new URL(href);
-    if (url.protocol === "http:" || url.protocol === "https:") {
-      return href;
-    }
-  } catch {
-    return "#";
-  }
-
-  return "#";
-}
-
 function normalizeColumns(value: unknown): NormalizedFooterColumn[] {
   if (!Array.isArray(value)) return [];
 
@@ -192,12 +171,7 @@ function normalizeColumns(value: unknown): NormalizedFooterColumn[] {
       const rawLinks = (column as { links?: unknown })?.links;
       const links = Array.isArray(rawLinks)
         ? rawLinks
-            .map((link) => {
-              const label = toText((link as { label?: unknown })?.label);
-              const href = sanitizeHref((link as { href?: unknown })?.href);
-              if (!label) return null;
-              return { label, href };
-            })
+            .map((link) => normalizeLink(link))
             .filter((link): link is NormalizedFooterLink => Boolean(link))
         : [];
 
@@ -221,13 +195,7 @@ function normalizeSocialLinks(value: unknown): NormalizedSocialLink[] {
 }
 
 function normalizeAction(value: unknown): NormalizedFooterLink | null {
-  if (!value || typeof value !== "object") {
-    return null;
-  }
-
-  const label = toText((value as { label?: unknown })?.label);
-  const href = sanitizeHref((value as { href?: unknown })?.href);
-  return label ? { label, href } : null;
+  return normalizeLink(value);
 }
 
 function normalizeHighlights(value: unknown): string[] {
@@ -245,11 +213,7 @@ function normalizeUtilityLinks(
 ): NormalizedFooterLink[] {
   if (Array.isArray(utilityLinks)) {
     const normalized = utilityLinks
-      .map((link) => {
-        const label = toText((link as { label?: unknown })?.label);
-        const href = sanitizeHref((link as { href?: unknown })?.href);
-        return label ? { label, href } : null;
-      })
+      .map((link) => normalizeLink(link))
       .filter((link): link is NormalizedFooterLink => Boolean(link));
 
     if (normalized.length > 0) {
@@ -263,10 +227,6 @@ function normalizeUtilityLinks(
       /privacy|terms|support|accessibility/i.test(`${link.label} ${link.href}`)
     )
     .slice(0, 4);
-}
-
-function isExternalHref(href: string): boolean {
-  return href.startsWith("http://") || href.startsWith("https://");
 }
 
 function getPriorityLink(columns: NormalizedFooterColumn[]): NormalizedFooterLink | null {

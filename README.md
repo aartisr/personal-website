@@ -91,6 +91,22 @@ If these values are missing, protected routes return `500` until configured.
 - `public/llms.txt` summarizes the site for AI crawlers and answer engines.
 - Blog posts include article metadata and share controls for LinkedIn, X, WhatsApp, email, native share, and copy link.
 
+### GitHub Pages project context
+
+The repository includes a lightweight, static project-context page in
+github-pages/. It offers original source and implementation context, points
+readers to the authoritative portfolio at [ai-aarti.com](https://ai-aarti.com),
+and does not copy the portfolio’s pages.
+
+To publish it, open **Settings → Pages** in GitHub and set the source to
+**GitHub Actions**, then run the **Deploy GitHub Pages project context**
+workflow. Its expected URL is https://aartisr.github.io/personal-website/.
+
+Before publishing a private repository, confirm that the organization’s GitHub
+plan and Pages policy permit private-repository Pages. The workflow uses the
+official artifact-based Pages deployment actions and deploys only the
+github-pages/ directory.
+
 ## Analytics
 
 Microsoft Clarity is wired through `src/components/analytics/microsoft-clarity.tsx`.
@@ -104,6 +120,20 @@ NEXT_PUBLIC_MICROSOFT_CLARITY_ID=your_clarity_project_id
 The script is skipped when the ID is missing, so local builds and preview environments stay clean until analytics is intentionally enabled.
 
 Microsoft notes that Clarity should not be used on websites or apps targeting users under 18 globally. Confirm the intended audience and privacy posture before enabling the production project ID.
+
+### PostHog
+
+PostHog is ready to use through Next.js client instrumentation in `src/instrumentation-client.ts`. Add the following to your deployment environment (and `.env.local` for local verification):
+
+```bash
+NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN=phc_your_project_token
+# Omit for PostHog US Cloud; use https://eu.i.posthog.com for EU Cloud.
+NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com
+```
+
+The integration loads only after the page is interactive, is disabled when the project token is missing, and has a `NEXT_PUBLIC_POSTHOG_ENABLED=false` kill switch. The Content Security Policy permits the official PostHog CDN, ingestion endpoint, and replay worker; a configured self-hosted host is added automatically at build time. Configure PostHog’s data-capture, session-replay, and consent settings to match the site’s privacy policy before enabling it in production.
+
+For custom browser events, import `posthog` from `posthog-js` in client-side code and call `posthog.capture("event_name", { property: "value" })`. If this site later adds authentication, identify users only with a stable internal ID after consent, and reset identity at logout.
 
 ## Performance and Dynamic Metrics
 

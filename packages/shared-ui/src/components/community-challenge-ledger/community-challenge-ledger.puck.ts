@@ -12,6 +12,7 @@ export const communityChallengeLedgerConfig = {
         name: { type: "text", label: "Project Name" },
         challenge: { type: "textarea", label: "Community Challenge" },
         contribution: { type: "textarea", label: "Contribution" },
+        category: { type: "text", label: "Category (optional)" },
         evidenceState: { type: "text", label: "Evidence State" },
         href: { type: "text", label: "Repository URL" },
       },

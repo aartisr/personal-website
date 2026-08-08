@@ -10,7 +10,7 @@ export default defineConfig({
   test: {
     environment: "node",
     globals: true,
-    include: ["src/**/*.test.ts"],
+    include: ["src/**/*.test.ts", "packages/shared-ui/src/**/*.test.ts"],
     coverage: {
       provider: "v8",
       reporter: ["text", "html"],

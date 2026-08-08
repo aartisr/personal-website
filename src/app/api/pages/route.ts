@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { listPages } from "@/lib/get-page-data";
+import { pageRepository } from "@/lib/content/page-repository";
 
 export async function GET() {
-  const pages = listPages();
+  const pages = pageRepository.list();
   return NextResponse.json(pages);
 }

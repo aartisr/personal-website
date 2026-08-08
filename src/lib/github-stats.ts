@@ -8,6 +8,9 @@ const DEFAULT_GITHUB_USER = "aartisr";
 const CACHE_TTL_MS = 60 * 60 * 1000;
 const HYDRATION_TIMEOUT_MS = 120;
 const ACTIVE_LOOKBACK_DAYS = 180;
+const GITHUB_METRICS_ENABLED_ENV = "GITHUB_METRICS_ENABLED";
+const ENABLED_ENV_VALUES = new Set(["1", "true", "yes", "on"]);
+const DISABLED_ENV_VALUES = new Set(["0", "false", "no", "off"]);
 const TRACK_TOPIC_ALLOWLIST = new Set([
   "research",
   "ai",
@@ -89,6 +92,27 @@ type GithubPublicEvent = {
 };
 
 let cache: { expiresAt: number; value: GithubStats } | null = null;
+
+/**
+ * Remote GitHub requests stay off during local development unless deliberately
+ * enabled. This keeps the page fast and avoids certificate-chain noise on
+ * managed networks, while production continues to use live metrics by default.
+ */
+export function isGithubMetricsEnabled(): boolean {
+  const configured = process.env[GITHUB_METRICS_ENABLED_ENV]
+    ?.trim()
+    .toLowerCase();
+
+  if (configured && ENABLED_ENV_VALUES.has(configured)) {
+    return true;
+  }
+
+  if (configured && DISABLED_ENV_VALUES.has(configured)) {
+    return false;
+  }
+
+  return process.env.NODE_ENV !== "development";
+}
 
 function getGithubUsername(): string {
   return process.env.GITHUB_USERNAME?.trim() || DEFAULT_GITHUB_USER;
@@ -486,6 +510,10 @@ export async function hydratePageGithubStats(
   _slug: string,
   data: Data
 ): Promise<Data> {
+  if (!isGithubMetricsEnabled()) {
+    return data;
+  }
+
   try {
     const stats = await Promise.race([
       getGithubStats(),

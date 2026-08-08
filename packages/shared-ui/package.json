@@ -9,7 +9,9 @@
     ".": "./src/index.ts",
     "./config": "./src/config.ts",
     "./contracts/page-contract": "./src/contracts/page-contract.ts",
-    "./utils/puck-summary": "./src/utils/puck-summary.ts"
+    "./utils/puck-summary": "./src/utils/puck-summary.ts",
+    "./utils/links": "./src/utils/links.ts",
+    "./utils/text": "./src/utils/text.ts"
   },
   "scripts": {
     "build": "tsc",

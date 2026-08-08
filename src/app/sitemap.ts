@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllBlogPosts } from "@/lib/blog";
-import { listPages } from "@/lib/get-page-data";
+import { pageRepository } from "@/lib/content/page-repository";
 import { getSiteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -32,7 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const staticPaths = new Set(staticPages.map((entry) => entry.url));
-  const puckPages: MetadataRoute.Sitemap = listPages()
+  const puckPages: MetadataRoute.Sitemap = pageRepository
+    .list()
     .filter(({ slug }) => !["my-page", "second-page", "test-page"].includes(slug))
     .map(({ slug }) => ({
       url: `${base}${slug === "homepage" ? "" : `/${slug}`}`,

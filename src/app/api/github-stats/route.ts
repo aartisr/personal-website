@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
-import { getGithubMetricPayload } from "@/lib/github-stats";
+import {
+  getGithubMetricPayload,
+  isGithubMetricsEnabled,
+} from "@/lib/github-stats";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -14,6 +17,14 @@ type FallbackPayload = {
   metrics: Record<string, never>;
 };
 
+function fallbackPayload(): FallbackPayload {
+  return {
+    ok: false,
+    source: "fallback",
+    metrics: {},
+  };
+}
+
 function cacheHeaders() {
   return {
     "Cache-Control": `public, s-maxage=${EDGE_CACHE_SECONDS}, stale-while-revalidate=${STALE_WHILE_REVALIDATE_SECONDS}`,
@@ -24,17 +35,20 @@ function timeoutPayload(): Promise<FallbackPayload> {
   return new Promise((resolve) => {
     setTimeout(
       () =>
-        resolve({
-          ok: false,
-          source: "fallback",
-          metrics: {},
-        }),
+        resolve(fallbackPayload()),
       API_TIMEOUT_MS
     );
   });
 }
 
 export async function GET() {
+  if (!isGithubMetricsEnabled()) {
+    return NextResponse.json(fallbackPayload(), {
+      status: 200,
+      headers: cacheHeaders(),
+    });
+  }
+
   try {
     const payload = await Promise.race([
       getGithubMetricPayload(),
@@ -47,11 +61,7 @@ export async function GET() {
     });
   } catch {
     return NextResponse.json(
-      {
-        ok: false,
-        source: "fallback",
-        metrics: {},
-      } satisfies FallbackPayload,
+      fallbackPayload(),
       {
         status: 200,
         headers: cacheHeaders(),

@@ -1,6 +1,26 @@
 import type { NextConfig } from "next";
 
 const isDevelopment = process.env.NODE_ENV !== "production";
+const buildOutputDirectory = process.env.NEXT_BUILD_OUTPUT_DIR?.trim() || ".next";
+const configuredPostHogHost = process.env.NEXT_PUBLIC_POSTHOG_HOST?.trim();
+
+function getCspSource(value: string | undefined): string | null {
+  if (!value) {
+    return null;
+  }
+
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" || url.protocol === "http:" ? url.origin : null;
+  } catch {
+    return null;
+  }
+}
+
+const postHogCspSource = getCspSource(configuredPostHogHost);
+const postHogScriptSources = ["https://*.posthog.com", postHogCspSource]
+  .filter((source): source is string => Boolean(source))
+  .join(" ");
 
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -9,16 +29,18 @@ const contentSecurityPolicy = [
   "frame-ancestors 'none'",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https:",
-  `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline' ${postHogScriptSources}${isDevelopment ? " 'unsafe-eval'" : ""}`,
   `style-src 'self' 'unsafe-inline'${isDevelopment ? " https: data: blob:" : ""}`,
   `style-src-elem 'self' 'unsafe-inline'${isDevelopment ? " https: data: blob:" : ""}`,
-  `connect-src 'self' https:${isDevelopment ? " ws: wss:" : ""}`,
+  `connect-src 'self' https: ${postHogScriptSources}${isDevelopment ? " ws: wss:" : ""}`,
+  "worker-src 'self' blob: data:",
   "object-src 'none'",
   ...(isDevelopment ? [] : ["upgrade-insecure-requests"]),
 ].join("; ");
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  distDir: buildOutputDirectory,
   transpilePackages: ["@kindoms/shared-ui"],
   experimental: {
     optimizePackageImports: ["lucide-react"],

@@ -11,6 +11,7 @@ This repository is a content-driven Next.js academic portfolio app with reusable
 - Composes UI blocks through Puck configuration.
 - Derives page metadata, JSON-LD, sitemap, robots, manifest, and social image routes.
 - Serves live provider data, such as GitHub metrics, through cached API routes instead of blocking page render.
+- Uses src/lib/content/page-repository.ts as the only filesystem-backed page-content boundary; routes do not construct content paths or parse page JSON.
 
 1. Shared UI layer (`packages/shared-ui`)
 
@@ -59,6 +60,8 @@ Rules:
 - Add new content sections as generic Puck blocks when they could be reused on more than one page.
 - Keep SEO/GEO data derived from page content where possible; use root props only for explicit overrides.
 
+Shared UI links and editor-provided text are normalized through packages/shared-ui/src/utils rather than copied into each block.
+
 ## SEO/GEO Model
 
 - Page metadata is derived in `src/lib/seo.ts` from root props and the leading hero block.
@@ -74,6 +77,14 @@ Rules:
 - `src/app/api/github-stats/route.ts` wraps GitHub data behind cache headers, an in-memory server cache, and a timeout fallback that returns an empty metric map instead of delaying the UI.
 - Shared UI components must stay provider-neutral. GitHub is represented as an endpoint payload, not as hard-coded route behavior inside visual components.
 - Below-the-fold sections use browser rendering containment where possible so long pages remain responsive on laptops and mobile devices.
+
+## Refactoring Conventions
+
+- Use pageRepository for page reads, writes, listings, and deletes. The get-page-data module is a backward-compatible facade only.
+- Keep route handlers thin: parse request context, call a domain guard or repository, then map the outcome to HTTP.
+- Put page-save protection rules in page-integrity so they can be unit-tested without importing a route.
+- Use the shared-ui text and link utilities whenever editor-provided strings or URLs are rendered.
+- Prefer small compatibility facades during internal migrations so stable import paths do not force unrelated changes.
 
 ## Extension Checklist
 

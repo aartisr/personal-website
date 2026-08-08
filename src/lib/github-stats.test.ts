@@ -4,6 +4,7 @@ import {
   __resetGithubStatsCacheForTests,
   getGithubMetricPayload,
   hydratePageGithubStats,
+  isGithubMetricsEnabled,
 } from "@/lib/github-stats";
 
 function buildHomepageData(): Data {
@@ -38,6 +39,26 @@ afterEach(() => {
   vi.restoreAllMocks();
   vi.unstubAllEnvs();
   __resetGithubStatsCacheForTests();
+});
+
+describe("isGithubMetricsEnabled", () => {
+  it("defaults remote metrics off in development without weakening TLS", () => {
+    vi.stubEnv("NODE_ENV", "development");
+
+    expect(isGithubMetricsEnabled()).toBe(false);
+
+    vi.stubEnv("GITHUB_METRICS_ENABLED", "true");
+    expect(isGithubMetricsEnabled()).toBe(true);
+
+    vi.stubEnv("GITHUB_METRICS_ENABLED", "false");
+    expect(isGithubMetricsEnabled()).toBe(false);
+  });
+
+  it("defaults remote metrics on outside development", () => {
+    vi.stubEnv("NODE_ENV", "production");
+
+    expect(isGithubMetricsEnabled()).toBe(true);
+  });
 });
 
 describe("hydratePageGithubStats", () => {

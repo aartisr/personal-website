@@ -30,6 +30,9 @@ export type { RoyalStyle } from "./components/royal/types";
 
 // Scroll reveal utilities
 export { useScrollReveal, getRevealStyles } from "./components/scroll-reveal";
+export { isExternalHref, normalizeLink, sanitizeHref } from "./utils/links";
+export { toText } from "./utils/text";
+export type { SafeLink } from "./utils/links";
 
 // Puck config
 export { createPuckConfig } from "./config";
