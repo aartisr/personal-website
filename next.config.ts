@@ -29,7 +29,7 @@ const contentSecurityPolicy = [
   "frame-ancestors 'none'",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https:",
-  `script-src 'self' 'unsafe-inline' ${postHogScriptSources}${isDevelopment ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline' https://www.clarity.ms ${postHogScriptSources}${isDevelopment ? " 'unsafe-eval'" : ""}`,
   `style-src 'self' 'unsafe-inline'${isDevelopment ? " https: data: blob:" : ""}`,
   `style-src-elem 'self' 'unsafe-inline'${isDevelopment ? " https: data: blob:" : ""}`,
   `connect-src 'self' https: ${postHogScriptSources}${isDevelopment ? " ws: wss:" : ""}`,
