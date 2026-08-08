@@ -14,10 +14,12 @@
 
 ## Delivery setup
 
-Set COLLABORATION_WEBHOOK_URL when an owned inbox or workflow is ready to
-receive submitted data. The existing SUPPORT_WEBHOOK_URL is used as a fallback.
-When neither is set, the API returns an honest delivery-unavailable response;
-it never claims that an inquiry was delivered when it was not.
+Set RESEND_API_KEY and COLLABORATION_FROM_EMAIL to use Resend as the preferred
+production delivery path. Resend sends to info@ai-aarti.com by default and
+uses the submitter email as Reply-To. The sender domain must be verified in
+Resend. COLLABORATION_WEBHOOK_URL and SUPPORT_WEBHOOK_URL remain fallbacks.
+When no delivery path is configured, the API returns an honest
+delivery-unavailable response; it never claims that an inquiry was delivered.
 
 The receiving workflow should retain only the information needed to decide
 fit, keep an owner and response status, and avoid forwarding personal details
