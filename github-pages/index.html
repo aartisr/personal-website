@@ -3,88 +3,439 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Source and research context for Aarti Sri Ravikumar's academic portfolio, including reproducibility, design system, and collaboration pathways." />
+    <meta
+      name="description"
+      content="An evidence-first portfolio for Aarti Sri Ravikumar: research notes, project methods, collaboration context, and the open source behind the experience."
+    />
     <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#101a38" />
     <link rel="canonical" href="https://aartisr.github.io/personal-website/" />
-    <title>Portfolio source &amp; research context · Aarti Sri Ravikumar</title>
+    <link rel="me" href="https://github.com/aartisr" />
+    <title>Research portfolio source · Aarti Sri Ravikumar</title>
     <style>
-      :root { color-scheme: light; --ink: #172038; --muted: #526079; --surface: #f7f9fc; --line: #dce3ee; --accent: #2547b6; }
+      :root {
+        color-scheme: light;
+        --canvas: #f6f7fb;
+        --paper: #ffffff;
+        --ink: #101a38;
+        --muted: #56627b;
+        --line: #dce3ef;
+        --accent: #3657d8;
+        --accent-dark: #243fa9;
+        --accent-wash: #edf1ff;
+        --mint: #d9f5ed;
+        --shadow: 0 18px 55px rgba(20, 34, 73, .09);
+      }
+
       * { box-sizing: border-box; }
-      body { margin: 0; color: var(--ink); background: var(--surface); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
-      main { width: min(100% - 2rem, 780px); margin: 0 auto; padding: 4.5rem 0; }
-      .eyebrow { margin: 0 0 .75rem; color: var(--accent); font-size: .8rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
-      h1 { max-width: 15ch; margin: 0; font-size: clamp(2.25rem, 7vw, 4.5rem); line-height: 1.03; letter-spacing: -.055em; }
-      .lede { max-width: 60ch; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); }
-      .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin: 2rem 0 3rem; }
-      a { color: var(--accent); }
-      .button { display: inline-flex; align-items: center; min-height: 2.75rem; padding: .55rem 1rem; border: 1px solid var(--accent); border-radius: .6rem; color: white; background: var(--accent); font-weight: 700; text-decoration: none; }
-      .button.secondary { color: var(--accent); background: transparent; }
-      section { margin-top: 2.5rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: 1rem; background: white; }
-      h2 { margin-top: 0; font-size: 1.25rem; letter-spacing: -.02em; }
-      ul { padding-left: 1.2rem; }
-      li + li { margin-top: .7rem; }
-      footer { margin-top: 2.5rem; color: var(--muted); font-size: .9rem; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 10% -10%, #dce5ff 0, transparent 30rem),
+          radial-gradient(circle at 100% 15%, #d9f5ed 0, transparent 25rem),
+          var(--canvas);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+
+      a { color: inherit; }
+
+      a:focus-visible {
+        outline: 3px solid #f2ac43;
+        outline-offset: 3px;
+      }
+
+      .shell { width: min(100% - 2rem, 1120px); margin: 0 auto; }
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.2rem 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: .7rem;
+        color: var(--ink);
+        font-weight: 800;
+        letter-spacing: -.02em;
+        text-decoration: none;
+      }
+
+      .mark {
+        display: grid;
+        width: 2rem;
+        aspect-ratio: 1;
+        place-items: center;
+        border-radius: .65rem;
+        color: white;
+        background: linear-gradient(145deg, var(--accent), #7b66dd);
+        box-shadow: 0 8px 20px rgba(54, 87, 216, .25);
+      }
+
+      .header-link {
+        color: var(--muted);
+        font-size: .93rem;
+        font-weight: 700;
+        text-underline-offset: .25em;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+        gap: clamp(2rem, 7vw, 6rem);
+        align-items: end;
+        padding: clamp(4rem, 10vw, 7.5rem) 0 clamp(3.5rem, 8vw, 6rem);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        margin: 0 0 1rem;
+        color: var(--accent-dark);
+        font-size: .76rem;
+        font-weight: 850;
+        letter-spacing: .13em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: .6rem;
+        height: .6rem;
+        border-radius: 999px;
+        background: #42a986;
+        content: "";
+      }
+
+      h1, h2, h3, p { margin-top: 0; }
+
+      h1 {
+        max-width: 12ch;
+        margin-bottom: 1.35rem;
+        font-size: clamp(3rem, 7.2vw, 6.1rem);
+        line-height: .97;
+        letter-spacing: -.07em;
+      }
+
+      .lede {
+        max-width: 60ch;
+        margin-bottom: 2rem;
+        color: var(--muted);
+        font-size: clamp(1.05rem, 2vw, 1.24rem);
+      }
+
+      .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+      .button {
+        display: inline-flex;
+        min-height: 3rem;
+        align-items: center;
+        justify-content: center;
+        padding: .65rem 1.05rem;
+        border: 1px solid var(--accent);
+        border-radius: .75rem;
+        color: white;
+        background: var(--accent);
+        box-shadow: 0 9px 18px rgba(54, 87, 216, .17);
+        font-size: .95rem;
+        font-weight: 750;
+        text-decoration: none;
+        transition: background .18s ease, transform .18s ease;
+      }
+
+      .button:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+      .button--quiet {
+        color: var(--accent-dark);
+        background: rgba(255, 255, 255, .6);
+        box-shadow: none;
+      }
+
+      .button--quiet:hover { background: white; }
+
+      .proof-card {
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, .8);
+        border-radius: 1.25rem;
+        background: rgba(255, 255, 255, .72);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(12px);
+      }
+
+      .proof-card p { color: var(--muted); font-size: .94rem; }
+      .proof-card p:last-child { margin-bottom: 0; }
+      .proof-card strong { display: block; margin-bottom: .2rem; font-size: 1.35rem; letter-spacing: -.04em; }
+
+      .section { padding: 4.5rem 0; }
+      .section--white { background: var(--paper); }
+      .section__heading { max-width: 43rem; margin-bottom: 2rem; }
+      .section__heading h2 { margin-bottom: .75rem; font-size: clamp(1.8rem, 4vw, 2.65rem); line-height: 1.08; letter-spacing: -.05em; }
+      .section__heading p { margin-bottom: 0; color: var(--muted); }
+
+      .principles {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .principle {
+        min-height: 15rem;
+        padding: 1.5rem;
+        border: 1px solid var(--line);
+        border-radius: 1rem;
+        background: var(--paper);
+      }
+
+      .number {
+        display: grid;
+        width: 2rem;
+        height: 2rem;
+        place-items: center;
+        margin-bottom: 2.8rem;
+        border-radius: .6rem;
+        color: var(--accent-dark);
+        background: var(--accent-wash);
+        font-size: .8rem;
+        font-weight: 850;
+      }
+
+      .principle h3 { margin-bottom: .5rem; font-size: 1.06rem; letter-spacing: -.025em; }
+      .principle p { margin-bottom: 0; color: var(--muted); font-size: .94rem; }
+
+      .link-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .9rem;
+      }
+
+      .destination {
+        position: relative;
+        display: block;
+        min-height: 10.2rem;
+        padding: 1.35rem;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 1rem;
+        background: var(--paper);
+        text-decoration: none;
+        transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+      }
+
+      .destination:hover {
+        border-color: #bdcaff;
+        box-shadow: var(--shadow);
+        transform: translateY(-2px);
+      }
+
+      .destination::after {
+        position: absolute;
+        right: 1.25rem;
+        bottom: 1rem;
+        color: var(--accent);
+        font-size: 1.2rem;
+        font-weight: 800;
+        content: "↗";
+      }
+
+      .destination--mint { background: linear-gradient(140deg, #fff, var(--mint)); }
+      .destination--blue { background: linear-gradient(140deg, #fff, var(--accent-wash)); }
+      .destination__type { margin: 0 0 .45rem; color: var(--accent-dark); font-size: .74rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+      .destination h3 { margin-bottom: .5rem; font-size: 1.13rem; letter-spacing: -.03em; }
+      .destination p { max-width: 28rem; margin-bottom: 0; color: var(--muted); font-size: .9rem; }
+
+      .source-panel {
+        display: grid;
+        grid-template-columns: 1.35fr auto;
+        gap: 1.5rem;
+        align-items: center;
+        padding: clamp(1.6rem, 5vw, 3.2rem);
+        border-radius: 1.3rem;
+        color: white;
+        background: #101a38;
+      }
+
+      .source-panel h2 { margin-bottom: .65rem; font-size: clamp(1.6rem, 4vw, 2.25rem); line-height: 1.05; letter-spacing: -.05em; }
+      .source-panel p { max-width: 48rem; margin-bottom: 0; color: #c8d2ef; }
+      .source-panel .button { color: #14225b; border-color: white; background: white; box-shadow: none; white-space: nowrap; }
+
+      footer { padding: 2.5rem 0 3rem; color: var(--muted); font-size: .9rem; }
+      .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+      .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+      .footer-links a { text-underline-offset: .25em; }
+
+      @media (max-width: 720px) {
+        .hero, .source-panel { grid-template-columns: 1fr; }
+        .hero { padding-top: 3.2rem; }
+        h1 { max-width: 11ch; }
+        .principles, .link-grid { grid-template-columns: 1fr; }
+        .principle { min-height: auto; }
+        .number { margin-bottom: 1.5rem; }
+      }
     </style>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "ProfilePage",
-        "name": "Portfolio source and research context",
-        "url": "https://aartisr.github.io/personal-website/",
-        "mainEntity": {
-          "@type": "Person",
-          "name": "Aarti Sri Ravikumar",
-          "url": "https://ai-aarti.com",
-          "sameAs": ["https://github.com/aartisr"]
-        },
-        "about": {
-          "@type": "SoftwareSourceCode",
-          "name": "personal-website",
-          "codeRepository": "https://github.com/aartisr/personal-website",
-          "url": "https://ai-aarti.com"
-        }
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": "https://aartisr.github.io/personal-website/#profile",
+            "name": "Research portfolio source · Aarti Sri Ravikumar",
+            "url": "https://aartisr.github.io/personal-website/",
+            "mainEntity": {
+              "@type": "Person",
+              "name": "Aarti Sri Ravikumar",
+              "url": "https://ai-aarti.com",
+              "sameAs": ["https://github.com/aartisr"]
+            }
+          },
+          {
+            "@type": "SoftwareSourceCode",
+            "name": "personal-website",
+            "codeRepository": "https://github.com/aartisr/personal-website",
+            "url": "https://ai-aarti.com",
+            "author": { "@type": "Person", "name": "Aarti Sri Ravikumar" }
+          },
+          {
+            "@type": "ItemList",
+            "name": "Portfolio destinations",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "url": "https://ai-aarti.com/" },
+              { "@type": "ListItem", "position": 2, "url": "https://ai-aarti.com/blog" },
+              { "@type": "ListItem", "position": 3, "url": "https://ai-aarti.com/support-center" },
+              { "@type": "ListItem", "position": 4, "url": "https://ai-aarti.com/honors-service" },
+              { "@type": "ListItem", "position": 5, "url": "https://ai-aarti.com/testimony" },
+              { "@type": "ListItem", "position": 6, "url": "https://ai-aarti.com/web3-proof" }
+            ]
+          }
+        ]
       }
     </script>
   </head>
   <body>
+    <header class="shell site-header">
+      <a class="brand" href="https://ai-aarti.com" aria-label="Visit Aarti Sri Ravikumar's portfolio">
+        <span class="mark" aria-hidden="true">A</span>
+        <span>Aarti Sri Ravikumar</span>
+      </a>
+      <a class="header-link" href="https://github.com/aartisr/personal-website">Open source ↗</a>
+    </header>
+
     <main>
-      <p class="eyebrow">Project provenance</p>
-      <h1>The source behind an evidence-first research portfolio.</h1>
-      <p class="lede">
-        This page explains how the portfolio is built, where its source lives,
-        and how to explore Aarti Sri Ravikumar’s research, writing, and
-        collaboration work. The primary portfolio is published at
-        <a href="https://ai-aarti.com">ai-aarti.com</a>.
-      </p>
-      <div class="actions">
-        <a class="button" href="https://ai-aarti.com">Visit the portfolio</a>
-        <a class="button secondary" href="https://github.com/aartisr/personal-website">Review the source</a>
-      </div>
-      <section>
-        <h2>Why this project exists</h2>
-        <p>The portfolio presents student research with clear methods, project context, and pathways for reviewers, collaborators, and learners. It is designed to make the work understandable before asking anyone to evaluate or contact its author.</p>
+      <section class="shell hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Research portfolio · project context</p>
+          <h1 id="page-title">Ideas with heart and intent.</h1>
+          <p class="lede">
+            A focused home for research, writing, and meaningful collaboration.
+            This companion page makes the source and structure behind
+            <a href="https://ai-aarti.com">ai-aarti.com</a> easy to understand,
+            while the portfolio remains the authoritative place to experience the work.
+          </p>
+          <div class="actions">
+            <a class="button" href="https://ai-aarti.com">Explore the portfolio</a>
+            <a class="button button--quiet" href="#destinations">Find the right starting point</a>
+          </div>
+        </div>
+        <aside class="proof-card" aria-label="Project summary">
+          <strong>Built for clear thinking.</strong>
+          <p>Research should be legible: what was explored, how it was approached, and where a curious reader can go next.</p>
+          <p><a href="https://github.com/aartisr/personal-website">View the implementation and project history ↗</a></p>
+        </aside>
       </section>
-      <section>
-        <h2>What the repository documents</h2>
-        <ul>
-          <li>A Next.js portfolio with CMS-editable pages and reusable UI components.</li>
-          <li>Structured metadata, a sitemap, robots directives, and accessible social sharing.</li>
-          <li>Content and architecture that make research claims easier to trace to their source.</li>
-          <li>Performance-oriented delivery that keeps nonessential metrics off the initial render path.</li>
-        </ul>
+
+      <section class="section section--white">
+        <div class="shell">
+          <div class="section__heading">
+            <h2>Evidence first. People always.</h2>
+            <p>The portfolio is designed as a useful orientation layer—not a collection of disconnected claims—so visitors can move from an idea to its context with confidence.</p>
+          </div>
+          <div class="principles">
+            <article class="principle">
+              <div class="number">01</div>
+              <h3>Make the work traceable</h3>
+              <p>Methods, writing, and project context give each idea a clear path back to its source.</p>
+            </article>
+            <article class="principle">
+              <div class="number">02</div>
+              <h3>Respect a reader’s time</h3>
+              <p>Fast, accessible pages and intentional navigation help people find relevance without unnecessary friction.</p>
+            </article>
+            <article class="principle">
+              <div class="number">03</div>
+              <h3>Invite better collaboration</h3>
+              <p>Practical context helps mentors, peers, and prospective collaborators start from shared understanding.</p>
+            </article>
+          </div>
+        </div>
       </section>
-      <section>
-        <h2>Start with the right place</h2>
-        <ul>
-          <li><a href="https://ai-aarti.com">Portfolio home</a> — an overview of the work and its current direction.</li>
-          <li><a href="https://ai-aarti.com/blog">Research notes</a> — writing, field memos, and ongoing thinking.</li>
-          <li><a href="https://ai-aarti.com/support-center">Collaboration support</a> — practical information for potential collaborators.</li>
-          <li><a href="https://github.com/aartisr/personal-website">Repository</a> — implementation details and contribution context.</li>
-        </ul>
+
+      <section id="destinations" class="shell section" aria-labelledby="destinations-title">
+        <div class="section__heading">
+          <h2 id="destinations-title">Choose the path that matches your question.</h2>
+          <p>These are purposeful entry points into the primary portfolio. Each offers original context for a different kind of visitor.</p>
+        </div>
+        <div class="link-grid">
+          <a class="destination destination--blue" href="https://ai-aarti.com">
+            <p class="destination__type">Portfolio</p>
+            <h3>Start with the big picture</h3>
+            <p>Explore current focus areas, featured work, and the portfolio’s evidence-first point of view.</p>
+          </a>
+          <a class="destination" href="https://ai-aarti.com/blog">
+            <p class="destination__type">Writing</p>
+            <h3>Read research notes</h3>
+            <p>Find field memos, reflections, and writing that makes the thinking behind the work visible.</p>
+          </a>
+          <a class="destination destination--mint" href="https://ai-aarti.com/support-center">
+            <p class="destination__type">Collaboration</p>
+            <h3>Plan a useful next step</h3>
+            <p>See practical support and collaboration context for turning interest into a well-scoped conversation.</p>
+          </a>
+          <a class="destination" href="https://ai-aarti.com/honors-service">
+            <p class="destination__type">Service</p>
+            <h3>Explore honors &amp; service</h3>
+            <p>Discover commitments and contributions that connect research to a wider community.</p>
+          </a>
+          <a class="destination" href="https://ai-aarti.com/testimony">
+            <p class="destination__type">Journey</p>
+            <h3>Follow the roadmap</h3>
+            <p>Understand the longer arc of the work, the values behind it, and where it is heading.</p>
+          </a>
+          <a class="destination destination--blue" href="https://ai-aarti.com/web3-proof">
+            <p class="destination__type">Authenticity</p>
+            <h3>Review digital proof</h3>
+            <p>Explore the portfolio’s approach to provenance, authorship, and verifiable project context.</p>
+          </a>
+        </div>
       </section>
-      <footer>
-        <p>This is a project-context page, not a duplicate portfolio. For the authoritative presentation of the work, visit <a href="https://ai-aarti.com">ai-aarti.com</a>.</p>
-      </footer>
+
+      <section class="shell section" aria-labelledby="source-title">
+        <div class="source-panel">
+          <div>
+            <h2 id="source-title">The source is part of the story.</h2>
+            <p>This open repository documents the system that presents the portfolio: reusable components, editable content, performance safeguards, and search-ready metadata.</p>
+          </div>
+          <a class="button" href="https://github.com/aartisr/personal-website">Review the source ↗</a>
+        </div>
+      </section>
     </main>
+
+    <footer class="shell">
+      <div class="footer-row">
+        <span>© Aarti Sri Ravikumar · Project context for ai-aarti.com</span>
+        <nav class="footer-links" aria-label="Important portfolio links">
+          <a href="https://ai-aarti.com/privacy-policy">Privacy</a>
+          <a href="https://ai-aarti.com/terms-of-service">Terms</a>
+          <a href="https://github.com/aartisr">GitHub</a>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>
