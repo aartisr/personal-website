@@ -35,13 +35,15 @@ function normalizeHost(value: string | undefined): string | null {
  * production environments safe to configure independently.
  */
 export function getPostHogConfig(): PostHogConfig | null {
-  const projectToken = process.env[postHogProjectTokenEnvVar]?.trim();
+  // Keep these as direct references. Next.js only inlines NEXT_PUBLIC_* values
+  // into browser bundles when their property names are statically known.
+  const projectToken = process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN?.trim();
 
-  if (!projectToken || isExplicitlyDisabled(process.env[postHogEnabledEnvVar])) {
+  if (!projectToken || isExplicitlyDisabled(process.env.NEXT_PUBLIC_POSTHOG_ENABLED)) {
     return null;
   }
 
-  const host = normalizeHost(process.env[postHogHostEnvVar]);
+  const host = normalizeHost(process.env.NEXT_PUBLIC_POSTHOG_HOST);
 
   return host ? { projectToken, host } : null;
 }

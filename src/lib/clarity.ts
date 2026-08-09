@@ -1,7 +1,8 @@
 export const clarityProjectIdEnvVar = "NEXT_PUBLIC_MICROSOFT_CLARITY_ID";
 
 export function getMicrosoftClarityProjectId(): string | null {
-  const projectId = process.env[clarityProjectIdEnvVar]?.trim();
+  // Keep this direct for Next.js browser-bundle environment inlining.
+  const projectId = process.env.NEXT_PUBLIC_MICROSOFT_CLARITY_ID?.trim();
 
   return projectId || null;
 }
