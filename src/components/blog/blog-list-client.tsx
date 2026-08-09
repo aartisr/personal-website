@@ -3,19 +3,12 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { BlogPost } from "@/lib/blog";
+import { formatEditorialDate } from "@kindoms/shared-ui/utils/date";
 
 type BlogListClientProps = {
   posts: BlogPost[];
   tags: string[];
 };
-
-function formatDate(value: string) {
-  return new Date(value).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
 
 export function BlogListClient({ posts, tags }: BlogListClientProps) {
   const [query, setQuery] = useState("");
@@ -96,7 +89,7 @@ export function BlogListClient({ posts, tags }: BlogListClientProps) {
               dateTime={post.date}
               className="text-xs uppercase tracking-wider text-[color:var(--primary)]"
             >
-              {formatDate(post.date)}
+              {formatEditorialDate(post.date)}
             </time>
             <h2 className="mt-2 text-2xl font-semibold text-[color:var(--foreground)]">
               <Link href={`/blog/${post.slug}`} className="hover:underline">

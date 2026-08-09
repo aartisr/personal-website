@@ -1,4 +1,5 @@
 import React from "react";
+import { formatEditorialDate } from "../../utils/date";
 
 export type BlogPost = {
   title: string;
@@ -15,18 +16,6 @@ export type BlogSectionProps = {
   description: string;
   posts: BlogPost[];
 };
-
-function formatDate(dateStr: string) {
-  try {
-    return new Date(dateStr).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  } catch {
-    return dateStr;
-  }
-}
 
 export function BlogSection({
   anchorId = "blog",
@@ -79,7 +68,7 @@ export function BlogSection({
                     dateTime={post.date}
                     className="text-xs font-medium uppercase tracking-wider mb-3 text-[color:var(--primary)]"
                   >
-                    {formatDate(post.date)}
+                    {formatEditorialDate(post.date)}
                   </time>
                 )}
                 <h3 className="text-lg font-semibold leading-snug mb-2 group-hover:underline text-[color:var(--foreground)]">
