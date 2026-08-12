@@ -123,6 +123,7 @@ export const headerConfig = {
       { label: "Research", href: "/#research" },
       { label: "Method", href: "/#method" },
       { label: "Writing", href: "/blog" },
+      { label: "Honors", href: "/honors-service" },
       { label: "Journey", href: "/testimony" },
       { label: "Contact", href: "/support-center" },
     ],

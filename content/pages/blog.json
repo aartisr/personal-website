@@ -1,0 +1,8 @@
+{
+  "root": { "props": { "title": "Research Notes & Field Memos | Aarti Sri Ravikumar", "description": "Research notes on software engineering, resilient learning systems, project execution, and clear academic communication." } },
+  "content": [
+    { "type": "HeroSection", "props": { "id": "HeroSection-1", "variant": "editorial", "heading": "Research notes that make the work easier to inspect.", "subheading": "Writing · method · field memos", "description": "Short, practical writing about research, software, clear communication, and the decisions that turn an early question into useful work.", "primaryCta": { "label": "Browse published notes", "href": "#articles" }, "secondaryCta": { "label": "Explore research", "href": "/#research" }, "image": "", "imageAlt": "Research notes", "highlights": [{ "text": "Clear reasoning" }, { "text": "Practical methods" }, { "text": "Open learning" }], "proofPoints": [], "animation": "fade-in", "royalStyle": "none" } },
+    { "type": "BlogDirectory", "props": { "id": "BlogDirectory-2", "anchorId": "articles", "heading": "Published research notes", "description": "Search by theme or read the latest field memos.", "emptyMessage": "No published notes match this search yet. Try another theme or check back soon." } },
+    { "type": "CTASection", "props": { "id": "CTASection-3", "variant": "banner", "heading": "Have a research, mentoring, or technical question?", "description": "Use the collaboration path to begin a focused conversation with enough context to make it useful.", "primaryCta": { "label": "Start collaboration", "href": "/collaborate" }, "secondaryCta": { "label": "Review GitHub", "href": "https://github.com/aartisr" }, "royalStyle": "none" } }
+  ]
+}

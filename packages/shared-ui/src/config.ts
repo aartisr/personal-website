@@ -42,6 +42,12 @@ import { AudienceRouter } from "./components/audience-router/audience-router";
 import { audienceRouterConfig } from "./components/audience-router/audience-router.puck";
 import { CollaborationIntake } from "./components/collaboration-intake/collaboration-intake";
 import { collaborationIntakeConfig } from "./components/collaboration-intake/collaboration-intake.puck";
+import { RecognitionLedger } from "./components/recognition-ledger/recognition-ledger";
+import { recognitionLedgerConfig } from "./components/recognition-ledger/recognition-ledger.puck";
+import { WalletProofBlock } from "./components/wallet-proof/wallet-proof";
+import { walletProofConfig } from "./components/wallet-proof/wallet-proof.puck";
+import { BlogDirectory } from "./components/blog-directory/blog-directory";
+import { blogDirectoryConfig } from "./components/blog-directory/blog-directory.puck";
 
 // Puck wraps component props with {id, puck} — cast to satisfy strict typing
 // while keeping runtime behavior correct (Puck passes all declared fields)
@@ -70,6 +76,9 @@ export function createPuckConfig(): Config {
           "TimelineSection",
           "CommunityChallengeLedger",
           "AudienceRouter",
+          "RecognitionLedger",
+          "WalletProof",
+          "BlogDirectory",
         ],
       },
       social: {
@@ -164,6 +173,9 @@ export function createPuckConfig(): Config {
       },
       AudienceRouter: { ...audienceRouterConfig, render: r(AudienceRouter) },
       CollaborationIntake: { ...collaborationIntakeConfig, render: r(CollaborationIntake) },
+      RecognitionLedger: { ...recognitionLedgerConfig, render: r(RecognitionLedger) },
+      WalletProof: { ...walletProofConfig, render: r(WalletProofBlock) },
+      BlogDirectory: { ...blogDirectoryConfig, render: r(BlogDirectory) },
     },
   };
 }

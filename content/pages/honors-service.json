@@ -1,9 +1,9 @@
 {
   "root": {
     "props": {
-      "title": "Honors & Service | Aarti Sri Ravikumar",
-      "description": "Aarti Sri Ravikumar's honors, service, leadership, and voluntary contribution dossier, organized around evidence, context, impact, and reflection.",
-      "keywords": "Aarti Sri Ravikumar honors, Aarti Ravikumar awards, student service portfolio, volunteer work, leadership, academic recognition, college admissions portfolio"
+      "title": "Recognition & Accomplishments | Aarti Sri Ravikumar",
+      "description": "A verified record of science-fair recognition, innovation awards, academic leadership, and community-minded projects by Aarti Sri Ravikumar, Founder & CEO of ai-aarti.com.",
+      "keywords": "Aarti Sri Ravikumar honors, Aarti Ravikumar awards, Broadcom Coding with Commitment Award, Citadel Securities Innovation Prize, science fair, student innovation"
     }
   },
   "content": [
@@ -50,9 +50,9 @@
       "props": {
         "id": "HeroSection-1",
         "variant": "editorial",
-        "heading": "Honors & Service",
-        "subheading": "Distinction in service of learning",
-        "description": "A dossier for earned recognition, voluntary contribution, leadership, and community-facing work. Each signal is framed with context, evidence, impact, and reflection so reviewers can see not only what was achieved, but what it changed.",
+        "heading": "Recognition earned through useful work.",
+        "subheading": "Founder & CEO, ai-aarti.com · Honors, innovation, and community-minded problem solving",
+        "description": "Aarti Sri Ravikumar’s record connects science-fair recognition, advanced mathematical inquiry, code, and student-centered tools. As Founder & CEO of ai-aarti.com, Aarti presents each entry with its issuer, project context, and public evidence path—so the work can speak clearly without exaggeration.",
         "highlights": [
           { "text": "Recognition with context" },
           { "text": "Service with impact" },
@@ -61,35 +61,97 @@
         "proofPoints": [
           {
             "value": "4",
-            "label": "Evaluation lenses",
+            "label": "Documented 2026 recognition signals",
             "prefix": "",
             "suffix": ""
           },
           {
-            "value": "5",
-            "label": "Honors-ready slots",
+            "value": "3",
+            "label": "Independent public sources",
             "prefix": "",
             "suffix": ""
           },
           {
             "value": "1",
-            "label": "Verification standard",
+            "label": "Evidence-led record",
             "prefix": "",
             "suffix": ""
           }
         ],
         "primaryCta": {
-          "label": "Review Framework",
-          "href": "#framework"
+          "label": "View recognition record",
+          "href": "#recognition-record"
         },
         "secondaryCta": {
-          "label": "See Service Arc",
-          "href": "#service-arc"
+          "label": "See the work behind it",
+          "href": "/#research"
         },
         "image": "https://avatars.githubusercontent.com/u/166765628?v=4",
         "imageAlt": "Aarti Sri Ravikumar",
         "animation": "fade-in",
         "royalStyle": "none"
+      }
+    },
+    {
+      "type": "RecognitionLedger",
+      "props": {
+        "id": "RecognitionLedger-12",
+        "anchorId": "recognition-record",
+        "eyebrow": "Verified recognition record",
+        "heading": "A concise record of recognition, with the work in view.",
+        "description": "These entries are limited to awards, advancement, and school recognition supported by a public organizer, school, or published source. The record will grow only when the award title, issuer, date, and evidence can be documented responsibly.",
+        "verificationNote": "“Documented” means a public source is linked. A project description explains context; it does not claim a measured impact beyond what the evidence supports.",
+        "records": [
+          {
+            "title": "Broadcom Coding with Commitment® Award",
+            "issuer": "Broadcom Foundation · Massachusetts Science & Engineering Fair",
+            "year": "2026",
+            "location": "Clark University, Worcester, Massachusetts",
+            "category": "Innovation & AI",
+            "recognition": "Received the middle-school special award at the Massachusetts Science & Engineering Fair for using coding and STEM skills in a real-world problem context.",
+            "project": "Fractal Exploration — self-built code, advanced mathematics, and image analysis exploring fractal patterns, image-comparison models, and limits of AI systems.",
+            "note": "The project’s published coverage emphasizes technical depth, presentation, and educational potential; this page does not infer broader real-world outcomes from the award.",
+            "evidenceUrl": "https://scifair.com/wp-content/uploads/2026/05/2026-MSEF-Middle-School-Award-Winners.pdf",
+            "evidenceLabel": "MSEF award-winners list",
+            "verification": "Documented"
+          },
+          {
+            "title": "Citadel Securities Innovation Prize",
+            "issuer": "Region IV Science Fair",
+            "year": "2026",
+            "location": "UMass Lowell, Lowell, Massachusetts",
+            "category": "Math & science",
+            "recognition": "Won the Citadel Securities Innovation Prize at the Region IV Science Fair.",
+            "project": "Science-fair project presented as part of PCSS II’s Region IV delegation. The public school announcement verifies the award and advancement record; the project title will be linked when an official source is available.",
+            "evidenceUrl": "https://saugus.pioneercss.org/apps/news/show_news.jsp?REC_ID=1012125&id=0",
+            "evidenceLabel": "PCSS II announcement",
+            "verification": "Documented"
+          },
+          {
+            "title": "Thermo Fisher Junior Innovators Challenge advancement",
+            "issuer": "Region IV Science Fair",
+            "year": "2026",
+            "location": "UMass Lowell, Lowell, Massachusetts",
+            "category": "School & regional fairs",
+            "recognition": "Advanced as one of the top 10 projects at the fair to the Thermo Fisher Junior Innovators Challenge.",
+            "project": "The advancement is presented as a competition result, not as a claim of final placement in the national challenge.",
+            "evidenceUrl": "https://saugus.pioneercss.org/apps/news/show_news.jsp?REC_ID=1012125&id=0",
+            "evidenceLabel": "PCSS II announcement",
+            "verification": "Documented"
+          },
+          {
+            "title": "Principal’s Award",
+            "issuer": "Pioneer Charter School of Science II",
+            "year": "2026",
+            "location": "Saugus, Massachusetts",
+            "category": "Community problem-solving",
+            "recognition": "Named a middle-school recipient of the Principal’s Award, recognizing leadership, kindness, perseverance, academic excellence, service, and school spirit through the school’s nomination and review process.",
+            "project": "The school cited Aether Student Resiliency Platform and Student Productivity Hub as tools created to support student well-being, academic success, and collaboration among peers.",
+            "evidenceUrl": "https://saugus.pioneercss.org/apps/news/show_news.jsp?REC_ID=1020888&id=0",
+            "evidenceLabel": "PCSS II announcement",
+            "verification": "Documented"
+          }
+        ]
       }
     },
     {
@@ -103,25 +165,25 @@
         "stats": [
           {
             "value": "4",
-            "label": "Evaluation Lenses",
+            "label": "Documented Recognition Signals",
             "prefix": "",
             "suffix": ""
           },
           {
-            "value": "25",
-            "label": "Evidence Ledgers",
+            "value": "3",
+            "label": "Independent Public Sources",
             "prefix": "",
             "suffix": ""
           },
           {
-            "value": "1",
-            "label": "Service Thesis",
+            "value": "2",
+            "label": "Student Tools Cited by PCSS II",
             "prefix": "",
             "suffix": ""
           },
           {
-            "value": "All",
-            "label": "Claims Verified",
+            "value": "2026",
+            "label": "Current Recognition Record",
             "prefix": "",
             "suffix": ""
           }
@@ -132,7 +194,7 @@
       "type": "ResearchShowcase",
       "props": {
         "id": "ResearchShowcase-3",
-        "anchorId": "framework",
+        "anchorId": "recognition-method",
         "eyebrow": "Recognition framework",
         "heading": "Achievements are strongest when they show contribution, not decoration.",
         "description": "The page is organized for selective academic review: earned distinction, sustained voluntary work, leadership behavior, and evidence that can be checked without guesswork.",
@@ -415,7 +477,7 @@
         "affiliation": "Pioneer Charter School of Science II",
         "location": "Saugus, Massachusetts",
         "availability": "Open to thoughtful academic and technical collaboration when the question, scope, timeline, and evidence standard are clear.",
-        "citation": "Aarti Sri Ravikumar. Student Research Portfolio. 2026. https://ai-aarti.com",
+        "citation": "Aarti Sri Ravikumar, Founder & CEO, ai-aarti.com. Recognition & Accomplishments Record. 2026. https://ai-aarti.com",
         "primaryAction": {
           "label": "Start Collaboration",
           "href": "/support-center"

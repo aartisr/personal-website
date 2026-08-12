@@ -53,8 +53,8 @@
         "id": "HeroSection-1",
         "variant": "editorial",
         "heading": "Ideas with heart and intent. Systems with impact.",
-        "subheading": "Aarti Sri Ravikumar • Student social entrepreneur • Saugus, Massachusetts",
-        "description": "ai-aarti.com is the registered business and public portfolio of student social entrepreneur Aarti Sri Ravikumar. Aarti turns curiosity into practical projects for communities—from student resilience and climate understanding to learning tools and civic information. Each project begins with a simple question: how can this make life clearer, kinder, or more possible for someone?",
+        "subheading": "Aarti Sri Ravikumar • Founder & CEO, ai-aarti.com • Saugus, Massachusetts",
+        "description": "ai-aarti.com is the company and public portfolio led by Founder & CEO Aarti Sri Ravikumar. Aarti turns curiosity into practical, research-informed projects for communities—from student resilience and climate understanding to learning tools and civic information. Each project begins with a simple question: how can this make life clearer, kinder, or more possible for someone?",
         "highlights": [
           { "text": "Community-first" },
           { "text": "Research-informed" },
@@ -324,7 +324,7 @@
         "id": "AboutSection-5",
         "anchorId": "profile",
         "heading": "Academic Profile",
-        "body": "Aarti Sri Ravikumar is a student at Pioneer Charter School of Science II (PCSS-II) in Saugus, Massachusetts and the student social entrepreneur behind ai-aarti.com, a registered business.\n\nAarti’s work brings together research-informed software, clear technical writing, and systems that make learning and collaboration easier to navigate.\n\nai-aarti.com is a living record of that work. It gives mentors, educators, collaborators, and future reviewers a clear view of Aarti’s direction, evidence, and growth—without requiring them to piece together scattered links.",
+        "body": "Aarti Sri Ravikumar is Founder & CEO of ai-aarti.com and a student at Pioneer Charter School of Science II (PCSS-II) in Saugus, Massachusetts.\n\nAarti’s work brings together research-informed software, clear technical writing, and systems that make learning and collaboration easier to navigate.\n\nai-aarti.com is the company’s public record of that work. It gives mentors, educators, collaborators, and future reviewers a clear view of Aarti’s direction, evidence, and growth—without requiring them to piece together scattered links.",
         "image": "https://avatars.githubusercontent.com/u/166765628?v=4",
         "imageAlt": "Aarti Sri Ravikumar",
         "reverse": true,
@@ -500,7 +500,7 @@
         "affiliation": "Pioneer Charter School of Science II",
         "location": "Saugus, Massachusetts",
         "availability": "Open to thoughtful academic and technical collaboration when the question, scope, timeline, and evidence standard are clear.",
-        "citation": "ai-aarti.com. The registered business and public portfolio of Aarti Sri Ravikumar. 2026.",
+        "citation": "ai-aarti.com. Public portfolio and company record led by Founder & CEO Aarti Sri Ravikumar. 2026.",
         "primaryAction": {
           "label": "Start Collaboration",
           "href": "/collaborate"

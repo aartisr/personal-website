@@ -1,0 +1,50 @@
+{
+  "root": {
+    "props": {
+      "title": "Authenticity Proof | Aarti Sri Ravikumar",
+      "description": "Verify a wallet-based authenticity signal for Aarti Sri Ravikumar's student research portfolio."
+    }
+  },
+  "content": [
+    {
+      "type": "HeroSection",
+      "props": {
+        "id": "HeroSection-1",
+        "variant": "editorial",
+        "heading": "Authenticity proof, explained clearly.",
+        "subheading": "Portfolio provenance",
+        "description": "This optional proof path uses wallet control and a cryptographic signature check as one transparent identity signal. It is not a replacement for reviewing the projects, writing, and public evidence behind the portfolio.",
+        "primaryCta": { "label": "Verify the signal", "href": "#wallet-proof" },
+        "secondaryCta": { "label": "Return to research", "href": "/#research" },
+        "image": "",
+        "imageAlt": "Wallet authenticity proof",
+        "highlights": [{ "text": "Optional" }, { "text": "Cryptographic" }, { "text": "Transparent" }],
+        "proofPoints": [],
+        "animation": "fade-in",
+        "royalStyle": "none"
+      }
+    },
+    {
+      "type": "WalletProof",
+      "props": {
+        "id": "WalletProof-2",
+        "anchorId": "wallet-proof",
+        "heading": "Verify a wallet-based authenticity signal",
+        "description": "Connect a compatible wallet and sign the presented message to demonstrate control of that wallet. No transaction is requested.",
+        "note": "Wallet control is one limited identity signal. Review the portfolio's public projects, documentation, and source links for broader evidence of authorship and work."
+      }
+    },
+    {
+      "type": "CTASection",
+      "props": {
+        "id": "CTASection-3",
+        "variant": "banner",
+        "heading": "Evidence belongs in context.",
+        "description": "Explore the research record, writing, and project evidence that make this portfolio useful to review.",
+        "primaryCta": { "label": "Explore research", "href": "/#research" },
+        "secondaryCta": { "label": "View GitHub", "href": "https://github.com/aartisr" },
+        "royalStyle": "none"
+      }
+    }
+  ]
+}

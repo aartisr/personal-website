@@ -1,4 +1,3 @@
-import "server-only";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { dirname, join } from "path";
 import type { Data } from "@puckeditor/core";

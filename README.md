@@ -36,6 +36,9 @@ Open `http://localhost:3000` for the site.
 - `http://localhost:3000/admin` — page dashboard
 - `http://localhost:3000/admin/edit` — edit homepage
 - `http://localhost:3000/admin/edit/<slug>` — edit any page by slug
+- `http://localhost:3000/admin/edit/blog` — edit the blog landing page, discovery copy, and calls to action
+- `http://localhost:3000/admin/edit/web3-proof` — edit the wallet-proof page while preserving the verification control
+- `http://localhost:3000/admin/edit/honors-service` — edit the Recognition Ledger and add verified future accomplishments
 - `http://localhost:3000/admin/edit/layout` — global layout hub
 - `http://localhost:3000/admin/edit/layout/header` — edit global reusable header component
 - `http://localhost:3000/admin/edit/layout/footer` — edit global reusable footer component
