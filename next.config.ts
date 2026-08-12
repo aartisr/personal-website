@@ -48,6 +48,18 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  async redirects() {
+    return [
+      { source: "/features", destination: "/#research", permanent: true },
+      { source: "/pricing", destination: "/collaborate", permanent: true },
+      { source: "/changelog", destination: "/testimony", permanent: true },
+      { source: "/roadmap", destination: "/testimony", permanent: true },
+      { source: "/about", destination: "/#profile", permanent: true },
+      { source: "/careers", destination: "/collaborate", permanent: true },
+      { source: "/contact", destination: "/collaborate", permanent: true },
+      { source: "/cookies", destination: "/privacy-policy", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

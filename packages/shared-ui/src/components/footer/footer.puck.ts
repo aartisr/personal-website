@@ -124,17 +124,17 @@ export const footerConfig = {
   },
   defaultProps: {
     logo: "/ravi-aarti-infinity-logo.svg",
-    logoAlt: "All Inclusive Aarti",
-    brandName: "All Inclusive Aarti (ai-aarti)",
-    eyebrow: "Student Research Portfolio",
+    logoAlt: "ai-aarti.com",
+    brandName: "ai-aarti.com",
+    eyebrow: "Research, innovation & community impact",
     tagline:
-      "Knowledge is boundless, kindness is the path, and enlightenment emerges from the sacred balance of rising aspiration and grounded wisdom. All are included.",
+      "The company and public portfolio led by Founder & CEO Aarti Sri Ravikumar: research-informed software, mathematical inquiry, and useful systems for communities.",
     affiliation: "Pioneer Charter School of Science II",
     location: "Saugus, Massachusetts",
     availability:
-      "Open to thoughtful academic and technical collaboration with clear questions, scope, and evidence standards.",
+      "Open to thoughtful academic, technical, and community collaboration with clear questions, scope, and evidence standards.",
     citation:
-      "All Inclusive Aarti. Academic and Kindness Research Portfolio. 2026. https://ai-aarti.com",
+      "ai-aarti.com. Research, innovation, and community-impact portfolio led by Founder & CEO Aarti Sri Ravikumar. 2026.",
     primaryAction: {
       label: "Start Collaboration",
       href: "/collaborate",
@@ -151,29 +151,30 @@ export const footerConfig = {
     ],
     columns: [
       {
-        title: "Product",
+        title: "Explore",
         links: [
-          { label: "Features", href: "/features" },
-          { label: "Pricing", href: "/pricing" },
-          { label: "Changelog", href: "/changelog" },
-          { label: "Roadmap", href: "/roadmap" },
+          { label: "Research agenda", href: "/#research" },
+          { label: "Community work", href: "/#community-work" },
+          { label: "Method", href: "/#method" },
+          { label: "Recognition record", href: "/honors-service" },
         ],
       },
       {
-        title: "Company",
+        title: "Learn & connect",
         links: [
-          { label: "About", href: "/about" },
-          { label: "Blog", href: "/blog" },
-          { label: "Careers", href: "/careers" },
-          { label: "Contact", href: "/contact" },
+          { label: "Research notes", href: "/blog" },
+          { label: "Academic journey", href: "/testimony" },
+          { label: "Collaboration", href: "/collaborate" },
+          { label: "Support center", href: "/support-center" },
         ],
       },
       {
-        title: "Legal",
+        title: "Trust & policies",
         links: [
           { label: "Privacy Policy", href: "/privacy-policy" },
           { label: "Terms of Service", href: "/terms-of-service" },
-          { label: "Cookie Policy", href: "/cookies" },
+          { label: "Authenticity proof", href: "/web3-proof" },
+          { label: "GitHub profile", href: "https://github.com/aartisr" },
         ],
       },
     ],
@@ -186,6 +187,6 @@ export const footerConfig = {
       { label: "Terms", href: "/terms-of-service" },
       { label: "Support", href: "/support-center" },
     ],
-    copyright: `© ${new Date().getFullYear()} Your Company. All rights reserved.`,
+    copyright: `© ${new Date().getFullYear()} ai-aarti.com. All rights reserved.`,
   },
 };

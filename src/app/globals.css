@@ -15,6 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
   position: relative;
+  min-width: 20rem;
 }
 
 body::before {
@@ -46,6 +47,7 @@ body::before {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
 }
 
 
@@ -58,6 +60,20 @@ canvas {
 
 :where(h1, h2, h3, h4, h5, h6, p, li, dt, dd) {
   overflow-wrap: break-word;
+}
+
+:where(section[id], article[id], div[id]) {
+  scroll-margin-top: 7rem;
+}
+
+:where(a, button, input, select, textarea, summary) {
+  touch-action: manipulation;
+}
+
+@media (max-width: 639px) {
+  :where(input, select, textarea) {
+    font-size: 16px;
+  }
 }
 
 #main-content > section:nth-of-type(n + 3) {
