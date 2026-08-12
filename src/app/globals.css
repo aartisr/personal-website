@@ -84,3 +84,20 @@ canvas {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
+
+::selection {
+  background: color-mix(in oklch, var(--secondary) 56%, white);
+  color: var(--foreground);
+}
+
+.research-showcase-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.research-showcase-details[open] .research-showcase-details-icon {
+  transform: rotate(180deg);
+}
+
+.research-showcase-details-icon {
+  transition: transform 180ms ease;
+}

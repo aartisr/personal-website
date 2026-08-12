@@ -11,6 +11,7 @@
     "./contracts/page-contract": "./src/contracts/page-contract.ts",
     "./utils/puck-summary": "./src/utils/puck-summary.ts",
     "./utils/links": "./src/utils/links.ts",
+    "./utils/date": "./src/utils/date.ts",
     "./utils/text": "./src/utils/text.ts"
   },
   "scripts": {

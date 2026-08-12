@@ -1,4 +1,4 @@
-import { ArrowUpRight, FileText, Microscope } from "lucide-react";
+import { ArrowUpRight, ChevronDown, FileText, Microscope } from "lucide-react";
 
 export type ResearchShowcaseItem = {
   eyebrow?: string;
@@ -83,7 +83,7 @@ export function ResearchShowcase({
           {safeItems.map((item, index) => {
             const tags = splitTags(item.tags);
             const content = (
-              <article className="flex h-full flex-col border border-border bg-background p-5 shadow-[0_10px_30px_rgba(12,22,48,0.05)] transition-all duration-200 hover:-translate-y-1 hover:border-primary/60">
+              <article className="group flex h-full flex-col rounded-2xl border border-border bg-background p-5 shadow-[0_10px_30px_rgba(12,22,48,0.05)] transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-primary/60 hover:shadow-[0_18px_42px_rgba(12,22,48,0.11)]">
                 <div className="mb-5 flex items-start justify-between gap-4">
                   <div>
                     {item.eyebrow && (
@@ -98,7 +98,7 @@ export function ResearchShowcase({
                     )}
                   </div>
                   <span
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-card text-primary"
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-border bg-card text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"
                     aria-hidden="true"
                   >
                     {index === 0 ? <Microscope size={18} /> : <FileText size={18} />}
@@ -115,14 +115,23 @@ export function ResearchShowcase({
                 <dl className="mt-6 grid gap-3 border-t border-border pt-5">
                   {item.question && (
                     <div>
-                      <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                        Research question
+                      <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
+                        Question in focus
                       </dt>
                       <dd className="mt-1 text-sm leading-6 text-foreground">
                         {item.question}
                       </dd>
                     </div>
                   )}
+                </dl>
+
+                {(item.method || item.evidence || item.outcome || item.limitation || item.nextStep) && (
+                  <details className="research-showcase-details mt-5 border-t border-border pt-4">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-semibold text-primary">
+                      <span>View method &amp; evidence brief</span>
+                      <ChevronDown size={17} aria-hidden="true" className="research-showcase-details-icon shrink-0" />
+                    </summary>
+                    <dl className="mt-4 grid gap-3">
                   {item.method && (
                     <div>
                       <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
@@ -173,7 +182,9 @@ export function ResearchShowcase({
                       </dd>
                     </div>
                   )}
-                </dl>
+                    </dl>
+                  </details>
+                )}
 
                 {tags.length > 0 && (
                   <ul className="mt-5 flex flex-wrap gap-2" aria-label={`${item.title} tags`}>
@@ -188,33 +199,26 @@ export function ResearchShowcase({
                   </ul>
                 )}
 
-                <div className="mt-6 flex items-center justify-between gap-3">
+                <div className="mt-auto flex items-center justify-between gap-3 pt-6">
                   {item.lastUpdated && (
                     <span className="text-xs text-muted-foreground">
                       Updated {item.lastUpdated}
                     </span>
                   )}
                   {item.href && (
-                    <span className="ml-auto inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                    <a
+                      href={item.href}
+                      className="ml-auto inline-flex items-center gap-2 rounded-md text-sm font-semibold text-primary no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                    >
                       Open evidence
                       <ArrowUpRight size={16} aria-hidden="true" />
-                    </span>
+                    </a>
                   )}
                 </div>
               </article>
             );
 
-            return item.href ? (
-              <a
-                key={`${item.title}-${index}`}
-                href={item.href}
-                className="block text-inherit no-underline"
-              >
-                {content}
-              </a>
-            ) : (
-              <div key={`${item.title}-${index}`}>{content}</div>
-            );
+            return <div key={`${item.title}-${index}`} className="h-full">{content}</div>;
           })}
         </div>
       </div>
