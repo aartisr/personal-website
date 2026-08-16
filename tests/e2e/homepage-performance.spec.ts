@@ -4,6 +4,21 @@ import AxeBuilder from "@axe-core/playwright";
 test.setTimeout(60000);
 
 test.describe("Homepage quality gates", () => {
+  test("presents the public framework with clear limits and a direct resource path", async ({ page }) => {
+    await page.goto("/aether-framework", { waitUntil: "domcontentloaded" });
+
+    await expect(
+      page.getByRole("heading", {
+        level: 1,
+        name: /clearer starting point for student-support conversations/i,
+      })
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /download the framework pdf/i }).first()
+    ).toHaveAttribute("href", "/aether-student-resiliency-framework-2026.pdf");
+    await expect(page.getByText(/not a clinical tool, diagnostic system, or validated intervention study/i)).toBeVisible();
+  });
+
   test("renders quickly and keeps layout stable", async ({ page }) => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
 

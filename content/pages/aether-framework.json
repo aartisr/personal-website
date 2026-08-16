@@ -1,0 +1,141 @@
+{
+  "root": {
+    "props": {
+      "title": "Aether Student Resiliency Framework",
+      "description": "A public, research-informed framework for making student-support conversations, learning habits, and intervention pathways easier to discuss with appropriate adult and institutional guidance.",
+      "keywords": "student resiliency framework, student support, learning habits, evidence-led education, Aether framework"
+    }
+  },
+  "content": [
+    {
+      "type": "HeroSection",
+      "props": {
+        "id": "HeroSection-aether-framework",
+        "variant": "centered",
+        "heading": "A clearer starting point for student-support conversations.",
+        "subheading": "Aether Student Resiliency Framework • Public resource",
+        "description": "Aether is a research-informed framework for connecting wellbeing, learning habits, and clearer support pathways. It is a discussion and planning artifact—not a clinical tool, diagnostic system, or validated intervention study.",
+        "highlights": [
+          { "text": "Publicly documented" },
+          { "text": "Research-informed" },
+          { "text": "Open to responsible feedback" }
+        ],
+        "proofPoints": [
+          { "value": "1", "label": "public framework" },
+          { "value": "3", "label": "connected focus areas" },
+          { "value": "0", "label": "clinical claims" }
+        ],
+        "primaryCta": {
+          "label": "Download the Framework PDF",
+          "href": "/aether-student-resiliency-framework-2026.pdf"
+        },
+        "secondaryCta": {
+          "label": "How the Framework Works",
+          "href": "/aether-framework#how-it-works"
+        },
+        "image": "",
+        "imageAlt": "",
+        "animation": "fade-in",
+        "royalStyle": "subtle"
+      }
+    },
+    {
+      "type": "FeaturesGrid",
+      "props": {
+        "id": "FeaturesGrid-aether-framework",
+        "anchorId": "how-it-works",
+        "heading": "Three connected areas, one responsible conversation.",
+        "description": "The framework makes room for wellbeing, learning habits, and support pathways without reducing a student to a score or a diagnosis.",
+        "columns": 3,
+        "animation": "slide-up",
+        "topSpacing": "normal",
+        "bottomSpacing": "normal",
+        "royalStyle": "subtle",
+        "features": [
+          {
+            "icon": "heart",
+            "title": "Wellbeing context",
+            "description": "Make space for the conditions that affect how a student is able to learn, participate, and ask for help."
+          },
+          {
+            "icon": "book-open",
+            "title": "Learning habits",
+            "description": "Identify practical routines, friction points, and supports that can make learning feel more navigable."
+          },
+          {
+            "icon": "users",
+            "title": "Support pathways",
+            "description": "Clarify who can help, what an appropriate next step is, and when qualified adult or professional guidance is needed."
+          }
+        ]
+      }
+    },
+    {
+      "type": "ResearchShowcase",
+      "props": {
+        "id": "ResearchShowcase-aether-framework",
+        "anchorId": "evidence",
+        "eyebrow": "Evidence and limits",
+        "heading": "Designed to be useful, explicit, and reviewable.",
+        "description": "The public record makes it possible to see the question, the proposed method, and the limits of the current artifact before deciding whether a conversation is worthwhile.",
+        "items": [
+          {
+            "eyebrow": "Public artifact",
+            "status": "Available now",
+            "title": "Aether Student Resiliency Framework",
+            "description": "A documented model for communicating a proposed student-support approach to mentors, educators, and potential collaborators.",
+            "question": "How can a framework make wellbeing, learning habits, and intervention pathways easier to discuss and improve?",
+            "method": "Define needs, map support touchpoints, identify meaningful signals, and turn the work into a usable, reviewable artifact.",
+            "evidence": "Framework PDF, public portfolio documentation, and an open support-center workflow.",
+            "outcome": "A shared starting point for feedback and ethical pilot-scoping discussions.",
+            "limitation": "This is not a validated clinical, therapeutic, or school-wide intervention study. It should not replace qualified professional support.",
+            "nextStep": "Gather structured reviewer feedback and define an ethical, measurable pilot scope with an appropriate supervising adult or institution.",
+            "lastUpdated": "March 2026",
+            "href": "/aether-student-resiliency-framework-2026.pdf",
+            "tags": "student support, learning, wellbeing, framework"
+          }
+        ]
+      }
+    },
+    {
+      "type": "FAQSection",
+      "props": {
+        "id": "FAQSection-aether-framework",
+        "heading": "Framework questions",
+        "description": "Short answers before you download, share, or discuss the framework.",
+        "faqs": [
+          {
+            "question": "Who is this framework for?",
+            "answer": "It is intended as a discussion and planning resource for students, educators, mentors, and community collaborators who are considering clearer student-support pathways."
+          },
+          {
+            "question": "Is Aether a clinical or diagnostic tool?",
+            "answer": "No. It does not diagnose, treat, or replace qualified medical, mental-health, school, or safeguarding professionals."
+          },
+          {
+            "question": "Can a school adopt it as an intervention?",
+            "answer": "Not on the basis of this public artifact alone. Any real-world pilot should have appropriate adult supervision, institutional review, safeguarding, and measurable evaluation."
+          }
+        ]
+      }
+    },
+    {
+      "type": "CTASection",
+      "props": {
+        "id": "CTASection-aether-framework",
+        "variant": "banner",
+        "heading": "Read the framework. Bring a thoughtful question.",
+        "description": "If you are an educator, mentor, or community partner, begin with the public artifact and then share the context needed for a responsible conversation.",
+        "primaryCta": {
+          "label": "Download the Framework PDF",
+          "href": "/aether-student-resiliency-framework-2026.pdf"
+        },
+        "secondaryCta": {
+          "label": "Start a Collaboration Conversation",
+          "href": "/collaborate"
+        },
+        "royalStyle": "subtle"
+      }
+    }
+  ]
+}

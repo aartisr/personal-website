@@ -31,8 +31,8 @@
           { "label": "Contact", "href": "/collaborate" }
         ],
         "ctaButton": {
-          "label": "Choose Your Path",
-          "href": "/#start-here"
+          "label": "Explore the Framework",
+          "href": "/aether-framework"
         },
         "secondaryCta": {
           "label": "Framework PDF",
@@ -52,9 +52,9 @@
       "props": {
         "id": "HeroSection-1",
         "variant": "editorial",
-        "heading": "Ideas with heart and intent. Systems with impact.",
-        "subheading": "Aarti Sri Ravikumar • Founder & CEO, ai-aarti.com • Saugus, Massachusetts",
-        "description": "ai-aarti.com is the company and public portfolio led by Founder & CEO Aarti Sri Ravikumar. Aarti turns curiosity into practical, research-informed projects for communities—from student resilience and climate understanding to learning tools and civic information. Each project begins with a simple question: how can this make life clearer, kinder, or more possible for someone?",
+        "heading": "A clearer way to turn community questions into useful systems.",
+        "subheading": "Aarti Sri Ravikumar • Evidence-led student research • Saugus, Massachusetts",
+        "description": "Start with the Aether Student Resiliency Framework: a public, research-informed artifact for making student-support conversations clearer. Then follow the evidence, writing, and open projects behind the work.",
         "highlights": [
           { "text": "Community-first" },
           { "text": "Research-informed" },
@@ -84,12 +84,12 @@
         ],
         "dynamicMetricsEndpoint": "/api/github-stats",
         "primaryCta": {
-          "label": "Find Your Starting Point",
-          "href": "/#start-here"
+          "label": "Explore the Aether Framework",
+          "href": "/aether-framework"
         },
         "secondaryCta": {
-          "label": "See What’s Being Built",
-          "href": "/#community-work"
+          "label": "Choose Your Path",
+          "href": "/#start-here"
         },
         "image": "https://avatars.githubusercontent.com/u/166765628?v=4",
         "imageAlt": "Aarti Sri Ravikumar",
@@ -106,7 +106,7 @@
         "heading": "There’s a meaningful way in for everyone.",
         "description": "Whether you’re guiding a student, evaluating a venture, or strengthening a neighborhood, start with the work that matters most to you.",
         "routes": [
-          { "label": "For Mentors & Educators", "description": "See Aarti’s method, learning trajectory, research questions, and responsible next steps.", "href": "/#method", "action": "Review the method" },
+          { "label": "For Mentors & Educators", "description": "Start with the public framework, then review the method, research questions, and responsible next steps.", "href": "/aether-framework", "action": "Explore the framework" },
           { "label": "For Venture Partners", "description": "Assess the problem-selection discipline, public project record, architecture, and collaboration readiness.", "href": "/#research", "action": "Review the portfolio" },
           { "label": "For Community Partners", "description": "Explore the community challenges behind each project and identify a useful conversation to begin.", "href": "/#community-work", "action": "See community work" }
         ]

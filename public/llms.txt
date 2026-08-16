@@ -9,6 +9,7 @@ Aarti Sri Ravikumar is a student social entrepreneur, researcher, and software p
 ## Pages
 
 - https://ai-aarti.com/ - Research profile, project evidence, methods, writing, and collaboration pathways
+- https://ai-aarti.com/aether-framework - Public hub for the Aether Student Resiliency Framework, its intended use, limits, and downloadable source artifact
 - https://ai-aarti.com/blog - Technical writing and research notes
 - https://ai-aarti.com/honors-service - Honors, service, recognition, leadership, and evidence framing
 - https://ai-aarti.com/support-center - Collaboration, mentorship, portfolio questions, and contact path
