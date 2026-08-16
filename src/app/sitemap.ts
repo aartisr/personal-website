@@ -5,7 +5,6 @@ import { getSiteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
-  const now = new Date();
 
   const staticPages: MetadataRoute.Sitemap = [
     { path: "", changeFrequency: "weekly", priority: 1 },
@@ -19,7 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/terms", changeFrequency: "yearly", priority: 0.18 },
   ].map(({ path, changeFrequency, priority }) => ({
     url: `${base}${path}`,
-    lastModified: now,
     changeFrequency,
     priority,
   })) as MetadataRoute.Sitemap;
@@ -37,7 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter(({ slug }) => !["my-page", "second-page", "test-page"].includes(slug))
     .map(({ slug }) => ({
       url: `${base}${slug === "homepage" ? "" : `/${slug}`}`,
-      lastModified: now,
       changeFrequency: "weekly" as const,
       priority: slug === "homepage" ? 1 : 0.72,
     }))

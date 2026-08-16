@@ -7,6 +7,7 @@ import { metadata as web3ProofMetadata } from "@/app/web3-proof/page";
 
 const indexedPageSlugs = [
   "homepage",
+  "aether-framework",
   "honors-service",
   "support-center",
   "testimony",
