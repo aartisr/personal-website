@@ -1,7 +1,11 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { POST } from "@/app/api/support/route";
 
 describe("POST /api/support", () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+    vi.unstubAllEnvs();
+  });
   it("rejects invalid JSON payloads", async () => {
     const response = await POST(
       new Request("http://localhost/api/support", {
@@ -59,7 +63,24 @@ describe("POST /api/support", () => {
     });
   });
 
+  it("does not claim delivery when no support webhook is configured", async () => {
+    const response = await POST(
+      new Request("http://localhost/api/support", {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-forwarded-for": "10.1.1.9" },
+        body: JSON.stringify({
+          values: { email: "user@example.com" },
+          fields: [{ name: "email", label: "Email", type: "email", required: true }],
+        }),
+      }) as any
+    );
+
+    expect(response.status).toBe(503);
+  });
+
   it("rate limits repeated submissions from same client", async () => {
+    vi.stubEnv("SUPPORT_WEBHOOK_URL", "https://example.test/support");
+    vi.spyOn(global, "fetch").mockResolvedValue(new Response("", { status: 202 }));
     const makeRequest = () =>
       POST(
         new Request("http://localhost/api/support", {

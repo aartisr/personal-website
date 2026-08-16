@@ -103,7 +103,7 @@ function CtaButtons({
         {primaryCta.label && (
           <a
             href={primaryCta.href}
-            className={`group px-6 py-3 text-base font-semibold rounded-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(33,74,141,0.2)] ${
+            className={`hero-primary-cta group px-6 py-3 text-base font-semibold rounded-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(33,74,141,0.2)] ${
               inverted
                 ? "bg-white text-primary"
                 : "bg-primary text-primary-foreground"
@@ -118,7 +118,7 @@ function CtaButtons({
         {secondaryCta.label && (
           <a
             href={secondaryCta.href}
-            className={`px-6 py-3 text-base font-semibold rounded-md border bg-transparent transition-all duration-200 hover:-translate-y-0.5 ${
+            className={`hero-secondary-cta px-6 py-3 text-base font-semibold rounded-md border bg-transparent transition-all duration-200 hover:-translate-y-0.5 ${
               inverted ? "border-white/50 text-white" : "border-primary text-primary"
             }`}
           >
@@ -134,7 +134,7 @@ function CtaButtons({
           {normalizedHighlights.map((highlight, index) => (
             <li
               key={`${highlight}-${index}`}
-              className={`px-3 py-1 rounded-md text-xs sm:text-sm border ${
+              className={`hero-trust-chip px-3 py-1 rounded-md text-xs sm:text-sm border ${
                 inverted ? "border-white/35 text-white/90" : "border-border text-muted-foreground"
               }`}
             >
@@ -151,7 +151,7 @@ function CtaButtons({
           {proofPoints.slice(0, 3).map((point, index) => (
             <div
               key={`${point.label}-${index}`}
-              className={`rounded-lg px-4 py-3 border ${
+              className={`hero-proof-point rounded-lg px-4 py-3 border ${
                 inverted ? "border-white/35" : "border-border"
               }`}
             >
@@ -211,7 +211,7 @@ function CenteredHero({
           align="center"
         />
         {image && (
-          <div className="mt-16 rounded-2xl overflow-hidden">
+          <div className="hero-visual mt-16 rounded-2xl overflow-hidden">
             <img
               src={image}
               alt={imageAlt}
@@ -273,7 +273,7 @@ function SplitImageHero({
           />
         </div>
         {image && (
-          <div className="rounded-2xl overflow-hidden">
+          <div className="hero-visual rounded-2xl overflow-hidden">
             <img
               src={image}
               alt={imageAlt}

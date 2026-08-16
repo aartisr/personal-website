@@ -110,6 +110,14 @@ plan and Pages policy permit private-repository Pages. The workflow uses the
 official artifact-based Pages deployment actions and deploys only the
 github-pages/ directory.
 
+### Project wiki
+
+The repository includes [wiki source material](docs/PROJECT_WIKI.md) for a
+GitHub Wiki. Enable the repository Wiki in GitHub settings, then copy each
+linked section into its matching Wiki page. The published GitHub Pages
+companion links to the Wiki and routes readers back to the authoritative
+[ai-aarti.com](https://ai-aarti.com) portfolio.
+
 ## Analytics
 
 Microsoft Clarity is wired through `src/components/analytics/microsoft-clarity.tsx`.

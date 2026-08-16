@@ -1,26 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getClientRateLimitKey, takeRateLimit } from "@/lib/rate-limit";
 
 export const maxDuration = 20;
 
 const PATHS = ["mentor", "community", "technical", "other"] as const;
 const ROLES = ["mentor_educator", "community_organization", "student", "technical_collaborator", "other"] as const;
-const rateLimit = new Map<string, { count: number; resetAt: number }>();
 type CollaborationPath = (typeof PATHS)[number];
 type CollaborationRole = (typeof ROLES)[number];
 type Payload = { path?: CollaborationPath; name?: string; email?: string; role?: CollaborationRole; message?: string; acknowledgement?: boolean; details?: Record<string, string>; honeypot?: string };
 type Submission = { requestId: string; receivedAt: string; path?: CollaborationPath; name: string; email: string; role?: CollaborationRole; message: string; details: Record<string, string> };
 
-function clientKey(request: NextRequest) { return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "unknown"; }
 function requestId() { return "col_" + crypto.randomUUID(); }
 function text(value: unknown, max: number) { return typeof value === "string" ? value.trim().slice(0, max) : ""; }
 function duration(value: string | undefined) { const parsed = Number(value); return Number.isFinite(parsed) && parsed >= 1_000 && parsed <= 9_000 ? parsed : 7_000; }
 function validEmail(value: string) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); }
-function withinLimit(key: string) {
-  const now = Date.now(), current = rateLimit.get(key);
-  if (!current || now > current.resetAt) { rateLimit.set(key, { count: 1, resetAt: now + 60_000 }); return true; }
-  if (current.count >= 4) return false;
-  current.count += 1; return true;
-}
 function validate(payload: Payload): string | null {
   if (!payload || typeof payload !== "object") return "Invalid inquiry.";
   if (!PATHS.includes(payload.path as CollaborationPath)) return "Choose a collaboration path.";
@@ -64,7 +57,7 @@ function isDeliveryFailure(error: unknown): error is DeliveryFailure { return Bo
 
 export async function POST(request: NextRequest) {
   const id = requestId();
-  if (!withinLimit(clientKey(request))) return NextResponse.json({ success: false, requestId: id, error: "Too many inquiries. Please try again shortly." }, { status: 429 });
+  if (!(await takeRateLimit("collaboration", getClientRateLimitKey(request.headers), 4, 60_000))) return NextResponse.json({ success: false, requestId: id, error: "Too many inquiries. Please try again shortly." }, { status: 429 });
   let payload: Payload;
   try { payload = (await request.json()) as Payload; } catch { return NextResponse.json({ success: false, requestId: id, error: "Invalid request." }, { status: 400 }); }
   if (text(payload.honeypot, 200)) return NextResponse.json({ success: true, requestId: id });

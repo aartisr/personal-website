@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getClientRateLimitKey, takeRateLimit } from "@/lib/rate-limit";
 
 type ContactFormField = {
   name: string;
@@ -17,34 +18,6 @@ type SupportPayload = {
 
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 5;
-
-const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
-
-function getClientIp(request: NextRequest): string {
-  const forwardedFor = request.headers.get("x-forwarded-for");
-  if (forwardedFor) {
-    return forwardedFor.split(",")[0]?.trim() || "unknown";
-  }
-  return request.headers.get("x-real-ip") || "unknown";
-}
-
-function checkRateLimit(key: string): boolean {
-  const now = Date.now();
-  const current = rateLimitStore.get(key);
-
-  if (!current || now > current.resetAt) {
-    rateLimitStore.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
-    return true;
-  }
-
-  if (current.count >= RATE_LIMIT_MAX) {
-    return false;
-  }
-
-  current.count += 1;
-  rateLimitStore.set(key, current);
-  return true;
-}
 
 function isValidEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -87,9 +60,9 @@ function validatePayload(payload: SupportPayload): string | null {
 }
 
 export async function POST(request: NextRequest) {
-  const clientIp = getClientIp(request);
+  const clientKey = getClientRateLimitKey(request.headers);
 
-  if (!checkRateLimit(clientIp)) {
+  if (!(await takeRateLimit("support", clientKey, RATE_LIMIT_MAX, RATE_LIMIT_WINDOW_MS))) {
     return NextResponse.json(
       { success: false, error: "Too many requests. Please try again shortly." },
       { status: 429 }
@@ -121,7 +94,6 @@ export async function POST(request: NextRequest) {
 
   const submission = {
     receivedAt: new Date().toISOString(),
-    ip: clientIp,
     pagePath: payload.pagePath || "",
     userAgent: payload.userAgent || "",
     values: payload.values,
@@ -129,26 +101,31 @@ export async function POST(request: NextRequest) {
   };
 
   const webhookUrl = process.env.SUPPORT_WEBHOOK_URL;
-  if (webhookUrl) {
-    try {
-      const webhookResponse = await fetch(webhookUrl, {
+  if (!webhookUrl) {
+    return NextResponse.json(
+      { success: false, error: "Support delivery is not configured. Please try again later." },
+      { status: 503 }
+    );
+  }
+
+  try {
+    const webhookResponse = await fetch(webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(submission),
-      });
+    });
 
-      if (!webhookResponse.ok) {
-        return NextResponse.json(
-          { success: false, error: "Failed to forward support request" },
-          { status: 502 }
-        );
-      }
-    } catch {
+    if (!webhookResponse.ok) {
       return NextResponse.json(
-        { success: false, error: "Failed to process support request" },
+        { success: false, error: "Failed to forward support request" },
         { status: 502 }
       );
     }
+  } catch {
+    return NextResponse.json(
+      { success: false, error: "Failed to process support request" },
+      { status: 502 }
+    );
   }
 
   return NextResponse.json({

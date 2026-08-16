@@ -18,6 +18,12 @@ body {
   min-width: 20rem;
 }
 
+/* Site-wide signature: an editorial canvas with depth, not decoration for its
+   own sake. Every Puck-authored page inherits this atmosphere. */
+main {
+  isolation: isolate;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -33,6 +39,29 @@ body::before {
   background-size: auto, auto, auto, 48px 48px, 48px 48px;
 }
 
+main::before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  top: -18rem;
+  right: -14rem;
+  width: min(54rem, 88vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.72;
+  background:
+    radial-gradient(circle at 38% 42%, color-mix(in oklch, var(--secondary) 32%, transparent), transparent 24%),
+    radial-gradient(circle at 64% 58%, color-mix(in oklch, var(--primary) 18%, transparent), transparent 45%);
+  filter: blur(10px);
+  animation: site-aurora 18s ease-in-out infinite alternate;
+}
+
+@keyframes site-aurora {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-3rem, 2rem, 0) scale(1.08); }
+}
+
 .hero-section {
   background: linear-gradient(135deg, rgba(231, 250, 248, 0.7), rgba(255, 251, 235, 0.86) 52%, rgba(238, 244, 255, 0.82));
 }
@@ -43,6 +72,57 @@ body::before {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* A consistent, polished interaction language for every reusable hero. */
+.hero-primary-cta {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 28px color-mix(in oklch, var(--primary) 24%, transparent);
+}
+
+.hero-primary-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 22%, rgba(255, 255, 255, 0.26) 48%, transparent 72%);
+  transform: translateX(-115%);
+  transition: transform 560ms ease;
+}
+
+.hero-primary-cta:hover::before,
+.hero-primary-cta:focus-visible::before {
+  transform: translateX(115%);
+}
+
+.hero-trust-chip {
+  background: color-mix(in oklch, var(--card) 82%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.hero-proof-point {
+  position: relative;
+  overflow: hidden;
+  background: color-mix(in oklch, var(--card) 80%, transparent);
+  box-shadow: 0 14px 34px rgba(12, 22, 48, 0.06);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.hero-proof-point::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  width: 2.4rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+}
+
+.hero-visual {
+  border: 1px solid color-mix(in oklch, var(--primary) 15%, var(--border));
+  box-shadow: 0 28px 70px rgba(12, 22, 48, 0.16);
 }
 
 html {
@@ -93,6 +173,10 @@ canvas {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.001ms !important;
+  }
+
+  main::before {
+    animation: none;
   }
 }
 
