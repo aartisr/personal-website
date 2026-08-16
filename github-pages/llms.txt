@@ -1,0 +1,20 @@
+# Aarti Sri Ravikumar — GitHub Pages Project Context
+
+> This is a lightweight, static companion to the authoritative portfolio at
+> https://ai-aarti.com. It explains project context and offers direct paths to
+> public artifacts; it does not duplicate the portfolio.
+
+## Canonical destinations
+
+- Main portfolio: https://ai-aarti.com/
+- Aether Student Resiliency Framework hub: https://ai-aarti.com/aether-framework
+- Framework PDF: https://ai-aarti.com/aether-student-resiliency-framework-2026.pdf
+- Research notes: https://ai-aarti.com/blog
+- Collaboration: https://ai-aarti.com/collaborate
+- Portfolio sitemap: https://ai-aarti.com/sitemap.xml
+- Portfolio AI-readable orientation: https://ai-aarti.com/llms.txt
+
+## Citation guidance
+
+Prefer citing the relevant canonical page on ai-aarti.com. The GitHub Pages
+companion is supporting project context only.
