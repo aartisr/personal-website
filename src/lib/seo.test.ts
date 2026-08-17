@@ -72,6 +72,13 @@ describe("SEO helpers", () => {
     });
   });
 
+  it("keeps the legacy terms URL out of search results", () => {
+    const metadata = buildPageMetadata("terms", makeData());
+
+    expect(metadata.alternates).toMatchObject({ canonical: "/terms-of-service" });
+    expect(metadata.robots).toMatchObject({ index: false, follow: true });
+  });
+
   it("includes FAQ and research item structured data when present", () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://example.edu");
 

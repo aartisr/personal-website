@@ -15,7 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/web3-proof", changeFrequency: "monthly", priority: 0.58 },
     { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.32 },
     { path: "/terms-of-service", changeFrequency: "yearly", priority: 0.32 },
-    { path: "/terms", changeFrequency: "yearly", priority: 0.18 },
   ].map(({ path, changeFrequency, priority }) => ({
     url: `${base}${path}`,
     changeFrequency,
@@ -32,7 +31,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = new Set(staticPages.map((entry) => entry.url));
   const puckPages: MetadataRoute.Sitemap = pageRepository
     .list()
-    .filter(({ slug }) => !["my-page", "second-page", "test-page"].includes(slug))
+    .filter(
+      ({ slug }) => !["my-page", "second-page", "test-page", "terms"].includes(slug)
+    )
     .map(({ slug }) => ({
       url: `${base}${slug === "homepage" ? "" : `/${slug}`}`,
       changeFrequency: "weekly" as const,

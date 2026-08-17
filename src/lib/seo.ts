@@ -9,6 +9,10 @@ type PuckBlock = {
 
 type JsonLd = Record<string, unknown>;
 
+const legacyCanonicalPaths: Record<string, string> = {
+  terms: "/terms-of-service",
+};
+
 export const siteProfile = {
   name: "Aarti Sri Ravikumar",
   shortName: "Aarti Ravikumar",
@@ -128,14 +132,24 @@ export function getPageSeo(slug: string, data: Data | null) {
 
 export function buildPageMetadata(slug: string, data: Data | null): Metadata {
   const seo = getPageSeo(slug, data);
+  const canonicalPath = legacyCanonicalPaths[slug] ?? seo.path;
+  const isLegacyPage = canonicalPath !== seo.path;
 
   return {
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords,
     alternates: {
-      canonical: seo.path,
+      canonical: canonicalPath,
     },
+    ...(isLegacyPage
+      ? {
+          robots: {
+            index: false,
+            follow: true,
+          },
+        }
+      : {}),
     openGraph: {
       title: seo.title,
       description: seo.description,

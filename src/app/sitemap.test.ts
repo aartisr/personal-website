@@ -18,5 +18,6 @@ describe("sitemap", () => {
     expect(homepage).not.toHaveProperty("lastModified");
     expect(framework).toMatchObject({ priority: 0.72, changeFrequency: "weekly" });
     expect(framework).not.toHaveProperty("lastModified");
+    expect(entries.some((entry) => entry.url === "https://example.edu/terms")).toBe(false);
   });
 });
