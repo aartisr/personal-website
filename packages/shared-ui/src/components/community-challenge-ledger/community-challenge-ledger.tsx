@@ -2,6 +2,7 @@
 
 import { ArrowRight, ArrowUpRight, CircleDashed } from "lucide-react";
 import { useMemo, useState } from "react";
+import { isExternalHref } from "../../utils/links";
 
 export const communityProjectCategories = [
   "Learning & students",
@@ -19,6 +20,9 @@ export type CommunityChallengeProject = {
   contribution: string;
   evidenceState: string;
   href: string;
+  /** Optional live product or public experience, distinct from the evidence record. */
+  liveHref?: string;
+  liveLabel?: string;
   /** Optional editorial override. A useful category is inferred when omitted. */
   category?: CommunityProjectCategory;
 };
@@ -172,12 +176,7 @@ export function CommunityChallengeLedger({
           <ul className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {visibleItems.map((project) => (
               <li key={project.name} className="min-w-0">
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex h-full flex-col rounded-xl border border-border bg-background p-5 no-underline transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                >
+                <article className="group flex h-full flex-col rounded-xl border border-border bg-background p-5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary/50 hover:shadow-lg">
                   <div className="flex items-start justify-between gap-3">
                     <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-primary">
                       {project.category}
@@ -191,12 +190,32 @@ export function CommunityChallengeLedger({
                   <h3 className="mt-3 text-lg font-semibold leading-snug text-foreground">{project.name}</h3>
                   <p className="mt-3 text-sm font-medium leading-6 text-foreground/85">{project.challenge}</p>
                   <p className="mt-3 text-sm leading-6 text-muted-foreground">{project.contribution}</p>
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium text-primary">
-                    <CircleDashed size={14} aria-hidden="true" />
-                    {project.evidenceState}
-                    <ArrowRight size={14} aria-hidden="true" />
-                  </span>
-                </a>
+                  <div className="mt-auto flex flex-wrap items-center gap-3 pt-5">
+                    {project.liveHref && (
+                      <a
+                        href={project.liveHref}
+                        target={isExternalHref(project.liveHref) ? "_blank" : undefined}
+                        rel={isExternalHref(project.liveHref) ? "noopener noreferrer" : undefined}
+                        aria-label={`${project.liveLabel || `Visit live ${project.name}`} (opens in a new tab)`}
+                        className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground no-underline transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                      >
+                        {project.liveLabel || `Visit live ${project.name}`}
+                        <ArrowUpRight size={14} aria-hidden="true" />
+                      </a>
+                    )}
+                    <a
+                      href={project.href}
+                      target={isExternalHref(project.href) ? "_blank" : undefined}
+                      rel={isExternalHref(project.href) ? "noopener noreferrer" : undefined}
+                      aria-label={`View ${project.name} evidence (opens in a new tab)`}
+                      className="inline-flex items-center gap-1.5 text-xs font-medium text-primary no-underline hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    >
+                      <CircleDashed size={14} aria-hidden="true" />
+                      {project.evidenceState}
+                      <ArrowRight size={14} aria-hidden="true" />
+                    </a>
+                  </div>
+                </article>
               </li>
             ))}
           </ul>

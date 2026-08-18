@@ -8,6 +8,7 @@ import {
 import type { RoyalStyle } from "../royal/types";
 import { RoyalCorners } from "../royal/royal-corners";
 import { YantraBackground } from "../royal/yantra-background";
+import { isExternalHref } from "../../utils/links";
 
 export type HeroVariant =
   | "centered"
@@ -103,6 +104,9 @@ function CtaButtons({
         {primaryCta.label && (
           <a
             href={primaryCta.href}
+            target={isExternalHref(primaryCta.href) ? "_blank" : undefined}
+            rel={isExternalHref(primaryCta.href) ? "noopener noreferrer" : undefined}
+            aria-label={isExternalHref(primaryCta.href) ? `${primaryCta.label} (opens in a new tab)` : undefined}
             className={`hero-primary-cta group px-6 py-3 text-base font-semibold rounded-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(33,74,141,0.2)] ${
               inverted
                 ? "bg-white text-primary"
@@ -118,6 +122,9 @@ function CtaButtons({
         {secondaryCta.label && (
           <a
             href={secondaryCta.href}
+            target={isExternalHref(secondaryCta.href) ? "_blank" : undefined}
+            rel={isExternalHref(secondaryCta.href) ? "noopener noreferrer" : undefined}
+            aria-label={isExternalHref(secondaryCta.href) ? `${secondaryCta.label} (opens in a new tab)` : undefined}
             className={`hero-secondary-cta px-6 py-3 text-base font-semibold rounded-md border bg-transparent transition-all duration-200 hover:-translate-y-0.5 ${
               inverted ? "border-white/50 text-white" : "border-primary text-primary"
             }`}

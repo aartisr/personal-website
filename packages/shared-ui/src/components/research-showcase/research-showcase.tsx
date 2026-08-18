@@ -1,4 +1,5 @@
 import { ArrowUpRight, ChevronDown, FileText, Microscope } from "lucide-react";
+import { isExternalHref } from "../../utils/links";
 
 export type ResearchShowcaseItem = {
   eyebrow?: string;
@@ -13,6 +14,7 @@ export type ResearchShowcaseItem = {
   nextStep?: string;
   lastUpdated?: string;
   href?: string;
+  linkLabel?: string;
   tags?: string;
 };
 
@@ -208,9 +210,12 @@ export function ResearchShowcase({
                   {item.href && (
                     <a
                       href={item.href}
+                      target={isExternalHref(item.href) ? "_blank" : undefined}
+                      rel={isExternalHref(item.href) ? "noopener noreferrer" : undefined}
+                      aria-label={isExternalHref(item.href) ? `${item.linkLabel || "Open evidence"} (opens in a new tab)` : undefined}
                       className="ml-auto inline-flex items-center gap-2 rounded-md text-sm font-semibold text-primary no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
                     >
-                      Open evidence
+                      {item.linkLabel || "Open evidence"}
                       <ArrowUpRight size={16} aria-hidden="true" />
                     </a>
                   )}

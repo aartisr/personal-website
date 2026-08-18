@@ -31,14 +31,15 @@
           { "label": "Contact", "href": "/collaborate" }
         ],
         "ctaButton": {
-          "label": "Explore the Framework",
-          "href": "/aether-framework"
+          "label": "Visit live Aether",
+          "href": "https://aether.ai-aarti.com/"
         },
         "secondaryCta": {
-          "label": "Framework PDF",
-          "href": "/aether-student-resiliency-framework-2026.pdf"
+          "label": "About the Framework",
+          "href": "/aether-framework"
         },
         "utilityLinks": [
+          { "label": "Live Aether", "href": "https://aether.ai-aarti.com/" },
           { "label": "Framework PDF", "href": "/aether-student-resiliency-framework-2026.pdf" },
           { "label": "GitHub", "href": "https://github.com/aartisr" },
           { "label": "Proof", "href": "/web3-proof" }
@@ -84,12 +85,12 @@
         ],
         "dynamicMetricsEndpoint": "/api/github-stats",
         "primaryCta": {
-          "label": "Explore the Aether Framework",
-          "href": "/aether-framework"
+          "label": "Explore live Aether",
+          "href": "https://aether.ai-aarti.com/"
         },
         "secondaryCta": {
-          "label": "Choose Your Path",
-          "href": "/#start-here"
+          "label": "About the Framework",
+          "href": "/aether-framework"
         },
         "image": "https://avatars.githubusercontent.com/u/166765628?v=4",
         "imageAlt": "Aarti Sri Ravikumar",
@@ -123,9 +124,9 @@
         "items": [
           {
             "eyebrow": "Track 01",
-            "status": "Active framework",
+            "status": "Live experience",
             "title": "Aether Student Resiliency Framework",
-            "description": "A structured approach to student support that connects wellbeing, learning habits, and clear intervention pathways.",
+            "description": "A live, structured experience for student support that connects wellbeing, learning habits, and clear intervention pathways.",
             "question": "How can a student-support framework make wellbeing, learning habits, and intervention pathways easier to discuss and improve?",
             "method": "Define needs, map support touchpoints, identify measurable signals, and turn the framework into a usable artifact.",
             "evidence": "Framework PDF, portfolio documentation, and support-center workflow.",
@@ -133,7 +134,8 @@
             "limitation": "This is a framework artifact, not a validated clinical or school-wide intervention study.",
             "nextStep": "Gather structured reviewer feedback and define an ethical, measurable pilot scope with an appropriate supervising adult or institution.",
             "lastUpdated": "March 2026",
-            "href": "/aether-student-resiliency-framework-2026.pdf",
+            "href": "https://aether.ai-aarti.com/",
+            "linkLabel": "Visit live Aether",
             "tags": "education, resiliency, research, systems"
           },
           {
@@ -178,26 +180,26 @@
         "heading": "A portfolio of community questions—not just software projects.",
         "description": "Each public repository is connected to the community challenge it is designed to explore. “Repository evidence” means the code and documentation are public; it does not imply real-world impact without independent validation.",
         "projects": [
-          { "name": "Aether", "challenge": "Student mental-health resilience and clearer support pathways.", "contribution": "A research-driven framework for discussing resilience across multiple modes of student support.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/aether" },
+          { "name": "Aether", "challenge": "Student mental-health resilience and clearer support pathways.", "contribution": "A research-driven framework for discussing resilience across multiple modes of student support.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/aether", "liveHref": "https://aether.ai-aarti.com/", "liveLabel": "Visit live Aether" },
           { "name": "Urban Heat Democratization", "challenge": "Unequal access to understandable urban-heat information.", "contribution": "An open research project exploring how heat evidence can be made more legible to communities.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/urban-heat-democratization" },
           { "name": "Spectral Urbanism", "challenge": "Understanding local environmental conditions through student science.", "contribution": "A PCSS-II science project investigating urban systems through spectral analysis.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/spectral-urbanism" },
           { "name": "Spectral Urbanism Boston", "challenge": "Making place-based environmental inquiry easier to share.", "contribution": "A companion repository for communicating the Boston-focused research work.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/spectral_urbanism_boston" },
-          { "name": "MBTA Tracker", "challenge": "Everyday uncertainty in public-transit use.", "contribution": "A project exploring clearer access to transit information for riders.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/mbta-tracker" },
-          { "name": "KWIN City Portal", "challenge": "Public understanding of large civic-development proposals.", "contribution": "An evidence-first portal that separates verified context, pending claims, and regional evidence.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/kwin-city-portal" },
+          { "name": "MBTA Tracker", "challenge": "Everyday uncertainty in public-transit use.", "contribution": "A project exploring clearer access to transit information for riders.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/mbta-tracker", "liveHref": "https://mbta.ai-aarti.com/", "liveLabel": "Visit live MBTA Tracker" },
+          { "name": "KWIN City Portal", "challenge": "Public understanding of large civic-development proposals.", "contribution": "An evidence-first portal that separates verified context, pending claims, and regional evidence.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/kwin-city-portal", "liveHref": "https://kwin-city.com/", "liveLabel": "Visit live KWIN City Portal" },
           { "name": "Governance App", "challenge": "Making civic and organizational processes easier to understand.", "contribution": "An exploratory application for governance-oriented workflows; scope remains in development.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/governance-app" },
           { "name": "PCSS Robotics", "challenge": "Access to hands-on STEM learning and team problem-solving.", "contribution": "A school robotics project that supports technical learning through building and iteration.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/pcss-robotics" },
           { "name": "PCSSII Robotics", "challenge": "Shared robotics knowledge within the school community.", "contribution": "A contribution-oriented fork supporting the broader PCSS-II robotics codebase.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/pcssiirobotics" },
           { "name": "Student Productivity Hub", "challenge": "Students need practical, mobile-first systems for study planning.", "contribution": "A research-oriented study operating system designed around student use.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/student-productivity-hub" },
-          { "name": "Task Laureate", "challenge": "Personal task management can be overwhelming and impersonal.", "contribution": "An ongoing exploration of a more thoughtful task-management experience.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/task-laureate" },
-          { "name": "Quadratic Polypad", "challenge": "Mathematical ideas are easier to learn when students can explore them visually.", "contribution": "An interactive quadratic-learning project.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/quadratic-polypad" },
+          { "name": "Task Laureate", "challenge": "Personal task management can be overwhelming and impersonal.", "contribution": "An ongoing exploration of a more thoughtful task-management experience.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/task-laureate", "liveHref": "https://tasks.ai-aarti.com/", "liveLabel": "Visit live Task Laureate" },
+          { "name": "Quadratic Polypad", "challenge": "Mathematical ideas are easier to learn when students can explore them visually.", "contribution": "An interactive quadratic-learning project.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/quadratic-polypad", "liveHref": "https://polypad.ai-aarti.com/", "liveLabel": "Visit live Quadratic Polypad" },
           { "name": "Fractals", "challenge": "Science learning benefits from visual, reproducible exploration.", "contribution": "A science project focused on fractal inquiry.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/fractals" },
-          { "name": "Fractals Web", "challenge": "Learners need accessible ways to compare visual evidence and document methods.", "contribution": "A modular research and learning environment for fractal exploration.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/fractals-web" },
-          { "name": "BuddhiAlign", "challenge": "Personal reflection and clarity practices can be difficult to sustain.", "contribution": "A personal clarity companion grounded in a reflective practice framework.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/buddhi-align-app" },
+          { "name": "Fractals Web", "challenge": "Learners need accessible ways to compare visual evidence and document methods.", "contribution": "A modular research and learning environment for fractal exploration.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/fractals-web", "liveHref": "https://fractals.ai-aarti.com/", "liveLabel": "Visit live Fractals Web" },
+          { "name": "BuddhiAlign", "challenge": "Personal reflection and clarity practices can be difficult to sustain.", "contribution": "A personal clarity companion grounded in a reflective practice framework.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/buddhi-align-app", "liveHref": "https://buddhi-align.ai-aarti.com/", "liveLabel": "Visit live Buddhi Align" },
           { "name": "Salus Pramana Medical", "challenge": "Health information needs careful comparison without flattening differences in evidence.", "contribution": "An evidence-first platform comparing medical traditions while distinguishing evidence strength.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/salus-pramana-medical" },
           { "name": "Harmony Hope Foundation", "challenge": "Charitable initiatives need clear public-facing communication.", "contribution": "A website project for a charitable foundation.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/charitable-foundation" },
           { "name": "Autograph Exchange", "challenge": "Meaningful written appreciation and memory can be easy to lose.", "contribution": "An accessible space for asking for, giving, and preserving written autographs.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/autograph-exchange" },
           { "name": "Forever Lotus", "challenge": "Creative and community-facing work needs room to emerge thoughtfully.", "contribution": "An early public project whose scope will be documented as the work matures.", "evidenceState": "Scope in progress", "href": "https://github.com/aartisr/forever_lotus" },
-          { "name": "WIN Material Intelligence Cloud", "challenge": "Material knowledge can be hard to organize and reuse.", "contribution": "An exploratory cloud project for material intelligence.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/win-material-intelligence-cloud" },
+          { "name": "WIN Material Intelligence Cloud", "challenge": "Material knowledge can be hard to organize and reuse.", "contribution": "An exploratory cloud project for material intelligence.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/win-material-intelligence-cloud", "liveHref": "https://winmic.ai-aarti.com/home", "liveLabel": "Visit live WIN Material Intelligence Cloud" },
           { "name": "Heimdall Electra", "challenge": "Orbital-debris research needs reproducible ways to test difficult hypotheses.", "contribution": "A reproducible research foundation for passive electromagnetic sensing inquiry.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/heimdall-electra" },
           { "name": "Search Visibility Engine", "challenge": "Useful community information cannot help people if it cannot be found.", "contribution": "An exploratory project on improving information discoverability.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/search-visibility-engine" },
           { "name": "Hackathon Code Optimizer", "challenge": "Learners benefit from tools that make code improvement more approachable.", "contribution": "A hackathon experiment focused on code optimization.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/hackathon-code-optimizer" },
@@ -544,6 +546,10 @@
           {
             "title": "Evidence",
             "links": [
+              {
+                "label": "Visit live Aether",
+                "href": "https://aether.ai-aarti.com/"
+              },
               {
                 "label": "GitHub Profile",
                 "href": "https://github.com/aartisr"

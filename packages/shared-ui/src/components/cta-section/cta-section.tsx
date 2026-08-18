@@ -2,6 +2,7 @@ import React from "react";
 import type { RoyalStyle } from "../royal/types";
 import { RoyalCorners } from "../royal/royal-corners";
 import { YantraBackground } from "../royal/yantra-background";
+import { isExternalHref } from "../../utils/links";
 import "./cta-section.css";
 
 export type CtaLink = {
@@ -23,6 +24,9 @@ function PrimaryButton({ label, href }: CtaLink) {
   return (
     <a
       href={href}
+      target={isExternalHref(href) ? "_blank" : undefined}
+      rel={isExternalHref(href) ? "noopener noreferrer" : undefined}
+      aria-label={isExternalHref(href) ? `${label} (opens in a new tab)` : undefined}
       className="inline-flex items-center justify-center rounded-md px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98] cta-section-split-primary"
     >
       {label}
@@ -34,6 +38,9 @@ function SecondaryButton({ label, href }: CtaLink) {
   return (
     <a
       href={href}
+      target={isExternalHref(href) ? "_blank" : undefined}
+      rel={isExternalHref(href) ? "noopener noreferrer" : undefined}
+      aria-label={isExternalHref(href) ? `${label} (opens in a new tab)` : undefined}
       className="inline-flex items-center justify-center rounded-md px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-80 active:scale-[0.98] cta-section-split-secondary"
     >
       {label}
@@ -68,6 +75,9 @@ export function CtaSection({
             {primaryCta?.label && (
               <a
                 href={primaryCta.href}
+                target={isExternalHref(primaryCta.href) ? "_blank" : undefined}
+                rel={isExternalHref(primaryCta.href) ? "noopener noreferrer" : undefined}
+                aria-label={isExternalHref(primaryCta.href) ? `${primaryCta.label} (opens in a new tab)` : undefined}
                 className="inline-flex items-center justify-center rounded-md px-8 py-3.5 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98] cta-section-banner-primary"
               >
                 {primaryCta.label}
@@ -76,6 +86,9 @@ export function CtaSection({
             {secondaryCta?.label && (
               <a
                 href={secondaryCta.href}
+                target={isExternalHref(secondaryCta.href) ? "_blank" : undefined}
+                rel={isExternalHref(secondaryCta.href) ? "noopener noreferrer" : undefined}
+                aria-label={isExternalHref(secondaryCta.href) ? `${secondaryCta.label} (opens in a new tab)` : undefined}
                 className="inline-flex items-center justify-center rounded-md px-8 py-3.5 text-sm font-semibold transition-all hover:bg-white/10 active:scale-[0.98] cta-section-banner-secondary"
               >
                 {secondaryCta.label}

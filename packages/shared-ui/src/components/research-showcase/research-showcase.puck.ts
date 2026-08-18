@@ -34,6 +34,7 @@ export const researchShowcaseConfig = {
         nextStep: { type: "textarea", label: "Next Test" },
         lastUpdated: { type: "text", label: "Last Updated" },
         href: { type: "text", label: "Evidence URL" },
+        linkLabel: { type: "text", label: "Evidence Link Label" },
         tags: { type: "text", label: "Tags (comma separated)" },
       },
       getItemSummary: (item: unknown) => summaryText(item, "title") || "Evidence Item",
