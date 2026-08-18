@@ -456,7 +456,7 @@ function EditorialHero({
                 {subheading}
               </p>
             )}
-            <h1 className="max-w-[13ch] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.02] text-foreground text-balance">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.02] text-foreground">
               {heading}
             </h1>
             </div>
