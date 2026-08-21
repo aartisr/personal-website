@@ -94,6 +94,17 @@ If these values are missing, protected routes return `500` until configured.
 - `public/llms.txt` summarizes the site for AI crawlers and answer engines.
 - Blog posts include article metadata and share controls for LinkedIn, X, WhatsApp, email, native share, and copy link.
 
+### IndexNow and search-console submission
+
+The root verification file in `public/2f04bb3a2771437db8aba059ae4b2045.txt` proves ownership for IndexNow. It must be deployed and publicly reachable before submitting URLs.
+
+After each meaningful production content update, use one of these intentional submission paths:
+
+- Run the **Submit production URLs to IndexNow** GitHub Actions workflow after the Vercel deployment succeeds.
+- Or set `INDEXNOW_NOTIFY_TOKEN` in Vercel and make a `POST` request to `/api/indexnow` with `Authorization: Bearer <token>`. The route submits only the canonical URLs currently in `sitemap.xml`.
+
+Add `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` and `NEXT_PUBLIC_BING_SITE_VERIFICATION` in the production environment after creating Google Search Console and Bing Webmaster Tools properties. The root layout emits the corresponding ownership tags automatically.
+
 ### GitHub Pages project context
 
 The repository includes a lightweight, static project-context page in

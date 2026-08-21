@@ -34,6 +34,9 @@ export const siteProfile = {
     "technical writing",
     "Pioneer Charter School of Science II",
     "Saugus Massachusetts",
+    "student social entrepreneur",
+    "evidence-based technology",
+    "student wellbeing research",
   ],
 };
 
@@ -296,6 +299,10 @@ export function buildPageJsonLd(slug: string, data: Data | null): JsonLd[] {
       publisher: {
         "@id": `${absoluteUrl("/")}#person`,
       },
+      potentialAction: {
+        "@type": "ReadAction",
+        target: absoluteUrl("/"),
+      },
     },
     {
       "@context": "https://schema.org",
@@ -324,6 +331,7 @@ export function buildPageJsonLd(slug: string, data: Data | null): JsonLd[] {
         "academic portfolio",
         "generative AI search readiness",
       ],
+      description: siteProfile.description,
     },
     {
       "@context": "https://schema.org",

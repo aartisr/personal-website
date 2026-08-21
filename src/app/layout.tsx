@@ -4,6 +4,8 @@ import { AnalyticsProvider } from "@/components/analytics/analytics-provider";
 import { getSiteUrl } from "@/lib/site";
 import { siteProfile } from "@/lib/seo";
 
+const bingSiteVerification = process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   applicationName: siteProfile.name,
@@ -14,6 +16,12 @@ export const metadata: Metadata = {
   creator: siteProfile.name,
   publisher: siteProfile.name,
   category: "education",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    ...(bingSiteVerification
+      ? { other: { "msvalidate.01": bingSiteVerification } }
+      : {}),
+  },
   alternates: {
     canonical: "/",
   },
@@ -58,6 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <head>
+        <meta name="ai-content-declaration" content="Public portfolio content may be cited with attribution to Aarti Sri Ravikumar and ai-aarti.com." />
         <link rel="preconnect" href="https://avatars.githubusercontent.com" />
         <link
           rel="alternate"
