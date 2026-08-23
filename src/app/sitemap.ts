@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/honors-service", changeFrequency: "weekly", priority: 0.84 },
     { path: "/support-center", changeFrequency: "weekly", priority: 0.82 },
     { path: "/testimony", changeFrequency: "weekly", priority: 0.78 },
+    { path: "/link-to-aarti", changeFrequency: "monthly", priority: 0.74 },
     { path: "/web3-proof", changeFrequency: "monthly", priority: 0.58 },
     { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.32 },
     { path: "/terms-of-service", changeFrequency: "yearly", priority: 0.32 },

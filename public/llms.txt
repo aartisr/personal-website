@@ -15,6 +15,7 @@ Aarti Sri Ravikumar is a student social entrepreneur, researcher, and software p
 - https://ai-aarti.com/support-center - Collaboration, mentorship, portfolio questions, and contact path
 - https://ai-aarti.com/testimony - Academic journey, progress signals, milestones, and learning outcomes
 - https://ai-aarti.com/web3-proof - Wallet-based authenticity and identity proof signal
+- https://ai-aarti.com/link-to-aarti - Official citation, attribution, and media information for publications and directories
 - https://ai-aarti.com/privacy-policy - Data usage and privacy commitments
 - https://ai-aarti.com/terms-of-service - Usage terms and legal policy
 
@@ -36,6 +37,7 @@ Aarti Sri Ravikumar is a student social entrepreneur, researcher, and software p
 - Research framework PDF: https://ai-aarti.com/aether-student-resiliency-framework-2026.pdf
 - RSS feed: https://ai-aarti.com/blog/rss.xml
 - XML sitemap: https://ai-aarti.com/sitemap.xml
+- Citation and media kit: https://ai-aarti.com/link-to-aarti
 
 ## Contact
 

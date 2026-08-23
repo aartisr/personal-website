@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 
 const PAGES_DIR = join(process.cwd(), "content", "pages");
 const BLOG_DIR = join(process.cwd(), "content", "blog");
-const STATIC_PATHS = new Set(["/", "/blog", "/web3-proof", "/aether-student-resiliency-framework-2026.pdf"]);
+const STATIC_PATHS = new Set(["/", "/blog", "/web3-proof", "/link-to-aarti", "/aether-student-resiliency-framework-2026.pdf"]);
 
 function pagePaths(directory: string, prefix = ""): string[] {
   return readdirSync(directory).flatMap((name) => {

@@ -171,6 +171,7 @@ export const footerConfig = {
       {
         title: "Trust & policies",
         links: [
+          { label: "Cite this work", href: "/link-to-aarti" },
           { label: "Privacy Policy", href: "/privacy-policy" },
           { label: "Terms of Service", href: "/terms-of-service" },
           { label: "Authenticity proof", href: "/web3-proof" },
