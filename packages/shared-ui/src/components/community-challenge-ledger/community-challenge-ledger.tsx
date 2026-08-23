@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, ArrowUpRight, CircleDashed } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CircleDashed, MonitorPlay, X } from "lucide-react";
 import { useMemo, useState } from "react";
 import { isExternalHref } from "../../utils/links";
 
@@ -80,6 +80,7 @@ export function CommunityChallengeLedger({
 }: CommunityChallengeLedgerProps) {
   const [activeCategory, setActiveCategory] = useState<CommunityProjectCategory | "All">("All");
   const [showAll, setShowAll] = useState(false);
+  const [previewProject, setPreviewProject] = useState<CommunityChallengeProject | null>(null);
 
   const items = useMemo(
     () =>
@@ -192,16 +193,15 @@ export function CommunityChallengeLedger({
                   <p className="mt-3 text-sm leading-6 text-muted-foreground">{project.contribution}</p>
                   <div className="mt-auto flex flex-wrap items-center gap-3 pt-5">
                     {project.liveHref && (
-                      <a
-                        href={project.liveHref}
-                        target={isExternalHref(project.liveHref) ? "_blank" : undefined}
-                        rel={isExternalHref(project.liveHref) ? "noopener noreferrer" : undefined}
-                        aria-label={`${project.liveLabel || `Visit live ${project.name}`} (opens in a new tab)`}
+                      <button
+                        type="button"
+                        onClick={() => setPreviewProject(project)}
+                        aria-label={`Preview ${project.name} in this page`}
                         className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground no-underline transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                       >
-                        {project.liveLabel || `Visit live ${project.name}`}
-                        <ArrowUpRight size={14} aria-hidden="true" />
-                      </a>
+                        <MonitorPlay size={14} aria-hidden="true" />
+                        Preview live
+                      </button>
                     )}
                     <a
                       href={project.href}
@@ -234,6 +234,52 @@ export function CommunityChallengeLedger({
           )}
         </div>
       </div>
+
+      {previewProject?.liveHref && (
+        <div
+          className="fixed inset-0 z-50 flex items-end bg-foreground/50 p-0 backdrop-blur-sm sm:items-center sm:p-6"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="live-preview-title"
+        >
+          <div className="flex max-h-[92vh] w-full flex-col overflow-hidden rounded-t-2xl border border-border bg-background shadow-2xl sm:mx-auto sm:max-w-6xl sm:rounded-2xl">
+            <div className="flex items-center justify-between gap-4 border-b border-border px-4 py-3 sm:px-5">
+              <div className="min-w-0">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-primary">Interactive preview</p>
+                <h3 id="live-preview-title" className="truncate text-base font-semibold text-foreground">
+                  {previewProject.name}
+                </h3>
+              </div>
+              <div className="flex shrink-0 items-center gap-2">
+                <a
+                  href={previewProject.liveHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-md border border-border px-3 py-2 text-xs font-semibold text-foreground no-underline hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                >
+                  Open full site <ArrowUpRight size={14} aria-hidden="true" />
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setPreviewProject(null)}
+                  className="rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  aria-label="Close live preview"
+                >
+                  <X size={18} aria-hidden="true" />
+                </button>
+              </div>
+            </div>
+            <iframe
+              key={previewProject.liveHref}
+              src={previewProject.liveHref}
+              title={`${previewProject.name} live preview`}
+              className="min-h-[65vh] w-full bg-muted"
+              sandbox="allow-downloads allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

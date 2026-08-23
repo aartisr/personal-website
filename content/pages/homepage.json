@@ -178,7 +178,7 @@
         "anchorId": "community-work",
         "eyebrow": "Social entrepreneurship in practice",
         "heading": "A portfolio of community questions—not just software projects.",
-        "description": "Each public repository is connected to the community challenge it is designed to explore. “Repository evidence” means the code and documentation are public; it does not imply real-world impact without independent validation.",
+        "description": "Each public repository is connected to the community challenge it is designed to explore. Where a live deployment is available, open it here for an interactive preview or launch the full site. “Repository evidence” means the code and documentation are public; it does not imply real-world impact without independent validation.",
         "projects": [
           { "name": "Aether", "challenge": "Student mental-health resilience and clearer support pathways.", "contribution": "A research-driven framework for discussing resilience across multiple modes of student support.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/aether", "liveHref": "https://aether.ai-aarti.com/", "liveLabel": "Visit live Aether" },
           { "name": "Urban Heat Democratization", "challenge": "Unequal access to understandable urban-heat information.", "contribution": "An open research project exploring how heat evidence can be made more legible to communities.", "evidenceState": "Repository evidence", "href": "https://github.com/aartisr/urban-heat-democratization" },

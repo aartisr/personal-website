@@ -15,7 +15,7 @@ export const communityChallengeLedgerConfig = {
         category: { type: "text", label: "Category (optional)" },
         evidenceState: { type: "text", label: "Evidence State" },
         href: { type: "text", label: "Repository URL" },
-        liveHref: { type: "text", label: "Live Experience URL (optional)" },
+        liveHref: { type: "text", label: "Live Preview URL (optional)" },
         liveLabel: { type: "text", label: "Live Experience Label (optional)" },
       },
       getItemSummary: (item: unknown) => summaryText(item, "name") || "Project",
