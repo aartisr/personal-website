@@ -1,5 +1,14 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ArrowRight, BookOpen, Compass, Handshake, Search } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Page Not Found | Aarti Sri Ravikumar",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 const nextSteps = [
   { href: "/", label: "Start at the portfolio", detail: "Research, projects, and the company’s point of view.", icon: Compass },
