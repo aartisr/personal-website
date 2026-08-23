@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import "./faq-section.css";
 
 export type FAQ = {
@@ -16,13 +16,20 @@ export type FAQSectionProps = {
 
 function AccordionItem({
   faq,
+  index,
+  idPrefix,
   isOpen,
   onToggle,
 }: {
   faq: FAQ;
+  index: number;
+  idPrefix: string;
   isOpen: boolean;
   onToggle: () => void;
 }) {
+  const panelId = `${idPrefix}-answer-${index}`;
+  const buttonId = `${idPrefix}-question-${index}`;
+
   return (
     <div
       className={`faq-accordion-item${isOpen ? " open" : ""}`}
@@ -31,7 +38,9 @@ function AccordionItem({
         type="button"
         className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
         onClick={onToggle}
-        aria-expanded={isOpen ? "true" : "false"}
+        id={buttonId}
+        aria-controls={panelId}
+        aria-expanded={isOpen}
       >
         <span className="text-base font-semibold leading-snug faq-accordion-question">
           {faq.question}
@@ -51,7 +60,13 @@ function AccordionItem({
       </button>
 
       {/* Answer panel */}
-      <div className={`faq-accordion-panel${isOpen ? " open" : " closed"}`}>
+      <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
+        hidden={!isOpen}
+        className={`faq-accordion-panel${isOpen ? " open" : " closed"}`}
+      >
         <div className="overflow-hidden">
           <p className="px-6 pb-5 text-sm leading-relaxed faq-accordion-answer">
             {faq.answer}
@@ -64,6 +79,7 @@ function AccordionItem({
 
 export function FAQSection({ heading, description, faqs }: FAQSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const sectionId = useId();
 
   const handleToggle = (index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index));
@@ -96,6 +112,8 @@ export function FAQSection({ heading, description, faqs }: FAQSectionProps) {
             <AccordionItem
               key={index}
               faq={faq}
+              index={index}
+              idPrefix={sectionId}
               isOpen={openIndex === index}
               onToggle={() => handleToggle(index)}
             />

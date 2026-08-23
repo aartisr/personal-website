@@ -4,7 +4,7 @@ import { pageRepository } from "@/lib/content/page-repository";
 import { PuckRenderer } from "@/lib/puck-render";
 import { applyGlobalLayout } from "@/lib/global-layout";
 import { absoluteUrl } from "@/lib/site";
-import { siteProfile } from "@/lib/seo";
+import { buildPageJsonLd, siteProfile } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Wallet Authenticity Proof for Student Portfolio | Aarti Sri Ravikumar",
@@ -40,5 +40,20 @@ export const metadata: Metadata = {
 export default function Web3ProofPage() {
   const data = pageRepository.get("web3-proof");
   if (!data) notFound();
-  return <PuckRenderer data={applyGlobalLayout(data)} />;
+
+  const pageData = applyGlobalLayout(data);
+  const jsonLd = buildPageJsonLd("web3-proof", pageData);
+
+  return (
+    <>
+      {jsonLd.map((entry, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(entry) }}
+        />
+      ))}
+      <PuckRenderer data={pageData} />
+    </>
+  );
 }

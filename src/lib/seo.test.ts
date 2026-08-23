@@ -87,4 +87,16 @@ describe("SEO helpers", () => {
     expect(graph.some((entry) => entry["@type"] === "FAQPage")).toBe(true);
     expect(graph.some((entry) => entry["@type"] === "ItemList")).toBe(true);
   });
+
+  it("connects each page to the canonical site and person entities", () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://example.edu");
+
+    const graph = buildPageJsonLd("homepage", makeData());
+    const profile = graph.find((entry) => entry["@type"] === "ProfilePage");
+
+    expect(profile).toMatchObject({
+      isPartOf: { "@id": "https://example.edu/#website" },
+      about: { "@id": "https://example.edu/#person" },
+    });
+  });
 });

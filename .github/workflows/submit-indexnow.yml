@@ -24,16 +24,4 @@ jobs:
         run: |
           key=$(tr -d '\r\n' < 2f04bb3a2771437db8aba059ae4b2045.txt)
           test "$key" = "$INDEXNOW_KEY"
-          curl --fail-with-body --silent --show-error \
-            --request POST https://api.indexnow.org/indexnow \
-            --header 'Content-Type: application/json; charset=utf-8' \
-            --data "$(curl --fail --silent "$SITE_URL/sitemap.xml" | node -e '
-              const chunks = [];
-              process.stdin.on("data", chunk => chunks.push(chunk));
-              process.stdin.on("end", () => {
-                const xml = Buffer.concat(chunks).toString();
-                const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
-                const site = new URL(process.env.SITE_URL);
-                console.log(JSON.stringify({ host: site.host, key: process.env.INDEXNOW_KEY, keyLocation: `${site.origin}/${process.env.INDEXNOW_KEY}.txt`, urlList: urls }));
-              });
-            ')"
+          node scripts/submit-indexnow.mjs --site "$SITE_URL" --key "$key"

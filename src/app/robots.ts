@@ -24,7 +24,22 @@ export default function robots(): MetadataRoute.Robots {
         disallow: privatePaths,
       },
       {
+        userAgent: "OAI-SearchBot",
+        allow: "/",
+        disallow: privatePaths,
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: "/",
+        disallow: privatePaths,
+      },
+      {
         userAgent: "ClaudeBot",
+        allow: "/",
+        disallow: privatePaths,
+      },
+      {
+        userAgent: "Claude-SearchBot",
         allow: "/",
         disallow: privatePaths,
       },

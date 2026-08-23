@@ -103,6 +103,13 @@ After each meaningful production content update, use one of these intentional su
 - Run the **Submit production URLs to IndexNow** GitHub Actions workflow after the Vercel deployment succeeds.
 - Or set `INDEXNOW_NOTIFY_TOKEN` in Vercel and make a `POST` request to `/api/indexnow` with `Authorization: Bearer <token>`. The route submits only the canonical URLs currently in `sitemap.xml`.
 
+For any site, the reusable `scripts/submit-indexnow.mjs` command reads its XML sitemap (including sitemap indexes), verifies that every URL belongs to the requested host, and sends batches of at most 10,000 URLs. For example:
+
+```bash
+npm run indexnow -- --site https://example.com --key YOUR_INDEXNOW_KEY --dry-run
+npm run indexnow -- --site https://example.com --key YOUR_INDEXNOW_KEY
+```
+
 Add `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` and `NEXT_PUBLIC_BING_SITE_VERIFICATION` in the production environment after creating Google Search Console and Bing Webmaster Tools properties. The root layout emits the corresponding ownership tags automatically.
 
 ### GitHub Pages project context
@@ -182,6 +189,7 @@ For custom browser events, import `posthog` from `posthog-js` in client-side cod
 - `npm run typecheck` — strict TypeScript checks
 - `npm run test` — run unit tests in watch mode
 - `npm run test:ci` — run unit tests with coverage
+- `npm run discovery:audit -- --site https://ai-aarti.com` — validate live crawler, sitemap, AI-context, canonical, metadata, and schema signals
 - `npm run quality` — full quality gate (lint + types + tests + build)
 
 ## Engineering Quality Standard

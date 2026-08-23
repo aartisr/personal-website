@@ -5,6 +5,7 @@ import { PuckRenderer } from "@/lib/puck-render";
 import { applyGlobalLayout } from "@/lib/global-layout";
 import { absoluteUrl } from "@/lib/site";
 import { siteProfile } from "@/lib/seo";
+import { getAllBlogPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "Research Notes & Field Memos | Aarti Sri Ravikumar",
@@ -40,5 +41,35 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const data = pageRepository.get("blog");
   if (!data) notFound();
-  return <PuckRenderer data={applyGlobalLayout(data)} />;
+
+  const posts = getAllBlogPosts();
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${absoluteUrl("/blog")}#webpage`,
+    url: absoluteUrl("/blog"),
+    name: "Research Notes & Field Memos",
+    description: metadata.description,
+    isPartOf: { "@id": `${absoluteUrl("/")}#website` },
+    about: { "@id": `${absoluteUrl("/")}#person` },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: posts.map((post, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: absoluteUrl(`/blog/${post.slug}`),
+        name: post.title,
+      })),
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <PuckRenderer data={applyGlobalLayout(data)} />
+    </>
+  );
 }

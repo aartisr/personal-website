@@ -19,6 +19,8 @@
     "test:e2e:ci": "playwright test --reporter=line",
     "migrate:pages": "node scripts/migrate-puck-pages.mjs",
     "migrate:pages:apply": "node scripts/migrate-puck-pages.mjs --apply",
+    "indexnow": "node scripts/submit-indexnow.mjs",
+    "discovery:audit": "node scripts/audit-discovery.mjs",
     "perf:ci": "npm run build && lhci autorun --config=./lighthouserc.json --collect.url=http://127.0.0.1:3003/ --collect.startServerCommand='PORT=3003 node .next/standalone/server.js' --collect.startServerReadyPattern='- Local:'",
     "quality": "npm run lint && npm run typecheck && npm run test:ci && npm run build"
   },

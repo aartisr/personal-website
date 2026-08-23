@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   creator: siteProfile.name,
   publisher: siteProfile.name,
   category: "education",
+  formatDetection: {
+    address: false,
+    email: false,
+    telephone: false,
+  },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
     ...(bingSiteVerification
@@ -67,6 +72,18 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth">
       <head>
         <meta name="ai-content-declaration" content="Public portfolio content may be cited with attribution to Aarti Sri Ravikumar and ai-aarti.com." />
+        <link
+          rel="alternate"
+          type="text/plain"
+          title={`${siteProfile.name} AI-readable site summary`}
+          href="/llms.txt"
+        />
+        <link
+          rel="alternate"
+          type="text/plain"
+          title={`${siteProfile.name} complete AI-readable site context`}
+          href="/llms-full.txt"
+        />
         <link rel="preconnect" href="https://avatars.githubusercontent.com" />
         <link
           rel="alternate"

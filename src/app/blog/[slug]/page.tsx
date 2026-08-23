@@ -92,20 +92,28 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
-    dateModified: post.date,
     inLanguage: siteProfile.language,
     keywords: post.tags?.join(", "),
     wordCount: [post.title, post.excerpt, ...post.body].join(" ").split(/\s+/).filter(Boolean).length,
     author: {
       "@type": "Person",
+      "@id": `${absoluteUrl("/")}#person`,
       name: post.author ?? "Aarti Sri Ravikumar",
       url: absoluteUrl("/"),
     },
     publisher: {
       "@type": "Person",
+      "@id": `${absoluteUrl("/")}#person`,
       name: siteProfile.name,
       url: absoluteUrl("/"),
     },
+    isPartOf: {
+      "@id": `${absoluteUrl("/")}#website`,
+    },
+    about: post.tags?.map((name) => ({
+      "@type": "Thing",
+      name,
+    })),
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": postUrl,
