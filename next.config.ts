@@ -62,6 +62,9 @@ const nextConfig: NextConfig = {
       { source: "/changelog", destination: "/testimony", permanent: true },
       { source: "/roadmap", destination: "/testimony", permanent: true },
       { source: "/about", destination: "/#profile", permanent: true },
+      // Preserve discovery signals from the previous static site structure.
+      { source: "/about.html", destination: "/#profile", permanent: true },
+      { source: "/resources.html", destination: "/blog", permanent: true },
       { source: "/careers", destination: "/collaborate", permanent: true },
       { source: "/contact", destination: "/collaborate", permanent: true },
       { source: "/cookies", destination: "/privacy-policy", permanent: true },
