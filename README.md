@@ -4,7 +4,7 @@
 
 **[Read the logo meaning and symbolism](docs/LOGO_PHILOSOPHY.md)**
 
-A CMS-editable academic research portfolio built with **Next.js 16**, **Puck CMS**, reusable shared UI components, and search/social metadata designed for humans, crawlers, and AI answer engines.
+A CMS-editable academic research portfolio built with **Next.js 16**, **Puck CMS**, reusable shared UI components, and search/social metadata designed for "humans", crawlers, and AI answer engines.
 
 ## Tech Stack
 
